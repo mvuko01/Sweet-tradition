@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 .logo {
   display: flex;
   justify-content: center;
@@ -69,6 +70,36 @@
   position:absolute;
   top: -20%;
   left: -14.375rem;
+}
+/* featuring candy */
+.featuringHeading {
+  font-family: Montserrat, sans-serif;
+  font-size: 2.5rem;
+  color: #7F2982;
+}
+.biggestCandy {
+  width: 28.6%;
+  height: 20%;
+  background-color: #F06C9B;
+  position: relative;
+}
+/* story banner */
+.storyBannerWrapper {
+  position: relative;
+}
+.buttonStoryBanner {
+  color: white;
+  background-color: #F06C9B;
+  font-size: 1rem;
+  font-family: Montserrat, sans-serif;
+  border-radius: 0.938rem;
+  width: 10.8%;
+  height: 8%;
+  position: absolute;
+  top: 80%;
+  left: 26%;
+  cursor: pointer;
+  border-color: transparent;
 }
 /* footer */
 .footer {
