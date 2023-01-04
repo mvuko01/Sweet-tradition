@@ -11,6 +11,7 @@ const Footer = () => (
                 alt="Logo"
                 width={452}
                 height={81}
+                className={styles.footerLogo}
             />
             <p className={styles.pnews}>Subscribe to our Newsletter</p>
             <div className={styles.subscribe}>
@@ -50,6 +51,7 @@ const Footer = () => (
                 alt="Line 1"
                 width={429}
                 height={10}
+                className={styles.footerLine}
             />
             <p className={styles.copyright}>Copyright @2022</p>
             <Image
@@ -57,30 +59,35 @@ const Footer = () => (
                 alt="Facebook"
                 width={26}
                 height={27}
+                className={styles.footerSocialMedia}
             />
             <Image
                 src={'/Twitter.svg'}
                 alt="Twitter"
                 width={26}
                 height={27}
+                className={styles.footerSocialMedia}
             />
             <Image
                 src={'/Instagram.svg'}
                 alt="Instagram"
                 width={26}
                 height={27}
+                className={styles.footerSocialMedia}
             />
             <Image
                 src={'/LinkedIn.svg'}
                 alt="LinkedIn"
                 width={26}
                 height={27}
+                className={styles.footerSocialMedia}
             />
             <Image
                 src={'/Line 2.svg'}
                 alt="Line 1"
                 width={429}
                 height={10}
+                className={styles.footerLine}
             />
         </div>
     </section>

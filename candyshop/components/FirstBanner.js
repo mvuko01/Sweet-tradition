@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import styles from '../styles/Home.module.css'
 
 const FirstBanner = () => {
     return (
@@ -7,6 +8,7 @@ const FirstBanner = () => {
                 alt="Banner"
                 width={1800}
                 height={526}
+                className={styles.firstBannnerImage}
             />
     );
 };

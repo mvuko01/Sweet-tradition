@@ -11,6 +11,7 @@ const Header = () => {
                 alt="Logo"
                 width={429}
                 height={79}
+                className={styles.logoImage}
                 />
             </div>
             <NavBar />

@@ -10,6 +10,7 @@ const StoryBanner = () => {
                     alt="Banner"
                     width={1520}
                     height={384}
+                    className={styles.storyBanner}
                 />
                 <Link href={"/candy"} passHref><button type="button" className={styles.buttonStoryBanner}>SHOP NOW</button></Link>
         </div>

@@ -37,6 +37,7 @@ const NavBar = () => {
                     alt="User"
                     width={40}
                     height={40}
+                    className={styles.icon}
                     />
                 </Link>
                 <Link href={"/favourites"} passHref>
@@ -45,6 +46,7 @@ const NavBar = () => {
                     alt="Favourites"
                     width={40}
                     height={40}
+                    className={styles.icon}
                     />
                 </Link>
                 <Link href={"/bag"} passHref>
@@ -53,6 +55,7 @@ const NavBar = () => {
                     alt="Bag"
                     width={40}
                     height={40}
+                    className={styles.icon}
                     />
                 </Link>
             </div>
