@@ -1,3 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.headerSticky {
+  top:0;
+  position: sticky;
+  background-color: white;
+}
+/*nav bar*/
+.navBar {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
+}
+.textNavWrapper {
+  display: flex;
+  width: 433px;
+  height: 31px;
+  justify-content: space-around;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+.inactiveTab {
+  font-family: Inter, sans-serif;
+  font-size: 26px;
+  color: #7F2982;
+}
+.activeTab {
+  font-family: Inter, sans-serif;
+  font-size: 26px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.emptySpace {
+  width: 457px;
+}
+.iconsWrapper {
+  display:flex;
+  width:470px;
+  justify-content: flex-end;
+  margin-right: 10px;
+}
+.threeIconsWrapper {
+  display: flex;
+  justify-content: space-around;
+  width: 240px;
+}
+.inputWrapper {
+  position: relative;
+}
+.searchIcon {
+  position: absolute;
+  left: -80px;
+  top: -3px;
+}
+.inputNav {
+  border-radius: 30px;
+  width: 200px;
+  height: 52px;
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  padding: 5px;
+  background-color: rgb(235, 235, 235);
+  border-color: transparent;
+  color:#7F2982;
+  position:absolute;
+  top: -20%;
+  left: -230px;
+}
+/* footer */
 .footer {
   background-color: #7F2982;
   width: auto;
@@ -6,8 +80,7 @@
   padding-left: 40px;
   padding-right: 40px;
   padding-bottom: 0px;
-}
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); 
+} 
 .footer p {
   font-family: Roboto, sans-serif;
   color: rgba(255, 255, 255, 0.6);
@@ -29,12 +102,15 @@ p.pnews {
   margin-top: 18px;
   cursor: auto;
 }
+.textwrapper {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
 .wrapper {
   display: flex;
-  justify-content: space-between;
   margin-bottom: 30px;
 }
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 p.copyright {
   font-family: Inter, sans-serif;
   color: white;

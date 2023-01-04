@@ -18,6 +18,7 @@ const Footer = () => (
                 <button type="button" className={styles.subscribe_button}>Subscribe</button>
             </div>
             </div>
+            <div className={styles.textwrapper}>
             <div>
                 <p className={styles.mainp}>Company</p>
                 <p>About Us</p>
@@ -39,6 +40,7 @@ const Footer = () => (
                 <p>Time Schedule</p>
                 <p>Lead Generate</p>
                 <p>Remote Collaboration</p>
+            </div>
             </div>
             
         </div>
