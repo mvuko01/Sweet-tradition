@@ -14,92 +14,91 @@
 .navBar {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 15px;
+  margin-bottom: 0.1%;
 }
 .textNavWrapper {
   display: flex;
-  width: 433px;
-  height: 31px;
+  width: 28.5%;
   justify-content: space-around;
-  margin-left: 10px;
-  margin-bottom: 5px;
+  margin-left: 0.065%;
+  margin-bottom: 0.032%;
 }
 .inactiveTab {
   font-family: Inter, sans-serif;
-  font-size: 26px;
+  font-size: 1.625rem;
   color: #7F2982;
 }
 .activeTab {
   font-family: Inter, sans-serif;
-  font-size: 26px;
+  font-size: 1.625rem;
   font-weight: bold;
   text-decoration: underline;
 }
 .emptySpace {
-  width: 457px;
+  width: 30%;
 }
 .iconsWrapper {
   display:flex;
-  width:470px;
+  width:31%;
   justify-content: flex-end;
-  margin-right: 10px;
+  margin-right: 0.065%;
 }
 .threeIconsWrapper {
   display: flex;
   justify-content: space-around;
-  width: 240px;
+  width: 50%;
 }
 .inputWrapper {
   position: relative;
 }
 .searchIcon {
   position: absolute;
-  left: -80px;
-  top: -3px;
+  left: -5rem;
+  top: -0.188rem;
 }
 .inputNav {
-  border-radius: 30px;
-  width: 200px;
-  height: 52px;
+  border-radius: 1.875rem;
+  width: 12.5rem; /*ne mogu stavit u postotku nikako*/
+  height: 3.25rem;
   font-family: Inter, sans-serif;
-  font-size: 18px;
-  padding: 5px;
+  font-size: 1.125rem;
+  padding: 0.313rem;
   background-color: rgb(235, 235, 235);
   border-color: transparent;
   color:#7F2982;
   position:absolute;
   top: -20%;
-  left: -230px;
+  left: -14.375rem;
 }
 /* footer */
 .footer {
   background-color: #7F2982;
   width: auto;
-  height: 420px;
-  padding-top: 56px;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-bottom: 0px;
+  height: 26.25rem;
+  padding-top: 3.5%;
+  padding-left: 3.5%;
+  padding-right: 2%;
+  padding-bottom: 0;
 } 
 .footer p {
   font-family: Roboto, sans-serif;
   color: rgba(255, 255, 255, 0.6);
-  font-size: 16px;
-  margin: 20px;
+  font-size: 1rem;
+  margin: 1.25rem;
   cursor: pointer;
 }
 p.mainp {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 1.125rem;
   color: white;
 }
 p.pnews {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 1.125rem;
   color: white;
-  margin: 0px;
-  margin-bottom: 10px;
-  margin-top: 18px;
+  margin: 0;
+  margin-bottom: 0.065%;
+  margin-top: 1.125rem;
   cursor: auto;
 }
 .textwrapper {
@@ -109,13 +108,13 @@ p.pnews {
 }
 .wrapper {
   display: flex;
-  margin-bottom: 30px;
+  margin-bottom: 1.875rem;
 }
 p.copyright {
   font-family: Inter, sans-serif;
   color: white;
-  margin: 0px;
-  font-size: 20px;
+  margin: 0;
+  font-size: 1.25rem;
   cursor: auto;
 }
 .wrapper_line_social {
@@ -127,24 +126,24 @@ p.copyright {
   position: relative;
 }
 .subscribe_button {
-  border-radius: 12px;
-  width: 150px;
-  height: 55px;
+  border-radius: 0.75rem;
+  width: 35%;
+  height: 3.438rem;
   background-color: #F06C9B;
   font-family: Roboto, sans-serif;
   position: absolute;
   left:50%;
   border-color: transparent;
-  font-size: 16px;
+  font-size: 1rem;
   cursor: pointer;
 }
 .input {
   background-color: white;
   color: #F06C9B;
-  width: 277px;
-  height: 55px;
+  width: 60%;
+  height: 3.438rem;
   border-color: transparent;
   font-family: Inter, sans-serif;
-  font-size: 18px;
-  padding: 5px;
+  font-size: 1.125rem;
+  padding: 0.313rem;
 }
