@@ -5,5 +5,5 @@ export const navigationItems = [
     { label: 'Search', path: '/search' },
     { label: 'Account', path: '/login' },
     { label: 'Favourites', path: '/favourites' },
-    { label: 'Bag', path: '/shoppingbag' },
+    { label: 'Bag', path: '/bag' },
 ];
