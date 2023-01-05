@@ -13,6 +13,7 @@
   top:0;
   position: sticky;
   background-color: white;
+  z-index: 4;
 }
 /*nav bar*/
 .navBar {
@@ -32,12 +33,16 @@
   font-family: Inter, sans-serif;
   font-size: 1.625vw;
   color: #7F2982;
+  letter-spacing: 0.1em;
+
 }
 .activeTab {
   font-family: Inter, sans-serif;
+  font-style: normal;
   font-size: 1.625vw;
   font-weight: bold;
   text-decoration: underline;
+  letter-spacing: 0.1em;
 }
 .emptySpace {
   width: 30%;
@@ -84,11 +89,16 @@
   width: 100%;
   height: auto;
 }
-/* featuring candy */
+
+
+/* FEATURING CANDY COMPONENT */
 .featuringHeading {
   font-family: Montserrat, sans-serif;
+  font-style: normal;
   font-size: 2.5rem;
   color: #7F2982;
+  text-align: center;
+  letter-spacing: 0.1em;
 }
 .biggestCandy {
   width: 28.6%;
@@ -96,6 +106,161 @@
   background-color: #F06C9B;
   position: relative;
 }
+
+.product{
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.productContainer{
+  padding: 0 10vw;
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.productContainer::-webkit-scrollbar{
+  display: none;
+}
+
+.productCard{
+  flex: 0 0 auto;
+  width: 250px;
+  height: 450px;
+  margin-right: 40px;
+}
+
+.productUpper{
+  position: relative;
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  background-color: #F06C9B80;
+  border-radius: 15px 15px 0px 0px;
+  
+}
+
+.imageProduct{
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.buttonFavourite{
+  background: transparent;
+  border:none;
+  position: absolute;
+  padding: 5px;
+  border-radius: 5px;
+  right: 10px;
+  top:10px;
+
+}
+
+.productInfo{
+  width: 100%;
+  height: 100%;
+  padding-top: 10px;
+  border: 2px solid #F06C9B80;
+  border-radius: 0px 0px 15px 15px;
+  position: relative;
+  
+}
+
+
+.productDescription{
+  width: 100%;
+  height: 20px;
+  overflow:hidden;
+  
+  margin: 5px 0;
+  color: #7F2982CC;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+.productName{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+
+  color: #000000;
+}
+
+.productPrice{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+
+  color: #624CAB;
+}
+
+.buttonCart *{
+  background: white;
+  border:none;
+  width: 65px;
+  height: 65px;
+}
+
+.buttonPrevious,
+.buttonNext{
+
+  border:none;
+  height: 100%;
+
+  position: absolute;
+  top: 0; 
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  background: white;
+  cursor: pointer;
+
+}
+
+.buttonPrevious{
+  left: 0;
+
+}
+
+.buttonNext{
+  right: 0;
+  transform: rotate(180deg);
+
+}
+
+.imageArrow{
+  opacity: 0.6;
+}
+
+.imageArrow:hover{
+  opacity: 1;
+}
+/*.buttonPrevious{
+  box-sizing: border-box;
+
+  /position: absolute;
+  
+  height: 0px;
+  width: 1px;
+  left: 82px;
+  top: 1125px;
+
+}*/
+
+/*FEATURING CANDY COMPONENT END*/
+
 /* story banner */
 .storyBannerWrapper {
   position: relative;
@@ -135,7 +300,7 @@
   padding-bottom: 0;
 } 
 .footer p {
-  font-family: Roboto, sans-serif;
+  font-family: Montserrat, sans-serif;
   color: rgba(255, 255, 255, 0.6);
   font-size: 1vw;
   margin: 1.25vw;
@@ -184,7 +349,7 @@ p.copyright {
   width: 30%;
   height: 3.438vw;
   background-color: #F06C9B;
-  font-family: Roboto, sans-serif;
+  font-family: Montserrat, sans-serif;
   position: absolute;
   left:55%;
   border-color: transparent;
