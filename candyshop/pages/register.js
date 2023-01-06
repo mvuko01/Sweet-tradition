@@ -14,12 +14,13 @@ import Image from 'next/image'
 const Register = () => {
     const { removeAuth, setAuth, token } = useAuth();
     const router = useRouter();
-
-    const [password, setPassword] = useState('');
+    
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
+    const [validation, setValidation] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
 
@@ -29,33 +30,35 @@ const Register = () => {
         setLoading(true);
 
         await api
-            .login(email, password)
+            .register(email, username, password, confirmPassword)
             .then(({ token }) => {
                 setError('');
                 setAuth(token);
-                router.push('/home');
+                router.push('/login');
             })
             .catch((err) => {
                 setError(err.message);
             });
 
         setLoading(false);
-    };
-
+        // else if(res.status===422){
+        //     setValidation("Username already exists, try something else.");
+        // }
+    }
     return (
         <>
             <Header />
             <div className={styles.mainWrapper}>
             <Image
-                            src={'/login/loginBanner.svg'}
+                            src={'/login/registerBanner.PNG'}
                             alt="Search"
                             width={949}
                             height={867}
                             className={styles.banner}
                             />
-            <section className={styles.content}>
-                <h1 className={styles.title}>
-                    {token ? 'You are logged in!' : 'Welcome Back!'}
+            <section className={styles.content} id={styles.registerSection}>
+                <h1 className={styles.registerTitle}>
+                    {token ? 'You are logged in!' : 'Get Started!'}
                 </h1>
                 {!token && (
                     <section className={styles.form}>
@@ -84,7 +87,6 @@ const Register = () => {
                             <input
                                 value={password}
                                 type="password"
-                                id="password"
                                 placeholder="Enter your password"
                                 onChange={(e) => setPassword(e.target.value)}
                             />
@@ -94,15 +96,14 @@ const Register = () => {
                             <input
                                 value={confirmPassword}
                                 type="password"
-                                id="password"
                                 placeholder="Enter your password again"
                                 onChange={(e) => setConfirmPassword(e.target.value)}
                             />
-                            <div className={styles.rememberAndForgot}>
+                            <div className={styles.rememberAndForgotRegister}>
                                 <div className={styles.remember}>
                                     <input type="checkbox" className={styles.cbox}/> <label for="rememberMe">Remember me</label>
                                 </div>
-                                <label>Forgot password?</label>
+                                <label className={styles.forgot}>Forgot password?</label>
                             </div>
                             {loading ? (
                             <Spinner />
@@ -117,7 +118,7 @@ const Register = () => {
                             <button type='submit' className={styles.signInBtnGgl}>Sign in with Google</button>
                             <div className={styles.register}>
                                 <p>Don't have an account? &nbsp;</p>
-                                <Link href=''>Register</Link>
+                                <Link href='' className={styles.forgot}>Register</Link>
                             </div>
                         </div>
                         

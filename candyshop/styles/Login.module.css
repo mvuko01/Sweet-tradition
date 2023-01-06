@@ -7,6 +7,9 @@
     width: 58%;
     height: 90vh;
 }
+#registerSection {
+    margin-top: 0;
+}
 .content {
     width: 25%;
     font-family: Inter, sans-serif;
@@ -22,6 +25,14 @@
     letter-spacing: -0.06em;
     font-weight: 700;
     margin-bottom: 3vw;
+}
+.registerTitle {
+    color: #7F2982;
+    font-weight: bolder;
+    font-size: 2.5vw;
+    letter-spacing: -0.06em;
+    font-weight: 700;
+    margin-bottom: 0.2vw;
 }
 .content label {
     font-size: 1.1vw;
@@ -53,6 +64,13 @@
     justify-content: space-between;
     color: #7F2982;
     padding-bottom: 2vw;
+}
+.rememberAndForgotRegister {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: #7F2982;
 }
 .forgot {
     text-decoration: underline;

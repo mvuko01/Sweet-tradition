@@ -9,7 +9,22 @@ const api = {
         });
 
         if (res.status !== 200) {
-            throw new Error('Login failed');
+            throw new Error('Unsuccessful login attempt!');
+        }
+
+        return res.json();
+    },
+    register: async (email, username, password, confirmPassword) => {
+        const res = await fetch('/api/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, username, password, confirmPassword }),
+        });
+
+        if (res.status !== 200) {
+            throw new Error('Unsuccessful register attempt!');
         }
 
         return res.json();
