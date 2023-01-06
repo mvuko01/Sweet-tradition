@@ -97,8 +97,11 @@
   overflow: hidden;
 
   position: relative;
+  display:flex;
+  flex-direction: column;
   padding: 20px;
-  min-height: 815px;
+  
+  margin-bottom: 70px;
 }
 
 .featuringHeading {
@@ -108,41 +111,37 @@
   color: #7F2982;
   text-align: center;
   letter-spacing: 0.1em;
-  margin: 4.5%;
+  
+  margin: 3rem;
 }
 
 
 .productContainer{
-  padding: 0 10vw;
   display: flex;
   height: auto;
-  /*overflow-x: auto;
-  scroll-behavior: smooth;*/
+  
   align-items: center;
   justify-content: space-evenly;
 
 }
 
-/*.productContainer::-webkit-scrollbar{
-  display: none;
 
-}*/
 
 .mainProductCard{
   flex: 0 0 auto;
-  width: 435px;
-  height: 560px;
-  /*width: 22.656vw;
-  height: 29.167vw;*/
+  /*width: 435px;
+  height: 560px;*/
+  width: 22.656vw;
+  height: 29.167vw;
   
 }
 
 .productCard{
   flex: 0 0 auto;
-  width: 340px;
-  height: 440px;
-  /*width: 22.656vw;
-  height: 29.167vw;*/
+  /*width: 340px;
+  height: 440px;*/
+  width: 17.708vw;
+  height: 22.917vw;
   
 }
 
@@ -195,7 +194,10 @@
 .productInfo{
   width: 100%;
   height: 25%;
-  padding-top: 10px;
+  /*padding-top: 10px;
+  padding-top: 7.14%;*/
+  padding-top: 0.521vw;
+
   border: 2px solid #F06C9B80;
   border-radius: 0px 0px 15px 15px;
   position: relative;
@@ -205,7 +207,6 @@
 
 .productDescription{
   width: 100%;
-  height: 22px;
   overflow:hidden;
 
   margin: 1% 4.4%;
@@ -216,12 +217,12 @@
   font-weight: 400;
   letter-spacing: 0.05em;
 
-  font-size: 0.938rem;
+  /*font-size: 0.938rem;*/
+  font-size: 0.781vw;
 
 }
 .mainProductDescription{
   width: 100%;
-  height: 22px;
   overflow:hidden;
 
   margin: 1% 4.4%;
@@ -232,7 +233,8 @@
   font-weight: 400;
   letter-spacing: 0.05em;
 
-  font-size: 1.125rem;
+  /*font-size: 1.125rem;*/
+  font-size: 0.938vw;
 
 }
 
@@ -243,10 +245,12 @@
   letter-spacing: 0.05em;
   margin: 1% 4.4%;
   cursor: pointer;
-  font-size: 1.125rem;
+  /*font-size: 1.125rem;*/
+  font-size: 0.938vw;
 
   color: #000000;
 }
+
 
 .mainProductName{
   font-family: 'Montserrat';
@@ -255,9 +259,21 @@
   letter-spacing: 0.05em;
   margin: 1% 4.4%;
   cursor: pointer;
-  font-size: 1.375rem;
+
+  /*font-size: 1.375rem;*/
+  font-size: 1.146vw;
+  
 
   color: #000000;
+}
+
+.productName:hover{
+  opacity: 80%;
+}
+
+
+.mainProductName:hover{
+  opacity: 80%;
 }
 
 .productPrice{
@@ -266,7 +282,10 @@
   font-style: normal;
   font-weight: 900;
   letter-spacing: 0.05em;
-  font-size: 1.438rem;
+
+  /*font-size: 1.438rem;*/
+  font-size: 1.198vw;
+
   margin-left: 4.4%;
   color: #624CAB;
   bottom: 12%;
@@ -278,7 +297,10 @@
   font-style: normal;
   font-weight: 900;
   letter-spacing: 0.05em;
-  font-size: 1.625rem;
+
+  /*font-size: 1.625rem;*/
+  font-size: 1.354vw;
+  
   margin-left: 4.4%;
   color: #624CAB;
   bottom: 12%;
@@ -308,32 +330,24 @@
 .buttonNext{
 
   border:none;
-  height: 100%;
+  width:5.208vw;
+  height:5.208vw;
 
-  /*position: absolute;*/
-  top: 0; 
-  /*display: flex;*/
-
-  justify-content: center;
-  align-items: center;
   background: white;
   cursor: pointer;
 
 }
 
-.buttonPrevious{
-  left: 0;
-
-}
-
 .buttonNext{
-  right: 0;
+  
   transform: rotate(180deg);
 
 }
 
 .imageArrow{
   opacity: 0.6;
+  width: 100%;
+  height: 100%;
 }
 
 .imageArrow:hover{
