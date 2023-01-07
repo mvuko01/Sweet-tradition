@@ -38,10 +38,12 @@ const MainBlog = ({ title, cta_text, picture }) => {
                 src={picture}
                 alt="profile image"
             />
+            <div className={styles.mainBlogContentWrapper}>
                 <p className={styles.mainTitle}>{title}</p>
                 <div className={styles.textBtnWrapper}>
                 <p className={styles.ctaText}>{cta_text}</p>
                 <button type="button">READ MORE</button>
+            </div>
                 </div>
                 </div>
             </>
@@ -72,7 +74,7 @@ const Blogs = (props) => {
                 alt="profile image"
                 className={styles.banner}
             />
-            <button type="button" className={styles.addNewBtn}>ADD NEW BLOG</button>
+            <button type="button" className={styles.addNewBtn} id={styles.firstBtn}>ADD NEW BLOG</button>
             <div className={styles.contentWrapper}>
                     {posts.slice(0,1).map((el) => (
                         <MainBlog key={el.id} {...el} />
@@ -82,6 +84,9 @@ const Blogs = (props) => {
                             <Blog key={el.id} {...el} />
                         ))}
                     </div>
+                </div>
+                <div className={styles.addNewBtnContainer}>
+                    <button type="button" className={styles.addNewBtn} id={styles.secondBtn}>ADD NEW BLOG</button>
                 </div>
                     <div className={styles.pageWrapper}>
                     <div className={styles.pageNum} id={styles.currentPage}>1</div>
