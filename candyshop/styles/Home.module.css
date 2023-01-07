@@ -416,10 +416,78 @@
 .AUcontentWrapper{
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .firstWrapper {
   width: 40%;
   margin: 2vw;
+}
+/* blog section */
+.blogsHeading {
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-size: 3.5vw;
+  color: #7F2982;
+  text-align: center;
+  letter-spacing: 0.1em;
+  margin-bottom: 2vw;
+}
+.blogsWrapper {
+  display: flex;
+  justify-content: center;
+}
+.miniBlogWrapper {
+  display: flex;
+  align-items:flex-start;
+  margin-bottom: 0.7vw;
+  font-family: Montserrat, sans-serif;
+  width: 80%;
+  cursor: pointer;
+}
+.miniBlogContentWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.7vw;
+  height: 100%;
+  justify-content: space-between;
+}
+.title {
+  color: #624CAB;
+  font-weight:bolder;
+  font-size: 1.8vw;
+}
+.blogPics {
+  width: 100%;
+  max-width: 325px;
+  height: 100%;
+}
+.ctaText {
+  color: #908282;
+  font-size: 1.4vw;
+}
+.writtenByText {
+  color: #908282;
+  font-size: 1.1vw;
+  font-style: italic;
+  opacity: 0.7;
+}
+.writtenByDiv {
+  display: flex;
+}
+.buttonBlogs {
+  color: white;
+  background-color: #F06C9B;
+  font-size: 0.9vw;
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+  border-radius: 0.938rem;
+  width: 12vw;
+  height: 3.5vw;
+  margin-left: 45vw;
+  margin-top: 2vw;
+  margin-bottom: 2vw;
+  cursor: pointer;
+  border-color: transparent;
 }
 /* footer */
 .footerLogo {
@@ -513,8 +581,9 @@ p.copyright {
   max-width: 27px;
 }
 
-/*about us mobile*/
-@media screen and (max-width: 768px){
+
+@media screen and (max-width: 860px){
+  /*about us mobile*/
   .image1 {
     width: 90%;
     height: 50%;
@@ -525,5 +594,9 @@ p.copyright {
   }
   .text {
     width: 90%;
+  }
+  /*blog section mobile */
+  .blogPics {
+    width: 28%;
   }
 }

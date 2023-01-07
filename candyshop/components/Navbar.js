@@ -23,7 +23,7 @@ const NavBar = () => {
                 <input type="text" placeholder="Search" className={styles.inputNav}></input>
                     <Link href={"/"} passHref> 
                         <Image
-                            src={'Search.svg'}
+                            src={'/search.svg'}
                             alt="Search"
                             width={40}
                             height={40}

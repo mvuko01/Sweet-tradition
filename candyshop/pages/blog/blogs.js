@@ -1,55 +1,10 @@
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import React from 'react';
 import Image from 'next/image';
-import styles from '../styles/Blogs.module.css'
-
-const Blog = ({ title, cta_text, picture }) => {
-    return (
-        <>
-        <div className={styles.miniBlogWrapper}>
-                <Image
-                className={styles.blogPics}
-                width={196}
-                height={220}
-                src={picture}
-                alt="blog wrapper"
-            />
-            <div className={styles.miniBlogContentWrapper}>
-                <p className={styles.title}>{title}</p>
-               <div className={styles.textBtnWrapperMini}> 
-                    <p className={styles.ctaText}>{cta_text}</p>
-                    <button type="button" className={styles.miniBtn}>READ MORE</button>
-                </div>
-            </div>
-        </div>
-            </>
-    );
-};
-
-const MainBlog = ({ title, cta_text, picture }) => {
-    return (
-            <>
-            <div className={styles.mainBlogWrapper}>
-                <Image
-                className={styles.mainPic}
-                width={405}
-                height={440}
-                src={picture}
-                alt="profile image"
-            />
-            <div className={styles.mainBlogContentWrapper}>
-                <p className={styles.mainTitle}>{title}</p>
-                <div className={styles.textBtnWrapper}>
-                <p className={styles.ctaText}>{cta_text}</p>
-                <button type="button">READ MORE</button>
-            </div>
-                </div>
-                </div>
-            </>
-    );
-};
-
+import styles from '../../styles/Blogs.module.css'
+import Blog from '../../components/Blog';
+import MainBlog from '../../components/MainBlog';
 import fsPromises from 'fs/promises';
 import path from 'path'
 
