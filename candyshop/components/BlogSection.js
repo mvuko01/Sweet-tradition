@@ -1,13 +1,15 @@
 import React from 'react';
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import Link from 'next/link';
 
 
-const BlogSection = ({ title, cta_text, picture, date, author }) => {
+const BlogSection = ({ title, cta_text, picture, date, author, id }) => {
     return (
         <>
         <div className={styles.blogsWrapper}>
             <div className={styles.miniBlogWrapper}>
+            <Link href={`../blog/${id}`} className={styles.link}>
                 <Image
                 className={styles.blogPics}
                 width={196}
@@ -24,6 +26,7 @@ const BlogSection = ({ title, cta_text, picture, date, author }) => {
                 </div>
                 <p className={styles.ctaText}>{date}</p>
             </div>
+            </Link>
             </div>
         </div>
         </>

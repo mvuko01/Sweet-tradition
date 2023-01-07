@@ -59,7 +59,7 @@
     margin-bottom: 2vw;
 }
 .mainPic {
-    width: auto;
+    width: 100%;
     height: auto;
 }
 .blogPics {
@@ -87,6 +87,10 @@
     display: flex;
     flex-direction: column;
     margin-left: 0.7vw;
+}
+.mainBlogContentWrapper {
+    display: flex;
+    flex-direction: column;
     height: 100%;
 }
 .title {
@@ -139,6 +143,14 @@
 #secondBtn {
     display: none;
 }
+.mainLink {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.miniLink {
+    display: flex;
+}
 @media screen and (max-width: 768px) {
     .contentWrapper {
         display: flex;
@@ -156,10 +168,15 @@
     .mainPic {
         width: 25%;
     }
+    .mainLink {
+        display: flex;
+        flex-direction:row;
+    }
     .mainBlogContentWrapper {
         display: flex;
         flex-direction: column;
         margin-left: 0.7vw;
+        height: auto;
     }
     .miniBlogWrapper {
         align-items: unset;

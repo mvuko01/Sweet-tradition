@@ -448,7 +448,6 @@
   display: flex;
   flex-direction: column;
   margin-left: 0.7vw;
-  height: 100%;
   justify-content: space-between;
 }
 .title {
@@ -489,6 +488,9 @@
   margin-bottom: 2vw;
   cursor: pointer;
   border-color: transparent;
+}
+.link {
+  display: flex;
 }
 /* footer */
 .footerLogo {
