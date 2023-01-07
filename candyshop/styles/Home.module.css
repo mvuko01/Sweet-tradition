@@ -62,13 +62,15 @@
   position: relative;
 }
 .icon {
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: auto;
 }
 .searchIcon {
   position: absolute;
   left: -5vw;
   top: -0.188vw;
+  width: auto;
+  height: auto;
 }
 .inputNav {
   border-radius: 1.875vw;
@@ -382,6 +384,43 @@
   cursor: pointer;
   border-color: transparent;
 }
+/* about us */
+.AUWrapper {
+  margin: 2vw 0;
+}
+.AUHeading {
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-size: 3.5vw;
+  color: #7F2982;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+.image1 {
+  width: 100%;
+  height: auto;
+}
+.image2 {
+  width: 100%;
+  height: auto;
+}
+.text {
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.6vw;
+  color: #918282;
+  margin: 1vw auto;
+  width: 100%;
+}
+.AUcontentWrapper{
+  display: flex;
+  justify-content: center;
+}
+.firstWrapper {
+  width: 40%;
+  margin: 2vw;
+}
 /* footer */
 .footerLogo {
   width: 100%;
@@ -472,4 +511,19 @@ p.copyright {
   cursor: pointer;
   width: 100%;
   max-width: 27px;
+}
+
+/*about us mobile*/
+@media screen and (max-width: 768px){
+  .image1 {
+    width: 90%;
+    height: 50%;
+  }
+  .image2 {
+    width: 90%;
+    height: 50%;
+  }
+  .text {
+    width: 90%;
+  }
 }
