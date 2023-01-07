@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.banner {
+    height:390px;
+    width:1900px;
+    max-width:100%;
+    max-height:100%;
+}
+.title {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 3vw;
+    color: #624CAB;
+    margin-top: 2vw;
+}
+.contentWrapper {
+    margin-left: 4vw;
+    margin-right: 4vw;
+    margin-bottom: 2vw;
+}
+.contentWrapper p {
+    font-family: Montserrat, sans-serif;
+}
+.purple {
+    color: rgba(127, 41, 130, 0.8);
+    font-weight: 700;
+    font-size: 1.2vw;
+}
+.boldGray {
+    color:#918282;
+    font-weight: 700;
+    font-size: 1.2vw;
+}
+#written {
+    font-style: italic;
+}
+.writtenDateWrapper {
+    display:flex;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    width: 28vw;
+}
+.text {
+    color:#918282;
+    font-weight: 300;
+    font-size: 1.2vw;
+}

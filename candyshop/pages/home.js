@@ -6,6 +6,8 @@ import StoryBanner from '../components/StoryBanner';
 import BlogSection from '../components/BlogSection';
 import AboutUs from '../components/AboutUs';
 import styles from '../styles/Home.module.css'
+import { navigationItems } from '../constants/navbar';
+import Link from 'next/link';
 
 
 const Hello = (props) => {
@@ -18,10 +20,12 @@ const Hello = (props) => {
             <StoryBanner />
             <AboutUs />
             <h1 className={styles.blogsHeading}>BLOGS</h1>
-            {posts.slice(0,3).map((el) => (
+            {posts.slice(5,8).map((el) => (
                         <BlogSection key={el.id} {...el} />
             ))}
-            <button type="button" className={styles.buttonBlogs}>READ MORE BLOGS</button>
+            <Link href={navigationItems.at(2).path} key={navigationItems.at(2).label} passHref>
+                    <button type="button" className={styles.buttonBlogs}>READ MORE BLOGS</button>
+                </Link>  
             <Footer />
         </>
     );

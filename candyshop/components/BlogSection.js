@@ -19,8 +19,8 @@ const BlogSection = ({ title, cta_text, picture, date, author }) => {
                 <p className={styles.title}>{title}</p>
                 <p className={styles.ctaText}>{cta_text}</p>
                 <div className={styles.writtenByDiv}>
-                <p className={styles.writtenByText}>Written by: &nbsp;</p>
-                <p className={styles.writtenByText}>{author}</p>
+                {/* <p className={styles.writtenByText}>Written by: &nbsp;</p>
+                <p className={styles.writtenByText}>{author}</p> */}
                 </div>
                 <p className={styles.ctaText}>{date}</p>
             </div>

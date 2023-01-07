@@ -460,6 +460,7 @@
   width: 100%;
   max-width: 325px;
   height: 100%;
+  border-radius: 0.5vw;
 }
 .ctaText {
   color: #908282;
