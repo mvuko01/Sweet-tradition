@@ -363,7 +363,7 @@
 .storyBannerWrapper {
   position: relative;
 
-  z-index: -1;
+  
 }
 .storyBanner {
   height: auto;
