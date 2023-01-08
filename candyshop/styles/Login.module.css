@@ -4,19 +4,24 @@
     justify-content: column;
 }
 .banner {
-    width: 58%;
-    height: 90vh;
+    width: 58vw;
+    height: calc(100vh - 138px);
 }
 #registerSection {
     margin-top: 0;
 }
 .content {
-    width: 25%;
+    width: 42vw;
     font-family: Inter, sans-serif;
     font-size: 1vw;
     font-weight: 500;
-    margin-top: 4vw;
-    margin-left: 6vw;
+    /* margin-top: 4vw; */
+    /* margin-left: 6vw; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 3vw;
 }
 .title {
     color: #7F2982;
@@ -24,7 +29,7 @@
     font-size: 2.5vw;
     letter-spacing: -0.06em;
     font-weight: 700;
-    margin-bottom: 3vw;
+    margin-bottom: 1vw;
 }
 .registerTitle {
     color: #7F2982;
@@ -41,7 +46,7 @@
 .content input, .content button{
     border-radius: 0.75vw;
     border-color: #F06C9B;
-    height: 6vh;
+    height: 3vw;
     outline: none;
     padding: 0.5vw;
 }
@@ -52,6 +57,11 @@
 .inputWrapper {
     display: flex;
     flex-direction: column;
+    width: 30vw;
+}
+.inputWrapper input {
+    border: 1px solid #F06C9B;
+    height: 3vw;
 }
 .remember {
     display: flex;
@@ -83,6 +93,14 @@
     font-size: 1vw;
     font-weight: 600;
 }
+.signInBtn:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+.signInBtnGgl:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
 .or {
     display:flex;
     justify-content: center;
@@ -98,4 +116,23 @@
     flex-direction: row;
     padding-top: 1vw;
     font-size: 1.1vw;
+}
+.eye {
+    opacity: 0.3;
+    position: absolute;
+    top: 23%;
+    left: 92%;
+    width: 100%;
+    max-width: 1.6vw;
+    height: auto;
+}
+.eyeoff {
+    display:none;
+}
+#passwordInputWrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
 }
