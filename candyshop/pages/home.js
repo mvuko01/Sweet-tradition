@@ -11,7 +11,7 @@ import Link from 'next/link';
 
 
 const Hello = (props) => {
-    const posts  = props.blogs;
+    const posts  = props.objectData.blogs;
     return (
         <>
             <Header />
@@ -39,8 +39,16 @@ export async function getStaticProps() {
   const jsonData = await fsPromises.readFile(filePath);
   const objectData = JSON.parse(jsonData);
 
+  const filePath1 = path.join(process.cwd(), '/constants/products.json');
+  const jsonData1 = await fsPromises.readFile(filePath1);
+  const objectData1 = JSON.parse(jsonData1);
+
   return {
-    props: objectData
+    
+    props: {
+      objectData,
+      objectData1
+    }
   }
 }
 

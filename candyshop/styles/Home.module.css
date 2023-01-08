@@ -117,14 +117,17 @@
   margin: 3rem;
 }
 
+.productAndArrowContainter{
+  position: relative;
+}
 
 .productContainer{
   display: flex;
   height: auto;
-  
   align-items: center;
   justify-content: space-evenly;
-
+  overflow: auto;
+  
 }
 
 
@@ -330,18 +333,21 @@
 
 .buttonPrevious,
 .buttonNext{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
 
   border:none;
   width:5.208vw;
   height:5.208vw;
 
-  background: white;
+  background: transparent;
   cursor: pointer;
-
 }
 
 .buttonNext{
-  
+  right: 0;
   transform: rotate(180deg);
 
 }
