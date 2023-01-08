@@ -22,6 +22,9 @@
     cursor: pointer;
     border-color: transparent;
 }
+.contentWrapper button:hover {
+    opacity: 0.7;
+}
 .miniBtn {
     width: 8vw;
     height: 2.2vw;
@@ -44,7 +47,7 @@
 }
 .addNewBtn {
     color: white;
-    background-color: #7F2982;
+    background-color: #624CAB;
     font-size: 0.7vw;
     font-family: Montserrat, sans-serif;
     font-weight: bold;
@@ -56,6 +59,9 @@
     margin-left: 16vw;
     margin-top: 2vw;
     margin-bottom: 2vw;
+}
+.addNewBtn:hover {
+    opacity: 0.7;
 }
 .mainPic {
     width: 15vw;
@@ -94,13 +100,13 @@
     width: 16vw;
 }
 .title {
-    color: #7F2982;
+    color: #624CAB;
     font-weight: 400;
     font-weight: bolder;
     font-size: 1.4vw;
 }
 .mainTitle {
-    color: #7F2982;
+    color: #624CAB;
     font-weight: 400;
     font-weight: bolder;
     font-size: 1.4vw;
@@ -111,7 +117,7 @@
     font-size: 1.2vw;
 }
 .pageNum {
-    background-color: rgba(240, 108, 155, 0.5);;
+    background-color:#F06C9B;
     width: 2vw;
     height: 2vw;
     margin: 0 2px;
@@ -126,8 +132,11 @@
     cursor: pointer;
     font-size: 1vw;
 }
+.pageNum:hover {
+    opacity: 0.7;
+}
 #currentPage {
-    background-color: #F06C9B;
+    background-color: rgba(240, 108, 155, 0.5);
 }
 #notCurrentPage {
     
@@ -140,7 +149,7 @@
     opacity: 0.6;
 }
 #arrow:hover {
-    opacity: 1;
+    opacity: 0.3;
     cursor: pointer;
 }
 .pageWrapper {
