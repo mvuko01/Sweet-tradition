@@ -14,7 +14,7 @@ const exampleContent = ({post}) => {
             src={post.picture}
             alt="post image"
             width={800}
-            height={400}
+            height={300}
         />
         <div className={styles.contentWrapper}>
         <p className={styles.title}>{post.title}</p>
