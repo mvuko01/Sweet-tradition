@@ -1,0 +1,31 @@
+.contentWrapper {
+    font-family: Montserrat, sans-serif;
+    font-size: 1.5vw;
+    display: flex;
+    position: relative;
+    height: 50vh;
+    color: #624CAB;
+}
+.candyIcon {
+    width: 100%;
+    height: auto;
+    max-width: 30vw;
+    position: absolute;
+    left: 72vw;
+}
+.link {
+    color: #F06C9B;
+    text-decoration: underline;
+    font-size: 3.5vw;
+}
+.link:hover {
+    opacity: 0.7;
+}
+.titleWrapper {
+    display: flex;
+    width: 50vw;
+    justify-content: center;
+    align-items: center;
+    margin-left: 8vw;
+    margin-bottom: 2vw;
+}

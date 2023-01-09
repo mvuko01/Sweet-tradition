@@ -5,14 +5,14 @@
 }
 .banner {
     width: 58vw;
-    height: calc(100vh - 138px);
+    height: calc(100vh - 144px);
 }
 #registerSection {
     margin-top: 0;
 }
 .content {
     width: 42vw;
-    font-family: Inter, sans-serif;
+    font-family: Montserrat, sans-serif;
     font-size: 1vw;
     font-weight: 500;
     /* margin-top: 4vw; */
@@ -125,6 +125,7 @@
     width: 100%;
     max-width: 1.6vw;
     height: auto;
+    cursor: pointer;
 }
 .eyeoff {
     display:none;
@@ -134,5 +135,44 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-
+}
+.google {
+    width: 100%;
+    max-width: 1.6vw;
+    height: auto;
+    position: absolute;
+    top: 22%;
+    left: 30%;
+    cursor: pointer;
+}
+.btnGglWrapper{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.error {
+    color:#F06C9B;
+    font-family: Montserrat, sans-serif;
+    font-weight: bolder;
+    margin-top: 1vw;
+    font-size: 2vw;
+}
+@media screen and (max-width: 768px) {
+    .mainWrapper {
+        position:relative;
+        height: 100vh;
+        display: flex;
+    }
+    .banner {
+        position: absolute;
+        width: 140vw;
+    }
+    .content {
+        display: flex;
+        position: absolute;
+        align-items: center;
+        width: 100vw;
+        background-color: white;
+    }
 }

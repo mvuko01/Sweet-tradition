@@ -110,7 +110,16 @@ const Login = () => {
                             </button>
                         )}
                             <label className={styles.or}>Or</label>
-                            <button type='submit' className={styles.signInBtnGgl}>Sign in with Google</button>
+                            <div className={styles.btnGglWrapper}>
+                                <button type='submit' className={styles.signInBtnGgl}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sign in with Google</button>
+                                <Image 
+                                src={'/login/Google.svg'}
+                                alt="Google logo"
+                                width={24}
+                                height={24}
+                                className={styles.google}
+                                />
+                            </div>
                             <div className={styles.register}>
                                 <p>Don't have an account? &nbsp;</p>
                                 <Link href='' className={styles.forgot}>Register</Link>

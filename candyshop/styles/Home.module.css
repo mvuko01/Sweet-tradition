@@ -62,19 +62,20 @@
   position: relative;
 }
 .icon {
-  width: auto;
+  width: 100%;
+  max-width: 3vw;
   height: auto;
 }
 .searchIcon {
   position: absolute;
-  left: -5vw;
-  top: -0.188vw;
-  width: auto;
+  width: 100%;
   height: auto;
+  max-width: 2.5vw;
+  left:68%;
 }
 .inputNav {
   border-radius: 1.875vw;
-  width: 12.5vw; 
+  width: 100%; 
   height: 3.25vw;
   font-family: Inter, sans-serif;
   font-size: 1.125vw;
@@ -82,9 +83,9 @@
   background-color: rgb(235, 235, 235);
   border-color: transparent;
   color:#7F2982;
-  position:absolute;
-  top: -20%;
-  left: -14.375vw;
+  position: relative;
+  top:-10%;
+  left: -7%;
 }
 /* first banner image */
 .firstBannnerImage {
@@ -589,7 +590,8 @@ p.copyright {
 .footerSocialMedia {
   cursor: pointer;
   width: 100%;
-  max-width: 27px;
+  max-width: 1.6vw;
+  height: auto;
 }
 
 

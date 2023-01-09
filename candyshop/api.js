@@ -29,11 +29,11 @@ const api = {
 
         return res.json();
     },
-    self: async (token) => {
+    addNewBlog: async (token) => {
         if (!token) {
             return null;
         }
-        const res = await fetch('/api/self', {
+        const res = await fetch('/api/addNewBlog', {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
