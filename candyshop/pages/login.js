@@ -33,7 +33,7 @@ const Login = () => {
             .then(({ token }) => {
                 setError('');
                 setAuth(token);
-                router.push('/home');
+                router.back();
             })
             .catch((err) => {
                 setError(err.message);
