@@ -194,6 +194,7 @@
     .content input {
         width: auto;
         height: 15vw;
+        font-size: 4vw;
     }
     .content button {
         width: auto;
