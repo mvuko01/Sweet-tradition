@@ -163,7 +163,7 @@
         height: auto;
         display: flex;
         justify-content: center;
-        margin: 10vw auto;
+        margin: 10vw 0;
     }
     .banner {
         display: none;
@@ -174,39 +174,69 @@
         border-radius: 1vw;
         height: auto;
         width: auto;
-        padding: 2vw;
+        padding: 6vw;
         display: flex;
         justify-content: center;
         box-shadow:
         0 0 60px 30px #fff,  /* inner */
         0 0 100px 60px #F06C9B, /* middle  */
         0 0 140px 90px #624CAB; /* outer */
+        margin-left: 0;
     }
     .content label {
-        font-size: 2vw;
+        font-size: 5vw;
+        padding-top: 6vw;
+    }
+    .content .rememberAndForgot label{
+        font-size: 4vw;
+        padding-top: 0vw;
     }
     .content input {
         width: auto;
-        height: 6vw;
+        height: 15vw;
     }
     .content button {
         width: auto;
-        height: 6vw;
-        font-size: 2.5vw;
+        height: 15vw;
+        font-size: 5vw;
     }
     .inputWrapper {
         width: 75vw;
     }
     .title {
-        font-size: 6vw;
+        margin-top: 3vw;
+        font-size: 8vw;
     }
     .register {
-        font-size: 2vw;
+        font-size: 4vw;
+        margin-bottom: 3vw;
     }
     .eye {
-        max-width: 3vw;
+        max-width: 6vw;
+        left:90%;
+        top:30%;
     }
     .google {
-        max-width: 3vw;
+        max-width: 5vw;
+        left:15%;
+        top:43%;
+    }
+    .signInBtn {
+        margin-top: 3vw;
+    }
+    .content .inputWrapper label.or {
+        padding-top: 3vw;
+    }
+    .signInBtnGgl {
+        margin-top: 3vw;
+    }
+    .cbox {
+        margin-top: 0vw;
+    }
+    .rememberAndForgot {
+        padding-bottom: 0;
+    }
+    .error {
+        font-size: 5vw;
     }
 }
