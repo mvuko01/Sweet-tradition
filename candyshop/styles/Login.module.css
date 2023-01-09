@@ -5,7 +5,7 @@
 }
 .banner {
     width: 58vw;
-    height: calc(100vh - 144px);
+    height: calc(100vh - 124px);
 }
 #registerSection {
     margin-top: 0;
@@ -160,19 +160,53 @@
 }
 @media screen and (max-width: 768px) {
     .mainWrapper {
-        position:relative;
-        height: 100vh;
+        height: auto;
         display: flex;
+        justify-content: center;
+        margin: 10vw auto;
     }
     .banner {
-        position: absolute;
-        width: 140vw;
+        display: none;
     }
     .content {
+        border: 0.5vw solid #F06C9B;
+        background-color: #f06c9a10;
+        border-radius: 1vw;
+        height: auto;
+        width: auto;
+        padding: 2vw;
         display: flex;
-        position: absolute;
-        align-items: center;
-        width: 100vw;
-        background-color: white;
+        justify-content: center;
+        box-shadow:
+        0 0 60px 30px #fff,  /* inner */
+        0 0 100px 60px #F06C9B, /* middle  */
+        0 0 140px 90px #624CAB; /* outer */
+    }
+    .content label {
+        font-size: 2vw;
+    }
+    .content input {
+        width: auto;
+        height: 6vw;
+    }
+    .content button {
+        width: auto;
+        height: 6vw;
+        font-size: 2.5vw;
+    }
+    .inputWrapper {
+        width: 75vw;
+    }
+    .title {
+        font-size: 6vw;
+    }
+    .register {
+        font-size: 2vw;
+    }
+    .eye {
+        max-width: 3vw;
+    }
+    .google {
+        max-width: 3vw;
     }
 }
