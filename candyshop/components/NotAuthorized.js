@@ -12,6 +12,7 @@ const NotAuthorized = () => {
             <div className={styles.titleWrapper}>
             <h1 className={styles.title}>Please <Link href="/login" className={styles.link}>LOGIN</Link> to write a blog!</h1>
             </div>
+            <div className={styles.imageWrapper}>
             <Image
             src={'/notauthorized/candy2.svg'}
             alt="Search"
@@ -19,6 +20,7 @@ const NotAuthorized = () => {
             height={40}
             className={styles.candyIcon} 
             />
+            </div>
         </div>
         <Footer />
         </>

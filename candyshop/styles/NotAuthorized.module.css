@@ -11,7 +11,13 @@
     height: auto;
     max-width: 30vw;
     position: absolute;
-    left: 72vw;
+    left: 73%;
+}
+.imageWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15vw;
 }
 .link {
     color: #F06C9B;
