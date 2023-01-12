@@ -21,6 +21,8 @@ const Login = () => {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
 
+    const[shownPassword, setShownPassword] = useState(false);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -31,7 +33,7 @@ const Login = () => {
             .then(({ token }) => {
                 setError('');
                 setAuth(token);
-                router.push('/home');
+                router.back();
             })
             .catch((err) => {
                 setError(err.message);
@@ -69,13 +71,29 @@ const Login = () => {
                         </div>
                         <div className={styles.inputWrapper}>
                         <label>Password</label>
+                        <div id={styles.passwordInputWrapper}>
                             <input
                                 value={password}
-                                type="password"
+                                type={shownPassword == false ? "password" : "text"}
                                 id="password"
                                 placeholder="Enter your password"
                                 onChange={(e) => setPassword(e.target.value)}
                             />
+                            <Image 
+                            src={'/login/eye.svg'}
+                            alt="show password"
+                            width={24}
+                            height={24}
+                            className={shownPassword == false ? styles.eye : styles.eyeoff}
+                            onClick={() => setShownPassword(true)}/>
+                            <Image 
+                            src={'/login/eyeoff.svg'}
+                            alt="hide password"
+                            width={24}
+                            height={24}
+                            className={shownPassword == false ? styles.eyeoff : styles.eye}
+                            onClick={() => setShownPassword(false)}/>
+                            </div>
                             <div className={styles.rememberAndForgot}>
                                 <div className={styles.remember}>
                                     <input type="checkbox" className={styles.cbox}/> <label for="rememberMe">Remember me</label>
@@ -92,7 +110,16 @@ const Login = () => {
                             </button>
                         )}
                             <label className={styles.or}>Or</label>
-                            <button type='submit' className={styles.signInBtnGgl}>Sign in with Google</button>
+                            <div className={styles.btnGglWrapper}>
+                                <button type='submit' className={styles.signInBtnGgl}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sign in with Google</button>
+                                <Image 
+                                src={'/login/Google.svg'}
+                                alt="Google logo"
+                                width={24}
+                                height={24}
+                                className={styles.google}
+                                />
+                            </div>
                             <div className={styles.register}>
                                 <p>Don't have an account? &nbsp;</p>
                                 <Link href='' className={styles.forgot}>Register</Link>

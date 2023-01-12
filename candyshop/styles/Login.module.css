@@ -4,19 +4,24 @@
     justify-content: column;
 }
 .banner {
-    width: 58%;
-    height: 90vh;
+    width: 58vw;
+    height: calc(100vh - 124px);
 }
 #registerSection {
     margin-top: 0;
 }
 .content {
-    width: 25%;
-    font-family: Inter, sans-serif;
+    width: 42vw;
+    font-family: Montserrat, sans-serif;
     font-size: 1vw;
     font-weight: 500;
-    margin-top: 4vw;
-    margin-left: 6vw;
+    /* margin-top: 4vw; */
+    /* margin-left: 6vw; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 3vw;
 }
 .title {
     color: #7F2982;
@@ -24,7 +29,7 @@
     font-size: 2.5vw;
     letter-spacing: -0.06em;
     font-weight: 700;
-    margin-bottom: 3vw;
+    margin-bottom: 1vw;
 }
 .registerTitle {
     color: #7F2982;
@@ -41,7 +46,7 @@
 .content input, .content button{
     border-radius: 0.75vw;
     border-color: #F06C9B;
-    height: 6vh;
+    height: 3vw;
     outline: none;
     padding: 0.5vw;
 }
@@ -52,6 +57,11 @@
 .inputWrapper {
     display: flex;
     flex-direction: column;
+    width: 30vw;
+}
+.inputWrapper input {
+    border: 1px solid #F06C9B;
+    height: 3vw;
 }
 .remember {
     display: flex;
@@ -83,6 +93,14 @@
     font-size: 1vw;
     font-weight: 600;
 }
+.signInBtn:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+.signInBtnGgl:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
 .or {
     display:flex;
     justify-content: center;
@@ -98,4 +116,128 @@
     flex-direction: row;
     padding-top: 1vw;
     font-size: 1.1vw;
+}
+.eye {
+    opacity: 0.3;
+    position: absolute;
+    top: 23%;
+    left: 92%;
+    width: 100%;
+    max-width: 1.6vw;
+    height: auto;
+    cursor: pointer;
+}
+.eyeoff {
+    display:none;
+}
+#passwordInputWrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.google {
+    width: 100%;
+    max-width: 1.6vw;
+    height: auto;
+    position: absolute;
+    top: 22%;
+    left: 30%;
+    cursor: pointer;
+}
+.btnGglWrapper{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.error {
+    color:#F06C9B;
+    font-family: Montserrat, sans-serif;
+    font-weight: bolder;
+    margin-top: 1vw;
+    font-size: 2vw;
+}
+@media screen and (max-width: 768px) {
+    .mainWrapper {
+        height: auto;
+        display: flex;
+        justify-content: center;
+        margin: 10vw 0;
+    }
+    .banner {
+        display: none;
+    }
+    .content {
+        border: 0.5vw solid #F06C9B;
+        background-color: #f06c9a10;
+        border-radius: 1vw;
+        height: auto;
+        width: auto;
+        padding: 6vw;
+        display: flex;
+        justify-content: center;
+        box-shadow:
+        0 0 60px 30px #fff,  /* inner */
+        0 0 100px 60px #F06C9B, /* middle  */
+        0 0 140px 90px #624CAB; /* outer */
+        margin-left: 0;
+    }
+    .content label {
+        font-size: 5vw;
+        padding-top: 6vw;
+    }
+    .content .rememberAndForgot label{
+        font-size: 4vw;
+        padding-top: 0vw;
+    }
+    .content input {
+        width: auto;
+        height: 15vw;
+        font-size: 4vw;
+    }
+    .content button {
+        width: auto;
+        height: 15vw;
+        font-size: 5vw;
+    }
+    .inputWrapper {
+        width: 75vw;
+    }
+    .title {
+        margin-top: 3vw;
+        font-size: 8vw;
+    }
+    .register {
+        font-size: 4vw;
+        margin-bottom: 3vw;
+    }
+    .eye {
+        max-width: 6vw;
+        left:90%;
+        top:30%;
+    }
+    .google {
+        max-width: 5vw;
+        left:15%;
+        top:43%;
+    }
+    .signInBtn {
+        margin-top: 3vw;
+    }
+    .content .inputWrapper label.or {
+        padding-top: 3vw;
+    }
+    .signInBtnGgl {
+        margin-top: 3vw;
+    }
+    .cbox {
+        margin-top: 0vw;
+    }
+    .rememberAndForgot {
+        padding-bottom: 0;
+    }
+    .error {
+        font-size: 5vw;
+    }
 }

@@ -7,6 +7,7 @@ import Blog from '../../components/Blog';
 import MainBlog from '../../components/MainBlog';
 import fsPromises from 'fs/promises';
 import path from 'path'
+import Link from 'next/link';
 
 export async function getStaticProps() {
   const filePath = path.join(process.cwd(), '/constants/blogs.json');
@@ -33,7 +34,7 @@ const Blogs = (props) => {
                 alt="profile image"
                 className={styles.banner}
             />
-            <button type="button" className={styles.addNewBtn} id={styles.firstBtn}>ADD NEW BLOG</button>
+            <Link href="/blog/addNewBlog"><button type="button" className={styles.addNewBtn} id={styles.firstBtn}>ADD NEW BLOG</button></Link>
             <div className={styles.contentWrapper}>
                     {posts.slice(page, page + 1).map((el) => (
                         <MainBlog key={el.id} {...el} />
