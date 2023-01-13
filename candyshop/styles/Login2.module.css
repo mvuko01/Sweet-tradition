@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 .mainWrapper {
     display:flex;
-    justify-content: column;
-
+    justify-content: flex-end;
+    /*position: relative;*/
 }
 
 /*Prilagodit kako povecat box od contenta da je do ostatka cile stranice*/
@@ -11,17 +11,21 @@
     max-width: 900px;
     height: 800px;
     /*overflow: hidden;*/
-    
-    
+    /*position: absolute;
+    left: 0;*/
 }
 .content {
+    width: 100%;
+    max-width: 430px;
+
     font-family: Montserrat, sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    margin-left: 250px;
-  
+    margin-left: 150px;
+    margin-right: 150px;
+    
 }
 
 .title {
@@ -200,4 +204,39 @@
     font-weight: bolder;
     margin-top: 1.5rem;
     font-size: 2rem;
+}
+
+@media screen and (max-width: 480px) {
+    .form {
+        width: 100%;
+        min-width: unset;
+        min-height: unset;
+    }
+
+    .register{
+        font-size: 1rem;
+    }
+
+    .mainWrapper{
+        height: 600px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+
+    .banner{
+        display: none;
+    }
+
+    .mainWrapper{
+        height: 800px;
+        justify-content: center;
+    }
+
+    .content{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    
 }
