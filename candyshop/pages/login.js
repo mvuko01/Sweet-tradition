@@ -127,7 +127,7 @@ const Login = () => {
                         </div>
                         <div className={styles.register}>
                                 <p>Don't have an account? &nbsp;</p>
-                                <Link href='' className={styles.forgot}>Register</Link>
+                                <Link href='/register' className={styles.forgot}>Register</Link>
                         </div>
                     {error && <p className={styles.error}>{error}</p>}
                     </section>

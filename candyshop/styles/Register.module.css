@@ -1,0 +1,285 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+.mainWrapper {
+    display: flex;
+    justify-content: space-between;
+
+    /*position: relative;
+    height: 800px;
+    max-width: 900px;*/
+}
+
+#registerSection {
+    margin-top: 0;
+}
+
+.title {
+    color: #7F2982;
+    font-weight: bolder;
+    font-size: 3.2rem;
+
+    letter-spacing: -0.06em;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.registerTitle {
+    color: #7F2982;
+    font-weight: bolder;
+    font-size: 2.5vw;
+    letter-spacing: -0.06em;
+    font-weight: 700;
+    margin-bottom: 0.2vw;
+}
+
+/*Prilagodit kako povecat box od contenta da je do ostatka cile stranice*/
+.banner {
+    max-width: 900px;
+    height: 100vh; 
+    /*overflow: hidden;*/
+    /* position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+     */
+}
+.content {
+    width: 100%;
+    max-width: 430px;
+
+    font-family: Montserrat, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 150px;
+    margin-right: 150px;
+    
+}
+
+.title {
+    color: #7F2982;
+    font-weight: bolder;
+    font-size: 3.2rem;
+
+    letter-spacing: -0.06em;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.form{
+    min-width: 26.875rem;
+    min-height: 21.875rem;
+    width: 100%;
+
+}
+
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 1rem;
+
+}
+.inputWrapper input {
+    border: 1px solid #F06C9B;
+    height: 3rem;
+}
+
+
+
+.content .inputWrapper label {
+    font-size: 1.341rem;
+    padding-bottom: 0.5rem;
+    
+}
+.content input, .content button{
+    border-radius: 8px;
+    border-color: #F06C9B;
+    height: 3.3rem; 
+    outline: none;
+}
+.content input{
+    padding-left: 0.5rem;
+
+}
+
+#passwordInputWrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.eye {
+    opacity: 0.3;
+    position: absolute;
+    top: 23%;
+    left: 92%;
+    width: 100%;
+    max-width: 30px;
+    height: auto;
+    cursor: pointer;
+}
+
+.eyeoff {
+    display:none;
+}
+
+
+
+/*SIGN IN*/
+.signInBtnWrapper{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.signInBtn {
+    background-color: #F06C9B;
+    color: white;
+    border: 1px solid rgba(240, 108, 155, 0.5);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.signInBtn:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+/*SIGN IN - END*/
+#or {
+    display:flex;
+    justify-content: center;
+    font-size: 1.1rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+/*SIGN IN GOOGLE*/
+.btnGglWrapper{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.signInBtnGgl {
+    background: rgba(240, 108, 155, 0.35);
+    border: 1px solid rgba(240, 108, 155, 0.35);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.signInBtnGgl:hover{
+    opacity: 0.7;
+    
+}
+.google {
+    width: 100%;
+    max-width: 1.875rem;
+    height: auto;
+    position: absolute;
+    top: 22%;
+    left: 22%;
+    cursor: pointer;
+}
+
+
+/*SIGN IN GOOGLE - END*/
+
+
+/*REMEMBER AND FORGET AREA*/
+
+.rememberAndForgot {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: #7F2982;
+    padding-bottom: 1.90rem;
+}
+  
+
+.cbox {
+    width: 1.1rem;
+    accent-color: #7F2982;
+   
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.forgot {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+/*REMEMBER AND FORGET AREA - END*/
+
+
+.register {
+    display:flex;
+    flex-direction: row;
+    padding-top: 1.50rem;
+    font-size: 1.25rem;
+}
+
+.error {
+    color:red;
+    font-family: Montserrat, sans-serif;
+    font-weight: bolder;
+    margin-top: 1.5rem;
+    font-size: 2rem;
+}
+
+@media screen and(max-device-width: 1500px){
+
+    .mainWrapper{
+        justify-content: flex-end;
+    }
+
+}
+
+@media screen and (max-width: 1200px) {
+
+    .banner{
+        display: none;
+    }
+
+    .mainWrapper{
+        height: 800px;
+        justify-content: center;
+
+    }
+
+    .content{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    
+}
+
+@media screen and (max-width: 480px) {
+    .form {
+        width: 100%;
+        min-width: unset;
+        min-height: unset;
+    }
+
+    .register{
+        font-size: 1rem;
+    }
+
+    .mainWrapper{
+        height: 600px;
+    }
+}
+
+
+
+
