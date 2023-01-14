@@ -15,7 +15,6 @@ import matter from 'gray-matter'
 const Hello = (props) => {
     //const posts  = props.objectData.blogs;
     const blogPosts = props.posts;
-    console.log(blogPosts);
     return (
         <>
             <Header />
