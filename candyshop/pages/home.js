@@ -22,7 +22,7 @@ const Hello = (props) => {
             <StoryBanner />
             <AboutUs />
             <h1 className={styles.blogsHeading}>BLOGS</h1>
-            {blogPosts.slice(5,8).map((post) => (
+            {blogPosts.slice(6,9).map((post) => (
               <BlogSection key={post.frontmatter.id} post={post} />
             ))}
             <Link href={navigationItems.at(2).path} key={navigationItems.at(2).label} passHref>
