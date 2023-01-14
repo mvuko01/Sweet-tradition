@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css'
 import Link from 'next/link';
 
 
-const BlogSection = ({ /*title, cta_text, picture, date, author, id*/ post }) => {
+const BlogSection = ({ post }) => {
     return (
         <>
         <div className={styles.blogsWrapper}>

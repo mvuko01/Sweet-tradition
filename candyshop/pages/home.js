@@ -13,7 +13,6 @@ import matter from 'gray-matter'
 
 
 const Hello = (props) => {
-    //const posts  = props.objectData.blogs;
     const blogPosts = props.posts;
     return (
         <>
@@ -23,9 +22,6 @@ const Hello = (props) => {
             <StoryBanner />
             <AboutUs />
             <h1 className={styles.blogsHeading}>BLOGS</h1>
-            {/* {posts.slice(5,8).map((el) => (
-                        <BlogSection key={el.id} {...el} />
-            ))} */}
             {blogPosts.slice(5,8).map((post) => (
               <BlogSection key={post.frontmatter.id} post={post} />
             ))}
@@ -42,9 +38,6 @@ import fs from 'fs'
 import path from 'path'
 
 export async function getStaticProps() {
-  // const filePath = path.join(process.cwd(), '/constants/blogs.json');
-  // const jsonData = await fsPromises.readFile(filePath);
-  // const objectData = JSON.parse(jsonData);
 
   //Get files from the posts dir
   const files = fs.readdirSync(path.join('posts'))
@@ -71,7 +64,6 @@ export async function getStaticProps() {
     
     props: {
       posts: posts,
-      // objectData,
       objectData1
     }
   }
