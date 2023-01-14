@@ -31,13 +31,20 @@
     width: calc(100vw - 7.5rem);
     height: 4.625rem;
     outline: none;
-    font-size: 1.25rem;
     font-weight: 400;
     font-size: 1.25rem;
     line-height: 1.5rem;
     letter-spacing: 0.1rem;
+    font-family: Montserrat, sans-serif;
     margin: 2.188rem 0;
     padding-left: 1.5rem;
+}
+.mainWrapper input::placeholder {
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.1rem;
+    font-family: Montserrat, sans-serif;
 }
 .uploadWrapper {
     width: 82.563rem;
@@ -75,7 +82,7 @@
 }
 .editIcon {
     cursor: pointer;
-    margin: 0 0.6rem;
+    margin: 0 0.4rem;
     width: 1.875rem;
     height: 1.875rem;
 }
@@ -83,8 +90,8 @@
     font-size: 1.25rem;
     font-weight: 400;
     color: #918282;
-    padding-left: 1.8rem;
-    padding-top: 1.8rem;
+    padding-left: 1.5rem;
+    padding-top: 1.5rem;
     border-color: transparent;
     width: calc(100vw - 7.6rem);
     height: calc(36.188rem - 4.5rem);
@@ -94,9 +101,14 @@
     line-height: 1.5rem;
     letter-spacing: 0.1rem;
     outline: none;
+    text-align:initial;
 }
-.writeText::placeholder {
-    position:absolute;
+.textWrapper textarea {
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.1rem;
 }
 .publish {
     width: 30rem;

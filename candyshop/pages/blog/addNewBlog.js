@@ -62,7 +62,7 @@ const AddNew = ({images}) => {
                 ))}
             </div>
             <div className={styles.textWrapper}>
-                <input className={styles.writeText} placeholder="Write text..."></input>
+                <textarea className={styles.writeText} placeholder="Write text..."></textarea>
             </div>
         </div>
         <div className={styles.btnWrapper}>
