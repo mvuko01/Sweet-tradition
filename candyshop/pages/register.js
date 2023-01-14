@@ -117,7 +117,7 @@ const Register = () => {
                             <label className={styles.or}>Or</label>
                             <button type='submit' className={styles.signInBtnGgl}>Sign in with Google</button>
                             <div className={styles.register}>
-                                <p>Don't have an account? &nbsp;</p>
+                                <p>Don&#39;t have an account? &nbsp;</p>
                                 <Link href='' className={styles.forgot}>Register</Link>
                             </div>
                         </div>

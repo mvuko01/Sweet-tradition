@@ -3,63 +3,65 @@ import Link from 'next/link';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Image from 'next/image'
+import {marked} from 'marked';
 
 
-const exampleContent = ({post}) => {
+const exampleContent = ({frontmatter, slug, content}) => {
     return (
         <>
         <Header />
         <Image
             className={styles.banner}
-            src={post.picture}
+            src={frontmatter.picture}
             alt="post image"
             width={800}
             height={300}
         />
         <div className={styles.contentWrapper}>
-        <p className={styles.title}>{post.title}</p>
+        <p className={styles.title}>{frontmatter.title}</p>
         <div className={styles.writtenDateWrapper}>
         <p className={styles.purple} id={styles.written}>Written by: &nbsp;</p>
-        <p className={styles.boldGray}>{post.author} &emsp; &nbsp;</p>
+        <p className={styles.boldGray}>{frontmatter.author} &emsp; &nbsp;</p>
         <p className={styles.purple}>Date: &nbsp;</p>
-        <p className={styles.boldGray}>{post.date}</p>
+        <p className={styles.boldGray}>{frontmatter.date}</p>
         </div>
-        <p className={styles.text}>{post.full_text}</p>
+        <div dangerouslySetInnerHTML={{__html: marked(content)}} className={styles.text}></div>
         </div>
         <Footer />
         </>
     );
 };
 
-import fsPromises from 'fs/promises';
+import fs from 'fs';
 import path from 'path'
+import matter from 'gray-matter';
 
 export async function getStaticPaths() {
-    const filePath = path.join(process.cwd(), '/constants/blogs.json');
-    const jsonData = await fsPromises.readFile(filePath);
-    const objectData = JSON.parse(jsonData);
+    const files = fs.readdirSync(path.join('posts'))
 
-    const paths = objectData.blogs.map((post) => ({
+    const paths = files.map(filename => ({
         params: {
-            someId: post.id,
-        },
-    }));
+            someId: filename.replace('.md', '')
+        }
+    }))
 
     return {
         paths,
-        fallback: false,
-    };
+        fallback: false
+    }
 }
 
 export async function getStaticProps({ params: { someId } }) {
-    const filePath = path.join(process.cwd(), '/constants/blogs.json');
-    const jsonData = await fsPromises.readFile(filePath);
-    const objectData = JSON.parse(jsonData);
-    const post = objectData.blogs.at(someId-1);
 
+    const markdownWithMeta = fs.readFileSync(path.join('posts', someId + '.md'), 'utf-8')
+
+    const {data: frontmatter, content} = matter(markdownWithMeta)
+   
     return {
         props: {
-            post,
+            frontmatter,
+            someId,
+            content
         },
     };
 }

@@ -5,7 +5,7 @@ import api from "../../api";
 import { useEffect, useState } from 'react';
 import NotAuthorized from "../../components/NotAuthorized";
 
-const addNew = () => {
+const AddNew = () => {
     const { token } = useAuth();
     const [currentUser, setCurrentUser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -36,4 +36,4 @@ const addNew = () => {
         </>
     );
 };
-export default addNew;
+export default AddNew;

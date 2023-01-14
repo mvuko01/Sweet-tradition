@@ -1,0 +1,11 @@
+---
+id: "7"
+title: "THE HISTORY OF CHOCOLATE: A JOURNEY FROM BEAN TO BAR AT YOUR LOCAL CHOCOLATE SHOP"
+author: "Enzo Addams"
+picture: "/blogpics/history.svg"
+date: "29/12/2022"
+cta: |
+    Experience the sweet journey of chocolate and taste a delicious variety of chocolate bars your local chocolate shop has to offer! Explore the history of chocolate and savor the flavors of the past.
+---
+Chocolate is one of the world’s favorite treats, and its journey from bean to bar at your local chocolate shop is quite an interesting one. The history of chocolate is one filled with fascinating facts and interesting stories. Chocolate is believed to have originated in the areas around Central and South America, where the cocoa plant was first cultivated. The ancient Aztecs and Mayans were the first to enjoy the sweet treat, and were the first to make a drink from cocoa beans. This drink was made by roasting and grinding cocoa beans and then combining them with water, chili peppers, and other spices. In the 16th century, chocolate was brought to Europe by Spanish explorers and soon became a popular treat among the wealthy. It was not until the Industrial Revolution in the 19th century that chocolate became mass produced and affordable for the general public. At the same time, advances in technology made it possible to create new forms of chocolate, such as milk chocolate and white chocolate. The first chocolate bar was created in 1847 by a London-based chocolate company named Fry’s. Today, the process of making chocolate is still largely the same. Cocoa beans are harvested, fermented, dried, and roasted. The beans are then ground into a paste called chocolate liquor, which is then mixed with cocoa butter, sugar, and milk to form a creamy chocolate mixture. This mixture is then molded into bars and cooled. When you visit your local chocolate shop, you can find a variety of different types of chocolate, from dark chocolate to milk chocolate to white chocolate. You can also find specialty chocolates, such as truffles, pralines, and ganache. The journey of chocolate from bean to bar is an amazing one, and it is a testament to how far chocolate has come over the centuries. So the next time you visit your local chocolate shop, take a moment to appreciate the history of the chocolate you’re about to enjoy!
+        
