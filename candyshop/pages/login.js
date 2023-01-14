@@ -1,4 +1,4 @@
-import styles from '../styles/Login.module.css'
+import styles from '../styles/Login2.module.css'
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
@@ -70,47 +70,52 @@ const Login = () => {
                             />
                         </div>
                         <div className={styles.inputWrapper}>
-                        <label>Password</label>
-                        <div id={styles.passwordInputWrapper}>
-                            <input
-                                value={password}
-                                type={shownPassword == false ? "password" : "text"}
-                                id="password"
-                                placeholder="Enter your password"
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
-                            <Image 
-                            src={'/login/eye.svg'}
-                            alt="show password"
-                            width={24}
-                            height={24}
-                            className={shownPassword == false ? styles.eye : styles.eyeoff}
-                            onClick={() => setShownPassword(true)}/>
-                            <Image 
-                            src={'/login/eyeoff.svg'}
-                            alt="hide password"
-                            width={24}
-                            height={24}
-                            className={shownPassword == false ? styles.eyeoff : styles.eye}
-                            onClick={() => setShownPassword(false)}/>
+                            <label>Password</label>
+                            <div id={styles.passwordInputWrapper}>
+                                <input
+                                    value={password}
+                                    type={shownPassword == false ? "password" : "text"}
+                                    id="password"
+                                    placeholder="Enter your password"
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
+                                <Image 
+                                    src={'/login/eye.svg'}
+                                    alt="show password"
+                                    width={24}
+                                    height={24}
+                                    className={shownPassword == false ? styles.eye : styles.eyeoff}
+                                    onClick={() => setShownPassword(true)} 
+                                />
+                                <Image 
+                                    src={'/login/eyeoff.svg'}
+                                    alt="hide password"
+                                    width={24}
+                                    height={24}
+                                    className={shownPassword == false ? styles.eyeoff : styles.eye}
+                                    onClick={() => setShownPassword(false)}
+                                />
                             </div>
-                            <div className={styles.rememberAndForgot}>
+                        </div>
+                        <div className={styles.rememberAndForgot}>
                                 <div className={styles.remember}>
                                     <input type="checkbox" className={styles.cbox}/> <label for="rememberMe">Remember me</label>
                                 </div>
                                 <label className={styles.forgot}>Forgot password?</label>
+                        </div>
+                        {loading ? (
+                        <Spinner />
+                        ) : (
+                            <div className={styles.signInBtnWrapper}>
+                                <button
+                                    onClick={handleSubmit} className={styles.signInBtn}
+                                >
+                                    Sign in
+                                </button>
                             </div>
-                            {loading ? (
-                            <Spinner />
-                            ) : (
-                            <button
-                                onClick={handleSubmit} className={styles.signInBtn}
-                            >
-                                Sign in
-                            </button>
                         )}
-                            <label className={styles.or}>Or</label>
-                            <div className={styles.btnGglWrapper}>
+                        <label id={styles.or}>Or</label>
+                        <div className={styles.btnGglWrapper}>
                                 <button type='submit' className={styles.signInBtnGgl}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sign in with Google</button>
                                 <Image 
                                 src={'/login/Google.svg'}
@@ -119,16 +124,15 @@ const Login = () => {
                                 height={24}
                                 className={styles.google}
                                 />
-                            </div>
-                            <div className={styles.register}>
+                        </div>
+                        <div className={styles.register}>
                                 <p>Don't have an account? &nbsp;</p>
                                 <Link href='' className={styles.forgot}>Register</Link>
-                            </div>
                         </div>
-                        
+                    {error && <p className={styles.error}>{error}</p>}
                     </section>
                 )}
-                {error && <p className={styles.error}>{error}</p>}
+                
                 {token && (
                     <button
                         onClick={() => {

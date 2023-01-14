@@ -1,0 +1,31 @@
+{
+    "products": [
+    {
+        "id": "1",
+        "name": "Bilar swedish candy",
+        "short_descritpion": "Chewy sweets, 125g",
+        "picture": "/productPics/BilarSwedishCandy.svg",
+        "long_description": "BIG DESCRIPTION",
+        "price": "4,50€"
+    },
+    {
+        "id": "2",
+        "name": "Maynard wine gums",
+        "short_descritpion": "Chewy sweets, 195g",
+        "picture": "/productPics/MaynardWineGums.svg",
+        "long_description": "BIG DESCRIPTION",
+        "price": "7,50€"
+    },
+    {
+        "id": "3",
+        "name": "Bassett's Murray Mints",
+        "short_descritpion": "Mints, 193g",
+        "picture": "/productPics/BassetsMurrayMints.svg",
+        "long_description": "BIG DESCRIPTION",
+        "price": "7,50€"
+    }
+
+   
+
+    ]
+}
