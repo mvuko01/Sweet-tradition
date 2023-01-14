@@ -1,0 +1,124 @@
+.mainWrapper p {
+    font-family: Montserrat, sans-serif;
+    line-height: 1.5rem;
+    letter-spacing: 0.1rem;
+}
+.mainWrapper {
+    margin-left: 3.75rem;
+}
+.title {
+    font-weight: 700;
+    font-size: 1.563rem;
+    color: #624CAB;
+    margin: 3.438rem 0 2.188rem 0;
+}
+.adviceTitle {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #918282;
+    margin-bottom: 2.188rem;
+}
+.advice {
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: #918282;
+    margin-bottom: 0.1rem;
+}
+.heading {
+    background: #FFFFFF;
+    border: 1px solid #F06C9B;
+    color: #918282;
+    width: calc(100vw - 7.5rem);
+    height: 4.625rem;
+    outline: none;
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.1rem;
+    margin: 2.188rem 0;
+    padding-left: 1.5rem;
+}
+.uploadWrapper {
+    width: 82.563rem;
+    height: 21.75rem;
+    background-color: #f06c9a50;
+    color: #918282;
+    border: dashed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100vw - 7.5rem);
+    margin-bottom: 2.188rem;
+}
+.titleText {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #918282;
+    margin-bottom: 0.75rem;
+}
+.textMainWrapper {
+    width: calc(100vw - 7.5rem);
+    height: 36.188rem;
+    background: #FFFFFF;
+    border: 1px solid #F06C9B;
+    margin-bottom: 2.5rem;
+}
+.textEditWrapper {
+    width: calc(100vw - 7.6rem);
+    height: 4.313rem;
+    background: #FFFFFF;
+    border-bottom: 1px solid #F06C9B;
+    display:flex;
+    align-items: center;
+    padding-left: 1rem;
+}
+.editIcon {
+    cursor: pointer;
+    margin: 0 0.6rem;
+    width: 1.875rem;
+    height: 1.875rem;
+}
+.writeText {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #918282;
+    padding-left: 1.8rem;
+    padding-top: 1.8rem;
+    border-color: transparent;
+    width: calc(100vw - 7.6rem);
+    height: calc(36.188rem - 4.5rem);
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.1rem;
+    outline: none;
+}
+.writeText::placeholder {
+    position:absolute;
+}
+.publish {
+    width: 30rem;
+    height: 2.5rem;
+    background-color: #F06C9B;
+    border-radius: 0.938rem;
+    outline: none;
+    color:white;
+    font-family: Montserrat, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    border-color: transparent;
+    margin-bottom: 3.438rem;
+}
+.publish:hover {
+    opacity: 0.7;
+}
+.btnWrapper {
+    display: flex;
+    justify-content: center;
+    margin-right: 3.75rem;
+}
