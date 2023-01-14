@@ -2,7 +2,8 @@
 id: "7"
 title: "THE HISTORY OF CHOCOLATE: A JOURNEY FROM BEAN TO BAR AT YOUR LOCAL CHOCOLATE SHOP"
 author: "Enzo Addams"
-picture: "/blogpics/history.svg"
+picture: "/blogpics/choco.svg"
+pictureB: "/blogpics/chocoB.svg"
 date: "29/12/2022"
 cta: |
     Experience the sweet journey of chocolate and taste a delicious variety of chocolate bars your local chocolate shop has to offer! Explore the history of chocolate and savor the flavors of the past.

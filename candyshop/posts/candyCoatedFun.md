@@ -2,7 +2,8 @@
 id: "6"
 title: "CANDY-COATED FUN: IDEAS FOR CREATIVE AND DELICIOUS DESSERTS"
 author: "Mary Morris"
-picture: "/blogpics/candycoated.svg"
+picture: "/blogpics/candyc.svg"
+pictureB: "/blogpics/candycB.svg"
 date: "28/11/2022"
 cta: |
     If you're looking for a tasty way to make dessert time more fun, look no further! Try out these creative and delicious candy-coated ideas for a sweet treat that's sure to delight. Get creative in the kitchen and make your own candy-coated desserts today!

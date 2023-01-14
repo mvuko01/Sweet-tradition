@@ -2,7 +2,8 @@
 id: "9"
 title: "COOKIE IDEAS FOR KIDS"
 author: "Maria Clarkson"
-picture: "/blogpics/kidscookies.svg"
+picture: "/blogpics/kids.svg"
+pictureB: "/blogpics/kidsB.svg"
 date: "11/11/2022"
 cta: |
     Try these fun and creative cookie ideas for your kids! Get creative in the kitchen and let their imaginations run wild with these delicious ideas. Let your kids pick their favorite cookie and get baking!

@@ -12,7 +12,7 @@ const exampleContent = ({frontmatter, slug, content}) => {
         <Header />
         <Image
             className={styles.banner}
-            src={frontmatter.picture}
+            src={frontmatter.pictureB}
             alt="post image"
             width={800}
             height={300}

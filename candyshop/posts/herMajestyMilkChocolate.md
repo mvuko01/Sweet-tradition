@@ -3,6 +3,7 @@ id: "5"
 title: "HER MAJESTY - MILK CHOCOLATE"
 author: "John McCalister"
 picture: "/blogpics/majestymilk.svg"
+pictureB: "/blogpics/majestymilkB.svg"
 date: "20/12/2022"
 cta: |
     Try this delicious milk chocolate today! Indulge in a moment of pure bliss with our creamy and smooth milk chocolate. Enjoy the sweet, decadent flavor and treat yourself to a something special. Get yours now!

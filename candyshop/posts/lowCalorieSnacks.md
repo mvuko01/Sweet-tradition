@@ -2,7 +2,8 @@
 id: "3"
 title: "LOW-CALORIE SNACKS"
 author: "Mary Jackson"
-picture: "/blogpics/cookies.svg"
+picture: "/blogpics/lowCalorie.svg"
+pictureB: "/blogpics/lowCalorieB.svg"
 date: "29/12/2022"
 cta: |
     Enjoy wide selection of low-calorie sweets for guilt-free indulgence. Read this blog and find out which of them are in the 
