@@ -1,4 +1,4 @@
-import styles from '../styles/Login.module.css'
+import styles from '../styles/Register.module.css'
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
@@ -57,7 +57,7 @@ const Register = () => {
                             className={styles.banner}
                             />
             <section className={styles.content} id={styles.registerSection}>
-                <h1 className={styles.registerTitle}>
+                <h1 className={styles.title}>
                     {token ? 'You are logged in!' : 'Get Started!'}
                 </h1>
                 {!token && (
@@ -99,28 +99,40 @@ const Register = () => {
                                 placeholder="Enter your password again"
                                 onChange={(e) => setConfirmPassword(e.target.value)}
                             />
-                            <div className={styles.rememberAndForgotRegister}>
-                                <div className={styles.remember}>
-                                    <input type="checkbox" className={styles.cbox}/> <label for="rememberMe">Remember me</label>
-                                </div>
-                                <label className={styles.forgot}>Forgot password?</label>
-                            </div>
-                            {loading ? (
-                            <Spinner />
-                            ) : (
-                            <button
-                                onClick={handleSubmit} className={styles.signInBtn}
-                            >
-                                Sign in
-                            </button>
-                        )}
-                            <label className={styles.or}>Or</label>
-                            <button type='submit' className={styles.signInBtnGgl}>Sign in with Google</button>
-                            <div className={styles.register}>
-                                <p>Don&#39;t have an account? &nbsp;</p>
-                                <Link href='' className={styles.forgot}>Register</Link>
-                            </div>
                         </div>
+                        <div className={styles.rememberAndForgot}>
+                            <div className={styles.remember}>
+                                <input type="checkbox" className={styles.cbox}/> <label for="rememberMe">Remember me</label>
+                            </div>
+                            <label className={styles.forgot}>Forgot password?</label>
+                        </div>
+                        {loading ? (
+                        <Spinner />
+                        ) : (
+                            <div className={styles.signInBtnWrapper}>
+                                <button
+                                    onClick={handleSubmit} className={styles.signInBtn}
+                                >
+                                    Sign in
+                                </button>
+                            </div>
+                        )}
+                        <label id={styles.or}>Or</label>
+                        <div className={styles.btnGglWrapper}>
+                                <button type='submit' className={styles.signInBtnGgl}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sign in with Google</button>
+                                <Image 
+                                src={'/login/Google.svg'}
+                                alt="Google logo"
+                                width={24}
+                                height={24}
+                                className={styles.google}
+                                />
+                        </div>
+                        <div className={styles.register}>
+                            <p>Already have an account? &nbsp;</p>
+                            <Link href='/login' className={styles.forgot}>Sign in</Link>
+                        </div>
+                        
                         
                     </section>
                 )}
