@@ -4,7 +4,7 @@
     justify-content: column;
 }
 .banner {
-    width: 58vw;
+    width: 50vw;
     height: calc(100vh - 124px);
 }
 #registerSection {
