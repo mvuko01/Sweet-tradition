@@ -236,7 +236,7 @@
     font-size: 2rem;
 }
 
-@media screen and(max-device-width: 1500px){
+@media screen and (max-device-width: 1650px){
 
     .mainWrapper{
         justify-content: flex-end;
