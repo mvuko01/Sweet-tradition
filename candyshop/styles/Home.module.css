@@ -110,7 +110,7 @@
 .featuringHeading {
   font-family: Montserrat, sans-serif;
   font-style: normal;
-  font-size: 3.5vw;
+  font-size: 3.5rem;
   color: #7F2982;
   text-align: center;
   letter-spacing: 0.1em;
@@ -135,19 +135,19 @@
 
 .mainProductCard{
   flex: 0 0 auto;
-  /*width: 435px;
-  height: 560px;*/
-  width: 22.656vw;
-  height: 29.167vw;
+  width: 440px;
+  height: 560px;
+  /*width: 22.656vw;
+  height: 29.167vw;*/
   
 }
 
 .productCard{
   flex: 0 0 auto;
-  /*width: 340px;
-  height: 440px;*/
-  width: 17.708vw;
-  height: 22.917vw;
+  width: 340px;
+  height: 440px;
+  /*width: 17.708vw;
+  height: 22.917vw;*/
   
 }
 
