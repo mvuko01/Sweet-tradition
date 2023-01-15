@@ -20,11 +20,11 @@ const FeaturingCandy = ({products}) => {
                         />
                     </button>
                     <div className={styles.productContainer}>
-                        {products.map((product, index) => {
-                            if(index !== 1)                       
-                                return <SideProductCard  name={product.name} short_description={product.short_description} picture={product.picture} price={product.price} id={product.id} />
+                        {products.slice(0,3).map((product) => { 
+                            if(product.frontmatter.id !== "1")                       
+                                return <SideProductCard key={product.frontmatter.id} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id} />
                             else
-                               return <MainProductCard  name={product.name} short_description={product.short_description} picture={product.picture} price={product.price} id={product.id} />
+                               return <MainProductCard key={product.frontmatter.id} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id} />
                         })}
                         
 

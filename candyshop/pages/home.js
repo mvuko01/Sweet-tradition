@@ -14,7 +14,7 @@ import matter from 'gray-matter'
 
 const Hello = (props) => {
     const blogPosts = props.posts;
-    const products = props.featuringProductObjectData.products;
+    const products = props.products;
     return (
         <>
             <Header />
@@ -35,10 +35,9 @@ const Hello = (props) => {
     );
 };
 
-import fsPromises from 'fs/promises';
+
 import fs from 'fs'
 import path from 'path'
-import { PHASE_PRODUCTION_SERVER } from 'next/dist/shared/lib/constants';
 
 export async function getStaticProps() {
 
@@ -59,15 +58,28 @@ export async function getStaticProps() {
     }
   })
 
-  const featuringProductFilePath = path.join(process.cwd(), '/constants/featuringProducts.json');
-  const featuringProductJsonData = await fsPromises.readFile(featuringProductFilePath);
-  const featuringProductObjectData = JSON.parse(featuringProductJsonData);
+  //Get files from the posts dir
+  const productFiles = fs.readdirSync(path.join('products'))
+
+  //Get slug and frontmatter from posts
+  const products = productFiles.map(filename => {
+    //Create slug
+    const slug = filename.replace('.md', '')
+
+    //Get frontmatter
+    const markdownWithMeta = fs.readFileSync(path.join('products', filename), 'utf-8')
+    const {data:frontmatter} = matter(markdownWithMeta)
+    return {
+      slug,
+      frontmatter
+    }
+  })
 
   return {
     
     props: {
       posts: posts,
-      featuringProductObjectData
+      products: products,
     }
   }
 }
