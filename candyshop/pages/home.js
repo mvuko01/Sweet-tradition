@@ -14,7 +14,7 @@ import matter from 'gray-matter'
 
 const Hello = (props) => {
     const blogPosts = props.posts;
-    const products = props.objectData1.products;
+    const products = props.featuringProductObjectData.products;
     return (
         <>
             <Header />
@@ -59,15 +59,15 @@ export async function getStaticProps() {
     }
   })
 
-  const filePath1 = path.join(process.cwd(), '/constants/featuringProducts.json');
-  const jsonData1 = await fsPromises.readFile(filePath1);
-  const objectData1 = JSON.parse(jsonData1);
+  const featuringProductFilePath = path.join(process.cwd(), '/constants/featuringProducts.json');
+  const featuringProductJsonData = await fsPromises.readFile(featuringProductFilePath);
+  const featuringProductObjectData = JSON.parse(featuringProductJsonData);
 
   return {
     
     props: {
       posts: posts,
-      objectData1
+      featuringProductObjectData
     }
   }
 }
