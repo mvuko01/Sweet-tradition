@@ -14,13 +14,13 @@ const FirstBanner = () => {
                     className={styles.firstBannnerImage}
                 />
                 <div className={styles.textFirstBanner}>
-                    <h1 className={styles.shop}>
+                    <div className={styles.shop}>
                         <div className={styles.shopAtWrapper}>
-                        SHOP AT
-                            <h1 className={styles.sweet}>SWEET</h1>
+                            <p className={styles.shopAt}>SHOP AT</p>
+                            <p className={styles.sweet}>SWEET</p>
                         </div>
                             <h1>TRADITION!</h1>
-                    </h1>
+                    </div>
                     <p className={styles.treat}>TREAT YOURSELF TO SWEETNESS</p>
                     <Link href="/candy">
                     <button type='button'>BUY NOW</button>

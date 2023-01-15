@@ -112,6 +112,7 @@
 .sweet {
   padding-left: 1rem;
   font-weight: 900;
+  font-size: 3.5rem;
 }
 .textFirstBanner {
   font-family: Montserrat, sans-serif;
@@ -120,6 +121,9 @@
   top: 16.438rem;
   left: 1.5rem;
   margin: 2rem 2rem;
+}
+.textFirstBanner p.shopAt {
+  font-size: 3.5rem;
 }
 .textFirstBanner h1 {
   font-size: 3.5rem;
