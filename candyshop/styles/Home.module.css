@@ -208,6 +208,15 @@
   
 }
 
+.listProductCard{
+  flex: 0 0 auto;
+  width: 282px;
+  height: 363px;
+  /*width: 17.708vw;
+  height: 22.917vw;*/
+  
+}
+
 .productUpper{
   position: relative;
   width: 100%;

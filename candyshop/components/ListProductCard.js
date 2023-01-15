@@ -7,7 +7,7 @@ import Link from 'next/link';
 const SideProductCard = ({ name, short_description, picture, price, id }) => {
     return (
         <>
-            <div className={styles.productCard}>
+            <div className={styles.listProductCard}>
                 <div className={styles.productUpper}>
                     <button className={styles.buttonFavourite}>
                         <Image
