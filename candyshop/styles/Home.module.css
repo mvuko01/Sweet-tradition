@@ -421,25 +421,48 @@
 /* story banner */
 .storyBannerWrapper {
   position: relative;
-
-  
+}
+.textWrapper {
+  position: absolute;
+  top: 4rem;
+  left: 30rem;
+}
+.storyBannerWrapper p {
+  color: #F06C9B;
+  font-family: Montserrat, sans-serif;
+  font-size: 3.5rem;
+  font-weight: 500;
+  line-height: 3.69rem;
+}
+.storyBannerWrapper p.bulk {
+  font-weight: 700;
+}
+.storyBannerWrapper p.stock {
+  font-size: 1.25rem;
 }
 .storyBanner {
-  height: auto;
+  object-fit: cover;
   width: 100%;
+}
+p.chocolates {
+  font-weight: 700;
+}
+.chocoAndMore {
+  display: flex;
+  flex-direction: row;
 }
 .buttonStoryBanner {
   color: white;
   background-color: #F06C9B;
-  font-size: 0.9vw;
+  font-size: 1rem;
   font-family: Montserrat, sans-serif;
   font-weight: bold;
   border-radius: 0.938rem;
-  width: 10.8%;
-  height: 8%;
+  width: 12rem;
+  height: 2.5rem;
   position: absolute;
-  top: 80%;
-  left: 26%;
+  top: 19rem;
+  left: 30rem;
   cursor: pointer;
   border-color: transparent;
 }
