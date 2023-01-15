@@ -5,24 +5,40 @@ import Image from 'next/image';
 import styles from '../../styles/Blogs.module.css'
 import Blog from '../../components/Blog';
 import MainBlog from '../../components/MainBlog';
-import fsPromises from 'fs/promises';
+import fs from 'fs'
+import matter from 'gray-matter';
 import path from 'path'
 import Link from 'next/link';
 
 export async function getStaticProps() {
-  const filePath = path.join(process.cwd(), '/constants/blogs.json');
-  const jsonData = await fsPromises.readFile(filePath);
-  const objectData = JSON.parse(jsonData);
+  //Get files from the posts dir
+  const files = fs.readdirSync(path.join('posts'))
+
+  //Get slug and frontmatter from posts
+  const posts = files.map(filename => {
+    //Create slug
+    const slug = filename.replace('.md', '')
+
+    //Get frontmatter
+    const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8')
+    const {data:frontmatter} = matter(markdownWithMeta)
+    return {
+      slug,
+      frontmatter
+    }
+  })
 
   return {
-    props: objectData
+    props: {
+        posts: posts
+      }
   }
 }
 const Blogs = (props) => {
     const indexOfFirstBlog = 0;
     const numberOfBlogsPerPage = 4;
     const [page, setPage] = useState(indexOfFirstBlog);
-    const posts  = props.blogs;
+    const blogPosts  = props.posts;
     
     return (
         <>
@@ -36,12 +52,12 @@ const Blogs = (props) => {
             />
             <Link href="/blog/addNewBlog"><button type="button" className={styles.addNewBtn} id={styles.firstBtn}>ADD NEW BLOG</button></Link>
             <div className={styles.contentWrapper}>
-                    {posts.slice(page, page + 1).map((el) => (
-                        <MainBlog key={el.id} {...el} />
+                    {blogPosts.slice(page, page + 1).map((post) => (
+                        <MainBlog key={post.frontmatter.id} post={post} />
                     ))}
                     <div className={styles.miniBlogsWrapper}>
-                        {posts.slice(page + 1, page + numberOfBlogsPerPage).map((el) => (
-                            <Blog key={el.id} {...el} />
+                        {blogPosts.slice(page + 1, page + numberOfBlogsPerPage).map((post) => (
+                            <Blog key={post.frontmatter.id} post={post} />
                         ))}
                     </div>
                 </div>

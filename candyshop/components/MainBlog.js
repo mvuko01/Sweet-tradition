@@ -2,22 +2,22 @@ import Image from 'next/image';
 import styles from '../styles/Blogs.module.css'
 import Link from 'next/link';
 
-const MainBlog = ({ title, cta_text, picture, id }) => {
+const MainBlog = ({ post }) => {
     return (
             <>
             <div className={styles.mainBlogWrapper}>
-                <Link href={`../blog/${id}`} className={styles.mainLink}>
+                <Link href={`../blog/${post.slug}`} className={styles.mainLink}>
                 <Image
                 className={styles.mainPic}
                 width={405}
                 height={440}
-                src={picture}
+                src={post.frontmatter.picture}
                 alt="profile image"
             />
             <div className={styles.mainBlogContentWrapper}>
-                <p className={styles.mainTitle}>{title}</p>
+                <p className={styles.mainTitle}>{post.frontmatter.title}</p>
                 <div className={styles.textBtnWrapper}>
-                <p className={styles.ctaText}>{cta_text}</p>
+                <p className={styles.ctaText}>{post.frontmatter.cta}</p>
                 <button type="button">READ MORE</button>
             </div>
                 </div>

@@ -3,13 +3,21 @@ import styles from '../styles/Home.module.css'
 
 const FirstBanner = () => {
     return (
-        <Image
-                src={'/cta banner (3).svg'}
-                alt="Banner"
-                width={1800}
-                height={526}
-                className={styles.firstBannnerImage}
-            />
+        <>
+        <div className={styles.firstBannerWrapper}>
+            <Image
+                    src={'/banner image.svg'}
+                    alt="Banner"
+                    width={1}
+                    height={1}
+                    className={styles.firstBannnerImage}
+                />
+                <div className={styles.textFirstBanner}>
+                    <h1>Shop at SWEET TRADITION!</h1>
+                    <p>TREAT YOURSELF TO SWEETNESS</p>
+                </div>
+        </div>
+        </>
     );
 };
 

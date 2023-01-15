@@ -7,7 +7,7 @@ const FeaturingCandy = () => {
     return (
         <>
             <section className={styles.product}>
-                <h1 className={styles.featuringHeading}>WHAT'S TRENDING</h1>
+                <h1 className={styles.featuringHeading}>WHAT&#39;S TRENDING</h1>
 
                 <div className={styles.productAndArrowContainter}>
                     <button className={styles.buttonPrevious}>
