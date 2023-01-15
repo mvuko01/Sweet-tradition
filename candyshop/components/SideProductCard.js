@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 
 const SideProductCard = ({ name, short_description, picture, price, id }) => {
+    console.log(short_description);
     return (
         <>
             <div className={styles.productCard}>
@@ -12,22 +13,24 @@ const SideProductCard = ({ name, short_description, picture, price, id }) => {
                     <button className={styles.buttonFavourite}>
                         <Image
                             src={'/productPics/EmptyHeart.svg'}
+                            alt=""
                             width={100}
                             height={100}
                             className={styles.imageFavourite}
                         />
                     </button>
                     <Image
-                        src={'/productPics/MaynardWineGums.svg'}
+                        src={picture}
+                        alt=""
                         width={100}
                         height={100}
                         className={styles.imageProduct}
                     />
                 </div>
                 <div className={styles.productInfo}>
-                    <p className={styles.productDescription}>Chewy sweets, 195g</p>
-                    <h2 className={styles.productName}>Maynard wine gums</h2>
-                    <span className={styles.productPrice}>7,50€</span>
+                    <p className={styles.productDescription}>{short_description}</p>
+                    <h2 className={styles.productName}>{name}</h2>
+                    <span className={styles.productPrice}>{price}</span>
                     <button className={styles.buttonCart}>
                         <Image
                             src={'/productPics/Add to cart.svg'}

@@ -1,0 +1,57 @@
+.productContainer{
+    height:700px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;  
+    margin: auto 144px; 
+}
+
+
+.mainPictureContainer{
+    display:flex;
+    flex-direction: row;
+}
+
+
+.buttonPrevious, .buttonNext{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 3;
+    
+  
+    border:none;
+    /*width:5.208vw;
+    height:5.208vw;*/
+    width: 50px;
+    height: 50px;
+  
+  
+    background-color: transparent;
+  
+    cursor: pointer;
+}
+  
+.buttonNext{
+    transform: rotate(180deg);
+  
+}
+  
+.imageArrow{
+    opacity: 0.6;
+    width: 100%;
+    height: 100%;
+  
+}
+  
+.imageArrow:hover{
+    opacity: 1;
+}
+
+.otherPictureContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 25px;
+}

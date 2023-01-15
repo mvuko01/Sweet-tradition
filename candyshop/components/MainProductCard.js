@@ -18,16 +18,16 @@ const MainProductCard = ({ name, short_description, picture, price, id }) => {
                         />
                     </button>
                     <Image
-                        src={'/productPics/BilarSwedishCandy.svg'}
+                        src={picture}
                         width={100}
                         height={100}
                         className = {styles.imageProduct}
                     />
                 </div>
                 <div className={styles.productInfo}>
-                    <p className={styles.mainProductDescription}>Chewy sweets, 125g</p>
-                    <h2 className={styles.mainProductName}>Bilar swedish candy</h2>
-                    <span className={styles.mainProductPrice}>2,50€</span>
+                    <p className={styles.mainProductDescription}>{short_description}</p>
+                    <h2 className={styles.mainProductName}>{name}</h2>
+                    <span className={styles.mainProductPrice}>{price}</span>
                     <button className={styles.buttonCart}>
                         <Image
                             src={'/productPics/Add to cart.svg'}

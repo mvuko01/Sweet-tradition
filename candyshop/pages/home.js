@@ -14,11 +14,13 @@ import matter from 'gray-matter'
 
 const Hello = (props) => {
     const blogPosts = props.posts;
+    const products = props.featuringProductObjectData.products;
     return (
         <>
             <Header />
             <FirstBanner />
-            <FeaturingCandy />
+            <FeaturingCandy products={products}/>
+            
             <StoryBanner />
             <AboutUs />
             <h1 className={styles.blogsHeading}>BLOGS</h1>
@@ -36,6 +38,7 @@ const Hello = (props) => {
 import fsPromises from 'fs/promises';
 import fs from 'fs'
 import path from 'path'
+import { PHASE_PRODUCTION_SERVER } from 'next/dist/shared/lib/constants';
 
 export async function getStaticProps() {
 
@@ -56,15 +59,15 @@ export async function getStaticProps() {
     }
   })
 
-  const filePath1 = path.join(process.cwd(), '/constants/products.json');
-  const jsonData1 = await fsPromises.readFile(filePath1);
-  const objectData1 = JSON.parse(jsonData1);
+  const featuringProductFilePath = path.join(process.cwd(), '/constants/featuringProducts.json');
+  const featuringProductJsonData = await fsPromises.readFile(featuringProductFilePath);
+  const featuringProductObjectData = JSON.parse(featuringProductJsonData);
 
   return {
     
     props: {
       posts: posts,
-      objectData1
+      featuringProductObjectData
     }
   }
 }
