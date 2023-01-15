@@ -136,6 +136,9 @@ const oneCandy = () => {
                             className={styles.imageArrow}
                         />
                     </button>
+                    <div className={styles.reccomendProductContainer}>
+
+                    </div>
                     <button className={styles.buttonNext}>
                         <Image
                             src={'/productPics/Arrow.svg'}
