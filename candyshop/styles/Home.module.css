@@ -148,6 +148,7 @@
   align-items: center;
   justify-content: space-evenly;
   overflow: auto;
+  gap: 5rem;
   
 }
 
@@ -352,18 +353,23 @@
   opacity: 0.8;
 }
 
-.buttonPrevious,
-.buttonNext{
+.buttonPrevious, .buttonNext{
   position: absolute;
   top: 0;
   bottom: 0;
   margin: auto;
+  z-index: 3;
+  
 
   border:none;
-  width:5.208vw;
-  height:5.208vw;
+  /*width:5.208vw;
+  height:5.208vw;*/
+  width: 75px;
+  height: 75px;
 
-  background: transparent;
+
+  background-color: white;
+
   cursor: pointer;
 }
 
@@ -377,6 +383,7 @@
   opacity: 0.6;
   width: 100%;
   height: 100%;
+
 }
 
 .imageArrow:hover{

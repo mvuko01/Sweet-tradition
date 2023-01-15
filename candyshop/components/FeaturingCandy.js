@@ -3,7 +3,7 @@ import styles from '../styles/Home.module.css'
 import MainProductCard from './MainProductCard';
 import SideProductCard from './SideProductCard';
 
-const FeaturingCandy = () => {
+const FeaturingCandy = ({products}) => {
     return (
         <>
             <section className={styles.product}>
@@ -20,11 +20,13 @@ const FeaturingCandy = () => {
                         />
                     </button>
                     <div className={styles.productContainer}>
-                        <SideProductCard />
-                        <MainProductCard />
-                        <SideProductCard />
-                    
-
+                        {products.map((product, index) => {
+                            if(index !== 1)                       
+                                return <SideProductCard  name={product.name} short_description={product.short_description} picture={product.picture} price={product.price} id={product.id} />
+                            else
+                               return <MainProductCard  name={product.name} short_description={product.short_description} picture={product.picture} price={product.price} id={product.id} />
+                        })}
+                        
 
                     </div>
                     <button className={styles.buttonNext}>
