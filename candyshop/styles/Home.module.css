@@ -598,15 +598,15 @@ p.chocolates {
   background-color: #7F2982;
   width: auto;
   height: 26.25vw;
-  padding-top: 3.5%;
-  padding-left: 3.5%;
-  padding-right: 3.5%;
+  padding-top: 5rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
   padding-bottom: 0;
 } 
 .footer p {
   font-family: Montserrat, sans-serif;
   color: rgba(255, 255, 255, 0.6);
-  font-size: 1vw;
+  font-size: 1.2rem;
   margin: 1.25vw;
   cursor: pointer;
 }

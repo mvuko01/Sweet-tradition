@@ -44,7 +44,7 @@ const Blogs = (props) => {
         <>
             <Header />
             <Image
-                width={1600}
+                width={1900}
                 height={381}
                 src="/blogpics/banner.svg"
                 alt="profile image"
