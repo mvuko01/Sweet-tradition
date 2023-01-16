@@ -6,7 +6,7 @@ import {useState} from 'react';
 
 
 
-const oneCandy = () => {
+const OneCandy = () => {
     let [count, setCount] = useState(0);
 
     function incrementCount() {
@@ -156,4 +156,4 @@ const oneCandy = () => {
     );
 };
 
-export default oneCandy;
+export default OneCandy;

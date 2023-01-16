@@ -1,8 +1,5 @@
 import Image from 'next/image';
 import styles from '../styles/Home.module.css'
-import Link from 'next/link';
-
-
 
 const SideProductCard = ({ name, short_description, picture, price, id }) => {
     return (
@@ -36,6 +33,7 @@ const SideProductCard = ({ name, short_description, picture, price, id }) => {
                             width={100}
                             height={100}
                             className={styles.imageCart}
+                            alt="Add to card"
                         />
                     </button>
                 </div>
