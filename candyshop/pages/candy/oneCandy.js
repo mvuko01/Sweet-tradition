@@ -1,12 +1,18 @@
 import Header from '../../components/Header';
+import ListProductCard from '../../components/ListProductCard';
 import Footer from '../../components/Footer'
 import styles from '../../styles/Candy.module.css'
 import Image from 'next/image'
 import {useState} from 'react';
 
+import matter from 'gray-matter';
 
 
-const OneCandy = () => {
+
+const OneCandy = (props) => {
+    const products = props.products;
+
+
     let [count, setCount] = useState(0);
 
     function incrementCount() {
@@ -55,7 +61,7 @@ const OneCandy = () => {
                                 height={100}
                                 className={styles.imageArrow}
                             />
-                        </button>  
+                        </button> 
                     </div>
 
                     <div className={styles.otherPictureContainer}>
@@ -127,7 +133,7 @@ const OneCandy = () => {
                     </div>
                 </div>
                 <div className={styles.recommendProductContainerAndArrows}>
-                    <button className={styles.buttonPrevious}>
+                    {/*<button className={styles.buttonPrevious}>
                         <Image
                             src={'/productPics/Arrow.svg'}
                             alt=""
@@ -135,11 +141,19 @@ const OneCandy = () => {
                             height={100}
                             className={styles.imageArrow}
                         />
-                    </button>
+                    </button>*/}
                     <div className={styles.reccomendProductContainer}>
+                    
+                    {/*products.slice(1,4).map((product) => (
+                        <ListProductCard key={product.frontmatter.id} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id}/>
+                    ))*/}
+                    <ListProductCard/>
+                    <ListProductCard/>
+                    <ListProductCard/>
+                    <ListProductCard/>
 
                     </div>
-                    <button className={styles.buttonNext}>
+                    {/*<button className={styles.buttonNext}>
                         <Image
                             src={'/productPics/Arrow.svg'}
                             alt=""
@@ -147,7 +161,7 @@ const OneCandy = () => {
                             height={100}
                             className={styles.imageArrow}
                         />
-                    </button>
+                    </button>*/}
                 </div>
 
             </div>
@@ -155,5 +169,35 @@ const OneCandy = () => {
         </>
     );
 };
+
+import fs from 'fs'
+import path from 'path'
+
+export async function getStaticProps() {
+
+
+  //Get files from the posts dir
+  const productFiles = fs.readdirSync(path.join('products'))
+
+  //Get slug and frontmatter from posts
+    const products = productFiles.map(filename => {
+        const slug = filename.replace('.md', '')
+
+    //Get frontmatter
+        const markdownWithMeta = fs.readFileSync(path.join('products', filename), 'utf-8')
+        const {data:frontmatter} = matter(markdownWithMeta)
+    return {
+      slug,
+      frontmatter
+    }
+  })
+
+  return {
+    
+    props: {
+      products: products,
+    }
+  }
+}
 
 export default OneCandy;

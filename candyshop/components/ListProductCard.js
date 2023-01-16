@@ -27,9 +27,9 @@ const SideProductCard = ({ name, short_description, picture, price, id }) => {
                     />
                 </div>
                 <div className={styles.productInfo}>
-                    <p className={styles.productDescription}>{short_description}</p>
-                    <h2 className={styles.productName}>{name}</h2>
-                    <span className={styles.productPrice}>{price}</span>
+                    <p className={styles.listProductDescription}>{short_description}</p>
+                    <h2 className={styles.listProductName}>{name}</h2>
+                    <span className={styles.listProductPrice}>{price}</span>
                     <button className={styles.buttonCart}>
                         <Image
                             src={'/productPics/Add to cart.svg'}
