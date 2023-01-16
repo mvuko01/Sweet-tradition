@@ -1,6 +1,6 @@
 ---
 id: "13"
-name: "Jacob's Mikado"
+name: "Opal"
 picture: ""
 price: "5€"
 category: "Liquorice"

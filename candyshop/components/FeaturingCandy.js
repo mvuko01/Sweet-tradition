@@ -5,10 +5,14 @@ import SideProductCard from './SideProductCard';
 import React, { useState } from 'react';
 
 const FeaturingCandy = ({products}) => {
-    console.log(products.length)
-    const centralIndex = 1;
-    const nextPicture = 1;
-    const [pic, setPic] = useState(centralIndex);
+    const [prev, setPrev] = useState(0);
+    const [pic, setPic] = useState(1);
+    const [next, setNext] = useState(2);
+    function multipleStates(pr, pi, ne) {
+        setPrev(pr)
+        setPic(pi)
+        setNext(ne)
+    }
     return (
         <>
             <section className={styles.product}>
@@ -22,23 +26,25 @@ const FeaturingCandy = ({products}) => {
                             width={100}
                             height={100}
                             className={styles.imageArrow}
-                            onClick={() => pic == 1 ? setPic(products.length - 2) : setPic(pic - nextPicture)}
+                            onClick={() =>{ if(prev == 0)
+                                                return multipleStates(products.length - 1, 0, 1)
+                                             if(prev == (products.length - 1))
+                                                return multipleStates(products.length - 2,products.length - 1, 0)
+                                            if(prev == (products.length - 2))
+                                                return multipleStates(products.length - 3, products.length - 2, products.length - 1)
+                                            else
+                                                return multipleStates(prev - 1, pic - 1, next - 1)
+                            }}
                         />
                     </button>
                     <div className={styles.productContainer}>
-                        {/* {products.slice(0,3).map((product) => { 
-                            if(product.frontmatter.id !== "1")                       
-                                return <SideProductCard key={product.frontmatter.id} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id} />
-                            else
-                               return <MainProductCard key={product.frontmatter.id} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id} />
-                        })} */}
-                            {products.slice(pic - 1, pic).map((product) => (
+                            {products.slice(prev, prev + 1).map((product) => (
                         <SideProductCard key={product.frontmatter.id} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id} />
                     ))}
                         {products.slice(pic, pic + 1).map((product) => (
                             <MainProductCard key={product.frontmatter.id} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id} />
                         ))}
-                        {products.slice(pic + 1, pic + 2).map((product) => (
+                        {products.slice(next, next + 1).map((product) => (
                         <SideProductCard key={product.frontmatter.id} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id} />
                     ))}
                     </div>
@@ -49,7 +55,15 @@ const FeaturingCandy = ({products}) => {
                             width={100}
                             height={100}
                             className={styles.imageArrow}
-                            onClick={() => pic <= products.length ? setPic(pic + nextPicture) : setPic(0)}
+                            onClick={() =>{ if(next == (products.length - 1))
+                                                return multipleStates(prev + 1, pic + 1, 0)
+                                            if(next == 0)
+                                                return multipleStates(products.length - 1, 0, 1)
+                                            if(next == 1)
+                                                return multipleStates(0, 1, 2)
+                                            else
+                                                return multipleStates(prev + 1, pic + 1, next + 1)
+                                            }}
                         />
                     </button>
                 </div>
