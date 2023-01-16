@@ -5,7 +5,6 @@ import Link from 'next/link';
 
 
 const SideProductCard = ({ name, short_description, picture, price, id }) => {
-    console.log(short_description);
     return (
         <>
             <div className={styles.productCard}>
