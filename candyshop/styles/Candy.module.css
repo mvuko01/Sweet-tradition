@@ -1,9 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 .productContainer{
-    height:700px;
+    height: 530px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;  
     margin: auto 144px; 
+    margin-top: 100px;
+    gap: 80px;
+    
 }
 
 
@@ -12,11 +19,14 @@
     flex-direction: row;
 }
 
+.mainPictureWrapper{
+    width: 390px;
+    height: 440px;
+}
+
 
 .buttonPrevious, .buttonNext{
-    position: absolute;
-    top: 0;
-    bottom: 0;
+    
     margin: auto;
     z-index: 3;
     
@@ -54,4 +64,206 @@
     flex-direction: row;
     justify-content: center;
     gap: 25px;
+
 }
+
+.sidePicture{
+    width: 88px;
+    height: 88px;
+}
+
+
+.sideImageProduct{
+    width: 100%;
+    height: 100%;
+}
+
+.sideImageProduct:hover{
+    width: 110%;
+    height: 110%;
+}
+
+/*INFORMACIJE*/
+.productInfoContainer{
+    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.productName{
+    font-family: Montserrat;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 44px;
+    margin-top: 1.3rem;
+    text-align: left;
+}
+.productShortDescription{
+    font-family: Montserrat;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 15px;
+    text-align: left;
+    color: rgba(127, 41, 130, 0.8);
+    margin-bottom: 2rem;
+}
+
+.productLongDescription{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 26px;
+    color: #68707D;
+}
+
+.productPrice{
+  font-family: 'Montserrat';
+  font-style: sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  font-size: 1.875rem;
+
+  margin-top: 1.5rem;
+
+  color: #624CAB;
+}
+
+.incrementQuantity{
+    display: flex;
+    width: 155px;
+    height:65px;
+    background: #e6eaf89d;
+    border-radius: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btnChangeQuantity{
+    background: transparent;
+    border: none;
+    height: 100%;
+    width: 40px;
+
+    font-size: 1.5rem;
+    color:#F06C9B;
+    font-weight: 800;
+    font-family: 'Inter';
+    font-style: sans-serif;
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+.btnChangeQuantity:hover{
+    background-color: #e6eaf8;
+
+}
+
+.quantityText{
+    font-weight: bold;
+    font-family: 'Montserrat';
+    font-size: 1rem;
+    font-style: normal;
+    color: #68707D;
+}
+
+
+.addToCartbtn {
+    color: white;
+    background-color: #624CAB;
+    font-family: Montserrat, sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 15px;
+    width: 220px;
+    height: 55px;
+    cursor: pointer;
+    border-color: transparent;
+}
+
+
+.addAndFavouriteContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 45px;
+}
+
+.addToCartbtn:hover{
+    opacity: 0.85;
+}
+
+.buttonFavourite{
+    background: transparent;
+    width: 40px;
+    height: 40px;
+    border:none;
+    z-index: 1;
+    cursor: pointer;
+}
+  
+  
+.imageFavourite{
+    width: 100%;
+    height: 100%;
+}
+  
+.imageFavourite:hover{
+    width: 110%;
+    height: 110%;
+}
+
+/*RECOMEND AREA*/
+.recommendContainer{
+  height: 530px;
+  width: 100%;
+}
+
+.titleAndBackgroundContainer{
+    position: relative;
+}
+.backgroundWrapperLeft, .backgroundWrapperRight{
+    width: 170px;
+    height:344px;
+    position:absolute;
+    top: -80px;
+}
+
+.backgroundWrapperLeft{
+    transform: rotate(60deg);
+    left: 2.5rem;
+}
+
+.backgroundWrapperRight{
+    right: 2.5rem;
+   transform: rotate(-60deg);
+
+}
+
+.reccommendTitle{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 30px;
+    line-height: 37px;
+    color: #7F2982;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.recommendProductContainerAndArrows{
+    padding-top: 90px;
+}
+
+.reccomendProductContainer{
+    display: flex;
+    height: auto;
+    align-items: center;
+    justify-content: space-evenly;
+    overflow: auto;
+    gap: 5rem;
+}
+/*RECOMEND AREA - END*/
