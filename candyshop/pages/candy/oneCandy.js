@@ -143,14 +143,14 @@ const OneCandy = (props) => {
                         />
                     </button>*/}
                     <div className={styles.reccomendProductContainer}>
-                    
-                    {/*products.slice(1,4).map((product) => (
+                    {
+                    products.slice(0,4).map((product) => (
                         <ListProductCard key={product.frontmatter.id} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id}/>
-                    ))*/}
+                    ))}
+                    {/* <ListProductCard/>
                     <ListProductCard/>
                     <ListProductCard/>
-                    <ListProductCard/>
-                    <ListProductCard/>
+                    <ListProductCard/> */}
 
                     </div>
                     {/*<button className={styles.buttonNext}>

@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 
 
-const SideProductCard = ({ name, short_description, picture, price, id }) => {
+const ListProductCard = ({ name, short_description, picture, price, id }) => {
     return (
         <>
             <div className={styles.listProductCard}>
@@ -44,4 +44,4 @@ const SideProductCard = ({ name, short_description, picture, price, id }) => {
     );
 };
 
-export default SideProductCard;
+export default ListProductCard;
