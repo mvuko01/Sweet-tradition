@@ -102,6 +102,7 @@ const OneCandy = (props) => {
                         <button className={styles.buttonFavourite}>
                             <Image
                                 src={'/productPics/EmptyHeart.svg'}
+                                alt="Empty heart"
                                 width={100}
                                 height={100}
                                 className={styles.imageFavourite}
