@@ -6,7 +6,7 @@ import Image from 'next/image'
 import {marked} from 'marked';
 
 
-const exampleContent = ({frontmatter, slug, content}) => {
+const exampleContent = ({frontmatter, someId, content}) => {
     return (
         <>
         <Header />

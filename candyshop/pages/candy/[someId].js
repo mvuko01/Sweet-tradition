@@ -3,15 +3,14 @@ import ListProductCard from '../../components/ListProductCard';
 import Footer from '../../components/Footer'
 import styles from '../../styles/Candy.module.css'
 import Image from 'next/image'
-import {useState} from 'react';
+import {use, useState} from 'react';
 
 import matter from 'gray-matter';
+import {marked} from 'marked';
 
 
 
-const OneCandy = (props) => {
-    const products = props.products;
-
+const OneCandy = ({frontmatter, someId, content, products}) => {
 
     let [count, setCount] = useState(0);
 
@@ -27,6 +26,13 @@ const OneCandy = (props) => {
         else
             setCount(count - 1);
     }
+
+    // const [categoryCounter, setCategoryCounter] = useState(0);
+    // function sameCategory(counter) {
+    //     setPrev(pr)
+    //     setPic(pi)
+    //     setNext(ne)
+    // }
 
 
     return (
@@ -46,7 +52,7 @@ const OneCandy = (props) => {
                         </button>
                         <div className={styles.mainPictureWrapper}>
                             <Image
-                                src={'/productPics/MaynardWineGums.svg'}
+                                src={frontmatter.picture}
                                 alt=""
                                 width={390}
                                 height={440}
@@ -67,7 +73,7 @@ const OneCandy = (props) => {
                     <div className={styles.otherPictureContainer}>
                         <div className={styles.sidePicture}>
                             <Image
-                                src={'/productPics/MaynardWineGums.svg'}
+                                src={frontmatter.picture}
                                 alt=""
                                 width={88}
                                 height={88}
@@ -76,7 +82,7 @@ const OneCandy = (props) => {
                         </div>
                         <div className={styles.sidePicture}>
                             <Image
-                                src={'/productPics/MaynardWineGums.svg'}
+                                src={frontmatter.picture}
                                 alt=""
                                 width={88}
                                 height={88}
@@ -86,12 +92,10 @@ const OneCandy = (props) => {
                     </div>
                 </div>
                 <div className={styles.productInfoContainer}>
-                    <h1 className={styles.productName}>Bilar original chewy candy</h1>
-                    <h2 className={styles.productShortDescription}>Chewy Sweets, 125g</h2>
-                    <div className={styles.productLongDescription}> Ahlgrens Bilar Original – fruit flavoured sweets 125g: fruit flavoured chewy marshmallow cars.
-                            One of the most popular sweets in Sweden…and Sweden’s most bought car!
-                            One Lot = One Bag x 125 g (4,41oz)</div>
-                    <h2 className={styles.productPrice}>4,50€</h2>
+                    <h1 className={styles.productName}>{frontmatter.name}</h1>
+                    <h2 className={styles.productShortDescription}>{`${frontmatter.category}, ${frontmatter.quantity}`}</h2>
+                    <div dangerouslySetInnerHTML={{__html: marked(content)}} className={styles.productLongDescription}></div>
+                    <h2 className={styles.productPrice}>{frontmatter.price}</h2>
                     <div className={styles.incrementQuantity}>
                         <button className={styles.btnChangeQuantity} onClick={decrementCount}>-</button>
                         <div className={styles.quantityText}>{count}</div>
@@ -144,15 +148,12 @@ const OneCandy = (props) => {
                         />
                     </button>*/}
                     <div className={styles.reccomendProductContainer}>
-                    {
-                    products.slice(0,4).map((product) => (
-                        <ListProductCard key={product.frontmatter.id} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id}/>
-                    ))}
-                    {/* <ListProductCard/>
-                    <ListProductCard/>
-                    <ListProductCard/>
-                    <ListProductCard/> */}
-
+                        {
+                           products.filter(product => product.frontmatter.category === frontmatter.category && product.frontmatter.name !== frontmatter.name)
+                           .slice(0,4).map(filteredProduct => (
+                            <ListProductCard key={filteredProduct.frontmatter.id} name={filteredProduct.frontmatter.name} short_description={`${filteredProduct.frontmatter.category}, ${filteredProduct.frontmatter.quantity}`} picture={filteredProduct.frontmatter.picture} price={filteredProduct.frontmatter.price} id={filteredProduct.frontmatter.id}/>
+                          ))
+                        }
                     </div>
                     {/*<button className={styles.buttonNext}>
                         <Image
@@ -174,13 +175,33 @@ const OneCandy = (props) => {
 import fs from 'fs'
 import path from 'path'
 
-export async function getStaticProps() {
+
+export async function getStaticPaths() {
+    const files = fs.readdirSync(path.join('products'))
+
+    const paths = files.map(filename => ({
+        params: {
+            someId: filename.replace('.md', '')
+        }
+    }))
+
+    return {
+        paths,
+        fallback: false
+    }
+}
+
+export async function getStaticProps({ params: { someId } }) {
 
 
-  //Get files from the posts dir
-  const productFiles = fs.readdirSync(path.join('products'))
+    const markdownWithMeta = fs.readFileSync(path.join('products', someId + '.md'), 'utf-8')
 
-  //Get slug and frontmatter from posts
+    const {data: frontmatter, content} = matter(markdownWithMeta)
+
+    //Get files from the posts dir
+    const productFiles = fs.readdirSync(path.join('products'))
+
+    //Get slug and frontmatter from posts
     const products = productFiles.map(filename => {
         const slug = filename.replace('.md', '')
 
@@ -192,13 +213,15 @@ export async function getStaticProps() {
       frontmatter
     }
   })
-
-  return {
-    
-    props: {
-      products: products,
-    }
-  }
+   
+    return {
+        props: {
+            frontmatter,
+            someId,
+            content,
+            products
+        },
+    };
 }
 
 export default OneCandy;
