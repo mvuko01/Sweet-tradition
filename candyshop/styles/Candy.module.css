@@ -357,6 +357,20 @@
         
         
     }
+
+    .backgroundWrapperLeft, .backgroundWrapperRight{
+        top: -30px;
+        width: 110px;
+        height: 200px;
+    }
+
+    .productName{
+        font-size: 1.875rem;
+    }
+
+    .productShortDescription{
+        font-size: 21px;
+    }
 }
 
 
