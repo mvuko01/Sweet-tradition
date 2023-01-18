@@ -189,7 +189,6 @@
 }
 
 
-
 .buttonPrevious, .buttonNext{
   position: absolute;
   top: 0;
@@ -199,8 +198,7 @@
   
 
   border:none;
-  /*width:5.208vw;
-  height:5.208vw;*/
+  
   width: 75px;
   height: 75px;
 

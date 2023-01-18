@@ -8,6 +8,7 @@ import AboutUs from '../components/AboutUs';
 import styles from '../styles/Home.module.css'
 import { navigationItems } from '../constants/navbar';
 import Link from 'next/link';
+import Header2 from '../components/Header2';
 
 import matter from 'gray-matter'
 
@@ -17,7 +18,7 @@ const Hello = (props) => {
     const products = props.products;
     return (
         <>
-            <Header />
+            <Header2 />
             <FirstBanner />
             <FeaturingCandy products={products}/>
             

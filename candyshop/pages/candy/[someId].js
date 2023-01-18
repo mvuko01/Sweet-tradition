@@ -71,7 +71,7 @@ const OneCandy = ({frontmatter, someId, content, products}) => {
                     </div>
 
                     <div className={styles.otherPictureContainer}>
-                        <div className={styles.sidePicture}>
+                        <div className={styles.sidePictureWrapper}>
                             <Image
                                 src={frontmatter.picture}
                                 alt=""
@@ -80,7 +80,7 @@ const OneCandy = ({frontmatter, someId, content, products}) => {
                                 className={styles.sideImageProduct}
                             />
                         </div>
-                        <div className={styles.sidePicture}>
+                        <div className={styles.sidePictureWrapper}>
                             <Image
                                 src={frontmatter.picture}
                                 alt=""
