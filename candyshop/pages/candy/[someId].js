@@ -92,7 +92,18 @@ const OneCandy = ({frontmatter, someId, content, products}) => {
                     </div>
                 </div>
                 <div className={styles.productInfoContainer}>
-                    <h1 className={styles.productName}>{frontmatter.name}</h1>
+                    <div className={styles.nameAndCountryContainer}>
+                        <h1 className={styles.productName}>{frontmatter.name}</h1>
+                        <div className={styles.countryPictureWrapper}>
+                            <Image
+                                src={'/countries/sweden.svg'}
+                                alt=""
+                                width={55}
+                                height={55}
+                                className={styles.countryImage}
+                            />
+                        </div>
+                    </div>
                     <h2 className={styles.productShortDescription}>{`${frontmatter.category}, ${frontmatter.quantity}`}</h2>
                     <div dangerouslySetInnerHTML={{__html: marked(content)}} className={styles.productLongDescription}></div>
                     <h2 className={styles.productPrice}>{frontmatter.price}</h2>
