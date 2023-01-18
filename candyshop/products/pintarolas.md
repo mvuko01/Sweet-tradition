@@ -7,4 +7,4 @@ category: "Chocolates"
 quantity: "22g"
 country: "Portugal"
 ---
-Contains milk, almonds, hazelnuts and soya. May contain peanuts, other nuts and gluten.
+Contains milk, almonds, hazelnuts and soya. <br>May contain peanuts, other nuts and gluten.

@@ -7,4 +7,4 @@ category: "Liquorice"
 quantity: "240g"
 country: "Finland"
 ---
-A classic salty Finnish licorice treat - Halva's Salmiaki Ruutu Salt Licorice. Salty licorice eaters will love the salmiak taste and nostalgic diamond shape.
+A classic salty Finnish liquorice treat - Halva's Salmiaki Ruutu Salt Licorice. Salty liquorice eaters will love the salmiak taste and nostalgic diamond shape.
