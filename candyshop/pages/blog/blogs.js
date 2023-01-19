@@ -9,6 +9,7 @@ import fs from 'fs'
 import matter from 'gray-matter';
 import path from 'path'
 import Link from 'next/link';
+import Header2 from '../../components/Header2';
 
 export async function getStaticProps() {
   //Get files from the posts dir
@@ -42,7 +43,7 @@ const Blogs = (props) => {
     
     return (
         <>
-            <Header />
+            <Header2 />
             <Image
                 width={1900}
                 height={381}

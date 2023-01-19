@@ -25,8 +25,9 @@ const Header2 = () => {
             <div className={styles.navbarContainer}>
                 <div className={styles.textNavigationContainer}>
                     {navigationItems.slice(0, 3).map(({ label, path }) => (
-                        <Link className={styles.textNavLinkWrapper} href={path} key={label} passHref>
-                            <p className={currentPage == path ? styles.activeTab : styles.inactiveTab}>{label}</p>
+                        <Link className={currentPage == path ? styles.textNavLinkWrapperActive : styles.textNavLinkWrapperInactive} href={path} key={label} passHref>
+                            <p className={currentPage == path ? styles.navLabelWrapperActive : styles.navLabelWrapperInactive}>{label}</p>
+                            <div className={currentPage == path ? styles.triangleSelectActive : styles.triangleSelectInactive}> </div>
                         </Link>
                     ))}
                 </div>
@@ -43,6 +44,7 @@ const Header2 = () => {
                                 className={styles.searchIcon}
                                 />
                             </div>
+                            
                         </Link>
                     </div>
                     <div className={styles.iconContainer}>

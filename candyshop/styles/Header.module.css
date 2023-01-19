@@ -42,14 +42,75 @@
     align-items: center;
 }
 
-.textNavLinkWrapper{
+.textNavLinkWrapperActive{
     display: flex;
     height:100%;
     justify-content: center;
     align-items: center;
+
+    border-bottom: solid 4px #7F2982;
+    position:relative;
 }
 
-.inactiveTab{
+.textNavLinkWrapperInactive{
+    display: flex;
+    height:100%;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+}
+
+.textNavLinkWrapperInactive:hover .triangleSelectInactive{
+    border-bottom: 8px solid #7F298299;
+    
+
+}
+.textNavLinkWrapperInactive:hover{
+    border-bottom: solid 4px #7F298299;
+
+}
+
+.triangleSelectInactive{
+    width: 0; 
+    height: 0; 
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    position:absolute;
+    bottom: 0px;
+}
+
+.triangleSelectActive{
+    width: 0; 
+    height: 0; 
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    position:absolute;
+    border-bottom: 8px solid #7F2982;
+    bottom: 0px;
+}
+
+.navLabelWrapperInactive{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 31px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #7F2982;
+}
+
+.navLabelWrapperActive{
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    color: #7F2982;
+}
+
+
+/*.inactiveTab{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
@@ -65,10 +126,9 @@
   font-style: normal;
   font-size: 26px;
   font-weight: bold;
-  text-decoration: underline;
   letter-spacing: 0.1em;
   color: #7F2982;
-}
+}*/
 
 
 .searchAndIconContainer{
