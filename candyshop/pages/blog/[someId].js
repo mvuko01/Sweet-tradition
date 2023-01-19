@@ -4,12 +4,13 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Image from 'next/image'
 import {marked} from 'marked';
+import Header2 from "../../components/Header2";
 
 
 const exampleContent = ({frontmatter, someId, content}) => {
     return (
         <>
-        <Header />
+        <Header2 />
         <Image
             className={styles.banner}
             src={frontmatter.pictureB}

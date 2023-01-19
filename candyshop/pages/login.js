@@ -1,4 +1,4 @@
-import styles from '../styles/Login2.module.css'
+import styles from '../styles/Login.module.css'
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
@@ -10,6 +10,7 @@ import useAuth from '../hooks/useAuth';
 import Link from 'next/link';
 import Header from '../components/Header';
 import Image from 'next/image'
+import Header2 from '../components/Header2';
 
 const Login = () => {
     const { removeAuth, setAuth, token } = useAuth();
@@ -44,7 +45,7 @@ const Login = () => {
 
     return (
         <>
-            <Header />
+            <Header2 />
             <div className={styles.mainWrapper}>
             <Image
                             src={'/login/loginBanner.PNG'}

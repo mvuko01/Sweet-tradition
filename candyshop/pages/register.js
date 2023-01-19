@@ -10,6 +10,7 @@ import useAuth from '../hooks/useAuth';
 import Link from 'next/link';
 import Header from '../components/Header';
 import Image from 'next/image'
+import Header2 from '../components/Header2';
 
 const Register = () => {
     const { removeAuth, setAuth, token } = useAuth();
@@ -47,7 +48,7 @@ const Register = () => {
     }
     return (
         <>
-            <Header />
+            <Header2 />
             <div className={styles.mainWrapper}>
             <Image
                             src={'/login/registerBanner.PNG'}

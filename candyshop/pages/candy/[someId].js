@@ -7,6 +7,7 @@ import {use, useState} from 'react';
 
 import matter from 'gray-matter';
 import {marked} from 'marked';
+import Header2 from '../../components/Header2';
 
 
 
@@ -37,7 +38,7 @@ const OneCandy = ({frontmatter, someId, content, products}) => {
 
     return (
         <>
-            <Header />
+            <Header2 />
             <div className={styles.productContainer}>
                 <div className={styles.pictureContainer}>
                     <div className={styles.mainPictureContainer}>

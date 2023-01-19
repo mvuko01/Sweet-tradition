@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import NotAuthorized from "../../components/NotAuthorized";
 import styles from '../../styles/NewBlog.module.css'
 import Image from 'next/image'
+import Header2 from "../../components/Header2";
 
 const AddNew = ({images}) => {
     const { token } = useAuth();
@@ -33,7 +34,7 @@ const AddNew = ({images}) => {
     }
     return (
         <>
-        <Header />
+        <Header2 />
         <div className={styles.mainWrapper}>
         <p className={styles.title} >Add new Blog</p>
         <p className={styles.adviceTitle}>ADVICE FROM OUR TEAM</p>
