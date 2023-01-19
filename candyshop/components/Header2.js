@@ -12,7 +12,7 @@ const Header2 = () => {
 
     return (
         <header className={styles.headerContainer}>
-            <div className={styles.logoWrapper}>
+            <Link className={styles.logoWrapper} href={"/home"} passHref>
                 <Image
                     src={'/headerlogo.svg'}
                     alt="Logo"
@@ -20,7 +20,8 @@ const Header2 = () => {
                     height={80}
                     className={styles.logoImage}
                 />
-            </div>
+            </Link>
+            
             
             <div className={styles.navbarContainer}>
                 <div className={styles.textNavigationContainer}>
@@ -39,8 +40,8 @@ const Header2 = () => {
                                 <Image
                                 src={'/search.svg'}
                                 alt="Search"
-                                width={40}
-                                height={40}
+                                width={35}
+                                height={35}
                                 className={styles.searchIcon}
                                 />
                             </div>
@@ -49,14 +50,14 @@ const Header2 = () => {
                     </div>
                     <div className={styles.iconContainer}>
                         {navigationItems.slice(4,7).map(({ label, path }) => (
-                            <Link href={path} key={label} passHref>
+                            <Link className={styles.iconLinkWrapper} href={path} key={label} passHref>
                                 <Image
-                                        src={`${path}.svg`}
-                                        alt={label}
-                                        width={40}
-                                        height={40}
-                                        className={styles.icon}
-                                        />
+                                    src={`${path}.svg`}
+                                    alt={label}
+                                    width={40}
+                                    height={40}
+                                    className={styles.icon}
+                                />
                             </Link>
                         ))}
                     </div>
