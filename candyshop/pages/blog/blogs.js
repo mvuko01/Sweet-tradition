@@ -63,26 +63,26 @@ const Blogs = (props) => {
                     </div>
                 </div>
                     <div className={styles.pageWrapper}>
-                    <Image
-                    id={styles.arrow}
-                    width={196}
-                    height={220}
-                    src="/blogpics/Arrow 2.svg"
-                    alt="next page arrow"
-                    onClick={() => page > 0 ? setPage(page - numberOfBlogsPerPage) : setPage(0)}
-            />
-                    <div className={styles.pageNum} id={page == indexOfFirstBlog ? styles.currentPage : styles.notCurrentPage} onClick={() => setPage(indexOfFirstBlog)}>1</div>
-                    <div className={styles.pageNum} id={page == (indexOfFirstBlog + numberOfBlogsPerPage) ? styles.currentPage : styles.notCurrentPage} onClick={() => setPage(indexOfFirstBlog + numberOfBlogsPerPage)}>2</div>
-                    <div className={styles.pageNum} id={page == (indexOfFirstBlog + numberOfBlogsPerPage * 2) ? styles.currentPage : styles.notCurrentPage} onClick={() => setPage(indexOfFirstBlog + numberOfBlogsPerPage * 2)}>3</div>
-                    <Image
-                    id={styles.arrow}
-                    width={196}
-                    height={220}
-                    src="/blogpics/Arrow 1.svg"
-                    alt="next page arrow"
-                    onClick={() => page == (indexOfFirstBlog + numberOfBlogsPerPage * 2) ? setPage(indexOfFirstBlog + numberOfBlogsPerPage * 2) : setPage(page + numberOfBlogsPerPage)}
-            />
-                </div>
+                        <Image
+                            id={styles.arrow}
+                            width={196}
+                            height={220}
+                            src="/blogpics/Arrow 2.svg"
+                            alt="next page arrow"
+                            onClick={() => page > 0 ? setPage(page - numberOfBlogsPerPage) : setPage(0)}
+                        />
+                        <div className={styles.pageNum} id={page == indexOfFirstBlog ? styles.currentPage : styles.notCurrentPage} onClick={() => setPage(indexOfFirstBlog)}>1</div>
+                        <div className={styles.pageNum} id={page == (indexOfFirstBlog + numberOfBlogsPerPage) ? styles.currentPage : styles.notCurrentPage} onClick={() => setPage(indexOfFirstBlog + numberOfBlogsPerPage)}>2</div>
+                        <div className={styles.pageNum} id={page == (indexOfFirstBlog + numberOfBlogsPerPage * 2) ? styles.currentPage : styles.notCurrentPage} onClick={() => setPage(indexOfFirstBlog + numberOfBlogsPerPage * 2)}>3</div>
+                        <Image
+                            id={styles.arrow}
+                            width={196}
+                            height={220}
+                            src="/blogpics/Arrow 1.svg"
+                            alt="next page arrow"
+                            onClick={() => page == (indexOfFirstBlog + numberOfBlogsPerPage * 2) ? setPage(indexOfFirstBlog + numberOfBlogsPerPage * 2) : setPage(page + numberOfBlogsPerPage)}
+                        />
+                    </div>
             <Footer />
         </>
     );
