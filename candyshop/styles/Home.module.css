@@ -318,18 +318,70 @@ p.chocolates {
 .blogsHeading {
   font-family: Montserrat, sans-serif;
   font-style: normal;
-  font-size: 3.5vw;
+  font-size: 3.5rem;
   color: #7F2982;
   text-align: center;
   letter-spacing: 0.1em;
   margin: 3rem;
 }
-.blogsWrapper {
+.allBlogsWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 3rem;
+}
+.linkWrapper {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 3rem;
+  width: 81%;
+}
+.linkWrapper:hover {
+  transform: scale(1.03);
+}
+.miniBlogContentWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: Montserrat, sans-serif;
+  margin-left: 1.5rem;
+}
+.title {
+  color: #624CAB;
+  font-weight:bolder;
+  font-style: normal;
+  font-size: 1.8rem;
+}
+.ctaText {
+  color: #908282;
+  font-size: 1.4rem;
+}
+.readMoreBlogs {
   display: flex;
   justify-content: center;
-  margin: 0 1.3rem;
 }
-.miniBlogWrapper {
+.blogPics {
+  object-fit: cover;
+  min-width: 325px;
+  border-radius: 0.313rem;
+}
+.buttonBlogs {
+  color: white;
+  background-color: #F06C9B;
+  font-size: 1rem;
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+  border-radius: 0.938rem;
+  width: 12vw;
+  height: 3.5vw;
+  margin: 3rem;
+  cursor: pointer;
+  border-color: transparent;
+}
+.buttonBlogs:hover {
+  opacity: 0.7;
+}
+/* .miniBlogWrapper {
   display: flex;
   align-items:flex-start;
   margin-bottom: 2.5rem;
@@ -389,7 +441,7 @@ p.chocolates {
 }
 .link:hover {
   transform: scale(1.03);
-}
+} */
 /* footer */
 .footerLogo {
   width: 100%;
@@ -493,10 +545,26 @@ p.copyright {
     flex-direction: column-reverse;
     margin-top: 3rem;
   }
+
+  /*blog section mobile */
+  .linkWrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .blogPics {
+    width: 495px;
+  }
+  .miniBlogContentWrapper {
+    width: 495px;
+    margin-left: 0;
+    margin-top: 1rem;
+    gap: 1.5rem;
+  }
     
 }
 
 @media screen and (max-width: 600px) {
+  /*about us mobile*/
   .image1{
     width: 300px;
     height: 250px;
@@ -509,12 +577,24 @@ p.copyright {
     width: 300px;
     font-size: 1.2rem;
   }
+
+  /*blog section mobile */
+  .blogPics {
+    max-width: 300px;
+    min-width: auto;
+  }
+  .miniBlogContentWrapper {
+    width: 300px;
+    margin-left: 0;
+    margin-top: 1rem;
+    gap: 1rem;
+  }
+  .title {
+    font-size: 1.6rem;
+  }
+  .ctaText {
+    font-size: 1.2rem;
+  }
   
 }
 
-@media screen and (max-width: 860px){
-  /*blog section mobile */
-  .blogPics {
-    width: 28%;
-  }
-}

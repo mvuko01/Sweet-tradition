@@ -22,7 +22,7 @@ const FirstBanner = () => {
                             <h1>TRADITION!</h1>
                     </div>
                     <p className={styles.treat}>TREAT YOURSELF TO SWEETNESS</p>
-                    <Link href="/candy">
+                    <Link href="/candy/candy">
                     <button type='button'>BUY NOW</button>
                     </Link>
                 </div>

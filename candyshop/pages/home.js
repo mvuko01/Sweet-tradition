@@ -9,6 +9,7 @@ import styles from '../styles/Home.module.css'
 import { navigationItems } from '../constants/navbar';
 import Link from 'next/link';
 import Header2 from '../components/Header2';
+import { useRouter } from 'next/router';
 
 import matter from 'gray-matter'
 
@@ -16,6 +17,12 @@ import matter from 'gray-matter'
 const Hello = (props) => {
     const blogPosts = props.posts;
     const products = props.products;
+    const router = useRouter();
+
+    const handleButtonClick = (e) => {
+      e.preventDefault();
+      router.push(navigationItems.at(2).path);
+    }
     return (
         <>
             <Header2 />
@@ -25,12 +32,14 @@ const Hello = (props) => {
             <StoryBanner />
             <AboutUs />
             <h1 className={styles.blogsHeading}>BLOGS</h1>
-            {blogPosts.slice(6,9).map((post) => (
-              <BlogSection key={post.frontmatter.id} post={post} />
-            ))}
-            <Link href={navigationItems.at(2).path} key={navigationItems.at(2).label} passHref>
-                    <button type="button" className={styles.buttonBlogs}>READ MORE BLOGS</button>
-                </Link>  
+            <div className={styles.allBlogsWrapper}>
+              {blogPosts.slice(6,9).map((post) => (
+                <BlogSection key={post.frontmatter.id} post={post} />
+              ))}
+            </div>
+            <div href={navigationItems.at(2).path} key={navigationItems.at(2).label} passHref className={styles.readMoreBlogs}>
+                    <button type="button" className={styles.buttonBlogs} onClick={handleButtonClick}>READ MORE BLOGS</button>
+            </div>  
             <Footer />
         </>
     );
