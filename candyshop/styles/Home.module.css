@@ -280,44 +280,39 @@ p.chocolates {
   opacity: 0.7;
 }
 /* about us */
-.AUWrapper {
-  display: flex;
-  flex-direction: column;
-  margin: 5rem 4rem;
-}
 .AUHeading {
   font-family: Montserrat, sans-serif;
   font-style: normal;
-  font-size: 3.5vw;
+  font-size: 3.5rem;
   color: #7F2982;
   text-align: center;
   letter-spacing: 0.1em;
+  margin: 3rem;
 }
-.image1 {
-  width: 100%;
-  height: auto;
+.mainContainter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-left: 3rem;
+  margin-right: 3rem;
 }
-.image2 {
-  width: 100%;
-  height: auto;
+.firstWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.secondWrapper {
+  display: flex;
+  flex-direction: column;
 }
 .text {
   font-family: Montserrat, sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 1.6vw;
+  font-size: 1.5rem;
+  line-height: 1.813rem;
   color: #918282;
-  margin: 1vw auto;
-  width: 100%;
-}
-.AUcontentWrapper{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.firstWrapper {
-  width: 40%;
-  margin: 2vw;
+  width: 495px;
+  margin: 1.5rem 0;
 }
 /* blog section */
 .blogsHeading {
@@ -327,7 +322,7 @@ p.chocolates {
   color: #7F2982;
   text-align: center;
   letter-spacing: 0.1em;
-  margin-bottom: 2vw;
+  margin: 3rem;
 }
 .blogsWrapper {
   display: flex;
@@ -488,20 +483,35 @@ p.copyright {
   height: auto;
 }
 
-
-@media screen and (max-width: 860px){
+@media screen and (max-width: 1200px){
   /*about us mobile*/
-  .image1 {
-    width: 90%;
-    height: 50%;
+  .mainContainter {
+    flex-direction: column;
+    align-items: center;
   }
-  .image2 {
-    width: 90%;
-    height: 50%;
+  .secondWrapper {
+    flex-direction: column-reverse;
+    margin-top: 3rem;
+  }
+    
+}
+
+@media screen and (max-width: 600px) {
+  .image1{
+    width: 300px;
+    height: 250px;
+  }
+  .image2{
+    width: 300px;
+    height: 250px;
   }
   .text {
-    width: 90%;
+    width: 300px;
   }
+  
+}
+
+@media screen and (max-width: 860px){
   /*blog section mobile */
   .blogPics {
     width: 28%;
