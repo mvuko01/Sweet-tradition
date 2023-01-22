@@ -16,6 +16,11 @@ const Login = () => {
     const { removeAuth, setAuth, token } = useAuth();
     const router = useRouter();
 
+    const [isChecked, setIsChecked] = useState(false);
+    const handleClickCheckbox = () => {
+        setIsChecked(!isChecked);
+      }
+
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
 
@@ -100,7 +105,8 @@ const Login = () => {
                         </div>
                         <div className={styles.rememberAndForgot}>
                                 <div className={styles.remember}>
-                                    <input type="checkbox" className={styles.cbox}/> <label for="rememberMe">Remember me</label>
+                                    <input type="checkbox" checked={isChecked} className={styles.cbox}/> 
+                                    <label onClick={handleClickCheckbox} for="rememberMe">Remember me</label>
                                 </div>
                                 <label className={styles.forgot}>Forgot password?</label>
                         </div>

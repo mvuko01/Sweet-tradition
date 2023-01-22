@@ -67,9 +67,64 @@
 }
 
 /*PAGE NUMBER - END*/
+.mainContainer{
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 50px;
+}
+.filterContainer{
+    display: flex;
+    flex-direction: column;
+    margin-left: 60px;
+    height: 250px;
+    justify-content: space-between;
+}
+
+.filterIconAndTextContainer{
+    display: flex;
+    gap: 27px;
+}
+
+.filterIconAndTextContainer label{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+
+    color: #F06C9B;
+}
 
 
 .filterIconWrapper{
     width: 40px;
     height: 30px;
+}
+
+.product{
+   align-self: center; 
+}
+.candyContainer{
+    margin-left: 75px;
+    width: 100%;
+    
+    /* display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap; */
+   /* display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;*/
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+}
+
+
+@media screen and (max-width: 1340px) {
+    .candyContainer { grid-template-columns: repeat(2, 1fr); }
+}
+@media screen and (max-width: 1000px) {
+    .candyContainer { grid-template-columns: repeat(1, 1fr); }
 }

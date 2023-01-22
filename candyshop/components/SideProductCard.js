@@ -1,14 +1,20 @@
 import Image from 'next/image';
 import styles from '../styles/Cards.module.css'
+import { useState } from 'react';
 
 const SideProductCard = ({ name, short_description, picture, price, id }) => {
+    const [isFavourite, setIsFavourite] = useState(false);
+
+    function handleAddToFavouriteClick(){
+        setIsFavourite(!isFavourite);
+    }
     return (
         <>
             <div className={styles.productCard}>
                 <div className={styles.productUpper}>
-                    <button className={styles.buttonFavourite}>
+                    <button  onClick={handleAddToFavouriteClick} className={styles.buttonFavourite}>
                         <Image
-                            src={'/productPics/EmptyHeart.svg'}
+                            src={isFavourite == false ? '/productPics/EmptyHeart.svg' : '/productPics/FullHeart.svg'}
                             alt=""
                             width={100}
                             height={100}

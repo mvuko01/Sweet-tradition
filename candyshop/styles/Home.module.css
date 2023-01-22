@@ -176,6 +176,7 @@
 
 .productAndArrowContainter{
   position: relative;
+
 }
 
 .productContainer{
@@ -184,7 +185,7 @@
   align-items: center;
   justify-content: space-evenly;
   overflow: auto;
-  gap: 5rem;
+  /*gap: 5rem;*/
   
 }
 
@@ -204,6 +205,7 @@
 
 
   background-color: white;
+  background-color: transparent;
 
   cursor: pointer;
 }

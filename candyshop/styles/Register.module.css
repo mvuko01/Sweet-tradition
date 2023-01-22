@@ -203,6 +203,7 @@
 .cbox {
     width: 1.1rem;
     accent-color: #7F2982;
+    cursor: pointer;
    
 }
 
@@ -212,11 +213,22 @@
     gap: 5px;
 }
 
+.remember label{
+    cursor: pointer;
+    
+}
+
+.remember label:hover{
+    opacity: 70%;
+}
+
 .forgot {
-    text-decoration: underline;
     cursor: pointer;
 }
 
+.forgot:hover { 
+    opacity: 70%; 
+}
 
 /*REMEMBER AND FORGET AREA - END*/
 
