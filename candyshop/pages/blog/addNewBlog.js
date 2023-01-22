@@ -1,5 +1,4 @@
 import Footer from "../../components/Footer";
-import Header from "../../components/Header";
 import useAuth from "../../hooks/useAuth";
 import api from "../../api";
 import { useEffect, useState } from 'react';

@@ -1,4 +1,3 @@
-import Header from '../../components/Header';
 import Footer from '../../components/Footer'
 import Header2 from '../../components/Header2';
 import styles from '../../styles/candies.module.css';

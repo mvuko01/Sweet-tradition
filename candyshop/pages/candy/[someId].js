@@ -1,4 +1,3 @@
-import Header from '../../components/Header';
 import ListProductCard from '../../components/ListProductCard';
 import Footer from '../../components/Footer'
 import styles from '../../styles/Candy.module.css'

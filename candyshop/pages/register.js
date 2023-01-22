@@ -8,7 +8,6 @@ import api from '../api';
 import useAuth from '../hooks/useAuth';
 
 import Link from 'next/link';
-import Header from '../components/Header';
 import Image from 'next/image'
 import Header2 from '../components/Header2';
 
