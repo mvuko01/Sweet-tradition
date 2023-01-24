@@ -14,16 +14,11 @@ import matter from 'gray-matter'
 const Candy = (props) => {
     const products = props.products;
     const sortOptions = [
-        { label: 'Price - Low to high', id: '1' },
+        { label: '€ to €€€', id: '1' },
         { label: 'Price - High to low', id: '2' },
         { label: 'Name A-Z', id: '3' },
         { label: 'Name Z-A', id: '4' },
     ];
-
-    const strDescending = [...products].sort((a, b) =>
-    a.frontmatter.name > b.frontmatter.name ? -1 : 1);
-    const numAscending = [...products].sort((a, b) => a.frontmatter.price < b.frontmatter.price ? -1 : 1);
-    const numDescending = [...products].sort((a, b) => a.frontmatter.price > b.frontmatter.price ? -1 : 1);
 
     const [isOpen, setIsOpen] = useState(false);
     const [currentSortOption, setCurrentSortOption] = useState("Sort by");
