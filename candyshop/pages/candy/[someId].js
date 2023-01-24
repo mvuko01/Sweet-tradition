@@ -12,7 +12,9 @@ import Header2 from '../../components/Header2';
 
 const OneCandy = ({frontmatter, someId, content, products}) => {
 
-    let [count, setCount] = useState(0);
+   
+
+    const [count, setCount] = useState(0);
 
     function incrementCount() {
         count = count + 1;

@@ -5,12 +5,26 @@ import Image from 'next/image';
 import blogStyle from '../../styles/Blogs.module.css';
 import ListProductCard from '../../components/ListProductCard';
 import SideProductCard from '../../components/SideProductCard';
+import { useState, useRef } from 'react';
+import React from 'react';
 
 import matter from 'gray-matter'
 
 
 const Candy = (props) => {
     const products = props.products;
+    const sortOptions = ["Low to high", "High to low", "Name A-Z", "Name Z-A"];
+
+
+    const [isOpen, setIsOpen] = useState(false);
+    const [currentSortOption, setCurrentSortOption] = useState("Sort by");
+
+
+
+    const handleSortClick = (e) =>{
+        
+    }
+
     return (
         <>
             <Header2 />
@@ -79,6 +93,21 @@ const Candy = (props) => {
                     
                 </div>
                 <div className={styles.candyContainer}>
+                    <div className={styles.dropdown} >
+                        <div className={styles.selectDropdown} onClick={() => setIsOpen(!isOpen)}>
+                            <span className={styles.selectedDropdownOption}>{currentSortOption}</span>
+                            <div className={isOpen !== true ? styles.caret : styles.caretRotate}></div>
+
+                        </div>
+                        {isOpen && 
+                            <ul className={styles.dropdownMenu}>
+                                {sortOptions.map(option => {
+                                    return <li onClick={handleSortClick}>{option}</li>
+                                })}
+                            </ul>
+                        }
+                        
+                    </div>
                     {products.slice(1,10).map((product)=>{
                        return <SideProductCard className = {styles.product}key={product.frontmatter.id} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id}/>
                     })}
