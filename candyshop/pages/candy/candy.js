@@ -13,18 +13,55 @@ import matter from 'gray-matter'
 
 const Candy = (props) => {
     const products = props.products;
-    const sortOptions = ["Low to high", "High to low", "Name A-Z", "Name Z-A"];
+    const sortOptions = [
+        { label: 'Price - Low to high', id: '1' },
+        { label: 'Price - High to low', id: '2' },
+        { label: 'Name A-Z', id: '3' },
+        { label: 'Name Z-A', id: '4' },
+    ];
 
+    const strDescending = [...products].sort((a, b) =>
+    a.frontmatter.name > b.frontmatter.name ? -1 : 1);
+    const numAscending = [...products].sort((a, b) => a.frontmatter.price < b.frontmatter.price ? -1 : 1);
+    const numDescending = [...products].sort((a, b) => a.frontmatter.price > b.frontmatter.price ? -1 : 1);
 
     const [isOpen, setIsOpen] = useState(false);
     const [currentSortOption, setCurrentSortOption] = useState("Sort by");
-
-
+    const [currentArray, setCurrentArray] = useState(products);
 
     const handleSortClick = (e) =>{
-        
-    }
+        setCurrentSortOption(e.target.innerHTML);
+        setIsOpen(false);
 
+        if(e.target.innerHTML === "Name A-Z"){
+            setCurrentArray(products => {
+                const dataToSort = [...products];
+                dataToSort.sort((a, b) => a.frontmatter.name < b.frontmatter.name ? -1 : 1);
+                return dataToSort; // <-- now sorted ascending
+            })
+        }
+        else if(e.target.innerHTML === "Price - Low to high"){
+            setCurrentArray(products => {
+                const dataToSort = [...products];
+                dataToSort.sort((a, b) => a.frontmatter.price < b.frontmatter.price ? -1 : 1); 
+                return dataToSort; // <-- now sorted ascending
+              })
+        }
+        else if(e.target.innerHTML === "Price - High to low"){
+            setCurrentArray(products => {
+                const dataToSort = [...products];
+                dataToSort.sort((a, b) => a.frontmatter.price > b.frontmatter.price ? -1 : 1); 
+                return dataToSort; // <-- now sorted descending
+              })
+        }
+        else {
+            setCurrentArray(products => {
+                const dataToSort = [...products];
+                dataToSort.sort((a, b) => a.frontmatter.name > b.frontmatter.name ? -1 : 1);
+                return dataToSort; // <-- now sorted descending
+        })
+    }
+}
     return (
         <>
             <Header2 />
@@ -102,18 +139,16 @@ const Candy = (props) => {
                         {isOpen && 
                             <ul className={styles.dropdownMenu}>
                                 {sortOptions.map(option => {
-                                    return <li onClick={handleSortClick}>{option}</li>
+                                    return <li key={option.id} onClick={handleSortClick}>{option.label}</li>
                                 })}
                             </ul>
                         }
                         
                     </div>
-                    {products.slice(1,10).map((product)=>{
+                    {currentArray.slice(1,10).map((product)=>{
                        return <SideProductCard className = {styles.product}key={product.frontmatter.id} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id}/>
                     })}
                     
-                    
-
                 </div>
             </div>
             <div className={styles.pageNumberContainer}>
