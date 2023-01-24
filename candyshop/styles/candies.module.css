@@ -204,7 +204,7 @@
 
     position: absolute;
     /*top: 3rem*/
-    width: auto;
+    width: 115%;
     /*opacity: 0;
     display:none;*/
     transition: 0.2s;

@@ -12,7 +12,11 @@ import Header2 from '../../components/Header2';
 
 const OneCandy = ({frontmatter, someId, content, products}) => {
 
-   
+    const [isFavourite, setIsFavourite] = useState(false);
+
+    function handleAddToFavouriteClick(){
+        setIsFavourite(!isFavourite);
+    }
 
     const [count, setCount] = useState(0);
 
@@ -116,9 +120,9 @@ const OneCandy = ({frontmatter, someId, content, products}) => {
                     </div>
                     <div className={styles.addAndFavouriteContainer}>
                         <button className={styles.addToCartbtn}>Add to cart</button>
-                        <button className={styles.buttonFavourite}>
+                        <button onClick={handleAddToFavouriteClick} className={styles.buttonFavourite}>
                             <Image
-                                src={'/productPics/EmptyHeart.svg'}
+                                src={isFavourite == false ? '/productPics/EmptyHeart.svg' : '/productPics/FullHeart.svg'}
                                 alt="Empty heart"
                                 width={100}
                                 height={100}
