@@ -140,8 +140,8 @@ const Candy = (props) => {
                         }
                         
                     </div>
-                    {currentArray.slice(1,10).map((product)=>{
-                       return <SideProductCard className = {styles.product}key={product.frontmatter.id} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id}/>
+                    {currentArray.slice(0,10).map((product)=>{
+                       return <SideProductCard className = {styles.product}key={product.frontmatter.id} product={product} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id}/>
                     })}
                     
                 </div>

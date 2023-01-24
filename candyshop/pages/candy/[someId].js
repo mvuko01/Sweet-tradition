@@ -17,8 +17,8 @@ const OneCandy = ({frontmatter, someId, content, products}) => {
     const [count, setCount] = useState(0);
 
     function incrementCount() {
-        count = count + 1;
-        setCount(count);
+        
+        setCount(count+1);
     }
     function decrementCount() {
         if(count-1 < 0)

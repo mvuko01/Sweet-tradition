@@ -1,8 +1,9 @@
 import Image from 'next/image';
 import styles from '../styles/Cards.module.css'
+import Link from 'next/link';
 import { useState } from 'react';
 
-const SideProductCard = ({ name, short_description, picture, price, id }) => {
+const SideProductCard = ({ name, short_description, picture, price, id, product }) => {
     const [isFavourite, setIsFavourite] = useState(false);
 
     function handleAddToFavouriteClick(){
@@ -10,7 +11,7 @@ const SideProductCard = ({ name, short_description, picture, price, id }) => {
     }
     return (
         <>
-            <div className={styles.productCard}>
+            <Link href={`../candy/${product.slug}`} className={styles.productCard}>
                 <div className={styles.productUpper}>
                     <button  onClick={handleAddToFavouriteClick} className={styles.buttonFavourite}>
                         <Image
@@ -43,7 +44,7 @@ const SideProductCard = ({ name, short_description, picture, price, id }) => {
                         />
                     </button>
                 </div>
-            </div>
+            </Link>
         </>
     );
 };
