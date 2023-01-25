@@ -168,7 +168,7 @@ const OneCandy = ({frontmatter, someId, content, products}) => {
                         {
                            products.filter(product => product.frontmatter.category === frontmatter.category && product.frontmatter.name !== frontmatter.name)
                            .slice(0,4).map(filteredProduct => (
-                            <ListProductCard key={filteredProduct.frontmatter.id}  name={filteredProduct.frontmatter.name} short_description={`${filteredProduct.frontmatter.category}, ${filteredProduct.frontmatter.quantity}`} picture={filteredProduct.frontmatter.picture} price={filteredProduct.frontmatter.price} id={filteredProduct.frontmatter.id}/>
+                            <ListProductCard key={filteredProduct.frontmatter.id}  name={filteredProduct.frontmatter.name} short_description={`${filteredProduct.frontmatter.category}, ${filteredProduct.frontmatter.quantity}`} picture={filteredProduct.frontmatter.picture} price={filteredProduct.frontmatter.price} id={filteredProduct.frontmatter.id} product={filteredProduct}/>
                           ))
                         }
                     </div>

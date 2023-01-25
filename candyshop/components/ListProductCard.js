@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 
 
-const ListProductCard = ({ name, short_description, picture, price, id }) => {
+const ListProductCard = ({ name, short_description, picture, price, id, product }) => {
     const [isFavourite, setIsFavourite] = useState(false);
 
     function handleAddToFavouriteClick(){
@@ -13,6 +13,7 @@ const ListProductCard = ({ name, short_description, picture, price, id }) => {
     }
     return (
         <>
+        <Link href={`../candy/${product.slug}`} className={styles.productCard}>
             <div className={styles.listProductCard}>
                 <div className={styles.productUpper}>
                     <button onClick={handleAddToFavouriteClick} className={styles.buttonFavourite}>
@@ -46,6 +47,7 @@ const ListProductCard = ({ name, short_description, picture, price, id }) => {
                     </button>
                 </div>
             </div>
+        </Link>
         </>
     );
 };
