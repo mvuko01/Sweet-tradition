@@ -55,35 +55,37 @@ const Footer = () => (
                 height={10}
                 className={styles.footerLine}
             />
-            <p className={styles.copyright}>Copyright @2022</p>
-            <Image
-                src={'/Facebook.svg'}
-                alt="Facebook"
-                width={26}
-                height={27}
-                className={styles.footerSocialMedia}
-            />
-            <Image
-                src={'/Twitter.svg'}
-                alt="Twitter"
-                width={26}
-                height={27}
-                className={styles.footerSocialMedia}
-            />
-            <Image
-                src={'/Instagram.svg'}
-                alt="Instagram"
-                width={26}
-                height={27}
-                className={styles.footerSocialMedia}
-            />
-            <Image
-                src={'/LinkedIn.svg'}
-                alt="LinkedIn"
-                width={26}
-                height={27}
-                className={styles.footerSocialMedia}
-            />
+            <div className={styles.socialsContainer}>
+                <p className={styles.copyright}>Copyright @2022</p>
+                <Image
+                    src={'/Facebook.svg'}
+                    alt="Facebook"
+                    width={26}
+                    height={27}
+                    className={styles.footerSocialMedia}
+                />
+                <Image
+                    src={'/Twitter.svg'}
+                    alt="Twitter"
+                    width={26}
+                    height={27}
+                    className={styles.footerSocialMedia}
+                />
+                <Image
+                    src={'/Instagram.svg'}
+                    alt="Instagram"
+                    width={26}
+                    height={27}
+                    className={styles.footerSocialMedia}
+                />
+                <Image
+                    src={'/LinkedIn.svg'}
+                    alt="LinkedIn"
+                    width={26}
+                    height={27}
+                    className={styles.footerSocialMedia}
+                />
+            </div>
             <Image
                 src={'/Line 2.svg'}
                 alt="Line 1"
