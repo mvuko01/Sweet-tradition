@@ -13,7 +13,7 @@ const ListProductCard = ({ name, short_description, picture, price, id, product 
     }
     return (
         <>
-        <Link href={`../candy/${product.slug}`} className={styles.productCard}>
+        <Link href={`../candy/${product.slug}`}>
             <div className={styles.listProductCard}>
                 <div className={styles.productUpper}>
                     <button onClick={handleAddToFavouriteClick} className={styles.buttonFavourite}>
