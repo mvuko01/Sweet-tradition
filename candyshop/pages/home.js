@@ -24,6 +24,7 @@ const Hello = (props) => {
     }
     return (
         <>
+            <title>Sweet tradition</title>
             <Header2 />
             <FirstBanner />
             <FeaturingCandy products={products}/>

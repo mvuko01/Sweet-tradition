@@ -59,6 +59,7 @@ const Candy = (props) => {
 }
     return (
         <>
+        <title>Candy Shop</title>
             <Header2 />
             <div className={styles.bannerWrapper}>
                 <Image

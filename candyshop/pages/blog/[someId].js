@@ -9,6 +9,7 @@ import Header2 from "../../components/Header2";
 const exampleContent = ({frontmatter, someId, content}) => {
     return (
         <>
+        <title>{frontmatter.title}</title>
         <Header2 />
         <Image
             className={styles.banner}

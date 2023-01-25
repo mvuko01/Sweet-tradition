@@ -33,6 +33,7 @@ const AddNew = ({images}) => {
     }
     return (
         <>
+        <title>Add new Blog</title>
         <Header2 />
         <div className={styles.mainWrapper}>
         <p className={styles.title} >Add new Blog</p>

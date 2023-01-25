@@ -49,6 +49,7 @@ const Login = () => {
 
     return (
         <>
+        <title>Login</title>
             <Header2 />
             <div className={styles.mainWrapper}>
             <Image

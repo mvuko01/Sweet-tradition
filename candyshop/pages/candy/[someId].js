@@ -43,6 +43,7 @@ const OneCandy = ({frontmatter, someId, content, products}) => {
 
     return (
         <>
+        <title>{frontmatter.name}</title>
             <Header2 />
             <div className={styles.productContainer}>
                 <div className={styles.pictureContainer}>

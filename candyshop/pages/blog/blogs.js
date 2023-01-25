@@ -42,6 +42,7 @@ const Blogs = (props) => {
     
     return (
         <>
+        <title>Blog</title>
             <Header2 />
             <Image
                 width={1900}

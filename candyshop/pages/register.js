@@ -52,6 +52,7 @@ const Register = () => {
     }
     return (
         <>
+        <title>Register</title>
             <Header2 />
             <div className={styles.mainWrapper}>
             <Image
