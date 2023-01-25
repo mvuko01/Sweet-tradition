@@ -22,21 +22,21 @@ const Footer = () => (
                 </div>
             </div>
             <div className={styles.textwrapper}>
-                <div>
+                <div className={styles.column}>
                     <p className={styles.mainp}>Company</p>
                     <p>About Us</p>
                     <p>Why Choose Us</p>
                     <p>Pricing</p>
                     <p>Testimonial</p>
                 </div>
-                <div>
+                <div className={styles.column}>
                     <p className={styles.mainp}>Resources</p>
                     <p>Privacy Policy</p>
                     <p>Terms and Condition</p>
                     <p>Blog</p>
                     <p>Contact Us</p>
                 </div>
-                <div>
+                <div className={styles.column}>
                     <p className={styles.mainp}>Product</p>
                     <p>Project Managment</p>
                     <p>Time Tracker</p>
