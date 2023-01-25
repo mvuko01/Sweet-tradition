@@ -28,7 +28,7 @@
 .newsletterContainer{
     display: flex;
     flex-direction: column;
-    width: 450px;
+    max-width: 450px;
 
     gap: 25px;
 }
@@ -153,11 +153,15 @@ p.mainp {
 
 .socialsContainer{
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    min-width: 500px;
+    justify-content: space-around;
+    min-width: 550px;
     padding: 0 1rem;
-
+}
+.allSocialsContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
 }
 
 
@@ -193,9 +197,10 @@ p.copyright {
         
         width: 100%;
 
-        justify-content: center;
         gap: 2rem;
+        justify-content: center;
     }
+    
 
 }
 
@@ -243,7 +248,60 @@ p.copyright {
     }
 
     .socialsContainer{
-        max-width: 50%;
+        max-width: auto;
+        min-width: unset;
+    }
+    .newsletterContainer{
+        align-self: center;
+    }
+
+    .footerLogo {
+        padding-left: 2rem;
+    }
+    .input {
+        border-radius: 12px;
+    }
+    p.pnews{
+        text-align: center;
+    }
+
+    .allSocialsContainer{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .socialsContainer{
+        max-width: auto;
+        min-width: unset;
+        justify-content: flex-start;
+        flex-direction: column-reverse;
+        align-items: center;
+
+    }
+
+    .footerLogo{
+        min-width: 300px;
+    }
+
+    .socialsContainer{
+        align-self: center;
+    }
+
+    .allSocialsContainer{
+        width: 110%;
+    }
+    .footerSocialMedia {
+        
+        max-width: 1.9rem;
+
+    }
+    p.copyright{
+        width: 180px;
+        font-size: 17px;
+        text-align: center;
+        padding-right: 0;
+
     }
 
 }

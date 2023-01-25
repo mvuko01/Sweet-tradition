@@ -57,6 +57,7 @@ const Footer = () => (
             />
             <div className={styles.socialsContainer}>
                 <p className={styles.copyright}>Copyright @2022</p>
+                <div className={styles.allSocialsContainer}>
                 <Image
                     src={'/Facebook.svg'}
                     alt="Facebook"
@@ -85,6 +86,7 @@ const Footer = () => (
                     height={27}
                     className={styles.footerSocialMedia}
                 />
+                </div>
             </div>
             <Image
                 src={'/Line 2.svg'}
