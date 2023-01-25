@@ -16,9 +16,9 @@ padding: 0;
     font-family: Montserrat, sans-serif;
     font-style: normal;
     font-weight: 700;
-    font-size: 3vw;
+    font-size: 2.5rem;
     color: #624CAB;
-    margin-top: 2vw;
+    margin-top: 2.3rem;
 }
 .contentWrapper {
     margin-left: 4vw;
@@ -31,12 +31,13 @@ padding: 0;
 .purple {
     color: rgba(127, 41, 130, 0.8);
     font-weight: 700;
-    font-size: 1.2vw;
+    font-size: 1.375rem;
+    font-style: italic;
 }
 .boldGray {
     color:#918282;
     font-weight: 700;
-    font-size: 1.2vw;
+    font-size: 1.375rem;
 }
 #written {
     font-style: italic;
@@ -45,12 +46,11 @@ padding: 0;
     display:flex;
     margin-top: 1vw;
     margin-bottom: 1vw;
-    width: 28vw;
 }
 .text {
     color:#918282;
     font-weight: 300;
-    font-size: 1.2vw;
-    line-height: 34px;
+    font-size: 1.5rem;
+    line-height: 2.125rem;
     letter-spacing: 1px;
 }
