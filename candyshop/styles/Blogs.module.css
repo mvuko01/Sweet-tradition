@@ -152,7 +152,9 @@
     opacity: 0.3;
     cursor: pointer;
 }
-
+.hiddenArrow {
+    visibility: hidden;
+}
 .pageWrapper {
     display: flex;
     flex-direction: row;

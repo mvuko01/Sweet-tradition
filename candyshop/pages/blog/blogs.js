@@ -65,6 +65,7 @@ const Blogs = (props) => {
                     <div className={styles.pageWrapper}>
                         <Image
                             id={styles.arrow}
+                            className={page == indexOfFirstBlog ? styles.hiddenArrow : null}
                             width={196}
                             height={220}
                             src="/blogpics/Arrow 2.svg"
@@ -76,6 +77,7 @@ const Blogs = (props) => {
                         <div className={styles.pageNum} id={page == (indexOfFirstBlog + numberOfBlogsPerPage * 2) ? styles.currentPage : styles.notCurrentPage} onClick={() => setPage(indexOfFirstBlog + numberOfBlogsPerPage * 2)}>3</div>
                         <Image
                             id={styles.arrow}
+                            className={page == (indexOfFirstBlog + numberOfBlogsPerPage * 2) ? styles.hiddenArrow : null}
                             width={196}
                             height={220}
                             src="/blogpics/Arrow 1.svg"
