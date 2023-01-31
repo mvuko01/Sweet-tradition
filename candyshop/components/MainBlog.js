@@ -6,7 +6,7 @@ const MainBlog = ({ post }) => {
     return (
             <>
             <div className={styles.mainBlogWrapper}>
-                <Link href={`../blog/${post.slug}`} className={styles.mainLink}>
+                
                 <Image
                 className={styles.mainPic}
                 width={405}
@@ -18,10 +18,11 @@ const MainBlog = ({ post }) => {
                 <p className={styles.mainTitle}>{post.frontmatter.title}</p>
                 <div className={styles.textBtnWrapper}>
                 <p className={styles.ctaText}>{post.frontmatter.cta}</p>
-                <button type="button">READ MORE</button>
+                <Link href={`../blog/${post.slug}`} className={styles.mainLink}>
+                    <button type="button">READ MORE</button>
+                </Link>
             </div>
                 </div>
-                </Link>
                 </div>
             </>
     );

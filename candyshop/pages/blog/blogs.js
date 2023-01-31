@@ -53,6 +53,7 @@ const Blogs = (props) => {
             />
             <Link href="/blog/addNewBlog"><button type="button" className={styles.addNewBtn} id={styles.firstBtn}>ADD NEW BLOG</button></Link>
             <div className={styles.contentWrapper}>
+                <div className={styles.blogWrapper}>
                     {blogPosts.slice(page, page + 1).map((post) => (
                         <MainBlog key={post.frontmatter.id} post={post} />
                     ))}
@@ -84,6 +85,7 @@ const Blogs = (props) => {
                             alt="next page arrow"
                             onClick={() => page == (indexOfFirstBlog + numberOfBlogsPerPage * 2) ? setPage(indexOfFirstBlog + numberOfBlogsPerPage * 2) : setPage(page + numberOfBlogsPerPage)}
                         />
+                    </div>
                     </div>
             <Footer />
         </>
