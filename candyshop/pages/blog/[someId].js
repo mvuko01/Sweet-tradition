@@ -5,7 +5,6 @@ import Image from 'next/image'
 import {marked} from 'marked';
 import Header2 from "../../components/Header2";
 
-
 const exampleContent = ({frontmatter, someId, content}) => {
     return (
         <>

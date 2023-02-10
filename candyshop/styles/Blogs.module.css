@@ -14,7 +14,7 @@
 .contentWrapper button {
     color: white;
     background-color: #F06C9B;
-    font-size: 0.7vw;
+    font-size: 0.7rem;
     font-family: Montserrat, sans-serif;
     font-weight: bold;
     border-radius: 0.938rem;
@@ -27,12 +27,12 @@
     opacity: 0.7;
 }
 .miniBtn {
-    width: 8vw;
-    height: 2.2vw;
+    width: 8rem;
+    height: 2.2rem;
 }
 .mainBlogWrapper button {
-    width: 8vw;
-    height: 2.2vw;
+    width: 8rem;
+    height: 2.2rem;
 }
 .textBtnWrapper {
     display: flex;
@@ -49,17 +49,17 @@
 .addNewBtn {
     color: white;
     background-color: #624CAB;
-    font-size: 0.7vw;
+    font-size: 0.7rem;
     font-family: Montserrat, sans-serif;
     font-weight: bold;
     border-radius: 0.938rem;
-    width: 9vw;
-    height: 2vw;
+    width: 9rem;
+    height: 2rem;
     cursor: pointer;
     border-color: transparent;
-    margin-left: 16vw;
-    margin-top: 2vw;
-    margin-bottom: 2vw;
+    margin-left: 14.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 .addNewBtn:hover {
     opacity: 0.7;
@@ -69,8 +69,8 @@
     height: auto;
 }
 .blogPics {
-    width: 13vw;
-    height: 13vw;
+    width: 13rem;
+    height: 13rem;
 }
 .blogWrapper {
     display: flex;
@@ -122,7 +122,8 @@
 }
 .ctaText {
     color: #908282;
-    font-size: 1.2vw;
+    font-size: 1.3rem;
+    line-height: 1.8rem;
 }
 .pageNum {
     font-family: Montserrat, sans-serif;
