@@ -15,16 +15,20 @@ const exampleContent = ({frontmatter, someId, content}) => {
             className={styles.banner}
             src={frontmatter.pictureB}
             alt="post image"
-            width={800}
-            height={300}
+            width={1900}
+            height={400}
         />
         <div className={styles.contentWrapper}>
         <p className={styles.title}>{frontmatter.title}</p>
         <div className={styles.writtenDateWrapper}>
-        <p className={styles.purple} id={styles.written}>Written by: &nbsp;</p>
-        <p className={styles.boldGray}>{frontmatter.author} &emsp; &nbsp;</p>
-        <p className={styles.purple}>Date: &nbsp;</p>
-        <p className={styles.boldGray}>{frontmatter.date}</p>
+            <div className={styles.WBandAuthor}>
+                <p className={styles.purple} id={styles.written}>Written by: &nbsp;</p>
+                <p className={styles.boldGray}>{frontmatter.author} &emsp; &nbsp;</p>
+            </div>
+            <div className={styles.date}>
+                <p className={styles.purple}>Date: &nbsp;</p>
+                <p className={styles.boldGray}>{frontmatter.date}</p>
+            </div>
         </div>
         <div dangerouslySetInnerHTML={{__html: marked(content)}} className={styles.text}></div>
         </div>
