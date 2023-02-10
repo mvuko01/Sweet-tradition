@@ -6,10 +6,11 @@
 }
 .contentWrapper {
     display: flex;
+    flex-wrap: wrap;
     font-family: Montserrat, sans-serif;
     margin-bottom: 3rem;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end
 }
 .contentWrapper button {
     color: white;
@@ -57,9 +58,9 @@
     height: 2rem;
     cursor: pointer;
     border-color: transparent;
-    margin-left: 14.5rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
+    margin-left: 14.5rem;
 }
 .addNewBtn:hover {
     opacity: 0.7;
@@ -75,8 +76,9 @@
 .blogWrapper {
     display: flex;
     gap: 4rem;
-    justify-content: center;
     margin-bottom: 3rem;
+    margin-left: 14.5rem;
+    margin-right: 14.5rem;
 }
 .mainBlogWrapper {
     display: flex;
@@ -85,7 +87,6 @@
 .miniBlogsWrapper {
     display: flex;
     flex-direction: column;
-    width: 50%;
 }
 .miniBlogWrapper {
     display: flex;
@@ -148,9 +149,6 @@
 #currentPage {
     background-color: rgba(240, 108, 155, 0.5);
 }
-#notCurrentPage {
-    
-}
 #arrow {
     background-color:white;
     width: 30px;
@@ -179,6 +177,10 @@
 }
 .miniLink {
     display: flex;
+}
+.centerOfPage {
+    display: flex;
+    flex-direction: column;
 }
 @media screen and (max-width: 768px) {
     .contentWrapper {
