@@ -5,7 +5,7 @@ import Image from 'next/image';
 import blogStyle from '../../styles/Blogs.module.css';
 import ListProductCard from '../../components/ListProductCard';
 import SideProductCard from '../../components/SideProductCard';
-import { useState, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import React from 'react';
 
 import matter from 'gray-matter'
@@ -13,17 +13,64 @@ import matter from 'gray-matter'
 
 const Candy = (props) => {
     const products = props.products;
+    
+    const sortOptions = [
+        { label: 'Price - Low to high', id: '1' },
+        { label: 'Price - High to low', id: '2' },
+        { label: 'Name A-Z', id: '3' },
+        { label: 'Name Z-A', id: '4' },
+    ];
+
+    const [isOpen, setIsOpen] = useState(false);
+    const [currentSortOption, setCurrentSortOption] = useState("Sort by");
+    const [currentArray, setCurrentArray] = useState(products);
+
     const productsPerPage = 12;
     const [currentPage, setCurrentPage] = useState(1);
+
+    useEffect(() => {
+        const sortedProducts = sortProducts(products, currentSortOption);
+        setCurrentArray(sortedProducts);
+      }, [currentSortOption, currentPage]);
+    
+    const sortProducts = (products, sortOption) => {
+        const dataToSort = [...products];
+        if(sortOption === "Name Z-A"){
+                dataToSort.sort((a, b) => a.frontmatter.name > b.frontmatter.name ? -1 : 1);
+            }
+        else if(sortOption === "Price - Low to high"){
+                dataToSort.sort((a, b) => {
+                    let priceA = Number(a.frontmatter.price.replace(",", ".").replace("€", ""));
+                    let priceB = Number(b.frontmatter.price.replace(",", ".").replace("€", ""));
+                    return priceA - priceB;
+                  });
+        }
+        else if(sortOption === "Price - High to low"){
+            dataToSort.sort((a, b) => {
+                let priceA = Number(a.frontmatter.price.replace(",", ".").replace("€", ""));
+                let priceB = Number(b.frontmatter.price.replace(",", ".").replace("€", ""));
+                return priceB - priceA;
+              }); 
+        }
+        else {
+                dataToSort.sort((a, b) => a.frontmatter.name < b.frontmatter.name ? -1 : 1);
+        }
+        return dataToSort;
+    }
+
+    const handleSortClick = (event) => {
+        setCurrentSortOption(event.target.innerHTML);
+    };
+    
     const numberOfPages = Math.ceil(products.length / productsPerPage);
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-    const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+    const currentProducts = currentArray.slice(indexOfFirstProduct, indexOfLastProduct);
 
     const handlePageChange = (newPage) => {
         setCurrentPage(newPage);
-      };
-    
+    };
+
     const pageNumbers = [];
     for (let i = 1; i <= numberOfPages; i++) {
         pageNumbers.push(i);
@@ -41,51 +88,6 @@ const Candy = (props) => {
         lastPageNumber = currentPage + 1;
     }
     const visiblePageNumbers = pageNumbers.slice(firstPageNumber, lastPageNumber + 1);
-    
-    const sortOptions = [
-        { label: 'Price - Low to high', id: '1' },
-        { label: 'Price - High to low', id: '2' },
-        { label: 'Name A-Z', id: '3' },
-        { label: 'Name Z-A', id: '4' },
-    ];
-
-    const [isOpen, setIsOpen] = useState(false);
-    const [currentSortOption, setCurrentSortOption] = useState("Sort by");
-    const [currentArray, setCurrentArray] = useState(products);
-
-    const handleSortClick = (e) =>{
-        setCurrentSortOption(e.target.innerHTML);
-        setIsOpen(false);
-
-        if(e.target.innerHTML === "Name A-Z"){
-            setCurrentArray(products => {
-                const dataToSort = [...products];
-                dataToSort.sort((a, b) => a.frontmatter.name < b.frontmatter.name ? -1 : 1);
-                return dataToSort; // <-- now sorted ascending
-            })
-        }
-        else if(e.target.innerHTML === "Price - Low to high"){
-            setCurrentArray(products => {
-                const dataToSort = [...products];
-                dataToSort.sort((a, b) => a.frontmatter.price < b.frontmatter.price ? -1 : 1); 
-                return dataToSort; // <-- now sorted ascending
-              })
-        }
-        else if(e.target.innerHTML === "Price - High to low"){
-            setCurrentArray(products => {
-                const dataToSort = [...products];
-                dataToSort.sort((a, b) => a.frontmatter.price > b.frontmatter.price ? -1 : 1); 
-                return dataToSort; // <-- now sorted descending
-              })
-        }
-        else {
-            setCurrentArray(products => {
-                const dataToSort = [...products];
-                dataToSort.sort((a, b) => a.frontmatter.name > b.frontmatter.name ? -1 : 1);
-                return dataToSort; // <-- now sorted descending
-        })
-    }
-}
     return (
         <>
         <title>Candy Shop</title>

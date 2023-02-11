@@ -1,6 +1,6 @@
 ---
 id: "8"
-name: "Fruitella Gelatine Free Koalas"
+name: "Fruitella Koalas"
 picture: ""
 price: "5€"
 category: "Cheewy sweets"
