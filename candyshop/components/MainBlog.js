@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import styles from '../styles/Blogs.module.css'
 import Link from 'next/link';
+import { limitWords } from '../helpers';
 
 const MainBlog = ({ post }) => {
     return (
             <>
             <div className={styles.mainBlogWrapper}>
-                <Link href={`../blog/${post.slug}`} className={styles.mainLink}>
+                
                 <Image
                 className={styles.mainPic}
                 width={405}
@@ -17,11 +18,12 @@ const MainBlog = ({ post }) => {
             <div className={styles.mainBlogContentWrapper}>
                 <p className={styles.mainTitle}>{post.frontmatter.title}</p>
                 <div className={styles.textBtnWrapper}>
-                <p className={styles.ctaText}>{post.frontmatter.cta}</p>
-                <button type="button">READ MORE</button>
+                <p className={styles.ctaText}>{limitWords(post.frontmatter.cta)}</p>
+                <Link href={`../blog/${post.slug}`} className={styles.mainLink}>
+                    <button type="button">READ MORE</button>
+                </Link>
             </div>
                 </div>
-                </Link>
                 </div>
             </>
     );

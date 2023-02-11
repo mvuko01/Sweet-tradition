@@ -252,6 +252,7 @@ p.chocolates {
   flex-direction: row;
   margin-bottom: 3rem;
   width: 81%;
+  transition: 0.1s;
 }
 .linkWrapper:hover {
   transform: scale(1.03);

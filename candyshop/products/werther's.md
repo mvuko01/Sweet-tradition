@@ -1,6 +1,6 @@
 ---
 id: "44"
-name: "Werther's Original Creamy Toffees"
+name: "Werther's Creamy Toffees"
 picture: ""
 price: "3,60€"
 category: "Toffees"

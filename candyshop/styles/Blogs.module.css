@@ -1,19 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+.bannerWrapper {
+    position: relative;
+}
 .banner {
-   height:auto;
+   object-fit: cover;
    max-width:100%;
-   max-height:100%;
+}
+.textOnBanner {
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 32px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #F06C9B;
+}
+.ourBlog {
+    font-weight: 700;
 }
 .contentWrapper {
     display: flex;
+    flex-wrap: wrap;
     font-family: Montserrat, sans-serif;
-    margin-bottom: 2vw;
-    justify-content: center;
+    margin-bottom: 3rem;
+    flex-direction: column;
+    justify-content: flex-end
 }
 .contentWrapper button {
     color: white;
     background-color: #F06C9B;
-    font-size: 0.7vw;
+    font-size: 0.7rem;
     font-family: Montserrat, sans-serif;
     font-weight: bold;
     border-radius: 0.938rem;
@@ -26,18 +48,18 @@
     opacity: 0.7;
 }
 .miniBtn {
-    width: 8vw;
-    height: 2.2vw;
+    width: 8rem;
+    height: 2.2rem;
 }
 .mainBlogWrapper button {
-    width: 8vw;
-    height: 2.2vw;
+    width: 8rem;
+    height: 2.2rem;
 }
 .textBtnWrapper {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     height: 100%;
+    justify-content: space-between;
 }
 .textBtnWrapperMini {
     display: flex;
@@ -48,73 +70,81 @@
 .addNewBtn {
     color: white;
     background-color: #624CAB;
-    font-size: 0.7vw;
+    font-size: 0.7rem;
     font-family: Montserrat, sans-serif;
     font-weight: bold;
     border-radius: 0.938rem;
-    width: 9vw;
-    height: 2vw;
+    width: 9rem;
+    height: 2rem;
     cursor: pointer;
     border-color: transparent;
-    margin-left: 16vw;
-    margin-top: 2vw;
-    margin-bottom: 2vw;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 14.5rem;
 }
 .addNewBtn:hover {
     opacity: 0.7;
 }
 .mainPic {
-    width: 15vw;
+    width: 20rem;
     height: auto;
 }
 .blogPics {
-    width: 13vw;
-    height: 13vw;
+    width: 13rem;
+    height: 13rem;
+}
+.blogWrapper {
+    display: flex;
+    gap: 4rem;
+    margin-bottom: 3rem;
+    margin-left: 14.5rem;
+    margin-right: 14.5rem;
 }
 .mainBlogWrapper {
     display: flex;
     flex-direction: column;
-    width: 17vw;
-    padding-bottom: 0.7vw;
 }
 .miniBlogsWrapper {
     display: flex;
     flex-direction: column;
-    width: 50%;
-    min-height: 40vw;
 }
 .miniBlogWrapper {
     display: flex;
     align-items:flex-start;
-    margin-bottom: 0.7vw;
+    margin-bottom: 3rem;
 }
 .miniBlogContentWrapper {
     display: flex;
     flex-direction: column;
-    margin-left: 0.7vw;
+    margin-left: 1rem;
+    height: 100%;
 }
 .mainBlogContentWrapper {
     display: flex;
     flex-direction: column;
+    width: 20rem;
     height: 100%;
-    width: 16vw;
+    margin-bottom: 3rem;
 }
 .title {
     color: #624CAB;
     font-weight: 400;
     font-weight: bolder;
-    font-size: 1.4vw;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 .mainTitle {
     color: #624CAB;
     font-weight: 400;
     font-weight: bolder;
-    font-size: 1.4vw;
-    padding-top: 0.5vw;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 .ctaText {
     color: #908282;
-    font-size: 1.2vw;
+    font-size: 1.3rem;
+    line-height: 1.8rem;
 }
 .pageNum {
     font-family: Montserrat, sans-serif;
@@ -139,9 +169,6 @@
 #currentPage {
     background-color: rgba(240, 108, 155, 0.5);
 }
-#notCurrentPage {
-    
-}
 #arrow {
     background-color:white;
     width: 30px;
@@ -152,7 +179,9 @@
     opacity: 0.3;
     cursor: pointer;
 }
-
+.hiddenArrow {
+    visibility: hidden;
+}
 .pageWrapper {
     display: flex;
     flex-direction: row;
@@ -165,18 +194,29 @@
 .mainLink {
     display: flex;
     flex-direction: column;
-    height: 100%;
-}
-.mainLink:hover {
-    transform: scale(1.03);
 }
 .miniLink {
     display: flex;
 }
-.miniLink:hover {
-    transform: scale(1.03);
+.centerOfPage {
+    display: flex;
+    flex-direction: column;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 950px) {
+    .banner{
+        object-position: 50%;
+    }
+}
+@media screen and (max-width: 630px) {
+    .banner{
+        object-position: 30%;
+    }
+    .textOnBanner {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+}
+/* @media screen and (max-width: 768px) {
     .contentWrapper {
         display: flex;
         flex-direction: column;
@@ -221,4 +261,4 @@
         width: 13vw;
         height: 13vw;
     }
-}
+} */

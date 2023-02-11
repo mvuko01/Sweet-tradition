@@ -1,6 +1,6 @@
 ---
 id: "5"
-name: "Rowntrees Fruit Pastilles Rolls"
+name: "Rowntrees Fruit Pastilles"
 picture: ""
 price: "2€"
 category: "Liquorice"

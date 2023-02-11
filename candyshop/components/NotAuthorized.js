@@ -1,5 +1,5 @@
 import Footer from "./Footer";
-import Header from "./Header";
+import Header from "./Header2";
 import Link from "next/link";
 import styles from '../styles/NotAuthorized.module.css'
 import Image from "next/image";

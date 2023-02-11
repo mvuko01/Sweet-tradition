@@ -1,6 +1,6 @@
 ---
 id: "7"
-name: "Barratt Candyland Refreshers"
+name: "Barratt Refreshers"
 picture: ""
 price: "2€"
 category: "Mints"
