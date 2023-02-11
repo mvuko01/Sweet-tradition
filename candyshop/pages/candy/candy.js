@@ -13,6 +13,35 @@ import matter from 'gray-matter'
 
 const Candy = (props) => {
     const products = props.products;
+    const productsPerPage = 12;
+    const [currentPage, setCurrentPage] = useState(1);
+    const numberOfPages = Math.ceil(products.length / productsPerPage);
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+
+    const handlePageChange = (newPage) => {
+        setCurrentPage(newPage);
+      };
+    
+    const pageNumbers = [];
+    for (let i = 1; i <= numberOfPages; i++) {
+        pageNumbers.push(i);
+    }
+
+    let firstPageNumber, lastPageNumber;
+    if (currentPage <= 2) {
+        firstPageNumber = 0;
+        lastPageNumber = 2;
+    } else if (currentPage >= numberOfPages - 1) {
+        firstPageNumber = numberOfPages - 3;
+        lastPageNumber = numberOfPages - 1;
+    } else {
+        firstPageNumber = currentPage - 1;
+        lastPageNumber = currentPage + 1;
+    }
+    const visiblePageNumbers = pageNumbers.slice(firstPageNumber, lastPageNumber + 1);
+    
     const sortOptions = [
         { label: 'Price - Low to high', id: '1' },
         { label: 'Price - High to low', id: '2' },
@@ -72,25 +101,36 @@ const Candy = (props) => {
             </div>
             <h1 className={styles.heading}>CANDY SHOP</h1>
                 <div className={styles.pageNumberContainer}>
-                    <Image
-                        width={196}
-                        height={220}
-                        src="/blogpics/Arrow 2.svg"
-                        alt="next page arrow"
-                        id={styles.arrow}
-
-                    />
-                    <div className={styles.pageNum} id= {styles.currentPage}>1</div>
-                    <div className={styles.pageNum} id= {styles.notCurrentPage}>2</div>
-                    <div className={styles.pageNum} id= {styles.notCurrentPage}>3</div>
-                    <Image
-                        width={196}
-                        height={220}
-                        src="/blogpics/Arrow 1.svg"
-                        alt="next page arrow"
-                        id={styles.arrow}
-
-                    />
+                {currentPage > 1 && (
+                <Image
+                width={196}
+                height={220}
+                src="/blogpics/Arrow 2.svg"
+                alt="next page arrow"
+                id={styles.arrow}
+                onClick={() => handlePageChange(currentPage - 1)}
+            />
+            )}
+            {visiblePageNumbers.map((pageNumber) => (
+            <button 
+                className={styles.pageNum}
+                id={pageNumber === currentPage ? styles.currentPage : styles.notCurrentPage}
+                key={pageNumber}
+                onClick={() => handlePageChange(pageNumber)}
+            >
+                {pageNumber}
+            </button>
+            ))}
+            {currentPage < numberOfPages && (
+            <Image
+            width={196}
+            height={220}
+            src="/blogpics/Arrow 1.svg"
+            alt="next page arrow"
+            id={styles.arrow}
+            onClick={() => handlePageChange(currentPage + 1)}
+            />
+            )} 
                 </div>
             <div className={styles.mainContainer}>
                 <div className={styles.filterContainer}>
@@ -141,32 +181,43 @@ const Candy = (props) => {
                         }
                         
                     </div>
-                    {currentArray.slice(0,10).map((product)=>{
+                    {currentProducts.map((product)=>{
                        return <SideProductCard className = {styles.product}key={product.frontmatter.id} product={product} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id}/>
                     })}
                     
                 </div>
             </div>
             <div className={styles.pageNumberContainer}>
-                    <Image
-                        width={196}
-                        height={220}
-                        src="/blogpics/Arrow 2.svg"
-                        alt="next page arrow"
-                        id={styles.arrow}
-
-                    />
-                    <div className={styles.pageNum} id= {styles.currentPage}>1</div>
-                    <div className={styles.pageNum} id= {styles.notCurrentPage}>2</div>
-                    <div className={styles.pageNum} id= {styles.notCurrentPage}>3</div>
-                    <Image
-                        width={196}
-                        height={220}
-                        src="/blogpics/Arrow 1.svg"
-                        alt="next page arrow"
-                        id={styles.arrow}
-
-                    />
+            {currentPage > 1 && (
+                <Image
+                width={196}
+                height={220}
+                src="/blogpics/Arrow 2.svg"
+                alt="next page arrow"
+                id={styles.arrow}
+                onClick={() => handlePageChange(currentPage - 1)}
+            />
+            )}
+            {visiblePageNumbers.map((pageNumber) => (
+            <button 
+                className={styles.pageNum}
+                id={pageNumber === currentPage ? styles.currentPage : styles.notCurrentPage}
+                key={pageNumber}
+                onClick={() => handlePageChange(pageNumber)}
+            >
+                {pageNumber}
+            </button>
+            ))}
+            {currentPage < numberOfPages && (
+            <Image
+            width={196}
+            height={220}
+            src="/blogpics/Arrow 1.svg"
+            alt="next page arrow"
+            id={styles.arrow}
+            onClick={() => handlePageChange(currentPage + 1)}
+            />
+            )}   
                 </div>
             <Footer />
         </>
