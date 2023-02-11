@@ -1,8 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+.bannerWrapper {
+    position: relative;
+}
 .banner {
-   height:auto;
+   object-fit: cover;
    max-width:100%;
-   max-height:100%;
+}
+.textOnBanner {
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 32px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #F06C9B;
+}
+.ourBlog {
+    font-weight: 700;
 }
 .contentWrapper {
     display: flex;
@@ -182,7 +202,21 @@
     display: flex;
     flex-direction: column;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 950px) {
+    .banner{
+        object-position: 50%;
+    }
+}
+@media screen and (max-width: 630px) {
+    .banner{
+        object-position: 30%;
+    }
+    .textOnBanner {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+}
+/* @media screen and (max-width: 768px) {
     .contentWrapper {
         display: flex;
         flex-direction: column;
@@ -227,4 +261,4 @@
         width: 13vw;
         height: 13vw;
     }
-}
+} */
