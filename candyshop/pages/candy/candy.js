@@ -35,11 +35,7 @@ const Candy = (props) => {
     useEffect(() => {
         const sortedProducts = sortProducts(currentArray, currentSortOption);
         setCurrentArray(sortedProducts);
-        console.log(currentPage);
-        console.log(indexOfFirstProduct);
-        console.log(indexOfLastProduct);
-        console.log(currentArray.length);
-      }, [currentSortOption, currentPage]);
+      }, [currentSortOption]);
     
     const sortProducts = (products, sortOption) => {
         const dataToSort = [...products];
