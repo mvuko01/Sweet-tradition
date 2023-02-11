@@ -1,7 +1,9 @@
 ---
 id: "43"
 name: "Karamela Lešnik"
-picture: ""
+picture: "/productPics/karamela.svg"
+picture2: "/productPics/karamela2.svg"
+picture3: "/productPics/karamela3.svg"
 price: "2,60€"
 category: "Toffees"
 quantity: "100g"

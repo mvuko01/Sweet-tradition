@@ -2,7 +2,7 @@ import ListProductCard from '../../components/ListProductCard';
 import Footer from '../../components/Footer'
 import styles from '../../styles/Candy.module.css'
 import Image from 'next/image'
-import {use, useState} from 'react';
+import {useState} from 'react';
 
 import matter from 'gray-matter';
 import {marked} from 'marked';
@@ -40,6 +40,16 @@ const OneCandy = ({frontmatter, someId, content, products}) => {
     //     setNext(ne)
     // }
 
+    const productImages = [frontmatter.picture, frontmatter.picture2, frontmatter.picture3];
+    const [currentImage, setCurrentImage] = useState(0);
+
+    const handlePrevImage = () => {
+        setCurrentImage((currentImage + productImages.length - 1) % productImages.length);
+      };
+    
+      const handleNextImage = () => {
+        setCurrentImage((currentImage + 1) % productImages.length);
+      };
 
     return (
         <>
@@ -55,14 +65,15 @@ const OneCandy = ({frontmatter, someId, content, products}) => {
                                 width={100}
                                 height={100}
                                 className={styles.imageArrow}
+                                onClick={handlePrevImage}
                             />
                         </button>
                         <div className={styles.mainPictureWrapper}>
                             <Image
-                                src={frontmatter.picture}
+                                src={productImages[currentImage]}
                                 alt=""
                                 width={390}
-                                height={440}
+                                height={400}
                                 className={styles.mainImageProduct}
                             />
                         </div>
@@ -73,30 +84,25 @@ const OneCandy = ({frontmatter, someId, content, products}) => {
                                 width={100}
                                 height={100}
                                 className={styles.imageArrow}
+                                onClick={handleNextImage}
                             />
                         </button> 
                     </div>
-
                     <div className={styles.otherPictureContainer}>
-                        <div className={styles.sidePictureWrapper}>
+                        {productImages.map((image, index) => (
+                            <div className={styles.sidePictureWrapper} key={index}>
                             <Image
-                                src={frontmatter.picture2}
-                                alt=""
+                                src={image}
+                                alt="Product"
                                 width={88}
                                 height={88}
+                                key={index}
                                 className={styles.sideImageProduct}
+                                onClick={() => setCurrentImage(index)}
                             />
-                        </div>
-                        <div className={styles.sidePictureWrapper}>
-                            <Image
-                                src={frontmatter.picture3}
-                                alt=""
-                                width={88}
-                                height={88}
-                                className={styles.sideImageProduct}
-                            />
-                        </div>
-                    </div>
+                            </div>
+        ))}
+                    </div> 
                 </div>
                 <div className={styles.productInfoContainer}>
                     <div className={styles.nameAndCountryContainer}>
