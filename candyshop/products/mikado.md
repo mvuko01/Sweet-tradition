@@ -1,7 +1,7 @@
 ---
 id: "12"
 name: "Jacob's Mikado"
-picture: "/productPics/mikado.svg"
+picture: "/prod"
 price: "2,50€"
 category: "Mints"
 quantity: "250g"
