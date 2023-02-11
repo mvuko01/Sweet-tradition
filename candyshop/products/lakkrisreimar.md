@@ -1,7 +1,9 @@
 ---
 id: "14"
 name: "Lakkrísreimar"
-picture: ""
+picture: "/productPics/lakris.svg"
+picture2: "/productPics/lakris2.svg"
+picture3: "/productPics/lakris3.svg"
 price: "5€"
 category: "Liquorice"
 quantity: "200g"

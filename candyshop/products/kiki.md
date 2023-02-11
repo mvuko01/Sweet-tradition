@@ -1,7 +1,9 @@
 ---
 id: "40"
 name: "Kiki"
-picture: ""
+picture: "/productPics/kiki.svg"
+picture2: "/productPics/kiki2.svg"
+picture3: "/productPics/kiki3.svg"
 price: "2,50€"
 category: "Chewy sweets"
 quantity: "90g"

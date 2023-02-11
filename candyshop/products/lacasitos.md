@@ -1,7 +1,9 @@
 ---
 id: "33"
 name: "Lacasitos"
-picture: ""
+picture: "/productPics/lacasitos.svg"
+picture2: "/productPics/lacasitos2.svg"
+picture3: "/productPics/lacasitos3.svg"
 price: "20,90€"
 category: "Chocolates"
 quantity: "325g"

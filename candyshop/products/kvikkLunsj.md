@@ -1,7 +1,9 @@
 ---
 id: "19"
 name: "Kvikk Lunsj"
-picture: ""
+picture: "/productPics/kvikk.svg"
+picture2: "/productPics/kvikk2.svg"
+picture3: "/productPics/kvikk3.svg"
 price: "2,30€"
 category: "Chocolates"
 quantity: "47g"
