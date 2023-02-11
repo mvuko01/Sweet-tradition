@@ -107,7 +107,7 @@ const Candy = (props) => {
                 <Image
                 width={196}
                 height={220}
-                src="/blogpics/Arrow 2.svg"
+                src="/blogpics/Arrow 2 (1).svg"
                 alt="next page arrow"
                 id={styles.arrow}
                 onClick={() => handlePageChange(currentPage - 1)}
@@ -127,7 +127,7 @@ const Candy = (props) => {
             <Image
             width={196}
             height={220}
-            src="/blogpics/Arrow 1.svg"
+            src="/blogpics/Arrow 1 (1).svg"
             alt="next page arrow"
             id={styles.arrow}
             onClick={() => handlePageChange(currentPage + 1)}
@@ -194,7 +194,7 @@ const Candy = (props) => {
                 <Image
                 width={196}
                 height={220}
-                src="/blogpics/Arrow 2.svg"
+                src="/blogpics/Arrow 2 (1).svg"
                 alt="next page arrow"
                 id={styles.arrow}
                 onClick={() => handlePageChange(currentPage - 1)}
@@ -214,7 +214,7 @@ const Candy = (props) => {
             <Image
             width={196}
             height={220}
-            src="/blogpics/Arrow 1.svg"
+            src="/blogpics/Arrow 1 (1).svg"
             alt="next page arrow"
             id={styles.arrow}
             onClick={() => handlePageChange(currentPage + 1)}

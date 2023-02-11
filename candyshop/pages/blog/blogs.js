@@ -75,7 +75,7 @@ const Blogs = (props) => {
                                 className={page == indexOfFirstBlog ? styles.hiddenArrow : null}
                                 width={196}
                                 height={220}
-                                src="/blogpics/Arrow 2.svg"
+                                src="/blogpics/Arrow 2 (1).svg"
                                 alt="next page arrow"
                                 onClick={() => page > 0 ? setPage(page - numberOfBlogsPerPage) : setPage(0)}
                             />
@@ -87,7 +87,7 @@ const Blogs = (props) => {
                                 className={page == (indexOfFirstBlog + numberOfBlogsPerPage * 2) ? styles.hiddenArrow : null}
                                 width={196}
                                 height={220}
-                                src="/blogpics/Arrow 1.svg"
+                                src="/blogpics/Arrow 1 (1).svg"
                                 alt="next page arrow"
                                 onClick={() => page == (indexOfFirstBlog + numberOfBlogsPerPage * 2) ? setPage(indexOfFirstBlog + numberOfBlogsPerPage * 2) : setPage(page + numberOfBlogsPerPage)}
                             />
