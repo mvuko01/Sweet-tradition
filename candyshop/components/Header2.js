@@ -4,11 +4,21 @@ import NavBar from './Navbar';
 import { navigationItems } from '../constants/navbar';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import {useState, useRef} from 'react';
 
 
 const Header2 = () => {
     const router = useRouter();
     const currentPage = router.pathname;
+    const burgerRef = useRef();
+
+    const [isNavbarBurgerOn, setIsNavbarBurgerOn] = useState(false);
+
+    function handleHamburgerClick()
+    {
+        
+        setIsNavbarBurgerOn(!isNavbarBurgerOn);
+    }
 
     return (
         <header className={styles.headerContainer}>
@@ -23,7 +33,17 @@ const Header2 = () => {
             </Link>
             
             
-            <div className={styles.navbarContainer}>
+            <div ref={burgerRef} onClick={handleHamburgerClick} className={styles.navbarContainer}>
+                <div className={styles.hamburgerWrapper}>
+                    <Image
+                        src={'/Hamburger.svg'}
+                        alt="hamb"
+                        width={20}
+                        height={20}
+                        className={styles.hamburgerImage}
+                    />
+                </div>
+                
                 <div className={styles.textNavigationContainer}>
                     {navigationItems.slice(0, 3).map(({ label, path }) => (
                         <Link className={currentPage == path ? styles.textNavLinkWrapperActive : styles.textNavLinkWrapperInactive} href={path} key={label} passHref>
