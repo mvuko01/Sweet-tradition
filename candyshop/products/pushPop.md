@@ -1,7 +1,9 @@
 ---
 id: "10"
 name: "Push Pop"
-picture: ""
+picture: "/productPics/pp.svg"
+picture2: "/productPics/pp2.svg"
+picture3: "/productPics/pp3.svg"
 price: "1€"
 category: "Lollipops"
 quantity: "15g"

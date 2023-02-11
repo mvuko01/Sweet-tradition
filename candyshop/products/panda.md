@@ -1,7 +1,9 @@
 ---
 id: "28"
 name: "Panda Black"
-picture: ""
+picture: "/productPics/panda.svg"
+picture2: "/productPics/panda2.svg"
+picture3: "/productPics/panda3.svg"
 price: "4,50€"
 category: "Liquorice"
 quantity: "240g"

@@ -1,7 +1,9 @@
 ---
 id: "13"
 name: "Opal"
-picture: ""
+picture: "/productPics/opal.svg"
+picture2: "/productPics/opal2.svg"
+picture3: "/productPics/opal3.svg"
 price: "5€"
 category: "Liquorice"
 quantity: "100g"

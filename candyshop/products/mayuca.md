@@ -1,7 +1,9 @@
 ---
 id: "34"
 name: "Mayuca"
-picture: ""
+picture: "/productPics/mayuca.svg"
+picture2: "/productPics/mayuca2.svg"
+picture3: "/productPics/mayuca3.svg"
 price: "20,90€"
 category: "Cookies"
 quantity: "800g"

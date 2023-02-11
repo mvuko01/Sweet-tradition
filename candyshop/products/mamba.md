@@ -1,7 +1,9 @@
 ---
 id: "45"
 name: "Mamba"
-picture: ""
+picture: "/productPics/mamba4.svg"
+picture2: "/productPics/mamba2.svg"
+picture3: "/productPics/mamba3.svg"
 price: "1,60€"
 category: "Chewy sweets"
 quantity: "65g"

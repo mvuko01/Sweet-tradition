@@ -1,7 +1,9 @@
 ---
 id: "40"
 name: "Petit Beurre"
-picture: ""
+picture: "/productPics/petit.svg"
+picture2: "/productPics/petit2.svg"
+picture3: "/productPics/petit3.svg"
 price: "4,50€"
 category: "Cookies"
 quantity: "480g"

@@ -1,7 +1,9 @@
 ---
 id: "52"
 name: "Nimm 2 Lolly"
-picture: ""
+picture: "/productPics/nimm.svg"
+picture2: "/productPics/nimm2.svg"
+picture3: "/productPics/nimm3.svg"
 price: "1,20€"
 category: "Lollipops"
 quantity: "200g"
