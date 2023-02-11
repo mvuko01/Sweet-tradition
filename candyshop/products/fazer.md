@@ -1,7 +1,7 @@
 ---
 id: "26"
 name: "Fazer Geisha"
-picture: ""
+picture: "/productPics/fazer2.svg"
 price: "3€"
 category: "Chocolates"
 quantity: "37g"

@@ -1,7 +1,7 @@
 ---
 id: "7"
 name: "Barratt Refreshers"
-picture: ""
+picture: "/productPics/refreshers.svg"
 price: "2€"
 category: "Mints"
 quantity: "34g"

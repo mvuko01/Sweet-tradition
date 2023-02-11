@@ -1,7 +1,7 @@
 ---
 id: "37"
 name: "Calisson d'Aix"
-picture: ""
+picture: "/productPics/calisson2.svg"
 price: "132,70€"
 category: "Cookies"
 quantity: "300g"

@@ -1,7 +1,9 @@
 ---
 id: "36"
 name: "Berlingots"
-picture: ""
+picture: "/productPics/berlingots2.svg"
+picture2: "/productPics/berlingots.svg"
+picture3: "/productPics/berlingots3.svg"
 price: "11,50€"
 category: "Liquorice"
 quantity: "300g"

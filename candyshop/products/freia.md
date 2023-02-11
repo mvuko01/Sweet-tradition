@@ -1,7 +1,7 @@
 ---
 id: "18"
 name: "Freia Milk Chocolate"
-picture: ""
+picture: "/productPics/freia.svg"
 price: "7,30€"
 category: "Chocolates"
 quantity: "200g"

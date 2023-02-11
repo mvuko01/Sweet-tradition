@@ -1,7 +1,7 @@
 ---
 id: "38"
 name: "Domacica"
-picture: ""
+picture: "/productPics/domacica2.svg"
 price: "3,50€"
 category: "Cookies"
 quantity: "300g"

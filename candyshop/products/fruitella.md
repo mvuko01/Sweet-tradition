@@ -1,7 +1,7 @@
 ---
 id: "8"
 name: "Fruitella Koalas"
-picture: ""
+picture: "/productPics/koalas2.svg"
 price: "5€"
 category: "Cheewy sweets"
 quantity: "100g"

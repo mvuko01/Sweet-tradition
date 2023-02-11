@@ -1,7 +1,7 @@
 ---
 id: "9"
 name: "Galaxy Truffles"
-picture: ""
+picture: "/productPics/truffles.svg"
 price: "7€"
 category: "Chocolates"
 quantity: "195g"
