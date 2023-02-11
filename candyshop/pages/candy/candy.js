@@ -27,10 +27,18 @@ const Candy = (props) => {
 
     const productsPerPage = 12;
     const [currentPage, setCurrentPage] = useState(1);
+    const numberOfPages = Math.ceil(products.length / productsPerPage);
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    const currentProducts = currentArray.slice(indexOfFirstProduct, indexOfLastProduct);
 
     useEffect(() => {
-        const sortedProducts = sortProducts(products, currentSortOption);
+        const sortedProducts = sortProducts(currentArray, currentSortOption);
         setCurrentArray(sortedProducts);
+        console.log(currentPage);
+        console.log(indexOfFirstProduct);
+        console.log(indexOfLastProduct);
+        console.log(currentArray.length);
       }, [currentSortOption, currentPage]);
     
     const sortProducts = (products, sortOption) => {
@@ -60,12 +68,8 @@ const Candy = (props) => {
 
     const handleSortClick = (event) => {
         setCurrentSortOption(event.target.innerHTML);
+        setIsOpen(false);
     };
-    
-    const numberOfPages = Math.ceil(products.length / productsPerPage);
-    const indexOfLastProduct = currentPage * productsPerPage;
-    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-    const currentProducts = currentArray.slice(indexOfFirstProduct, indexOfLastProduct);
 
     const handlePageChange = (newPage) => {
         setCurrentPage(newPage);
