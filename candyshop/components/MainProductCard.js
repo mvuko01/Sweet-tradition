@@ -9,17 +9,27 @@ import { useState } from 'react';
 const MainProductCard = ({ name, short_description, picture, price, id, product }) => {
     const [isFavourite, setIsFavourite] = useState(false);
 
-    function handleAddToFavouriteClick(){
-        setIsFavourite(!isFavourite);
-    }
+    const handleAddToFavouriteClick = (product) => {
+        let favourites = JSON.parse(localStorage.getItem('favourites')) || [];
+        const index = favourites.findIndex(p => p.frontmatter.id === product.frontmatter.id);
+        if (index === -1) {
+            favourites.push(product);
+            setIsFavourite(true);
+        } else {
+            favourites.splice(index, 1);
+            setIsFavourite(false);
+        }
+        localStorage.setItem('favourites', JSON.stringify(favourites));
+    };
 
     return (
         <>
             <Link href={`../candy/${product.slug}`} className = {styles.mainProductCard}>
                 <div className = {styles.productUpper}>
-                    <button onClick={handleAddToFavouriteClick} className= {styles.buttonFavourite}>
+                    <button onClick={() => handleAddToFavouriteClick(product)} className= {styles.buttonFavourite}>
                         <Image
                             src={isFavourite == false ? '/productPics/EmptyHeart.svg' : '/productPics/FullHeart.svg'}
+                            alt="Heart icon"
                             width={100}
                             height={100}
                             className ={styles.imageFavourite}
@@ -27,6 +37,7 @@ const MainProductCard = ({ name, short_description, picture, price, id, product 
                     </button>
                     <Image
                         src={picture}
+                        alt="Product image"
                         width={100}
                         height={100}
                         className = {styles.imageProduct}

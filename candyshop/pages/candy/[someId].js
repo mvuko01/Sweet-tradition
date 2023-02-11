@@ -10,13 +10,22 @@ import Header2 from '../../components/Header2';
 
 
 
-const OneCandy = ({frontmatter, someId, content, products}) => {
+const OneCandy = ({frontmatter, content, products}) => {
 
     const [isFavourite, setIsFavourite] = useState(false);
 
-    function handleAddToFavouriteClick(){
-        setIsFavourite(!isFavourite);
-    }
+    const handleAddToFavouriteClick = () => {
+        let favourites = JSON.parse(localStorage.getItem('favourites')) || [];
+        const index = favourites.findIndex(p => p.frontmatter.id === frontmatter.id);
+        if (index === -1) {
+            favourites.push(products.find(p => p.frontmatter.id === frontmatter.id));
+            setIsFavourite(true);
+        } else {
+            favourites.splice(index, 1);
+            setIsFavourite(false);
+        }
+        localStorage.setItem('favourites', JSON.stringify(favourites));
+    };
 
     const [count, setCount] = useState(0);
 
@@ -241,7 +250,6 @@ export async function getStaticProps({ params: { someId } }) {
     return {
         props: {
             frontmatter,
-            someId,
             content,
             products
         },
