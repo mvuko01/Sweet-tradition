@@ -1,0 +1,8 @@
+.candyContainer{
+    padding-top: 3.5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    gap:1.5rem;
+    justify-content: end;
+}
