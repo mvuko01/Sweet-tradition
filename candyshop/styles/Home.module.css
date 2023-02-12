@@ -20,12 +20,12 @@
 }
 .shopAtWrapper {
   display: flex;
+  flex-direction: column;
 }
 .shop {
   font-weight: 100;
 }
 .sweet {
-  padding-left: 1rem;
   font-weight: 900;
   font-size: 3.5rem;
 }
@@ -33,9 +33,9 @@
   font-family: Montserrat, sans-serif;
   color: #F06C9B;
   position: absolute;
-  top: 16.438rem;
-  left: 1.5rem;
-  margin: 2rem 2rem;
+  top: 40%;
+  left: 3.5%;
+  transform: translate(-0%, -10%);
 }
 .textFirstBanner p.shopAt {
   font-size: 3.5rem;
@@ -132,14 +132,12 @@
 }
 
 .imageArrow{
-  opacity: 0.6;
   width: 100%;
   height: 100%;
-
 }
 
 .imageArrow:hover{
-  opacity: 1;
+  opacity: 0.7;
 }
 
 
@@ -151,8 +149,9 @@
 }
 .textWrapper {
   position: absolute;
-  top: 4rem;
-  left: 30rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .storyBannerWrapper p {
   color: #F06C9B;
@@ -161,22 +160,15 @@
   font-weight: 500;
   line-height: 3.69rem;
 }
-.storyBannerWrapper p.bulk {
-  font-weight: 700;
-}
 .storyBannerWrapper p.stock {
   font-size: 1.25rem;
+}
+.bulk {
+  font-weight: bolder;
 }
 .storyBanner {
   object-fit: cover;
   width: 100%;
-}
-p.chocolates {
-  font-weight: 700;
-}
-.chocoAndMore {
-  display: flex;
-  flex-direction: row;
 }
 .buttonStoryBanner {
   color: white;
@@ -187,9 +179,6 @@ p.chocolates {
   border-radius: 0.938rem;
   width: 12rem;
   height: 2.5rem;
-  position: absolute;
-  top: 19rem;
-  left: 30rem;
   cursor: pointer;
   border-color: transparent;
 }

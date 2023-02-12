@@ -1,7 +1,9 @@
 ---
 id: "39"
 name: "Plazma"
-picture: ""
+picture: "/productPics/plazma.svg"
+picture2: "/productPics/plazma2.svg"
+picture3: "/productPics/plazma3.svg"
 price: "2,50€"
 category: "Cookies"
 quantity: "150g"

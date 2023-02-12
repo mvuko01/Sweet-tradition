@@ -1,7 +1,9 @@
 ---
 id: "23"
 name: "Cloetta Kex"
-picture: ""
+picture: "/productPics/cloetta.svg"
+picture2: "/productPics/kex2.svg"
+picture3: "/productPics/kex3.svg"
 price: "12,50€"
 category: "Chocolates"
 quantity: "480g"

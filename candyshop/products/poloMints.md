@@ -1,7 +1,9 @@
 ---
 id: "6"
 name: "Polo Original Mints"
-picture: ""
+picture: "/productPics/polo.svg"
+picture2: "/productPics/polo2.svg"
+picture3: "/productPics/polo3.svg"
 price: "2€"
 category: "Mints"
 quantity: "100g"

@@ -1,7 +1,9 @@
 ---
 id: "5"
 name: "Rowntrees Fruit Pastilles"
-picture: ""
+picture: "/productPics/rowntrees.svg"
+picture2: "/productPics/rowntrees2.svg"
+picture3: "/productPics/rowntrees3.svg"
 price: "2€"
 category: "Liquorice"
 quantity: "100g"

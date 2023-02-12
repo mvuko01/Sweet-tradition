@@ -41,7 +41,7 @@
 .writtenDateWrapper {
     display:flex;
     margin-top: 1rem;
-    margin-bottom: 3rem;
+    margin-bottom: 7rem;
 }
 .text {
     color:#918282;
@@ -80,7 +80,7 @@
     .writtenDateWrapper {
         display: flex;
         flex-direction: column;
-        margin-bottom: 1rem;
+        margin-bottom: 3.5rem;
     }
     .banner {
         object-fit: cover;
@@ -93,7 +93,17 @@
         object-position: 30%;
     }
     .contentWrapper {
-        margin-left: 5rem;
-        margin-right: 5rem;
+        margin-left: 2.5rem;
+        margin-right: 2.5rem;
+    }
+    .text {
+        font-size: 1rem;
+        line-height: 1.75rem;
+    }
+    .purple {
+        font-size: 1.2rem;
+    }
+    .boldGray {
+        font-size: 1.2rem;
     }
 }

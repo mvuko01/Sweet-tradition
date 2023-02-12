@@ -2,6 +2,8 @@
 id: "4"
 name: "Bassetts Liquorice Allsorts"
 picture: "/productPics/bassets.svg"
+picture2: "/productPics/bas2.svg"
+picture3: "/productPics/bas3.svg"
 price: "15,50€"
 category: "Liquorice"
 quantity: "190g"

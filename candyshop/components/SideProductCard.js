@@ -1,21 +1,24 @@
 import Image from 'next/image';
 import styles from '../styles/Cards.module.css'
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { handleAddToFavourites, checkIfFavourite } from '../helpers';
 
 const SideProductCard = ({ name, short_description, picture, price, id, product }) => {
-    const [isFavourite, setIsFavourite] = useState(false);
+    const [favs, setFavs] = useState([]);
+    
+    useEffect(() => {
+        const storedFavourites = JSON.parse(localStorage.getItem('favourites')) || [];
+        setFavs(storedFavourites);
+    }, []);
 
-    function handleAddToFavouriteClick(){
-        setIsFavourite(!isFavourite);
-    }
     return (
         <>
             <Link href={`../candy/${product.slug}`} className={styles.productCard}>
                 <div className={styles.productUpper}>
-                    <button  onClick={handleAddToFavouriteClick} className={styles.buttonFavourite}>
+                    <button onClick={() => handleAddToFavourites(product, setFavs)} className={styles.buttonFavourite}>
                         <Image
-                            src={isFavourite == false ? '/productPics/EmptyHeart.svg' : '/productPics/FullHeart.svg'}
+                            src={checkIfFavourite(product,favs) == false ? '/productPics/EmptyHeart.svg' : '/productPics/FullHeart.svg'}
                             alt=""
                             width={100}
                             height={100}

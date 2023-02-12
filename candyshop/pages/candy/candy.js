@@ -35,11 +35,7 @@ const Candy = (props) => {
     useEffect(() => {
         const sortedProducts = sortProducts(currentArray, currentSortOption);
         setCurrentArray(sortedProducts);
-        console.log(currentPage);
-        console.log(indexOfFirstProduct);
-        console.log(indexOfLastProduct);
-        console.log(currentArray.length);
-      }, [currentSortOption, currentPage]);
+      }, [currentSortOption]);
     
     const sortProducts = (products, sortOption) => {
         const dataToSort = [...products];
@@ -101,7 +97,7 @@ const Candy = (props) => {
                     width={1900}
                     height={380}
                     src="/candyBanner.svg"
-                    alt="profile image"
+                    alt="Candy banner"
                     className={styles.banner}
                 />
             </div>
@@ -111,7 +107,7 @@ const Candy = (props) => {
                 <Image
                 width={196}
                 height={220}
-                src="/blogpics/Arrow 2.svg"
+                src="/blogpics/Arrow 2 (1).svg"
                 alt="next page arrow"
                 id={styles.arrow}
                 onClick={() => handlePageChange(currentPage - 1)}
@@ -131,7 +127,7 @@ const Candy = (props) => {
             <Image
             width={196}
             height={220}
-            src="/blogpics/Arrow 1.svg"
+            src="/blogpics/Arrow 1 (1).svg"
             alt="next page arrow"
             id={styles.arrow}
             onClick={() => handlePageChange(currentPage + 1)}
@@ -198,7 +194,7 @@ const Candy = (props) => {
                 <Image
                 width={196}
                 height={220}
-                src="/blogpics/Arrow 2.svg"
+                src="/blogpics/Arrow 2 (1).svg"
                 alt="next page arrow"
                 id={styles.arrow}
                 onClick={() => handlePageChange(currentPage - 1)}
@@ -218,7 +214,7 @@ const Candy = (props) => {
             <Image
             width={196}
             height={220}
-            src="/blogpics/Arrow 1.svg"
+            src="/blogpics/Arrow 1 (1).svg"
             alt="next page arrow"
             id={styles.arrow}
             onClick={() => handlePageChange(currentPage + 1)}

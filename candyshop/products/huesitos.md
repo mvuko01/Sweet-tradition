@@ -1,7 +1,9 @@
 ---
 id: "31"
 name: "Huesitos"
-picture: ""
+picture: "/productPics/huesitos.svg"
+picture2: "/productPics/huesitos2.svg"
+picture3: "/productPics/huesitos3.svg"
 price: "3,90€"
 category: "Chocolates"
 quantity: "20g"

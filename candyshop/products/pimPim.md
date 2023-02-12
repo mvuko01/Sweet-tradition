@@ -1,7 +1,9 @@
 ---
 id: "22"
 name: "Malaco Pim Pim"
-picture: ""
+picture: "/productPics/pim.svg"
+picture2: "/productPics/pim2.svg"
+picture3: "/productPics/pim3.svg"
 price: "2,50€"
 category: "Chewy sweets"
 quantity: "80g"

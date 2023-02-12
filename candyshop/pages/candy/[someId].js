@@ -2,21 +2,47 @@ import ListProductCard from '../../components/ListProductCard';
 import Footer from '../../components/Footer'
 import styles from '../../styles/Candy.module.css'
 import Image from 'next/image'
-import {use, useState} from 'react';
+import {useState, useEffect} from 'react';
 
 import matter from 'gray-matter';
 import {marked} from 'marked';
 import Header2 from '../../components/Header2';
 
+const OneCandy = ({frontmatter, content, products}) => {
+    const [favs, setFavs] = useState([]);
 
+    const handleAddToFavouriteClick = () => {
+        let favourites = JSON.parse(localStorage.getItem('favourites')) || [];
+        const index = favourites.findIndex(p => p.frontmatter.id === frontmatter.id);
+        if (index === -1) {
+            favourites.push(products.find(p => p.frontmatter.id === frontmatter.id));
+            const currentIndex = favourites.findIndex(p => p.frontmatter.id === frontmatter.id);
+            favourites[currentIndex].isFavourite = true;
+        } else {
+            favourites.splice(index, 1);
+        }
+        localStorage.setItem('favourites', JSON.stringify(favourites));
+        setFavs(favourites);
+    };
 
-const OneCandy = ({frontmatter, someId, content, products}) => {
-
-    const [isFavourite, setIsFavourite] = useState(false);
-
-    function handleAddToFavouriteClick(){
-        setIsFavourite(!isFavourite);
+    const [heartState, setHeartState] = useState(false);
+      const handleHeartClick = (newHeartState) => {
+        setHeartState(newHeartState);
     }
+
+    useEffect(() => {
+        const storedFavourites = JSON.parse(localStorage.getItem('favourites')) || [];
+        setFavs(storedFavourites);
+    }, [heartState]);
+
+    const checkIfFavourite = (favs) => {
+        const index = favs.findIndex(p => p.frontmatter.id === frontmatter.id);
+            if (index === -1) {
+                return false;
+            } else {
+                return favs[index].isFavourite;
+            }
+      };
 
     const [count, setCount] = useState(0);
 
@@ -40,6 +66,16 @@ const OneCandy = ({frontmatter, someId, content, products}) => {
     //     setNext(ne)
     // }
 
+    const productImages = [frontmatter.picture, frontmatter.picture2, frontmatter.picture3];
+    const [currentImage, setCurrentImage] = useState(0);
+
+    const handlePrevImage = () => {
+        setCurrentImage((currentImage + productImages.length - 1) % productImages.length);
+      };
+    
+      const handleNextImage = () => {
+        setCurrentImage((currentImage + 1) % productImages.length);
+      };
 
     return (
         <>
@@ -55,14 +91,15 @@ const OneCandy = ({frontmatter, someId, content, products}) => {
                                 width={100}
                                 height={100}
                                 className={styles.imageArrow}
+                                onClick={handlePrevImage}
                             />
                         </button>
                         <div className={styles.mainPictureWrapper}>
                             <Image
-                                src={frontmatter.picture}
+                                src={productImages[currentImage]}
                                 alt=""
                                 width={390}
-                                height={440}
+                                height={400}
                                 className={styles.mainImageProduct}
                             />
                         </div>
@@ -73,37 +110,32 @@ const OneCandy = ({frontmatter, someId, content, products}) => {
                                 width={100}
                                 height={100}
                                 className={styles.imageArrow}
+                                onClick={handleNextImage}
                             />
                         </button> 
                     </div>
-
                     <div className={styles.otherPictureContainer}>
-                        <div className={styles.sidePictureWrapper}>
+                        {productImages.map((image, index) => (
+                            <div className={styles.sidePictureWrapper} key={index}>
                             <Image
-                                src={frontmatter.picture}
-                                alt=""
+                                src={image}
+                                alt="Product"
                                 width={88}
                                 height={88}
+                                key={index}
                                 className={styles.sideImageProduct}
+                                onClick={() => setCurrentImage(index)}
                             />
-                        </div>
-                        <div className={styles.sidePictureWrapper}>
-                            <Image
-                                src={frontmatter.picture}
-                                alt=""
-                                width={88}
-                                height={88}
-                                className={styles.sideImageProduct}
-                            />
-                        </div>
-                    </div>
+                            </div>
+        ))}
+                    </div> 
                 </div>
                 <div className={styles.productInfoContainer}>
                     <div className={styles.nameAndCountryContainer}>
                         <h1 className={styles.productName}>{frontmatter.name}</h1>
                         <div className={styles.countryPictureWrapper}>
                             <Image
-                                src={'/countries/sweden.svg'}
+                                src={`/countries/${frontmatter.country}.svg`}
                                 alt=""
                                 width={55}
                                 height={55}
@@ -123,7 +155,7 @@ const OneCandy = ({frontmatter, someId, content, products}) => {
                         <button className={styles.addToCartbtn}>Add to cart</button>
                         <button onClick={handleAddToFavouriteClick} className={styles.buttonFavourite}>
                             <Image
-                                src={isFavourite == false ? '/productPics/EmptyHeart.svg' : '/productPics/FullHeart.svg'}
+                                src={checkIfFavourite(favs) == false ? '/productPics/EmptyHeart.svg' : '/productPics/FullHeart.svg'}
                                 alt="Empty heart"
                                 width={100}
                                 height={100}
@@ -169,7 +201,7 @@ const OneCandy = ({frontmatter, someId, content, products}) => {
                         {
                            products.filter(product => product.frontmatter.category === frontmatter.category && product.frontmatter.name !== frontmatter.name)
                            .slice(0,4).map(filteredProduct => (
-                            <ListProductCard key={filteredProduct.frontmatter.id}  name={filteredProduct.frontmatter.name} short_description={`${filteredProduct.frontmatter.category}, ${filteredProduct.frontmatter.quantity}`} picture={filteredProduct.frontmatter.picture} price={filteredProduct.frontmatter.price} id={filteredProduct.frontmatter.id} product={filteredProduct}/>
+                            <ListProductCard onHeartClick={handleHeartClick} prevState={heartState} key={filteredProduct.frontmatter.id}  name={filteredProduct.frontmatter.name} short_description={`${filteredProduct.frontmatter.category}, ${filteredProduct.frontmatter.quantity}`} picture={filteredProduct.frontmatter.picture} price={filteredProduct.frontmatter.price} id={filteredProduct.frontmatter.id} product={filteredProduct}/>
                           ))
                         }
                     </div>
@@ -235,7 +267,6 @@ export async function getStaticProps({ params: { someId } }) {
     return {
         props: {
             frontmatter,
-            someId,
             content,
             products
         },

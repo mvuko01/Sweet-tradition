@@ -1,7 +1,9 @@
 ---
 id: "15"
 name: "Nóa Kropp"
-picture: ""
+picture: "/productPics/noa.svg"
+picture2: "/productPics/noa2.svg"
+picture3: "/productPics/noa3.svg"
 price: "5€"
 category: "Chocolates"
 quantity: "360g"

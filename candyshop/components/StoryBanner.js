@@ -13,15 +13,11 @@ const StoryBanner = () => {
                     className={styles.storyBanner}
                 />
                 <div className={styles.textWrapper}>
-                    <p className={styles.shopOurSO}>SHOP OUR SELECTION OF</p>
-                    <p className={styles.bulk}>BULK CANDY, GUMMIES</p>
-                    <div className={styles.chocoAndMore}>
-                        <p className={styles.chocolates}>CHOCOLATES</p>
-                        <p className={styles.shopOurSO}>, AND MORE</p>
-                    </div>
+                    <p className={styles.shopOurSO}>SHOP OUR SELECTION OF <span className={styles.bulk}>BULK CANDY, GUMMIES, CHOCOLATES</span> AND MORE</p>
                     <p className={styles.stock}>Stock up on sweet treats today!</p>
+                
+                    <Link href={"/candy"} passHref className={styles.btnLink}><button type="button" className={styles.buttonStoryBanner}>SHOP NOW</button></Link>
                 </div>
-                <Link href={"/candy"} passHref className={styles.btnLink}><button type="button" className={styles.buttonStoryBanner}>SHOP NOW</button></Link>
         </div>
     );
 };

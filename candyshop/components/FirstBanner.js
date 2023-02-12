@@ -17,9 +17,8 @@ const FirstBanner = () => {
                     <div className={styles.shop}>
                         <div className={styles.shopAtWrapper}>
                             <p className={styles.shopAt}>SHOP AT</p>
-                            <p className={styles.sweet}>SWEET</p>
+                            <span className={styles.sweet}>SWEET TRADITION!</span>
                         </div>
-                            <h1>TRADITION!</h1>
                     </div>
                     <p className={styles.treat}>TREAT YOURSELF TO SWEETNESS</p>
                     <Link href="/candy/candy">
