@@ -14,3 +14,25 @@ export function limitWords(text) {
     }
     return text;
   }
+
+export function handleAddToFavourites(product) {
+        let favourites = JSON.parse(localStorage.getItem('favourites')) || [];
+        const index = favourites.findIndex(p => p.frontmatter.id === product.frontmatter.id);
+        if (index === -1) {
+            favourites.push(product);
+            const currentIndex = favourites.findIndex(p => p.frontmatter.id === product.frontmatter.id);
+            favourites[currentIndex].isFavourite = true;
+        } else {
+            favourites.splice(index, 1);
+        }
+        localStorage.setItem('favourites', JSON.stringify(favourites));
+}
+
+export function checkIfFavourite(product, favs) {
+  const index = favs.findIndex(p => p.frontmatter.id === product.frontmatter.id);
+      if (index === -1) {
+          return false;
+      } else {
+          return favs[index].isFavourite;
+      }
+};

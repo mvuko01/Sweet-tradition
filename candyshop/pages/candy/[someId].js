@@ -2,30 +2,41 @@ import ListProductCard from '../../components/ListProductCard';
 import Footer from '../../components/Footer'
 import styles from '../../styles/Candy.module.css'
 import Image from 'next/image'
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 import matter from 'gray-matter';
 import {marked} from 'marked';
 import Header2 from '../../components/Header2';
 
-
-
 const OneCandy = ({frontmatter, content, products}) => {
-
-    const [isFavourite, setIsFavourite] = useState(false);
+    const [favs, setFavs] = useState([]);
 
     const handleAddToFavouriteClick = () => {
         let favourites = JSON.parse(localStorage.getItem('favourites')) || [];
         const index = favourites.findIndex(p => p.frontmatter.id === frontmatter.id);
         if (index === -1) {
             favourites.push(products.find(p => p.frontmatter.id === frontmatter.id));
-            setIsFavourite(true);
+            const currentIndex = favourites.findIndex(p => p.frontmatter.id === frontmatter.id);
+            favourites[currentIndex].isFavourite = true;
         } else {
             favourites.splice(index, 1);
-            setIsFavourite(false);
         }
         localStorage.setItem('favourites', JSON.stringify(favourites));
     };
+
+    useEffect(() => {
+        const storedFavourites = JSON.parse(localStorage.getItem('favourites')) || [];
+        setFavs(storedFavourites);
+    }, []);
+
+    const checkIfFavourite = (favs) => {
+        const index = favs.findIndex(p => p.frontmatter.id === frontmatter.id);
+            if (index === -1) {
+                return false;
+            } else {
+                return favs[index].isFavourite;
+            }
+      };
 
     const [count, setCount] = useState(0);
 
@@ -138,7 +149,7 @@ const OneCandy = ({frontmatter, content, products}) => {
                         <button className={styles.addToCartbtn}>Add to cart</button>
                         <button onClick={handleAddToFavouriteClick} className={styles.buttonFavourite}>
                             <Image
-                                src={isFavourite == false ? '/productPics/EmptyHeart.svg' : '/productPics/FullHeart.svg'}
+                                src={checkIfFavourite(favs) == false ? '/productPics/EmptyHeart.svg' : '/productPics/FullHeart.svg'}
                                 alt="Empty heart"
                                 width={100}
                                 height={100}
