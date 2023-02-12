@@ -28,7 +28,7 @@
 .buttonPrevious, .buttonNext{
     
     margin: auto;
-    z-index: 3;
+    z-index: 1;
     
   
     border:none;

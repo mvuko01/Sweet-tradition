@@ -1,11 +1,10 @@
 import Image from 'next/image'
 import styles from '../styles/Header.module.css'
-import NavBar from './Navbar';
 import { navigationItems } from '../constants/navbar';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import {useState, useRef} from 'react';
-
+import ShoppingCart from './ShoppingCart';
 
 const Header2 = () => {
     const router = useRouter();
@@ -13,6 +12,8 @@ const Header2 = () => {
     const navRef = useRef();
 
     const [isNavbarBurgerOn, setIsNavbarBurgerOn] = useState(false);
+    const[isCartOn, setIsCartOn] = useState(false);
+
 
     function handleHamburgerClick()
     {
@@ -69,7 +70,7 @@ const Header2 = () => {
                         </Link>
                     </div>
                     <div className={styles.iconContainer}>
-                        {navigationItems.slice(4,7).map(({ label, path }) => (
+                        {navigationItems.slice(4,6).map(({ label, path }) => (
                             <Link className={styles.iconLinkWrapper} href={path} key={label} passHref>
                                 <Image
                                     src={`${path}.svg`}
@@ -80,11 +81,25 @@ const Header2 = () => {
                                 />
                             </Link>
                         ))}
+                        {navigationItems.slice(6,7).map(({ label, path }) => (
+                            <div onClick={()=> setIsCartOn(!isCartOn)} className={styles.iconLinkWrapper}  key={label} passHref>
+                                <Image
+                                    src={`${path}.svg`}
+                                    alt={label}
+                                    width={40}
+                                    height={40}
+                                    className={styles.icon}
+                                />
+                            </div>
+                        ))}
                     </div>
 
                 </div>
 
             </div>
+            {/*isCartOn && <ShoppingCart stateChanger={setIsCartOn} state={isCartOn}/>*/}
+            <ShoppingCart stateChanger={setIsCartOn} state={isCartOn}/>
+
         </header>
     );
 };

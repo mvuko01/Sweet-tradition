@@ -44,14 +44,14 @@ const OneCandy = ({frontmatter, content, products}) => {
             }
       };
 
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(1);
 
     function incrementCount() {
         
         setCount(count+1);
     }
     function decrementCount() {
-        if(count-1 < 0)
+        if(count-1 < 1)
         {
             setCount(count);
         }

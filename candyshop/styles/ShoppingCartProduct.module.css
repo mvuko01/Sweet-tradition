@@ -1,0 +1,120 @@
+.productContainer{
+    width: auto;
+    display: flex;
+    position: relative;
+    border-bottom:  1px dashed #68707D;
+    padding-bottom: 1rem;
+    min-height: 144px;
+    margin-top: 1rem;
+
+}
+
+.pictureWrapper{
+
+}
+.imageProduct{
+
+}
+
+
+
+.removeProductWrapper{
+    position: absolute;
+    right: 0px;
+    top: 10px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.removeProductWrapper:hover{
+    opacity: 0.7;
+}
+.removeProductImage{
+    width: 100%;
+    height: 100%;
+}
+
+.productInfoContainer{
+    max-height: 144px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 7px 0;
+}
+
+.productName{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    max-width: 290px;
+    font-size: 1.25rem;
+  
+    color: #000000;
+}
+
+.productName:hover{
+    opacity: 0.8;
+}
+
+.productDescription{
+    color: #7F2982CC;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.incrementQuantity{
+    display: flex;
+    width: 115px;
+    height:50px;
+    background: #e6eaf89d;
+    border-radius: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btnChangeQuantity{
+    background: transparent;
+    border: none;
+    height: 100%;
+    width: 40px;
+
+    font-size: 1.5rem;
+    color:#F06C9B;
+    font-weight: 800;
+    font-family: 'Inter';
+    font-style: sans-serif;
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+.btnChangeQuantity:hover{
+    background-color: #e6eaf8;
+
+}
+
+.quantityText{
+    font-weight: bold;
+    font-family: 'Montserrat';
+    font-size: 1rem;
+    font-style: normal;
+    color: #68707D;
+}
+.productPrice{
+    position: absolute;
+    right: 0px;
+    font-family: 'Montserrat';
+    font-size: 1.375rem;
+    font-style: sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: #624CAB;
+    bottom:29px;
+}

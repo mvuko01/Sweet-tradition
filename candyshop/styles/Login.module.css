@@ -135,7 +135,8 @@
 
 .signInBtnGgl {
     background: rgba(240, 108, 155, 0.35);
-    border: 1px solid rgba(240, 108, 155, 0.35);
+    /*border: 1px solid rgba(240, 108, 155, 0.35);*/
+    border: none;
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;

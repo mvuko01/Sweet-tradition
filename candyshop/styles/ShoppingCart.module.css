@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.mainDiv{
+    position: fixed;
+    background-color: white;
+    height: 100vh;
+    
+
+    width: 530px;
+    right: -200%;
+    z-index: 4;
+    transition: 0.3s;
+}
+
+.mainDivActive{
+    position: fixed;
+    background-color: white;
+    height: 100vh;
+    
+    width: 530px;
+    right: 0px;
+    z-index: 4;
+    transition: 0.3s;
+}
+
+.titleAndCloseContainer{
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.heading{
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-size: 1.875rem;
+    color: #7F2982;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+.mainXWrapper{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.mainXWrapper:hover{
+    opacity: 0.8;
+}
+
+
+.productsSection{
+    padding: 25px;
+    max-height: calc(100% - 150px - 87px);
+    overflow-y:scroll;
+}
+
+
+
+.totalAndCheckoutContainer{
+    padding: 25px;
+    position: absolute;
+    bottom: 0px;
+    height: 150px;
+    background-color: #D9D9D9;
+    width: 100%;
+}
+
+.totalArea{
+    font-family: 'Montserrat';
+    font-size: 1.625rem;
+    font-style: sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: #624CAB;
+
+
+    display: flex;
+    justify-content: space-between;
+}
+.signInBtnWrapper{
+    width:auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+
+}
+
+.signInBtn {
+    background-color: #F06C9B;
+    color: white;
+    border: 1px solid rgba(240, 108, 155, 0.5);
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    height: 3.3rem; 
+    outline: none;
+}
+.signInBtn:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 530px){
+    
+    
+    .mainDivActive{
+        width: 100vw;
+    }
+
+}
