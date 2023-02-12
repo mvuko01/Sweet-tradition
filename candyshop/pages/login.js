@@ -10,6 +10,7 @@ import useAuth from '../hooks/useAuth';
 import Link from 'next/link';
 import Image from 'next/image'
 import Header2 from '../components/Header2';
+import { isEmail } from "validator";
 
 const Login = () => {
     const { removeAuth, setAuth, token } = useAuth();
@@ -47,6 +48,30 @@ const Login = () => {
         setLoading(false);
     };
 
+    const [emailError, setEmailError] = useState('');
+    const handleBlur = (e) => {
+        const email = e.target.value;
+    
+        if(!email){
+            setEmailError("Email or username field cannot be empty");
+        }
+        else {
+          setEmailError('');
+        }
+      };
+
+      const [passwordError, setPasswordError] = useState('');
+      const handlePasswordBlur = (e) => {
+          const password = e.target.value;
+          
+          if (!password) {
+              setPasswordError("Password field cannot be empty");
+          }
+          else {
+            setPasswordError("");
+          }
+        };
+
     return (
         <>
         <title>Login</title>
@@ -73,7 +98,9 @@ const Login = () => {
                                 id="email"
                                 placeholder="Enter your email or username"
                                 onChange={(e) => setEmail(e.target.value)}
+                                onBlur={handleBlur}
                             />
+                            {emailError && <p className={styles.error}>{emailError}</p>}
                         </div>
                         <div className={styles.inputWrapper}>
                             <label>Password</label>
@@ -84,6 +111,7 @@ const Login = () => {
                                     id="password"
                                     placeholder="Enter your password"
                                     onChange={(e) => setPassword(e.target.value)}
+                                    onBlur={handlePasswordBlur}
                                 />
                                 <Image 
                                     src={'/login/eye.svg'}
@@ -101,6 +129,7 @@ const Login = () => {
                                     className={shownPassword == false ? styles.eyeoff : styles.eye}
                                     onClick={() => setShownPassword(false)}
                                 />
+                                {passwordError && <p className={styles.error}>{passwordError}</p>}
                             </div>
                         </div>
                         <div className={styles.rememberAndForgot}>
@@ -110,6 +139,7 @@ const Login = () => {
                                 </div>
                                 <label className={styles.forgot}>Forgot password?</label>
                         </div>
+                        {error && <p className={styles.error}>{error}</p>}
                         {loading ? (
                         <Spinner />
                         ) : (
@@ -136,7 +166,6 @@ const Login = () => {
                                 <p>Don&#39;t have an account? &nbsp;</p>
                                 <Link href='/register' className={styles.forgot}>Register</Link>
                         </div>
-                    {error && <p className={styles.error}>{error}</p>}
                     </section>
                 )}
                 

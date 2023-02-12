@@ -218,11 +218,15 @@
 }
 
 .error {
+    background-color: #f06c9a73;
     color:red;
     font-family: Montserrat, sans-serif;
     font-weight: bolder;
-    margin-top: 1.5rem;
-    font-size: 2rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.2rem;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 @media screen and (max-width: 1650px){
