@@ -1,5 +1,5 @@
 import Footer from '../../components/Footer';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from '../../styles/Blogs.module.css'
 import Blog from '../../components/Blog';
@@ -9,6 +9,8 @@ import matter from 'gray-matter';
 import path from 'path'
 import Link from 'next/link';
 import Header2 from '../../components/Header2';
+import useAuth from "../../hooks/useAuth";
+import api from "../../api";
 
 export async function getStaticProps() {
   //Get files from the posts dir
@@ -39,6 +41,21 @@ const Blogs = (props) => {
     const numberOfBlogsPerPage = 4;
     const [page, setPage] = useState(indexOfFirstBlog);
     const blogPosts  = props.posts;
+
+    const { token } = useAuth();
+    const [currentUser, setCurrentUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        if (!token) {
+            return;
+        }
+
+        api.addNewBlog(token).then(({ user }) => {
+            setLoading(false);
+            setCurrentUser(user);
+        });
+    }, [token]);
     
     return (
         <>
@@ -56,8 +73,10 @@ const Blogs = (props) => {
                     If so, reading <span className={styles.ourBlog}>our blog</span> is a must! we have all the information you need to satisfy your sweet tooth!
                 </p>
             </div>
-            <div className={styles.centerOfPage}> 
-                <Link href="/blog/addNewBlog"><button type="button" className={styles.addNewBtn} id={styles.firstBtn}>ADD NEW BLOG</button></Link>
+            <div className={styles.centerOfPage}>
+            {token && (
+                    <Link href="/blog/addNewBlog"><button type="button" className={styles.addNewBtn} id={styles.firstBtn}>ADD NEW BLOG</button></Link>
+                )}
                 <div className={styles.contentWrapper}>
                     <div className={styles.blogWrapper}>
                         {blogPosts.slice(page, page + 1).map((post) => (
