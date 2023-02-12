@@ -97,7 +97,7 @@ const Candy = (props) => {
                     width={1900}
                     height={380}
                     src="/candyBanner.svg"
-                    alt="profile image"
+                    alt="Candy banner"
                     className={styles.banner}
                 />
             </div>

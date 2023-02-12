@@ -1,3 +1,64 @@
+.bannerWrapper{
+    width: 100%;
+}
+.banner{
+    height:auto;
+    max-width:100%;
+    max-height:100%;
+}
+.heading{
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-size: 2.5rem;
+    color: #7F2982;
+    text-align: center;
+    letter-spacing: 0.1em;
+    margin-top: 38px;
+}
+.pageNumberContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 34px;
+}
+
+.pageNum {
+    font-family: Montserrat, sans-serif;
+    font-weight: bold;
+
+    background-color:#F06C9B;
+    width: 40px;
+    height: 40px;
+    margin: 0 2px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+
+    color: white;
+    line-height: 2.35rem;
+    
+    cursor: pointer;
+    font-size: 25px;
+}
+#currentPage {
+    background-color: #F06C9B;
+}
+#notCurrentPage {
+    background-color: #F06C9B;
+    opacity: 0.7;
+}
+#notCurrentPage:hover {
+    opacity: 1;
+}
+#arrow {
+    width: 30px;
+    height: 30px;
+}
+#arrow:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
 .candyContainer{
     padding-top: 3.5rem;
     display: grid;

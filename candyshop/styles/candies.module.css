@@ -51,17 +51,17 @@
     cursor: pointer;
     font-size: 25px;
 }
-.pageNum:hover {
-    opacity: 0.7;
+#notCurrentPage:hover {
+    opacity: 1;
 }
 #currentPage {
-    background-color: rgba(240, 108, 155, 0.5);
+    background-color: #F06C9B;
 }
 #notCurrentPage {
-    
+    background-color: #F06C9B;
+    opacity: 0.7;
 }
 #arrow {
-    background-color:white;
     width: 30px;
     height: 30px;
 }

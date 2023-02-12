@@ -163,9 +163,6 @@
     cursor: pointer;
     font-size: 25px;
 }
-#currentPage:hover {
-    opacity: 0.7;
-}
 #currentPage {
     background-color: #F06C9B;
 }
