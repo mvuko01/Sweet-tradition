@@ -14,7 +14,7 @@ const SideProductCard = ({ name, short_description, picture, price, id, product 
 
     return (
         <>
-            <Link href={`../candy/${product.slug}`} className={styles.productCard}>
+            <div className={styles.productCard}>
                 <div className={styles.productUpper}>
                     <button onClick={() => handleAddToFavourites(product, setFavs)} className={styles.buttonFavourite}>
                         <Image
@@ -35,8 +35,8 @@ const SideProductCard = ({ name, short_description, picture, price, id, product 
                 </div>
                 <div className={styles.productInfo}>
                     <p className={styles.productDescription}>{short_description}</p>
-                    <h2 className={styles.productName}>{name}</h2>
-                    <span className={styles.productPrice}>{price}</span>
+                    <Link href={`../candy/${product.slug}`} className={styles.productName}>{name}</Link>
+                    <div className={styles.productPrice}>{price}</div>
                     <button className={styles.buttonCart}>
                         <Image
                             src={'/productPics/Add to cart.svg'}
@@ -47,7 +47,7 @@ const SideProductCard = ({ name, short_description, picture, price, id, product 
                         />
                     </button>
                 </div>
-            </Link>
+            </div>
         </>
     );
 };

@@ -13,9 +13,10 @@ const MainProductCard = ({ name, short_description, picture, price, id, product 
     }, []);
     return (
         <>
-            <Link href={`../candy/${product.slug}`} className = {styles.mainProductCard}>
+            <div className = {styles.mainProductCard}>
                 <div className = {styles.productUpper}>
                     <button onClick={() => handleAddToFavourites(product, setFavs)} className= {styles.buttonFavourite}>
+                    
                         <Image
                             src={checkIfFavourite(product,favs) == false ? '/productPics/EmptyHeart.svg' : '/productPics/FullHeart.svg'}
                             alt="Heart icon"
@@ -23,6 +24,7 @@ const MainProductCard = ({ name, short_description, picture, price, id, product 
                             height={100}
                             className ={styles.imageFavourite}
                         />
+                    
                     </button>
                     <Image
                         src={picture}
@@ -34,8 +36,8 @@ const MainProductCard = ({ name, short_description, picture, price, id, product 
                 </div>
                 <div className={styles.productInfo}>
                     <p className={styles.mainProductDescription}>{short_description}</p>
-                    <h2 className={styles.mainProductName}>{name}</h2>
-                    <span className={styles.mainProductPrice}>{price}</span>
+                    <Link href={`../candy/${product.slug}`} className={styles.mainProductName}>{name}</Link>
+                    <div className={styles.mainProductPrice}>{price}</div>
                     <button className={styles.buttonCart}>
                         <Image
                             src={'/productPics/Add to cart.svg'}
@@ -45,7 +47,7 @@ const MainProductCard = ({ name, short_description, picture, price, id, product 
                         />
                     </button>
                 </div>
-            </Link>
+            </div>
         </>
     );
 };

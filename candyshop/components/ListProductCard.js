@@ -18,7 +18,6 @@ const ListProductCard = ({ name, short_description, picture, price, id, product,
 
     return (
         <>
-        <Link href={`../candy/${product.slug}`}>
             <div className={styles.listProductCard}>
                 <div className={styles.productUpper}>
                     <button onClick={() => {handleAddToFavourites(product, setFavs); handleHeartClick()}} className={styles.buttonFavourite}>
@@ -40,8 +39,8 @@ const ListProductCard = ({ name, short_description, picture, price, id, product,
                 </div>
                 <div className={styles.productInfo}>
                     <p className={styles.listProductDescription}>{short_description}</p>
-                    <h2 className={styles.listProductName}>{name}</h2>
-                    <span className={styles.listProductPrice}>{price}</span>
+                    <Link href={`../candy/${product.slug}`} className={styles.listProductName}>{name}</Link>
+                    <div className={styles.listProductPrice}>{price}</div>
                     <button className={styles.buttonCart}>
                         <Image
                             src={'/productPics/Add to cart.svg'}
@@ -53,7 +52,6 @@ const ListProductCard = ({ name, short_description, picture, price, id, product,
                     </button>
                 </div>
             </div>
-        </Link>
         </>
     );
 };
