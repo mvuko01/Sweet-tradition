@@ -10,7 +10,7 @@ import {useState, useRef} from 'react';
 const Header2 = () => {
     const router = useRouter();
     const currentPage = router.pathname;
-    const burgerRef = useRef();
+    const navRef = useRef();
 
     const [isNavbarBurgerOn, setIsNavbarBurgerOn] = useState(false);
 
@@ -33,10 +33,10 @@ const Header2 = () => {
             </Link>
             
             
-            <div ref={burgerRef} onClick={handleHamburgerClick} className={styles.navbarContainer}>
-                <div className={styles.hamburgerWrapper}>
+            <div className={styles.navbarContainer}>
+                <div   onClick={handleHamburgerClick}  className={styles.hamburgerWrapper}>
                     <Image
-                        src={'/Hamburger.svg'}
+                        src={isNavbarBurgerOn ? '/close.svg' : '/Hamburger.svg'}
                         alt="hamb"
                         width={20}
                         height={20}
@@ -44,7 +44,7 @@ const Header2 = () => {
                     />
                 </div>
                 
-                <div className={styles.textNavigationContainer}>
+                <div  className={isNavbarBurgerOn ? styles.textNavigationContainerActive : styles.textNavigationContainer }>
                     {navigationItems.slice(0, 3).map(({ label, path }) => (
                         <Link className={currentPage == path ? styles.textNavLinkWrapperActive : styles.textNavLinkWrapperInactive} href={path} key={label} passHref>
                             <p className={currentPage == path ? styles.navLabelWrapperActive : styles.navLabelWrapperInactive}>{label}</p>
