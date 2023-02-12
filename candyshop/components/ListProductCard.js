@@ -16,7 +16,7 @@ const ListProductCard = ({ name, short_description, picture, price, id, product 
         <Link href={`../candy/${product.slug}`}>
             <div className={styles.listProductCard}>
                 <div className={styles.productUpper}>
-                    <button onClick={() => handleAddToFavourites(product)} className={styles.buttonFavourite}>
+                    <button onClick={() => handleAddToFavourites(product, setFavs)} className={styles.buttonFavourite}>
                         <Image
                             src={checkIfFavourite(product,favs) === false ? '/productPics/EmptyHeart.svg' : '/productPics/FullHeart.svg'}
                             alt=""

@@ -22,6 +22,7 @@ const OneCandy = ({frontmatter, content, products}) => {
             favourites.splice(index, 1);
         }
         localStorage.setItem('favourites', JSON.stringify(favourites));
+        setFavs(favourites);
     };
 
     useEffect(() => {

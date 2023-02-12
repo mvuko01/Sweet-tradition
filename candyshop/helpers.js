@@ -15,7 +15,7 @@ export function limitWords(text) {
     return text;
   }
 
-export function handleAddToFavourites(product) {
+export function handleAddToFavourites(product, setFavs) {
         let favourites = JSON.parse(localStorage.getItem('favourites')) || [];
         const index = favourites.findIndex(p => p.frontmatter.id === product.frontmatter.id);
         if (index === -1) {
@@ -26,6 +26,7 @@ export function handleAddToFavourites(product) {
             favourites.splice(index, 1);
         }
         localStorage.setItem('favourites', JSON.stringify(favourites));
+        setFavs(favourites);
 }
 
 export function checkIfFavourite(product, favs) {

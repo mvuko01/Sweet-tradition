@@ -6,16 +6,17 @@ import { handleAddToFavourites, checkIfFavourite } from '../helpers';
 
 const SideProductCard = ({ name, short_description, picture, price, id, product }) => {
     const [favs, setFavs] = useState([]);
-
+    
     useEffect(() => {
         const storedFavourites = JSON.parse(localStorage.getItem('favourites')) || [];
         setFavs(storedFavourites);
     }, []);
+
     return (
         <>
             <Link href={`../candy/${product.slug}`} className={styles.productCard}>
                 <div className={styles.productUpper}>
-                    <button onClick={() => handleAddToFavourites(product)} className={styles.buttonFavourite}>
+                    <button onClick={() => handleAddToFavourites(product, setFavs)} className={styles.buttonFavourite}>
                         <Image
                             src={checkIfFavourite(product,favs) == false ? '/productPics/EmptyHeart.svg' : '/productPics/FullHeart.svg'}
                             alt=""
