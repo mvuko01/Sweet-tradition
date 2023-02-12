@@ -8,7 +8,7 @@ const StoryBanner = () => {
             <Image
                     src={'/story banner2.svg'}
                     alt="Banner"
-                    width={1520}
+                    width={1800}
                     height={384}
                     className={styles.storyBanner}
                 />

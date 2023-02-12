@@ -291,13 +291,16 @@
 
 @media screen and (max-width: 1200px){
   /*about us mobile*/
+  .AUHeading {
+    margin-top: 10rem;
+  }
   .mainContainter {
     flex-direction: column;
     align-items: center;
   }
   .secondWrapper {
     flex-direction: column-reverse;
-    margin-top: 0rem;
+    margin-top: 3rem;
   }
   .image1 {
     width: 800px;
@@ -314,6 +317,9 @@
   }
 
   /*blog section mobile */
+  .blogsHeading {
+    margin-top: 10rem;
+  }
   .linkWrapper {
     flex-direction: column;
     align-items: center;
@@ -340,6 +346,9 @@
 
 @media screen and (max-width: 950px) {
   /*about us mobile*/
+  .AUHeading {
+    margin-top: 7rem;
+  }
   .image1{
     width: 550px;
     height: 450px;
@@ -355,6 +364,9 @@
   }
 
   /*blog section mobile */
+  .blogsHeading {
+    margin-top: 7rem;
+  }
   .blogPics {
     max-width: 550px;
     min-width: auto;
@@ -376,6 +388,9 @@
 
 @media screen and (max-width: 630px) {
   /*about us mobile*/
+  .AUHeading {
+    margin-top: 5rem;
+  }
   .image1{
     width: 350px;
     height: 250px;
@@ -387,10 +402,16 @@
   .text {
     width: 350px;
     font-size: 1.2rem;
-    line-height: 2rem;
+    line-height: 1.8rem;
+  }
+  .secondWrapper {
+    margin-top: 2rem;
   }
 
   /*blog section mobile */
+  .blogsHeading {
+    margin-top: 5rem;
+  }
   .blogPics {
     max-width: 350px;
     min-width: auto;
@@ -409,8 +430,48 @@
   }
   .ctaText {
     font-size: 1.2rem;
-    line-height: 2rem;
+    line-height: 1.8rem;
   }
   
 }
-
+@media screen and (max-width: 500px) {
+  /*about us mobile*/
+  .image1{
+    width: 300px;
+    height: 200px;
+  }
+  .image2{
+    width: 300px;
+    height: 200px;
+  }
+  .text {
+    width: 300px;
+    font-size: 1rem;
+    line-height: 1.75rem;
+  }
+  .secondWrapper {
+    margin-top: 2rem;
+  }
+  /*blog section mobile */
+  .blogPics {
+    max-width: 300px;
+    min-width: auto;
+  }
+  .miniBlogContentWrapper {
+    width: 300px;
+    margin-left: 0;
+    margin-top: 1rem;
+    gap: 1rem;
+  }
+  .linkWrapper {
+    margin-bottom: 4rem;
+  }
+  .title {
+    font-size: 1.6rem;
+  }
+  .ctaText {
+    font-size: 1rem;
+    line-height: 1.75rem;
+  }
+  
+}
