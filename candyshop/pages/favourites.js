@@ -1,7 +1,7 @@
 import Header2 from '../components/Header2';
 import Footer from '../components/Footer';
 import ListProductCard from '../components/ListProductCard';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from '../styles/favourites.module.css';
 import Image from 'next/image';
 
@@ -13,14 +13,18 @@ const Favourites = () => {
     const numberOfPages = Math.ceil(favourites.length / productsPerPage);
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-    
+
+    const [heartState, setHeartState] = useState(false);
+      const handleHeartClick = (newHeartState) => {
+        setHeartState(newHeartState);
+      }
 
     useEffect(() => {
         const localFavourites = localStorage.getItem('favourites');
         if (localFavourites) {
             setFavourites(JSON.parse(localFavourites));
         }
-    }, []);
+    }, [heartState]);
 
     const currentProducts = favourites.slice(indexOfFirstProduct, indexOfLastProduct);
 
@@ -91,7 +95,7 @@ const Favourites = () => {
             )} 
       </div>
       <div className={styles.candyContainer}>
-        {currentProducts.map(product => (<ListProductCard key={product.frontmatter.id} product={product} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id} />))}
+        {currentProducts.map(product => (<ListProductCard onHeartClick={handleHeartClick} prevState={heartState} key={product.frontmatter.id} product={product} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id} />))}
       </div>
       <div className={styles.pageNumberContainer}>
             {currentPage > 1 && (

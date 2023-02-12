@@ -25,10 +25,15 @@ const OneCandy = ({frontmatter, content, products}) => {
         setFavs(favourites);
     };
 
+    const [heartState, setHeartState] = useState(false);
+      const handleHeartClick = (newHeartState) => {
+        setHeartState(newHeartState);
+    }
+
     useEffect(() => {
         const storedFavourites = JSON.parse(localStorage.getItem('favourites')) || [];
         setFavs(storedFavourites);
-    }, []);
+    }, [heartState]);
 
     const checkIfFavourite = (favs) => {
         const index = favs.findIndex(p => p.frontmatter.id === frontmatter.id);
@@ -196,7 +201,7 @@ const OneCandy = ({frontmatter, content, products}) => {
                         {
                            products.filter(product => product.frontmatter.category === frontmatter.category && product.frontmatter.name !== frontmatter.name)
                            .slice(0,4).map(filteredProduct => (
-                            <ListProductCard key={filteredProduct.frontmatter.id}  name={filteredProduct.frontmatter.name} short_description={`${filteredProduct.frontmatter.category}, ${filteredProduct.frontmatter.quantity}`} picture={filteredProduct.frontmatter.picture} price={filteredProduct.frontmatter.price} id={filteredProduct.frontmatter.id} product={filteredProduct}/>
+                            <ListProductCard onHeartClick={handleHeartClick} prevState={heartState} key={filteredProduct.frontmatter.id}  name={filteredProduct.frontmatter.name} short_description={`${filteredProduct.frontmatter.category}, ${filteredProduct.frontmatter.quantity}`} picture={filteredProduct.frontmatter.picture} price={filteredProduct.frontmatter.price} id={filteredProduct.frontmatter.id} product={filteredProduct}/>
                           ))
                         }
                     </div>
