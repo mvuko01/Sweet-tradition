@@ -5,6 +5,7 @@
 }
 .mainWrapper {
     margin-left: 3.75rem;
+    margin-right: 3.75rem;
 }
 .title {
     font-weight: 700;
@@ -133,5 +134,16 @@
 .btnWrapper {
     display: flex;
     justify-content: center;
-    margin-right: 3.75rem;
+}
+@media screen and (max-width: 630px) {
+    .mainWrapper p {
+        line-height: 1.6rem;
+    }
+    .editIcon {
+        width: 1.1rem;
+        height: 1.1rem;
+    }
+    .textEditWrapper {
+        padding-left: 0.5rem;
+    }
 }

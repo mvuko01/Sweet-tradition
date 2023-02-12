@@ -78,9 +78,11 @@
     height: 2rem;
     cursor: pointer;
     border-color: transparent;
-    margin-top: 2rem;
     margin-bottom: 2rem;
     margin-left: 14.5rem;
+}
+.centerOfPage {
+    margin-top: 5.3rem;
 }
 .addNewBtn:hover {
     opacity: 0.7;
@@ -130,20 +132,20 @@
     color: #624CAB;
     font-weight: 400;
     font-weight: bolder;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin-bottom: 0.5rem;
 }
 .mainTitle {
     color: #624CAB;
     font-weight: 400;
     font-weight: bolder;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
 .ctaText {
     color: #908282;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     line-height: 1.8rem;
 }
 .pageNum {

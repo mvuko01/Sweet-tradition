@@ -9,7 +9,7 @@ const api = {
         });
 
         if (res.status !== 200) {
-            throw new Error('Unsuccessful login attempt!');
+            throw new Error('Wrong email or username!');
         }
 
         return res.json();

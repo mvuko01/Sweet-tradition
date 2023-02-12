@@ -10,6 +10,7 @@ import useAuth from '../hooks/useAuth';
 import Link from 'next/link';
 import Image from 'next/image'
 import Header2 from '../components/Header2';
+import isEmail from 'validator/lib/isEmail';
 
 const Register = () => {
     const { removeAuth, setAuth, token } = useAuth();
@@ -50,6 +51,52 @@ const Register = () => {
         //     setValidation("Username already exists, try something else.");
         // }
     }
+
+    const [emailError, setEmailError] = useState('');
+    const handleEmailBlur = (e) => {
+        const email = e.target.value;
+        
+        if(!email){
+            setEmailError("Email field cannot be empty");
+        }
+        else if (!isEmail(email)) {
+          setEmailError("Please enter valid email address!");
+        } else {
+          setEmailError('');
+        }
+      };
+
+    const [usernameError, setUsernameError] = useState('');
+    const handleUsernameBlur = (e) => {
+        const username = e.target.value;
+
+        if(!username){
+            setUsernameError("Username field cannot be empty");
+        }
+        else if (username.length < 3) {
+            setUsernameError("Username must be at least 3 characters long!");
+        } else {
+            setUsernameError('');
+        }
+    };
+
+    const [passwordError, setPasswordError] = useState('');
+    const [confirmPasswordError, setConfirmPasswordError] = useState('');
+    const handleConfirmPasswordBlur = (e) => {
+        const confirmPassword = e.target.value;
+        
+        if (!password) {
+            setPasswordError("Password field cannot be empty");
+        }
+        if(!confirmPassword){
+            setConfirmPasswordError("Confirm password field cannot be empty");
+        }
+        else if (confirmPassword !== password) {
+          setConfirmPasswordError("Passwords do not match!");
+        } else {
+          setPasswordError("");
+        }
+      };
     return (
         <>
         <title>Register</title>
@@ -76,7 +123,9 @@ const Register = () => {
                                 id="email"
                                 placeholder="Enter your email"
                                 onChange={(e) => setEmail(e.target.value)}
+                                onBlur={handleEmailBlur}
                             />
+                            {emailError && <p className={styles.error}>{emailError}</p>}
                         </div>
                         <div className={styles.inputWrapper}>
                             <label>Username</label>
@@ -86,7 +135,9 @@ const Register = () => {
                                 id="username"
                                 placeholder="Enter your username"
                                 onChange={(e) => setUsername(e.target.value)}
+                                onBlur={handleUsernameBlur}
                             />
+                            {usernameError && <p className={styles.error}>{usernameError}</p>}
                         </div>
                         <div className={styles.inputWrapper}>
                         <label>Password</label>
@@ -95,7 +146,9 @@ const Register = () => {
                                 type="password"
                                 placeholder="Enter your password"
                                 onChange={(e) => setPassword(e.target.value)}
+                                onBlur={handleConfirmPasswordBlur}
                             />
+                            {passwordError && <p className={styles.error}>{passwordError}</p>}
                         </div>
                         <div className={styles.inputWrapper}>
                         <label>Confirm password</label>
@@ -104,7 +157,9 @@ const Register = () => {
                                 type="password"
                                 placeholder="Enter your password again"
                                 onChange={(e) => setConfirmPassword(e.target.value)}
+                                onBlur={handleConfirmPasswordBlur}
                             />
+                            {confirmPasswordError && <p className={styles.error}>{confirmPasswordError}</p>}
                         </div>
                         <div className={styles.rememberAndForgot}>
                             <div className={styles.remember}>
@@ -113,6 +168,7 @@ const Register = () => {
                             </div>
                             <label className={styles.forgot}>Forgot password?</label>
                         </div>
+                        {error && <p className={styles.error}>{error}</p>}
                         {loading ? (
                         <Spinner />
                         ) : (
@@ -143,7 +199,6 @@ const Register = () => {
                         
                     </section>
                 )}
-                {error && <p className={styles.error}>{error}</p>}
                 {token && (
                     <button
                         onClick={() => {
