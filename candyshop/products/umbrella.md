@@ -2,6 +2,8 @@
 id: "29"
 name: "Chocolate Umbrella"
 picture: "/productPics/umbrella.svg"
+picture2: "/productPics/umbrella2.svg"
+picture3: "/productPics/umbrella3.svg"
 price: "1,50€"
 category: "Chocolates"
 quantity: "40g"

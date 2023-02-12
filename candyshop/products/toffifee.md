@@ -1,7 +1,9 @@
 ---
 id: "46"
 name: "Toffifee"
-picture: ""
+picture: "/productPics/tofife3.svg"
+picture2: "/productPics/tofife2.svg"
+picture3: "/productPics/tofife.svg"
 price: "2,60€"
 category: "Toffees"
 quantity: "125g"

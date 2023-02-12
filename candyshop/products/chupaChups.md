@@ -2,6 +2,8 @@
 id: "51"
 name: "Chupa Chups"
 picture: "/productPics/chupa.svg"
+picture2: "/productPics/chupa2.svg"
+picture3: "/productPics/chupa3.svg"
 price: "0,60€"
 category: "Lollipops"
 quantity: "12g"

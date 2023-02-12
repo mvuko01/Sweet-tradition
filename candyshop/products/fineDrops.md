@@ -2,6 +2,8 @@
 id: "48"
 name: "Fine Drops Coffee"
 picture: "/productPics/coffee.svg"
+picture2: "/productPics/coffee2.svg"
+picture3: "/productPics/coffee3.svg"
 price: "2,60€"
 category: "BonBons"
 quantity: "200g"

@@ -2,6 +2,8 @@
 id: "41"
 name: "Bronhi"
 picture: "/productPics/bronhi.svg"
+picture2: "/productPics/bronhi2.svg"
+picture3: "/productPics/bronhi3.svg"
 price: "2,60€"
 category: "Toffees"
 quantity: "90g"

@@ -2,6 +2,8 @@
 id: "49"
 name: "Hermann The German"
 picture: "/productPics/german.svg"
+picture2: "/productPics/herman2.svg"
+picture3: "/productPics/herman3.svg"
 price: "3,60€"
 category: "BonBons"
 quantity: "200g"

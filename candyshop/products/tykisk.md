@@ -1,7 +1,9 @@
 ---
 id: "24"
 name: "Tyrkisk Peber"
-picture: ""
+picture: "/productPics/tyrkisk.svg"
+picture2: "/productPics/tyrkisk2.svg"
+picture3: "/productPics/tyrkisk3.svg"
 price: "12,50€"
 category: "Liquorice"
 quantity: "120g"

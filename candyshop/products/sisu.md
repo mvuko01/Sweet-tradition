@@ -1,7 +1,9 @@
 ---
 id: "25"
 name: "Sisu Bar"
-picture: ""
+picture: "/productPics/sisu.svg"
+picture2: "/productPics/sisu2.svg"
+picture3: "/productPics/sisu3.svg"
 price: "6€"
 category: "Chocolates"
 quantity: "130g"

@@ -1,7 +1,9 @@
 ---
 id: "20"
 name: "Stratos"
-picture: ""
+picture: "/productPics/stratos.svg"
+picture2: "/productPics/stratos2.svg"
+picture3: "/productPics/stratos3.svg"
 price: "5,30€"
 category: "Chocolates"
 quantity: "150g"

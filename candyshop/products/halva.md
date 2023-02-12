@@ -2,6 +2,8 @@
 id: "27"
 name: "Halva Salmiakki Ruutu"
 picture: "/productPics/halva.svg"
+picture2: "/productPics/halva2.svg"
+picture3: "/productPics/halva3.svg"
 price: "8,50€"
 category: "Liquorice"
 quantity: "240g"

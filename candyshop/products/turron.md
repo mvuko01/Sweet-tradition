@@ -1,7 +1,9 @@
 ---
 id: "32"
 name: "Turrón"
-picture: ""
+picture: "/productPics/turron.svg"
+picture2: "/productPics/turron2.svg"
+picture3: "/productPics/turron3.svg"
 price: "5,90€"
 category: "Chocolates"
 quantity: "20g"
