@@ -13,7 +13,7 @@ const ShoppingCartProduct = ({product, quantity, removeFromLocalStorage, handleC
 
     return (
         <div className={styles.productContainer}>
-            <div className={styles.pictureWrapper}>
+            <Link href={`../candy/${product.slug}`} className={styles.pictureWrapper}>
                 <Image
                     src={product.frontmatter.picture}
                     alt=""
@@ -21,7 +21,7 @@ const ShoppingCartProduct = ({product, quantity, removeFromLocalStorage, handleC
                     height={144}
                     className={styles.imageProduct}
                 />
-            </div>
+            </Link>
             <div className={styles.productInfoContainer}>
             <Link href={`../candy/${product.slug}`} className={styles.productName}>{product.frontmatter.name}</Link>
                 <div className={styles.removeProductWrapper}>

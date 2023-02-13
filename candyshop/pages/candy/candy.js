@@ -8,7 +8,7 @@ import SideProductCard from '../../components/SideProductCard';
 import { useState, useEffect } from 'react';
 import React from 'react';
 import { categories } from '../../constants/productCategories';
-
+import { countries } from '../../constants/countries';
 import matter from 'gray-matter'
 
 
@@ -34,6 +34,18 @@ const Candy = (props) => {
         console.log(isCheckedCategory);
     }
 
+    const[isCheckedCountry, setIsCheckedCountry] = useState([]);
+    const [isOpenCountry, setIsOpenCountry] = useState(false);
+    function handleAddCountryFilter(e){
+        const name = e.currentTarget.childNodes[1].innerText;
+        if(isCheckedCountry.includes(name)){
+            setIsCheckedCountry(isCheckedCountry.filter(id => id != name))
+        } else {
+            setIsCheckedCountry(newArray => [...isCheckedCountry, name]);
+            
+        }
+        console.log(isCheckedCountry);
+    }
 
     const [isOpenSort, setisOpenSort] = useState(false);
     const [currentSortOption, setCurrentSortOption] = useState("Sort by");
@@ -186,17 +198,37 @@ const Candy = (props) => {
                             </div>
                         </div>
                         <div className={styles.filterDropdown} >
-                            <option selected disabled>Country</option>
-                            <option value="croatia">Croatia</option>
-                            <option value="italy">Italy</option>
-                            <option value="switzerland">Switzerland</option>
+                            <div className={styles.mainFilterDiv} onClick={() => setIsOpenCountry(!isOpenCountry)}>
+                                <label>Country</label>
+                                <div className={styles.dropdownIconWrapper}>
+                                    <Image
+                                        width={40}
+                                        height={30}
+                                        src="/blogpics/Arrow 2 (1).svg"
+                                        alt="dropdown arrow"
+                                        className={isOpenCountry ? styles.dropdownIconActive : styles.dropdownIconInactive}
+                                    />
+                                </div>
+                            </div>
+                            <div className={ isOpenCountry ? styles.filterOptionsActive : styles.filterOptionsInactive}>
+                                {countries.map((country) => (
+                                    <div className={styles.filterOption} onClick={handleAddCountryFilter}>
+                                        <input type="checkbox" checked={isCheckedCountry.includes(country.name)} className={styles.cbox}/>
+                                        <label>{country.name}</label> 
+                                        <div className={styles.countryImageWrapper}>
+                                            <Image
+                                                width={40}
+                                                height={30}
+                                                src={`/countries/${country.name}.svg`}
+                                                alt="country flag"
+                                                className={styles.countryImage}
+                                            />
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                        <select className={styles.customSelect} name="price" id="price">
-                            <option selected disabled>Price</option>
-                            <option value="saab">Saab</option>
-                            <option value="opel">Opel</option>
-                            <option value="audi">Audi</option>
-                        </select>
+                        
                     </div>
                 </div>
                 <div className={styles.candyContainer}>

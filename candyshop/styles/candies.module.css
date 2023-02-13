@@ -127,6 +127,11 @@
     box-shadow: -2px 3px 4px;
 }
 
+.mainFilterDiv:hover *{
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
 .mainFilterDiv label{
     font-family: Montserrat, sans-serif;
     font-style: normal;
@@ -134,6 +139,8 @@
     font-size: 20px;
     line-height: 0.938rem;
     color: #F06C9B;
+    cursor: pointer;
+
 }
 
 .dropdownIconWrapper{
@@ -200,6 +207,10 @@
     cursor: pointer;
 
 
+}
+
+.countryImageWrapper{
+    margin-left: auto;
 }
 
 .filterOption:hover label{
