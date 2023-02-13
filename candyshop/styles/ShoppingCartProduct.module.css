@@ -155,4 +155,18 @@
         font-size: 1.25rem;
         bottom:25px;
     }
+
+    .removeProductWrapper{
+        /*position: absolute;
+        right: 0px;
+        top: 10px;*/
+        width: 22px;
+        height: 22px;
+        /*ursor: pointer;*/
+    }
+
+    .removeProductImage{
+        width: 80%;
+        height: 80%;
+    }
 }    

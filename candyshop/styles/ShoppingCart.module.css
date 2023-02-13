@@ -113,6 +113,42 @@
         padding: 15px;
     }
 
+    .signInBtn {
+        height: 3rem;
+    }
+
+    .totalArea{
+        font-size: 1.375rem;
+        
+    }
+
     .heading{
+        font-size: 1.625rem;
+
+    }
+    .titleAndCloseContainer{
+        align-items: center;
+    }
+
+    .mainXWrapper{
+       width: 25px;
+       height: 25px;
+
+    }
+
+    .mainXImage{
+        width: 100%;
+        height: 100%;
+    }
+
+    .totalAndCheckoutContainer{
+        
+        height: 125px;
+        
+    }
+
+    .productsSection{
+        max-height: calc(100% - 125px - 62px);
+        overflow-y:scroll;
     }
 }
