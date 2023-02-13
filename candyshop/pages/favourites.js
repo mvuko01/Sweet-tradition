@@ -17,7 +17,7 @@ const Favourites = () => {
     const [heartState, setHeartState] = useState(false);
       const handleHeartClick = (newHeartState) => {
         setHeartState(newHeartState);
-      }
+    }
 
     useEffect(() => {
         const localFavourites = localStorage.getItem('favourites');

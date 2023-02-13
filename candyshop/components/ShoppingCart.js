@@ -1,12 +1,44 @@
 import Image from 'next/image'
 import styles from '../styles/ShoppingCart.module.css'
 import loginStyle from '../styles/Login.module.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ShoppingCartProduct from './ShoppingCartProduct'
 
 const ShoppingCart = ({stateChanger, state}) => {
-    
+    const [inShoppingCart, setInShoppingCart] = useState([]);
 
+    const [currentState, setCurrentState] = useState(false);
+      const handleChangeOfState = (newState) => {
+        setCurrentState(newState);
+    }
+
+    useEffect(() => {
+        const storedShoppingCart = localStorage.getItem('shoppingCart');
+        if (storedShoppingCart) {
+            setInShoppingCart(JSON.parse(storedShoppingCart));
+        }
+    }, [currentState]);
+
+    const handleChangeQuantity = (product, action) => {
+        const index = inShoppingCart.findIndex(p => p.frontmatter.id === product.frontmatter.id);
+        if (action === 'decrease' && inShoppingCart[index].quantity > 1) {
+            inShoppingCart[index].quantity--;
+        } else if (action === 'increase') {
+            inShoppingCart[index].quantity++;
+        }
+        localStorage.setItem('shoppingCart', JSON.stringify(inShoppingCart));
+    }
+    const removeFromLocalStorage = (product) => {
+        const index = inShoppingCart.findIndex(p => p.frontmatter.id === product.frontmatter.id);
+        inShoppingCart.splice(index, 1);
+        localStorage.setItem('shoppingCart', JSON.stringify(inShoppingCart));
+    }
+
+    const totalPrice = inShoppingCart.reduce((acc, curr) => {
+        return (acc + (curr.frontmatter.price.replace("€", "").replace(",", ".") * curr.quantity));
+    }, 0);
+
+    const formattedPrice = totalPrice.toFixed(2).toString().replace(".", ",") + "€";
     return (
         <>
             <div className={state ? styles.mainDivActive : styles.mainDiv}>
@@ -24,21 +56,15 @@ const ShoppingCart = ({stateChanger, state}) => {
                     </div>
                 </div>
                 <div className={styles.productsSection}>
-                    <ShoppingCartProduct/>
-                    <ShoppingCartProduct/>
-                    <ShoppingCartProduct/>
-                    <ShoppingCartProduct/>
-                    <ShoppingCartProduct/>
-                    <ShoppingCartProduct/>
-                    <ShoppingCartProduct/>
+                    {inShoppingCart.map(product => (<ShoppingCartProduct key={product.frontmatter.id} product={product} quantity={product.quantity} removeFromLocalStorage={() =>removeFromLocalStorage(product)} handleChangeQuantity={(product, action) => handleChangeQuantity(product, action)} onChangeState={handleChangeOfState} prevState={currentState} />))}
                 </div>
                 <div className={styles.totalAndCheckoutContainer}>
                     <div className={styles.totalArea}>
                         <span className={styles.totalText}>TOTAL</span>
-                        <span className={styles.totalText}>25.7€</span>
+                        <span className={styles.totalText}>{formattedPrice}</span>
                     </div>
                     <div className={styles.signInBtnWrapper}>
-                         <button className={styles.signInBtn}> Sign in </button>
+                         <button className={styles.signInBtn}>CHECK OUT</button>
                     </div>
 
                 </div>
