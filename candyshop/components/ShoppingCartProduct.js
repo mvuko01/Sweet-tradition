@@ -3,28 +3,17 @@ import styles from '../styles/ShoppingCartProduct.module.css'
 import loginStyle from '../styles/Login.module.css'
 import { useState } from 'react'
 
-const ShoppingCartProduct = () => {
-
-    const [count, setCount] = useState(1);
-
-    function incrementCount() {
-        
-        setCount(count+1);
-    }
-    function decrementCount() {
-        if(count-1 < 1)
-        {
-            setCount(count);
-        }
-        else
-            setCount(count - 1);
+const ShoppingCartProduct = ({product, quantity, removeFromLocalStorage, onChangeState, prevState}) => {
+    
+    const handleXClick = () => {
+        onChangeState(!prevState);
     }
 
     return (
         <div className={styles.productContainer}>
             <div className={styles.pictureWrapper}>
                 <Image
-                    src={'/productPics/BilarSwedishCandy.svg'}
+                    src={product.frontmatter.picture}
                     alt=""
                     width={130}
                     height={144}
@@ -32,7 +21,7 @@ const ShoppingCartProduct = () => {
                 />
             </div>
             <div className={styles.productInfoContainer}>
-                <h2 className={styles.productName}>Bilar original chewy candy</h2>
+                <h2 className={styles.productName}>{product.frontmatter.name}</h2>
                 <div className={styles.removeProductWrapper}>
                     <Image
                         src={'/closeGrey.svg'}
@@ -40,15 +29,19 @@ const ShoppingCartProduct = () => {
                         width={30}
                         height={30}
                         className={styles.removeProductImage}
+                        onClick={() => {
+                            removeFromLocalStorage();
+                            handleXClick();
+                          }}
                     />
                 </div>
-                <h3 className={styles.productDescription}>Chewy Sweets, 125g</h3>
+                <h3 className={styles.productDescription}>{`${product.frontmatter.category}, ${product.frontmatter.quantity}`}</h3>
                 <div className={styles.incrementQuantity}>
-                    <button className={styles.btnChangeQuantity} onClick={decrementCount}>-</button>
-                    <div className={styles.quantityText}>{count}</div>
-                    <button className={styles.btnChangeQuantity} onClick={incrementCount}>+</button>
+                    <button className={styles.btnChangeQuantity}>-</button>
+                    <div className={styles.quantityText}>{quantity}</div>
+                    <button className={styles.btnChangeQuantity}>+</button>
                 </div>
-                <span className={styles.productPrice}>4,50€</span>
+                <span className={styles.productPrice}>{product.frontmatter.price}</span>
             </div>
         </div>
 

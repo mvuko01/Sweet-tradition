@@ -2,14 +2,18 @@ import Image from 'next/image';
 import styles from '../styles/Cards.module.css'
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { handleAddToFavourites, checkIfFavourite } from '../helpers';
+import { handleAddToFavourites, checkIfFavourite, handleAddToShoppingCart } from '../helpers';
 
 const MainProductCard = ({ name, short_description, picture, price, id, product }) => {
     const [favs, setFavs] = useState([]);
+    const [inShoppingCart, setInShoppingCart] = useState([]);
 
     useEffect(() => {
         const storedFavourites = JSON.parse(localStorage.getItem('favourites')) || [];
         setFavs(storedFavourites);
+
+        const storedShoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+        setInShoppingCart(storedShoppingCart);
     }, []);
     return (
         <>
@@ -41,9 +45,11 @@ const MainProductCard = ({ name, short_description, picture, price, id, product 
                     <button className={styles.buttonCart}>
                         <Image
                             src={'/productPics/Add to cart.svg'}
+                            alt="Add to cart"
                             width={100}
                             height={100}
                             className ={styles.imageCart}
+                            onClick={() => handleAddToShoppingCart(product, setInShoppingCart)}
                         />
                     </button>
                 </div>

@@ -37,3 +37,15 @@ export function checkIfFavourite(product, favs) {
           return favs[index].isFavourite;
       }
 };
+
+export function handleAddToShoppingCart(product, setInShoppingCart) {
+    let inShoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+    const index = inShoppingCart.findIndex(p => p.frontmatter.id === product.frontmatter.id);
+    if (index === -1) {
+        inShoppingCart.push({...product, quantity: 1});
+    } else {
+        inShoppingCart[index].quantity += 1;
+    }
+    localStorage.setItem('shoppingCart', JSON.stringify(inShoppingCart));
+    setInShoppingCart(inShoppingCart);
+}
