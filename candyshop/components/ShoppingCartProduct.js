@@ -1,13 +1,17 @@
 import Image from 'next/image'
 import styles from '../styles/ShoppingCartProduct.module.css'
 import loginStyle from '../styles/Login.module.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-const ShoppingCartProduct = ({product, quantity, removeFromLocalStorage, onChangeState, prevState}) => {
-    
-    const handleXClick = () => {
+const ShoppingCartProduct = ({product, quantity, removeFromLocalStorage, handleChangeQuantity, onChangeState, prevState}) => {
+    const [currentQuantity, setCurrentQuantity] = useState(quantity);
+    const handleClick = () => {
         onChangeState(!prevState);
     }
+
+    const handleChangeQuantityClick = (action) => {
+        handleChangeQuantity(product, action);
+      };
 
     return (
         <div className={styles.productContainer}>
@@ -31,15 +35,15 @@ const ShoppingCartProduct = ({product, quantity, removeFromLocalStorage, onChang
                         className={styles.removeProductImage}
                         onClick={() => {
                             removeFromLocalStorage();
-                            handleXClick();
+                            handleClick();
                           }}
                     />
                 </div>
                 <h3 className={styles.productDescription}>{`${product.frontmatter.category}, ${product.frontmatter.quantity}`}</h3>
                 <div className={styles.incrementQuantity}>
-                    <button className={styles.btnChangeQuantity}>-</button>
+                    <button className={styles.btnChangeQuantity} onClick={() => {handleChangeQuantityClick('decrease'); handleClick()}}>-</button>
                     <div className={styles.quantityText}>{quantity}</div>
-                    <button className={styles.btnChangeQuantity}>+</button>
+                    <button className={styles.btnChangeQuantity} onClick={() => {handleChangeQuantityClick('increase'); handleClick()}}>+</button>
                 </div>
                 <span className={styles.productPrice}>{product.frontmatter.price}</span>
             </div>
