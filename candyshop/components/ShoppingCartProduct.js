@@ -1,10 +1,8 @@
 import Image from 'next/image'
 import styles from '../styles/ShoppingCartProduct.module.css'
-import loginStyle from '../styles/Login.module.css'
-import { useEffect, useState } from 'react'
+import Link from 'next/link'
 
 const ShoppingCartProduct = ({product, quantity, removeFromLocalStorage, handleChangeQuantity, onChangeState, prevState}) => {
-    const [currentQuantity, setCurrentQuantity] = useState(quantity);
     const handleClick = () => {
         onChangeState(!prevState);
     }
@@ -25,7 +23,7 @@ const ShoppingCartProduct = ({product, quantity, removeFromLocalStorage, handleC
                 />
             </div>
             <div className={styles.productInfoContainer}>
-                <h2 className={styles.productName}>{product.frontmatter.name}</h2>
+            <Link href={`../candy/${product.slug}`} className={styles.productName}>{product.frontmatter.name}</Link>
                 <div className={styles.removeProductWrapper}>
                     <Image
                         src={'/closeGrey.svg'}
