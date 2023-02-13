@@ -13,7 +13,7 @@
 
 }
 .imageProduct{
-
+    
 }
 
 
@@ -118,3 +118,41 @@
     color: #624CAB;
     bottom:29px;
 }
+
+
+@media screen and (max-width: 530px){
+    .productContainer{
+        align-items: center;
+        max-height: 165px;
+        min-height: unset;
+    }
+    
+    .pictureWrapper{
+        width: 100px;
+        height:100%;
+    }
+    .imageProduct{
+        width: 100%;
+        height: 100%;
+    }
+    .productName{
+        max-width: 175px;
+        font-size: 1.125rem;
+    }
+
+    .productDescription{
+        margin-bottom: 1rem;
+        font-size: 0.875rem;
+    }
+    .incrementQuantity{
+        
+        height:35px;
+        width: 85px;
+
+
+    }
+    .productPrice{
+        font-size: 1.25rem;
+        bottom:25px;
+    }
+}    
