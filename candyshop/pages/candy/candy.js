@@ -7,13 +7,14 @@ import ListProductCard from '../../components/ListProductCard';
 import SideProductCard from '../../components/SideProductCard';
 import { useState, useEffect } from 'react';
 import React from 'react';
+import { categories } from '../../constants/productCategories';
 
 import matter from 'gray-matter'
 
 
 const Candy = (props) => {
     const products = props.products;
-    
+    console.log(categories);
     const sortOptions = [
         { label: 'Price - Low to high', id: '1' },
         { label: 'Price - High to low', id: '2' },
@@ -21,7 +22,8 @@ const Candy = (props) => {
         { label: 'Name Z-A', id: '4' },
     ];
 
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpenCategory, setIsOpenCategory] = useState(false);
+    const [isOpenSort, setisOpenSort] = useState(false);
     const [currentSortOption, setCurrentSortOption] = useState("Sort by");
     const [currentArray, setCurrentArray] = useState(products);
 
@@ -64,7 +66,7 @@ const Candy = (props) => {
 
     const handleSortClick = (event) => {
         setCurrentSortOption(event.target.innerHTML);
-        setIsOpen(false);
+        setisOpenSort(false);
     };
 
     const handlePageChange = (newPage) => {
@@ -148,33 +150,51 @@ const Candy = (props) => {
                         </div>
                         <label>Filters</label>
                     </div>
-                    <select className={styles.customSelect} name="category" id="category">
-                        <option selected disabled>Category</option>
-                        <option value="mints">Mints</option>
-                        <option value="chocolate">Chocolate</option>
-                    </select>
-                    <select className={styles.customSelect} name="country" id="country">
-                        <option selected disabled>Country</option>
-                        <option value="croatia">Croatia</option>
-                        <option value="italy">Italy</option>
-                        <option value="switzerland">Switzerland</option>
-                    </select>
-                    <select className={styles.customSelect} name="price" id="price">
-                        <option selected disabled>Price</option>
-                        <option value="saab">Saab</option>
-                        <option value="opel">Opel</option>
-                        <option value="audi">Audi</option>
-                    </select>
-                    
+                    <div className={styles.filters}>
+                        <div className={styles.filterDropdown} >
+                            <div className={styles.mainFilterDiv} onClick={() => setIsOpenCategory(!isOpenCategory)}>
+                                <label>Category</label>
+                                <div className={styles.dropdownIconWrapper}>
+                                    <Image
+                                        width={40}
+                                        height={30}
+                                        src="/blogpics/Arrow 2 (1).svg"
+                                        alt="dropdown arrow"
+                                        className={styles.dropdownIcon}
+                                    />
+                                </div>
+                            </div>
+                            <div className={ isOpenCategory ? styles.filterOptionsActive : styles.filterOptionsInactive}>
+                                {categories.map((category) => (
+                                    <div className={styles.filterOption}>
+                                        <input type="checkbox"  className={styles.cbox}/>
+                                        <label>{category.name}</label> 
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <div className={styles.filterDropdown} >
+                            <option selected disabled>Country</option>
+                            <option value="croatia">Croatia</option>
+                            <option value="italy">Italy</option>
+                            <option value="switzerland">Switzerland</option>
+                        </div>
+                        <select className={styles.customSelect} name="price" id="price">
+                            <option selected disabled>Price</option>
+                            <option value="saab">Saab</option>
+                            <option value="opel">Opel</option>
+                            <option value="audi">Audi</option>
+                        </select>
+                    </div>
                 </div>
                 <div className={styles.candyContainer}>
                     <div className={styles.dropdown} >
-                        <div className={styles.selectDropdown} onClick={() => setIsOpen(!isOpen)}>
+                        <div className={styles.selectDropdown} onClick={() => setisOpenSort(!isOpenSort)}>
                             <span className={styles.selectedDropdownOption}>{currentSortOption}</span>
-                            <div className={isOpen !== true ? styles.caret : styles.caretRotate}></div>
+                            <div className={isOpenSort !== true ? styles.caret : styles.caretRotate}></div>
 
                         </div>
-                        {isOpen && 
+                        {isOpenSort && 
                             <ul className={styles.dropdownMenu}>
                                 {sortOptions.map(option => {
                                     return <li key={option.id} onClick={handleSortClick}>{option.label}</li>
