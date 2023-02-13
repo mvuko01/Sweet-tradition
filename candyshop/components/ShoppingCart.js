@@ -39,6 +39,11 @@ const ShoppingCart = ({stateChanger, state}) => {
         inShoppingCart.splice(index, 1);
         localStorage.setItem('shoppingCart', JSON.stringify(inShoppingCart));
     }
+
+    const totalPrice = inShoppingCart.reduce((acc, curr) => {
+        return (acc + (curr.frontmatter.price.replace("€", "").replace(",", ".") * curr.quantity));
+    }, 0);
+    const formattedPrice = totalPrice.toFixed(2).toString().replace(".", ",") + "€";
     return (
         <>
             <div className={state ? styles.mainDivActive : styles.mainDiv}>
@@ -61,7 +66,7 @@ const ShoppingCart = ({stateChanger, state}) => {
                 <div className={styles.totalAndCheckoutContainer}>
                     <div className={styles.totalArea}>
                         <span className={styles.totalText}>TOTAL</span>
-                        <span className={styles.totalText}>25.7€</span>
+                        <span className={styles.totalText}>{formattedPrice}</span>
                     </div>
                     <div className={styles.signInBtnWrapper}>
                          <button className={styles.signInBtn}>CHECK OUT</button>

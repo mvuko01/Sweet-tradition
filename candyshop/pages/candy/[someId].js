@@ -10,6 +10,7 @@ import Header2 from '../../components/Header2';
 
 const OneCandy = ({frontmatter, content, products}) => {
     const [favs, setFavs] = useState([]);
+    const [inShoppingCart, setInShoppingCart] = useState([]);
 
     const handleAddToFavouriteClick = () => {
         let favourites = JSON.parse(localStorage.getItem('favourites')) || [];
@@ -25,6 +26,18 @@ const OneCandy = ({frontmatter, content, products}) => {
         setFavs(favourites);
     };
 
+    const handleAddToShoppingCart = () => {
+        let inShoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+        const index = inShoppingCart.findIndex(p => p.frontmatter.id === frontmatter.id);
+        if (index === -1) {
+            inShoppingCart.push({...products.find(p => p.frontmatter.id === frontmatter.id), quantity: 1});
+        } else {
+            inShoppingCart[index].quantity += 1;
+        }
+        localStorage.setItem('shoppingCart', JSON.stringify(inShoppingCart));
+        setInShoppingCart(inShoppingCart);
+    }
+
     const [heartState, setHeartState] = useState(false);
       const handleHeartClick = (newHeartState) => {
         setHeartState(newHeartState);
@@ -33,6 +46,9 @@ const OneCandy = ({frontmatter, content, products}) => {
     useEffect(() => {
         const storedFavourites = JSON.parse(localStorage.getItem('favourites')) || [];
         setFavs(storedFavourites);
+
+        const storedShoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+        setInShoppingCart(storedShoppingCart);
     }, [heartState]);
 
     const checkIfFavourite = (favs) => {
@@ -152,7 +168,7 @@ const OneCandy = ({frontmatter, content, products}) => {
                         <button className={styles.btnChangeQuantity} onClick={incrementCount}>+</button>
                     </div>
                     <div className={styles.addAndFavouriteContainer}>
-                        <button className={styles.addToCartbtn}>Add to cart</button>
+                        <button onClick={handleAddToShoppingCart} className={styles.addToCartbtn}>Add to cart</button>
                         <button onClick={handleAddToFavouriteClick} className={styles.buttonFavourite}>
                             <Image
                                 src={checkIfFavourite(favs) == false ? '/productPics/EmptyHeart.svg' : '/productPics/FullHeart.svg'}
