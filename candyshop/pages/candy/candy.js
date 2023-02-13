@@ -14,7 +14,6 @@ import matter from 'gray-matter'
 
 const Candy = (props) => {
     const products = props.products;
-    console.log(categories);
     const sortOptions = [
         { label: 'Price - Low to high', id: '1' },
         { label: 'Price - High to low', id: '2' },
@@ -22,7 +21,20 @@ const Candy = (props) => {
         { label: 'Name Z-A', id: '4' },
     ];
 
+    const [isCheckedCategory, setIsCheckedCategory] = useState([]);
     const [isOpenCategory, setIsOpenCategory] = useState(false);
+    function handleAddCategoryFilter(e){
+        const name = e.currentTarget.childNodes[1].innerText;
+        if(isCheckedCategory.includes(name)){
+            setIsCheckedCategory(isCheckedCategory.filter(id => id != name))
+        } else {
+            setIsCheckedCategory(newArray => [...isCheckedCategory, name]);
+            
+        }
+        console.log(isCheckedCategory);
+    }
+
+
     const [isOpenSort, setisOpenSort] = useState(false);
     const [currentSortOption, setCurrentSortOption] = useState("Sort by");
     const [currentArray, setCurrentArray] = useState(products);
@@ -160,14 +172,14 @@ const Candy = (props) => {
                                         height={30}
                                         src="/blogpics/Arrow 2 (1).svg"
                                         alt="dropdown arrow"
-                                        className={styles.dropdownIcon}
+                                        className={isOpenCategory ? styles.dropdownIconActive : styles.dropdownIconInactive}
                                     />
                                 </div>
                             </div>
                             <div className={ isOpenCategory ? styles.filterOptionsActive : styles.filterOptionsInactive}>
                                 {categories.map((category) => (
-                                    <div className={styles.filterOption}>
-                                        <input type="checkbox"  className={styles.cbox}/>
+                                    <div className={styles.filterOption} onClick={handleAddCategoryFilter}>
+                                        <input type="checkbox" checked={isCheckedCategory.includes(category.name)} className={styles.cbox}/>
                                         <label>{category.name}</label> 
                                     </div>
                                 ))}
