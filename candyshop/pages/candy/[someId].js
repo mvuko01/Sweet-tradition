@@ -2,7 +2,8 @@ import ListProductCard from '../../components/ListProductCard';
 import Footer from '../../components/Footer'
 import styles from '../../styles/Candy.module.css'
 import Image from 'next/image'
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
+import {MyContext} from '../../shoppingCartContext';
 
 import matter from 'gray-matter';
 import {marked} from 'marked';
@@ -10,7 +11,7 @@ import Header2 from '../../components/Header2';
 
 const OneCandy = ({frontmatter, content, products}) => {
     const [favs, setFavs] = useState([]);
-    const [inShoppingCart, setInShoppingCart] = useState([]);
+    const {setInMyShoppingCart} = useContext(MyContext);
 
     const handleAddToFavouriteClick = () => {
         let favourites = JSON.parse(localStorage.getItem('favourites')) || [];
@@ -36,7 +37,7 @@ const OneCandy = ({frontmatter, content, products}) => {
             inShoppingCart[index].quantity += quantity;
         }
         localStorage.setItem('shoppingCart', JSON.stringify(inShoppingCart));
-        setInShoppingCart(inShoppingCart);
+        setInMyShoppingCart(inShoppingCart);
     }
 
     const [heartState, setHeartState] = useState(false);
@@ -47,9 +48,6 @@ const OneCandy = ({frontmatter, content, products}) => {
     useEffect(() => {
         const storedFavourites = JSON.parse(localStorage.getItem('favourites')) || [];
         setFavs(storedFavourites);
-
-        const storedShoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
-        setInShoppingCart(storedShoppingCart);
     }, [heartState]);
 
     const checkIfFavourite = (favs) => {
