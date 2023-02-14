@@ -26,13 +26,14 @@ const OneCandy = ({frontmatter, content, products}) => {
         setFavs(favourites);
     };
 
-    const handleAddToShoppingCart = () => {
+
+    const handleAddToShoppingCart = (quantity) => {
         let inShoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
         const index = inShoppingCart.findIndex(p => p.frontmatter.id === frontmatter.id);
         if (index === -1) {
-            inShoppingCart.push({...products.find(p => p.frontmatter.id === frontmatter.id), quantity: 1});
+            inShoppingCart.push({...products.find(p => p.frontmatter.id === frontmatter.id), quantity: quantity});
         } else {
-            inShoppingCart[index].quantity += 1;
+            inShoppingCart[index].quantity += quantity;
         }
         localStorage.setItem('shoppingCart', JSON.stringify(inShoppingCart));
         setInShoppingCart(inShoppingCart);
@@ -168,7 +169,7 @@ const OneCandy = ({frontmatter, content, products}) => {
                         <button className={styles.btnChangeQuantity} onClick={incrementCount}>+</button>
                     </div>
                     <div className={styles.addAndFavouriteContainer}>
-                        <button onClick={handleAddToShoppingCart} className={styles.addToCartbtn}>Add to cart</button>
+                        <button onClick={() => handleAddToShoppingCart(count)} className={styles.addToCartbtn}>Add to cart</button>
                         <button onClick={handleAddToFavouriteClick} className={styles.buttonFavourite}>
                             <Image
                                 src={checkIfFavourite(favs) == false ? '/productPics/EmptyHeart.svg' : '/productPics/FullHeart.svg'}
