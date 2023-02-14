@@ -99,6 +99,7 @@
     color: #F06C9B;
 }
 
+/*FILTERS*/
 .filters{
     margin-top: 30px;
     width: 240px;
@@ -281,6 +282,8 @@
     height: 30px;
 }*/
 
+
+/*FILTERS END*/
 .product{
    align-self: center; 
 }
@@ -308,6 +311,10 @@
     position: absolute;
     top: 0;
     right: 50px;
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+     user-select: none; 
 }
 
 
@@ -355,7 +362,7 @@
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
     border-top: 10px solid #F06C9B;
-
+    transition: 0.3s;
 }
 
 .caretRotate{
@@ -365,6 +372,7 @@
     border-right: 7px solid transparent;
     border-top: 10px solid #F06C9B;
     transform: rotate(180deg);
+    transition: 0.3s;
 
 }
 

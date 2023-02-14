@@ -1,0 +1,65 @@
+.bannerContainer{
+    height: 34vw;
+    width: 100%;
+    min-height: 15rem;
+    max-height: 30rem;
+}
+.banner{
+    width: 100%;
+    height: 100%;
+    background-image: url('/banner image.svg');
+    background-size: cover;
+    display: flex;
+}
+
+.textFirstBanner {
+    font-family: Montserrat, sans-serif;
+    color: #F06C9B;
+    margin: auto 0px;
+    padding-left: 3.5%;
+    max-width: 35%;
+    min-width: 275px;
+}
+
+.shopAt {
+    font-size: clamp(1.75rem, 4vw, 3.5rem);
+    font-weight: 700;
+}
+
+.treat {
+    padding: 1rem 0;
+    font-size: 1.3rem;
+    font-weight: 400;
+    font-size: clamp(0.75rem, 2vw, 1.3rem);
+}
+
+.banner button {
+    color: white;
+    background-color: #F06C9B;
+    font-size: 1.1rem;
+    font-family: Montserrat, sans-serif;
+    font-weight: bold;
+    border-radius: 0.938rem;
+    width: 12rem;
+    height: 3rem;
+    cursor: pointer;
+    border-color: transparent;
+}
+
+
+
+@media screen and (max-width: 750px){
+    .banner button {
+        font-size: 0.875rem;
+        width: 9rem;
+        height: 2.875rem;
+    }
+
+    
+}
+
+@media screen and (max-width: 450px){
+    .banner{
+        background-position: -30px;
+    }
+}
