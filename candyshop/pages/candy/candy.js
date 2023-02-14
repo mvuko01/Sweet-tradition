@@ -5,13 +5,12 @@ import Image from 'next/image';
 import blogStyle from '../../styles/Blogs.module.css';
 import ListProductCard from '../../components/ListProductCard';
 import SideProductCard from '../../components/SideProductCard';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import React from 'react';
 import { categories } from '../../constants/productCategories';
 import { countries } from '../../constants/countries';
 import matter from 'gray-matter'
 import RangeSlider from '../../components/RangeSlider';
-import { MyContext } from '../../context.js'
 
 const Candy = (props) => {
     const products = props.products;
@@ -22,7 +21,6 @@ const Candy = (props) => {
         { label: 'Name Z-A', id: '4' },
     ];
 
-    const {setInMyShoppingCart, setInMyFavourites, inMyFavourites} = useContext(MyContext);
     const [isCheckedCategory, setIsCheckedCategory] = useState([]);
     const [isOpenCategory, setIsOpenCategory] = useState(false);
 
@@ -60,15 +58,28 @@ const Candy = (props) => {
 
     const productsPerPage = 12;
     const [currentPage, setCurrentPage] = useState(1);
-    const numberOfPages = Math.ceil(products.length / productsPerPage);
+    const numberOfPages = Math.ceil(currentArray.length / productsPerPage);
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
     const currentProducts = currentArray.slice(indexOfFirstProduct, indexOfLastProduct);
 
     useEffect(() => {
-        const sortedProducts = sortProducts(currentArray, currentSortOption);
+        let filteredProducts = products.filter(product => {
+            return isCheckedCategory.includes(product.frontmatter.category);
+        });
+        if(isCheckedCategory.length == 0){ filteredProducts = products; }
+        
+        // filteredProducts = filteredProducts.filter(product => {
+        //     const countryCode = product.frontmatter.country;
+        //     const countryName = countryCode === "UK" ? "United Kingdom" : countryCode; // map "UK" to "United Kingdom"
+        //     return isCheckedCountry.includes(countryName) || isCheckedCountry.includes(countryCode);
+        // });
+        // if(isCheckedCountry.length === 0){ filteredProducts = filteredProducts; }
+        // console.log(filteredProducts, "Filtered Products");
+        // console.log(currentArray, "Current Array");
+        const sortedProducts = sortProducts(filteredProducts, currentSortOption);
         setCurrentArray(sortedProducts);
-      }, [currentSortOption]);
+      }, [currentSortOption, isCheckedCategory, isCheckedCountry]);
     
     const sortProducts = (products, sortOption) => {
         const dataToSort = [...products];
