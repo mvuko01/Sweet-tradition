@@ -48,7 +48,7 @@
   top: 0;
   bottom: 0;
   margin: auto;
-  z-index: 3;
+  z-index: 1;
   
 
   border:none;
@@ -82,47 +82,7 @@
 /*FEATURING CANDY COMPONENT END*/
 
 /* story banner */
-.storyBannerWrapper {
-  position: relative;
-}
-.textWrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.storyBannerWrapper p {
-  color: #F06C9B;
-  font-family: Montserrat, sans-serif;
-  font-size: 3.5rem;
-  font-weight: 500;
-  line-height: 3.69rem;
-}
-.storyBannerWrapper p.stock {
-  font-size: 1.25rem;
-}
-.bulk {
-  font-weight: bolder;
-}
-.storyBanner {
-  object-fit: cover;
-  width: 100%;
-}
-.buttonStoryBanner {
-  color: white;
-  background-color: #F06C9B;
-  font-size: 1rem;
-  font-family: Montserrat, sans-serif;
-  font-weight: bold;
-  border-radius: 0.938rem;
-  width: 12rem;
-  height: 2.5rem;
-  cursor: pointer;
-  border-color: transparent;
-}
-.buttonStoryBanner:hover {
-  opacity: 0.7;
-}
+
 /* about us */
 .AUHeading {
   font-family: Montserrat, sans-serif;
