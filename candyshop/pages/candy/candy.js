@@ -5,12 +5,13 @@ import Image from 'next/image';
 import blogStyle from '../../styles/Blogs.module.css';
 import ListProductCard from '../../components/ListProductCard';
 import SideProductCard from '../../components/SideProductCard';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import React from 'react';
 import { categories } from '../../constants/productCategories';
 import { countries } from '../../constants/countries';
 import matter from 'gray-matter'
 import RangeSlider from '../../components/RangeSlider';
+import { MyContext } from '../../context.js'
 
 const Candy = (props) => {
     const products = props.products;
@@ -21,8 +22,14 @@ const Candy = (props) => {
         { label: 'Name Z-A', id: '4' },
     ];
 
+    const {setInMyShoppingCart, setInMyFavourites, inMyFavourites} = useContext(MyContext);
     const [isCheckedCategory, setIsCheckedCategory] = useState([]);
     const [isOpenCategory, setIsOpenCategory] = useState(false);
+
+    const prices = products.map(product => parseFloat(product.frontmatter.price.replace(",", ".").replace("€", "")));
+    const minPrice = Math.min(...prices);
+    const maxPrice = Math.max(...prices);
+
     function handleAddCategoryFilter(e){
         const name = e.currentTarget.childNodes[1].innerText;
         if(isCheckedCategory.includes(name)){
@@ -190,7 +197,7 @@ const Candy = (props) => {
                             </div>
                             <div className={ isOpenCategory ? styles.filterOptionsActive : styles.filterOptionsInactive}>
                                 {categories.map((category) => (
-                                    <div className={styles.filterOption} onClick={handleAddCategoryFilter}>
+                                    <div className={styles.filterOption} onClick={handleAddCategoryFilter} key={category.name}>
                                         <input type="checkbox" checked={isCheckedCategory.includes(category.name)} className={styles.cbox}/>
                                         <label>{category.name}</label> 
                                     </div>
@@ -212,7 +219,7 @@ const Candy = (props) => {
                             </div>
                             <div className={ isOpenCountry ? styles.filterOptionsActive : styles.filterOptionsInactive}>
                                 {countries.map((country) => (
-                                    <div className={styles.filterOption} onClick={handleAddCountryFilter}>
+                                    <div className={styles.filterOption} onClick={handleAddCountryFilter} key={country.name}>
                                         <input type="checkbox" checked={isCheckedCountry.includes(country.name)} className={styles.cbox}/>
                                         <label>{country.name}</label> 
                                         <div className={styles.countryImageWrapper}>
@@ -231,8 +238,8 @@ const Candy = (props) => {
                         <div className={styles.priceRangeContainer}>
                         <label>Price</label>
                         <RangeSlider
-                            min={0}
-                            max={100}
+                            min={minPrice}
+                            max={maxPrice}
                             onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
                         />
                         </div>
