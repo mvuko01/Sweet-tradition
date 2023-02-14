@@ -28,6 +28,14 @@ const Candy = (props) => {
     const minPrice = Math.min(...prices);
     const maxPrice = Math.max(...prices);
 
+    const [currentMin, setCurrentMin] = useState(minPrice);
+    const [currentMax, setCurrentMax] = useState(maxPrice);
+
+    const handlePriceChange = ({ min, max }) => {
+        setCurrentMin(min);
+        setCurrentMax(max);
+      };
+
     function handleAddCategoryFilter(e){
         const name = e.currentTarget.childNodes[1].innerText;
         if(isCheckedCategory.includes(name)){
@@ -76,6 +84,11 @@ const Candy = (props) => {
             return isCheckedCountry.includes(countryName) || isCheckedCountry.includes(countryCode);
         });
         }
+
+        filteredProducts = filteredProducts.filter(product => {
+            const price = parseFloat(product.frontmatter.price.replace(",", ".").replace("€", ""));
+            return price >= currentMin && price <= currentMax;
+        });
   
         const sortedProducts = sortProducts(filteredProducts, currentSortOption);
         setCurrentArray(sortedProducts);
@@ -249,8 +262,8 @@ const Candy = (props) => {
                         <div className={styles.priceRangeContainer}>
                         <label>Price</label>
                         <RangeSlider
-                            min={minPrice}
-                            max={maxPrice}
+                            min={currentMin}
+                            max={currentMax}
                             onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
                         />
                         </div>
