@@ -69,14 +69,14 @@ const Candy = (props) => {
         });
         if(isCheckedCategory.length == 0){ filteredProducts = products; }
         
-        // filteredProducts = filteredProducts.filter(product => {
-        //     const countryCode = product.frontmatter.country;
-        //     const countryName = countryCode === "UK" ? "United Kingdom" : countryCode; // map "UK" to "United Kingdom"
-        //     return isCheckedCountry.includes(countryName) || isCheckedCountry.includes(countryCode);
-        // });
-        // if(isCheckedCountry.length === 0){ filteredProducts = filteredProducts; }
-        // console.log(filteredProducts, "Filtered Products");
-        // console.log(currentArray, "Current Array");
+        if(isCheckedCountry.length != 0){ 
+        filteredProducts = filteredProducts.filter(product => {
+            const countryCode = product.frontmatter.country;
+            const countryName = countryCode === "UK" ? "United Kingdom" : countryCode; // map "UK" to "United Kingdom"
+            return isCheckedCountry.includes(countryName) || isCheckedCountry.includes(countryCode);
+        });
+        }
+  
         const sortedProducts = sortProducts(filteredProducts, currentSortOption);
         setCurrentArray(sortedProducts);
       }, [currentSortOption, isCheckedCategory, isCheckedCountry]);
