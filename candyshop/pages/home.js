@@ -5,10 +5,7 @@ import StoryBanner from '../components/StoryBanner';
 import BlogSection from '../components/BlogSection';
 import AboutUs from '../components/AboutUs';
 import styles from '../styles/Home.module.css'
-import { navigationItems } from '../constants/navbar';
-import Link from 'next/link';
 import Header2 from '../components/Header2';
-import { useRouter } from 'next/router';
 import BlogHomeArea from '../components/BlogHomeArea';
 
 import matter from 'gray-matter'
