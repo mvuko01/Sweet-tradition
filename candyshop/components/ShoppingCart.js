@@ -1,40 +1,35 @@
 import Image from 'next/image'
 import styles from '../styles/ShoppingCart.module.css'
 import loginStyle from '../styles/Login.module.css'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import ShoppingCartProduct from './ShoppingCartProduct'
 
+import { MyContext } from '../shoppingCartContext'
+
 const ShoppingCart = ({stateChanger, state}) => {
-    const [inShoppingCart, setInShoppingCart] = useState([]);
+    const {inMyShoppingCart, setInMyShoppingCart} = useContext(MyContext);
 
     const [currentState, setCurrentState] = useState(false);
       const handleChangeOfState = (newState) => {
         setCurrentState(newState);
     }
 
-    useEffect(() => {
-        const storedShoppingCart = localStorage.getItem('shoppingCart');
-        if (storedShoppingCart) {
-            setInShoppingCart(JSON.parse(storedShoppingCart));
-        }
-    }, [currentState]);
-
     const handleChangeQuantity = (product, action) => {
-        const index = inShoppingCart.findIndex(p => p.frontmatter.id === product.frontmatter.id);
-        if (action === 'decrease' && inShoppingCart[index].quantity > 1) {
-            inShoppingCart[index].quantity--;
+        const index = inMyShoppingCart.findIndex(p => p.frontmatter.id === product.frontmatter.id);
+        if (action === 'decrease' && inMyShoppingCart[index].quantity > 1) {
+            inMyShoppingCart[index].quantity--;
         } else if (action === 'increase') {
-            inShoppingCart[index].quantity++;
+            inMyShoppingCart[index].quantity++;
         }
-        localStorage.setItem('shoppingCart', JSON.stringify(inShoppingCart));
+        localStorage.setItem('shoppingCart', JSON.stringify(inMyShoppingCart));
     }
     const removeFromLocalStorage = (product) => {
-        const index = inShoppingCart.findIndex(p => p.frontmatter.id === product.frontmatter.id);
-        inShoppingCart.splice(index, 1);
-        localStorage.setItem('shoppingCart', JSON.stringify(inShoppingCart));
+        const index = inMyShoppingCart.findIndex(p => p.frontmatter.id === product.frontmatter.id);
+        inMyShoppingCart.splice(index, 1);
+        localStorage.setItem('shoppingCart', JSON.stringify(inMyShoppingCart));
     }
 
-    const totalPrice = inShoppingCart.reduce((acc, curr) => {
+    const totalPrice = inMyShoppingCart.reduce((acc, curr) => {
         return (acc + (curr.frontmatter.price.replace("€", "").replace(",", ".") * curr.quantity));
     }, 0);
 
@@ -56,7 +51,7 @@ const ShoppingCart = ({stateChanger, state}) => {
                     </div>
                 </div>
                 <div className={styles.productsSection}>
-                    {inShoppingCart.map(product => (<ShoppingCartProduct key={product.frontmatter.id} product={product} quantity={product.quantity} removeFromLocalStorage={() =>removeFromLocalStorage(product)} handleChangeQuantity={(product, action) => handleChangeQuantity(product, action)} onChangeState={handleChangeOfState} prevState={currentState} />))}
+                    {inMyShoppingCart.map(product => (<ShoppingCartProduct key={product.frontmatter.id} product={product} quantity={product.quantity} removeFromLocalStorage={() =>removeFromLocalStorage(product)} handleChangeQuantity={(product, action) => handleChangeQuantity(product, action)} onChangeState={handleChangeOfState} prevState={currentState} />))}
                 </div>
                 <div className={styles.totalAndCheckoutContainer}>
                     <div className={styles.totalArea}>

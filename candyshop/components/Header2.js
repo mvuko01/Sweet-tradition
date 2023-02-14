@@ -3,13 +3,26 @@ import styles from '../styles/Header.module.css'
 import { navigationItems } from '../constants/navbar';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import {useState, useRef} from 'react';
+import {useState, useRef, useEffect} from 'react';
 import ShoppingCart from './ShoppingCart';
+
+import { useContext } from 'react'
+import { MyContext } from '../shoppingCartContext';
 
 const Header2 = () => {
     const router = useRouter();
     const currentPage = router.pathname;
     const navRef = useRef();
+    const [count, setCount] = useState(0)
+
+    useEffect(() => {
+    const favourites = localStorage.getItem('favourites')
+    if (favourites) {
+      const favouritesArray = JSON.parse(favourites)
+      setCount(favouritesArray.length)
+    }
+    console.log(count, "count")
+  }, [count])
 
     const [isNavbarBurgerOn, setIsNavbarBurgerOn] = useState(false);
     const[isCartOn, setIsCartOn] = useState(false);
@@ -17,7 +30,6 @@ const Header2 = () => {
 
     function handleHamburgerClick()
     {
-        
         setIsNavbarBurgerOn(!isNavbarBurgerOn);
     }
 
@@ -84,7 +96,7 @@ const Header2 = () => {
                         {navigationItems.slice(5,6).map(({ label, path }) => (
                             <Link className={styles.iconLinkWrapper} href={path} key={label} passHref>
                                 <div className={styles.productCounter}>
-                                    <p>2</p>
+                                    <p>{count}</p>
                                 </div>
                                 
                                 <Image
