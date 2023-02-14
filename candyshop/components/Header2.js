@@ -3,26 +3,20 @@ import styles from '../styles/Header.module.css'
 import { navigationItems } from '../constants/navbar';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import {useState, useRef, useEffect} from 'react';
+import {useState, useRef, useEffect, useContext} from 'react';
 import ShoppingCart from './ShoppingCart';
-
-import { useContext } from 'react'
-import { MyContext } from '../shoppingCartContext';
+import { MyContext } from '../context.js'
 
 const Header2 = () => {
     const router = useRouter();
     const currentPage = router.pathname;
     const navRef = useRef();
-    const [count, setCount] = useState(0)
+    const {inMyShoppingCart, inMyFavourites} = useContext(MyContext);
 
-    useEffect(() => {
-    const favourites = localStorage.getItem('favourites')
-    if (favourites) {
-      const favouritesArray = JSON.parse(favourites)
-      setCount(favouritesArray.length)
-    }
-    console.log(count, "count")
-  }, [count])
+    let totalQuantity = 0;
+    inMyShoppingCart.forEach((product) => {
+        totalQuantity += product.quantity;
+    });
 
     const [isNavbarBurgerOn, setIsNavbarBurgerOn] = useState(false);
     const[isCartOn, setIsCartOn] = useState(false);
@@ -96,7 +90,7 @@ const Header2 = () => {
                         {navigationItems.slice(5,6).map(({ label, path }) => (
                             <Link className={styles.iconLinkWrapper} href={path} key={label} passHref>
                                 <div className={styles.productCounter}>
-                                    <p>{count}</p>
+                                    <p>{inMyFavourites.length}</p>
                                 </div>
                                 
                                 <Image
@@ -111,7 +105,7 @@ const Header2 = () => {
                         {navigationItems.slice(6,7).map(({ label, path }) => (
                             <div onClick={()=> setIsCartOn(!isCartOn)} className={styles.iconLinkWrapper}  key={label} passHref>
                                 <div className={styles.productCounter}>
-                                    <p>10</p>
+                                    <p>{totalQuantity}</p>
                                 </div>
                                 <Image
                                     src={`${path}.svg`}

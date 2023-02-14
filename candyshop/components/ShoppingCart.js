@@ -3,8 +3,7 @@ import styles from '../styles/ShoppingCart.module.css'
 import loginStyle from '../styles/Login.module.css'
 import { useState, useEffect, useContext } from 'react'
 import ShoppingCartProduct from './ShoppingCartProduct'
-
-import { MyContext } from '../shoppingCartContext'
+import { MyContext } from '../context.js'
 
 const ShoppingCart = ({stateChanger, state}) => {
     const {inMyShoppingCart, setInMyShoppingCart} = useContext(MyContext);

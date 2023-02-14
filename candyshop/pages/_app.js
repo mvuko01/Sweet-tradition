@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import { MyProvider } from '../shoppingCartContext'
+import { MyProvider } from '../context.js'
 
 export default function App({ Component, pageProps }) {
   return (

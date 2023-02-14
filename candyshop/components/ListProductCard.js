@@ -3,28 +3,20 @@ import styles from '../styles/Cards.module.css'
 import Link from 'next/link';
 import { useState, useEffect, useContext } from 'react';
 import { handleAddToFavourites, checkIfFavourite, handleAddToShoppingCart } from '../helpers';
-import { MyContext } from '../shoppingCartContext';
+import { MyContext } from '../context.js'
 
 const ListProductCard = ({ name, short_description, picture, price, id, product, onHeartClick, prevState }) => {
-    const [favs, setFavs] = useState([]);
-    const {setInMyShoppingCart} = useContext(MyContext);
-
-    useEffect(() => {
-        const storedFavourites = JSON.parse(localStorage.getItem('favourites')) || [];
-        setFavs(storedFavourites);
-    }, []);
-
+    const {setInMyShoppingCart, setInMyFavourites, inMyFavourites} = useContext(MyContext);
     const handleHeartClick = () => {
         onHeartClick(!prevState);
     }
-
     return (
         <>
             <div className={styles.listProductCard}>
                 <div className={styles.productUpper}>
-                    <button onClick={() => {handleAddToFavourites(product, setFavs); handleHeartClick()}} className={styles.buttonFavourite}>
+                    <button onClick={() => {handleAddToFavourites(product, setInMyFavourites); handleHeartClick()}} className={styles.buttonFavourite}>
                         <Image
-                            src={checkIfFavourite(product,favs) === false ? '/productPics/EmptyHeart.svg' : '/productPics/FullHeart.svg'}
+                            src={checkIfFavourite(product,inMyFavourites) === false ? '/productPics/EmptyHeart.svg' : '/productPics/FullHeart.svg'}
                             alt=""
                             width={100}
                             height={100}

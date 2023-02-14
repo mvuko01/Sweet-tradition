@@ -3,15 +3,14 @@ import Footer from '../../components/Footer'
 import styles from '../../styles/Candy.module.css'
 import Image from 'next/image'
 import {useState, useEffect, useContext} from 'react';
-import {MyContext} from '../../shoppingCartContext';
+import {MyContext} from '../../context.js';
 
 import matter from 'gray-matter';
 import {marked} from 'marked';
 import Header2 from '../../components/Header2';
 
 const OneCandy = ({frontmatter, content, products}) => {
-    const [favs, setFavs] = useState([]);
-    const {setInMyShoppingCart} = useContext(MyContext);
+    const {setInMyShoppingCart, setInMyFavourites, inMyFavourites} = useContext(MyContext);
 
     const handleAddToFavouriteClick = () => {
         let favourites = JSON.parse(localStorage.getItem('favourites')) || [];
@@ -24,9 +23,8 @@ const OneCandy = ({frontmatter, content, products}) => {
             favourites.splice(index, 1);
         }
         localStorage.setItem('favourites', JSON.stringify(favourites));
-        setFavs(favourites);
+        setInMyFavourites(favourites);
     };
-
 
     const handleAddToShoppingCart = (quantity) => {
         let inShoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
@@ -45,17 +43,12 @@ const OneCandy = ({frontmatter, content, products}) => {
         setHeartState(newHeartState);
     }
 
-    useEffect(() => {
-        const storedFavourites = JSON.parse(localStorage.getItem('favourites')) || [];
-        setFavs(storedFavourites);
-    }, [heartState]);
-
-    const checkIfFavourite = (favs) => {
-        const index = favs.findIndex(p => p.frontmatter.id === frontmatter.id);
+    const checkIfFavourite = (inMyFavourites) => {
+        const index = inMyFavourites.findIndex(p => p.frontmatter.id === frontmatter.id);
             if (index === -1) {
                 return false;
             } else {
-                return favs[index].isFavourite;
+                return inMyFavourites[index].isFavourite;
             }
       };
 
@@ -73,13 +66,6 @@ const OneCandy = ({frontmatter, content, products}) => {
         else
             setCount(count - 1);
     }
-
-    // const [categoryCounter, setCategoryCounter] = useState(0);
-    // function sameCategory(counter) {
-    //     setPrev(pr)
-    //     setPic(pi)
-    //     setNext(ne)
-    // }
 
     const productImages = [frontmatter.picture, frontmatter.picture2, frontmatter.picture3];
     const [currentImage, setCurrentImage] = useState(0);
@@ -170,7 +156,7 @@ const OneCandy = ({frontmatter, content, products}) => {
                         <button onClick={() => handleAddToShoppingCart(count)} className={styles.addToCartbtn}>Add to cart</button>
                         <button onClick={handleAddToFavouriteClick} className={styles.buttonFavourite}>
                             <Image
-                                src={checkIfFavourite(favs) == false ? '/productPics/EmptyHeart.svg' : '/productPics/FullHeart.svg'}
+                                src={checkIfFavourite(inMyFavourites) == false ? '/productPics/EmptyHeart.svg' : '/productPics/FullHeart.svg'}
                                 alt="Empty heart"
                                 width={100}
                                 height={100}
