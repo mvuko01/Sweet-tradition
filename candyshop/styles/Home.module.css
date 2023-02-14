@@ -81,147 +81,26 @@
 
 /*FEATURING CANDY COMPONENT END*/
 
-/* story banner */
 
-/* about us */
-.AUHeading {
-  font-family: Montserrat, sans-serif;
-  font-style: normal;
-  font-size: 3.5rem;
-  color: #7F2982;
-  text-align: center;
-  letter-spacing: 0.1em;
-  margin: 3rem;
-}
-.mainContainter {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 0px 10rem;
-}
-.firstWrapper {
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-}
-.secondWrapper {
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-
-}
-.text {
-  font-family: Montserrat, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1.5rem;
-  line-height: 1.813rem;
-  color: #918282;
-  width: 495px;
-  margin: 1.5rem 0;
-}
 
 
 @media screen and (max-width: 1200px){
-  /*about us mobile*/
   
- 
-  .mainContainter {
-    /*flex-direction: column;
-    align-items: center;*/
-    margin: 0px 5rem;
-
-  }
-  /* .AUHeading {
-    margin-top: 10rem;
-  }
-  .secondWrapper {
-    flex-direction: column-reverse;
-    margin-top: 3rem;
-  }
-  .image1 {
-    width: 800px;
-    height: 600px;
-  }
-  .image2 {
-    width: 800px;
-    height: 600px;
-  }
-  .text {
-    width: 800px;
-    font-size: 2rem;
-    line-height: 3rem;
-  }*/
-
  
     
 }
 
 @media screen and (max-width: 950px) {
-  /*about us mobile*/
-  .AUHeading {
-    margin-top: 7rem;
-  }
-  .image1{
-    width: 550px;
-    height: 450px;
-  }
-  .image2{
-    width: 550px;
-    height: 450px;
-  }
-  .text {
-    width: 550px;
-    font-size: 1.5rem;
-    line-height: 2.5rem;
-  }
-
+  
  
 }
 
 @media screen and (max-width: 630px) {
-  /*about us mobile*/
-  .AUHeading {
-    margin-top: 5rem;
-  }
-  .image1{
-    width: 350px;
-    height: 250px;
-  }
-  .image2{
-    width: 350px;
-    height: 250px;
-  }
-  .text {
-    width: 350px;
-    font-size: 1.2rem;
-    line-height: 1.8rem;
-  }
-  .secondWrapper {
-    margin-top: 2rem;
-  }
-
+ 
  
   
 }
 @media screen and (max-width: 500px) {
-  /*about us mobile*/
-  .image1{
-    width: 300px;
-    height: 200px;
-  }
-  .image2{
-    width: 300px;
-    height: 200px;
-  }
-  .text {
-    width: 300px;
-    font-size: 1rem;
-    line-height: 1.75rem;
-  }
-  .secondWrapper {
-    margin-top: 2rem;
-  }
-  
+ 
   
 }
