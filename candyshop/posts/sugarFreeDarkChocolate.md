@@ -1,12 +1,12 @@
 ---
 id: "4"
-title: "SUGAR-FREE DARK CHOCOLATE FOR ATHLETES"
+title: "DARK CHOCOLATE FOR ATHLETES"
 author: "Mike Jackson"
 picture: "/blogpics/dark.svg"
 pictureB: "/blogpics/darkB.svg"
 date: "10/12/2022"
 cta: |
-    You won't get diabetes from this! Try this sugar-free dark chocolate which is a delicious treat that is packed with antioxidants and has numerous health benefits.
+    Try this sugar-free dark chocolate which is a delicious treat that is packed with antioxidants and has numerous health benefits.
 ---
 For some reason, when we picture the diet of an **athlete**, we imagine them eating their body weight in broccoli, ground beef, egg whites and bananas. We can hardly fathom them consuming sweets and treats, let alone dark chocolate. This might come as a surprise, but dark chocolate is **nutritious**, delicious and a beneficial food for everyone, including athletes! In this blog post, we are going to talk about the benefits that consuming low-sugar, keto and kosher chocolate has on athletes and the everyday person who is trying to get into better shape, lose weight or simply live a healthier lifestyle. Grab your grocery shopping list, you’ll likely be adding sugar-free dark chocolate to the list!
 <br></br>
