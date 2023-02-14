@@ -70,8 +70,23 @@ const Header2 = () => {
                         </Link>
                     </div>
                     <div className={styles.iconContainer}>
-                        {navigationItems.slice(4,6).map(({ label, path }) => (
+                        {navigationItems.slice(4,5).map(({ label, path }) => (
                             <Link className={styles.iconLinkWrapper} href={path} key={label} passHref>
+                                <Image
+                                    src={`${path}.svg`}
+                                    alt={label}
+                                    width={40}
+                                    height={40}
+                                    className={styles.icon}
+                                />
+                            </Link>
+                        ))}
+                        {navigationItems.slice(5,6).map(({ label, path }) => (
+                            <Link className={styles.iconLinkWrapper} href={path} key={label} passHref>
+                                <div className={styles.productCounter}>
+                                    <p>2</p>
+                                </div>
+                                
                                 <Image
                                     src={`${path}.svg`}
                                     alt={label}
@@ -83,6 +98,9 @@ const Header2 = () => {
                         ))}
                         {navigationItems.slice(6,7).map(({ label, path }) => (
                             <div onClick={()=> setIsCartOn(!isCartOn)} className={styles.iconLinkWrapper}  key={label} passHref>
+                                <div className={styles.productCounter}>
+                                    <p>10</p>
+                                </div>
                                 <Image
                                     src={`${path}.svg`}
                                     alt={label}

@@ -191,6 +191,7 @@
 .iconLinkWrapper{
     height: 40px;
     cursor: pointer;
+    position: relative;
 }
 
 .icon{
@@ -200,6 +201,29 @@
 
 .icon:hover{
     opacity: 60%;
+}
+
+.productCounter{
+    position: absolute;
+    right:-10px;
+    top: -15px;
+    background-color: #F06C9B;
+    border-radius: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 27px;
+    height: 27px;
+}
+
+.productCounter p{
+    color: white;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
 }
 
 @media screen and (max-width: 1050px){
@@ -358,6 +382,18 @@
         height: 30px;
     }
 
+    .productCounter{
+        right:-10px;
+        top: -13px;
+        width: 23px;
+        height: 23px;
+    }
+
+    .productCounter p{
+        font-size: 17px;
+
+    }
+
     .textNavLinkWrapperActive{
         margin-left: 20px;
         margin-right: 20px;
@@ -455,8 +491,21 @@
     }
     
     .iconLinkWrapper{
-        height: 25px;
+        height: 26px;
     }
+
+    .productCounter{
+        right:-10px;
+        top: -11px;
+        width: 21px;
+        height: 21px;
+    }
+
+    .productCounter p{
+        font-size: 15px;
+
+    }
+    
     .searchInput{
         font-size:16px;
     }
