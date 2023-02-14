@@ -246,6 +246,18 @@
     height: 18px;
     accent-color: #7F2982;
 }
+
+.priceRangeContainer{
+    margin-top: 40px;
+}
+.priceRangeContainer label{
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 0.938rem;
+    color: #F06C9B;
+}
 /*.customSelect {
     border: 1px solid #F06C9B;
     font-family: Montserrat, sans-serif;

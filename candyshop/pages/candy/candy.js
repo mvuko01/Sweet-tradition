@@ -10,7 +10,7 @@ import React from 'react';
 import { categories } from '../../constants/productCategories';
 import { countries } from '../../constants/countries';
 import matter from 'gray-matter'
-
+import RangeSlider from '../../components/RangeSlider';
 
 const Candy = (props) => {
     const products = props.products;
@@ -228,7 +228,14 @@ const Candy = (props) => {
                                 ))}
                             </div>
                         </div>
-                        
+                        <div className={styles.priceRangeContainer}>
+                        <label>Price</label>
+                        <RangeSlider
+                            min={0}
+                            max={100}
+                            onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
+                        />
+                        </div>
                     </div>
                 </div>
                 <div className={styles.candyContainer}>
