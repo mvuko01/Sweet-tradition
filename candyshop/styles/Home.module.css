@@ -96,17 +96,19 @@
 .mainContainter {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  margin-left: 3rem;
-  margin-right: 3rem;
+  justify-content: space-between;
+  margin: 0px 10rem;
 }
 .firstWrapper {
   display: flex;
   flex-direction: column;
+  width: 40%;
 }
 .secondWrapper {
   display: flex;
   flex-direction: column;
+  width: 40%;
+
 }
 .text {
   font-family: Montserrat, sans-serif;
@@ -118,83 +120,20 @@
   width: 495px;
   margin: 1.5rem 0;
 }
-/* blog section */
-.blogsHeading {
-  font-family: Montserrat, sans-serif;
-  font-style: normal;
-  font-size: 3.5rem;
-  color: #7F2982;
-  text-align: center;
-  letter-spacing: 0.1em;
-  margin: 3rem;
-}
-.allBlogsWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 3rem;
-}
-.linkWrapper {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 3rem;
-  width: 81%;
-  transition: 0.1s;
-}
-.linkWrapper:hover {
-  transform: scale(1.03);
-}
-.miniBlogContentWrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  font-family: Montserrat, sans-serif;
-  margin-left: 1.5rem;
-}
-.title {
-  color: #624CAB;
-  font-weight:bolder;
-  font-style: normal;
-  font-size: 1.8rem;
-}
-.ctaText {
-  color: #908282;
-  font-size: 1.4rem;
-}
-.readMoreBlogs {
-  display: flex;
-  justify-content: center;
-}
-.blogPics {
-  object-fit: cover;
-  min-width: 325px;
-  border-radius: 0.313rem;
-}
-.buttonBlogs {
-  color: white;
-  background-color: #F06C9B;
-  font-size: 1rem;
-  font-family: Montserrat, sans-serif;
-  font-weight: bold;
-  border-radius: 0.938rem;
-  width: 12.5rem;
-  height: 3rem;
-  margin-bottom: 3rem;
-  cursor: pointer;
-  border-color: transparent;
-}
-.buttonBlogs:hover {
-  opacity: 0.7;
-}
+
 
 @media screen and (max-width: 1200px){
   /*about us mobile*/
-  .AUHeading {
-    margin-top: 10rem;
-  }
+  
+ 
   .mainContainter {
-    flex-direction: column;
-    align-items: center;
+    /*flex-direction: column;
+    align-items: center;*/
+    margin: 0px 5rem;
+
+  }
+  /* .AUHeading {
+    margin-top: 10rem;
   }
   .secondWrapper {
     flex-direction: column-reverse;
@@ -212,33 +151,9 @@
     width: 800px;
     font-size: 2rem;
     line-height: 3rem;
-  }
+  }*/
 
-  /*blog section mobile */
-  .blogsHeading {
-    margin-top: 10rem;
-  }
-  .linkWrapper {
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 5rem;
-  }
-  .blogPics {
-    width: 800px;
-  }
-  .miniBlogContentWrapper {
-    width: 800px;
-    margin-left: 0;
-    margin-top: 1rem;
-    gap: 1rem;
-  }
-  .title {
-    font-size: 2.5rem;
-  }
-  .ctaText {
-    font-size: 2rem;
-    line-height: 3rem;
-  }
+ 
     
 }
 
@@ -261,27 +176,7 @@
     line-height: 2.5rem;
   }
 
-  /*blog section mobile */
-  .blogsHeading {
-    margin-top: 7rem;
-  }
-  .blogPics {
-    max-width: 550px;
-    min-width: auto;
-  }
-  .miniBlogContentWrapper {
-    width: 550px;
-    margin-left: 0;
-    margin-top: 1rem;
-    gap: 1rem;
-  }
-  .title {
-    font-size: 1.8rem;
-  }
-  .ctaText {
-    font-size: 1.5rem;
-    line-height: 2.5rem;
-  }
+ 
 }
 
 @media screen and (max-width: 630px) {
@@ -306,30 +201,7 @@
     margin-top: 2rem;
   }
 
-  /*blog section mobile */
-  .blogsHeading {
-    margin-top: 5rem;
-  }
-  .blogPics {
-    max-width: 350px;
-    min-width: auto;
-  }
-  .miniBlogContentWrapper {
-    width: 350px;
-    margin-left: 0;
-    margin-top: 1rem;
-    gap: 1rem;
-  }
-  .linkWrapper {
-    margin-bottom: 4rem;
-  }
-  .title {
-    font-size: 1.6rem;
-  }
-  .ctaText {
-    font-size: 1.2rem;
-    line-height: 1.8rem;
-  }
+ 
   
 }
 @media screen and (max-width: 500px) {
@@ -350,26 +222,6 @@
   .secondWrapper {
     margin-top: 2rem;
   }
-  /*blog section mobile */
-  .blogPics {
-    max-width: 300px;
-    min-width: auto;
-  }
-  .miniBlogContentWrapper {
-    width: 300px;
-    margin-left: 0;
-    margin-top: 1rem;
-    gap: 1rem;
-  }
-  .linkWrapper {
-    margin-bottom: 4rem;
-  }
-  .title {
-    font-size: 1.6rem;
-  }
-  .ctaText {
-    font-size: 1rem;
-    line-height: 1.75rem;
-  }
+  
   
 }
