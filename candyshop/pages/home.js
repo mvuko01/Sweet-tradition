@@ -13,13 +13,10 @@ import BlogHomeArea from '../components/BlogHomeArea';
 
 import matter from 'gray-matter'
 
-
 const Hello = (props) => {
     const blogPosts = props.posts;
     const products = props.products;
-    
 
-    
     return (
         <>
             <title>Sweet tradition</title>
@@ -39,6 +36,7 @@ const Hello = (props) => {
 
 import fs from 'fs'
 import path from 'path'
+import { useEffect } from 'react';
 
 export async function getStaticProps() {
 

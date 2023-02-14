@@ -152,7 +152,7 @@ const OneCandy = ({frontmatter, content, products}) => {
                         <h1 className={styles.productName}>{frontmatter.name}</h1>
                         <div className={styles.countryPictureWrapper}>
                             <Image
-                                src={`/countries/${frontmatter.country}.svg`}
+                                src={`/countries/${frontmatter.country === "UK" ? "United Kingdom" : frontmatter.country}.svg`}
                                 alt=""
                                 width={55}
                                 height={55}
