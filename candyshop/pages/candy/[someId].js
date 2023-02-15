@@ -4,6 +4,7 @@ import styles from '../../styles/Candy.module.css'
 import Image from 'next/image'
 import {useState, useEffect, useContext} from 'react';
 import {MyContext} from '../../context.js';
+import { countries } from '../../constants/countries';
 
 import matter from 'gray-matter';
 import {marked} from 'marked';
@@ -78,6 +79,8 @@ const OneCandy = ({frontmatter, content, products}) => {
         setCurrentImage((currentImage + 1) % productImages.length);
       };
 
+    const country = countries.find((country) => country.name === (frontmatter.country === "UK" ? "United Kingdom" : frontmatter.country));
+    
     return (
         <>
         <title>{frontmatter.name}</title>
@@ -134,14 +137,17 @@ const OneCandy = ({frontmatter, content, products}) => {
                 <div className={styles.productInfoContainer}>
                     <div className={styles.nameAndCountryContainer}>
                         <h1 className={styles.productName}>{frontmatter.name}</h1>
-                        <div className={styles.countryPictureWrapper}>
-                            <Image
-                                src={`/countries/${frontmatter.country === "UK" ? "United Kingdom" : frontmatter.country}.svg`}
-                                alt=""
-                                width={55}
-                                height={55}
-                                className={styles.countryImage}
-                            />
+                        <div className={styles.pictureAndTextCountryWrapper}>
+                            <div className={styles.countryPictureWrapper}>
+                                <Image
+                                    src={`/countries/${frontmatter.country === "UK" ? "United Kingdom" : frontmatter.country}.svg`}
+                                    alt=""
+                                    width={55}
+                                    height={55}
+                                    className={styles.countryImage}
+                                />
+                            </div>
+                            <p className={styles.countryShortName}>{country.shortName}</p>
                         </div>
                     </div>
                     <h2 className={styles.productShortDescription}>{`${frontmatter.category}, ${frontmatter.quantity}`}</h2>

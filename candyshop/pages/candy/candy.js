@@ -92,7 +92,7 @@ const Candy = (props) => {
   
         const sortedProducts = sortProducts(filteredProducts, currentSortOption);
         setCurrentArray(sortedProducts);
-      }, [currentSortOption, isCheckedCategory, isCheckedCountry]);
+      }, [currentSortOption, isCheckedCategory, isCheckedCountry, currentMin, currentMax]);
     
     const sortProducts = (products, sortOption) => {
         const dataToSort = [...products];
