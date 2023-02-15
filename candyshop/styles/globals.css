@@ -60,12 +60,12 @@ a {
 .slider__track {
   background-color: #ced4da;
   width: 100%;
-  z-index: 1;
+  z-index: -1;
 }
 
 .slider__range {
   background-color: #F06C9B;
-  z-index: 2;
+  z-index: 0;
 }
 
 .slider__left-value,
@@ -104,11 +104,11 @@ a {
 }
 
 .thumb--left {
-  z-index: 3;
+  z-index: 1;
 }
 
 .thumb--right {
-  z-index: 4;
+  z-index: 1;
 }
 
 /* For Chrome browsers */

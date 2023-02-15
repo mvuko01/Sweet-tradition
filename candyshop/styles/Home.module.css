@@ -19,7 +19,8 @@
 .featuringHeading {
   font-family: Montserrat, sans-serif;
   font-style: normal;
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 5vw ,3.5rem);
+
   color: #7F2982;
   text-align: center;
   letter-spacing: 0.1em;
