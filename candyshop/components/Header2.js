@@ -6,6 +6,7 @@ import Link from 'next/link';
 import {useState, useRef, useEffect, useContext} from 'react';
 import ShoppingCart from './ShoppingCart';
 import { MyContext } from '../context.js'
+import useAuth from "../hooks/useAuth";
 
 const Header2 = () => {
     const router = useRouter();
@@ -26,6 +27,21 @@ const Header2 = () => {
     {
         setIsNavbarBurgerOn(!isNavbarBurgerOn);
     }
+
+    const { token, email, removeAuth } = useAuth();
+    const [currentUser, setCurrentUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    const [showDropdown, setShowDropdown] = useState(false);
+
+    const toggleDropdown = () => {
+        setShowDropdown(!showDropdown);
+    };
+
+    const handleLogout = () => {
+        removeAuth();
+        setShowDropdown(false);
+    };
 
     return (
         <header className={styles.headerContainer}>
@@ -76,7 +92,17 @@ const Header2 = () => {
                         </Link>
                     </div>
                     <div className={styles.iconContainer}>
-                        {navigationItems.slice(4,5).map(({ label, path }) => (
+                        {token ? <div className={styles.dropdown}>
+                            <button className={styles.hiUser} onClick={toggleDropdown}>
+                                Hi, {email}
+                            </button>
+                            {showDropdown && (
+                                <div className={styles.dropdownContent}>
+                                <button onClick={handleLogout} className={styles.logout}>Logout</button>
+                                </div>
+                            )}
+                            </div>
+                        : (navigationItems.slice(4,5).map(({ label, path }) => (
                             <Link className={styles.iconLinkWrapper} href={path} key={label} passHref>
                                 <Image
                                     src={`${path}.svg`}
@@ -86,7 +112,7 @@ const Header2 = () => {
                                     className={styles.icon}
                                 />
                             </Link>
-                        ))}
+                        )))}
                         {navigationItems.slice(5,6).map(({ label, path }) => (
                             <Link className={styles.iconLinkWrapper} href={path} key={label} passHref>
                                 <div className={styles.productCounter}>

@@ -38,7 +38,7 @@ const Login = () => {
             .login(email, password)
             .then(({ token }) => {
                 setError('');
-                setAuth(token);
+                setAuth(token, email);
                 router.back();
             })
             .catch((err) => {
@@ -167,18 +167,6 @@ const Login = () => {
                                 <Link href='/register' className={styles.forgot}>Register</Link>
                         </div>
                     </section>
-                )}
-                
-                {token && (
-                    <button
-                        onClick={() => {
-                            removeAuth();
-                            router.push('/home');
-                        }}
-                        className={styles.submitButton}
-                    >
-                        Logout
-                    </button>
                 )}
             </section>
             </div>
