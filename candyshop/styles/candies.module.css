@@ -17,7 +17,7 @@
 .heading{
     font-family: Montserrat, sans-serif;
     font-style: normal;
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 5vw ,3rem);
     color: #7F2982;
     text-align: center;
     letter-spacing: 0.1em;
@@ -76,12 +76,12 @@
     flex-wrap: nowrap;
     margin-top: 50px;
 }
+/*FILTERS*/
 .filterContainer{
     display: flex;
     flex-direction: column;
     margin-left: 60px;
-    height: 250px;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .filterIconAndTextContainer{
@@ -99,7 +99,7 @@
     color: #F06C9B;
 }
 
-/*FILTERS*/
+
 .filters{
     margin-top: 30px;
     width: 240px;
@@ -107,7 +107,7 @@
     -webkit-user-select: none;  /* Chrome all / Safari all */
     -moz-user-select: none;     /* Firefox all */
     -ms-user-select: none;      /* IE 10+ */
-     user-select: none; 
+    user-select: none; 
 }
 .filterDropdown{
     margin-bottom: 30px;
@@ -259,28 +259,7 @@
     line-height: 0.938rem;
     color: #F06C9B;
 }
-/*.customSelect {
-    border: 1px solid #F06C9B;
-    font-family: Montserrat, sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 0.938rem;
-    color: #F06C9B;
-    outline: none;
-    padding: 0.5rem;
-    cursor: pointer;
-}*/
 
-/*.customSelect:hover{
-    opacity: 0.7;
-}*/
-
-
-/*.filterIconWrapper{
-    width: 40px;
-    height: 30px;
-}*/
 
 
 /*FILTERS END*/
@@ -314,7 +293,7 @@
     -webkit-user-select: none;  /* Chrome all / Safari all */
     -moz-user-select: none;     /* Firefox all */
     -ms-user-select: none;      /* IE 10+ */
-     user-select: none; 
+    user-select: none; 
 }
 
 
@@ -326,7 +305,7 @@
     /*border: 2px #F06C9B solid;*/
     border-radius: 0.5rem;
     min-width: 120px;
-    padding: 0.5rem 0;
+    padding-bottom: 0.5rem;
 
     cursor: pointer;
     
