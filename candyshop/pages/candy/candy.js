@@ -219,7 +219,6 @@ const Candy = (props) => {
                     <label>Filters</label>
                 </div>
                 <div className={isOpenFilter ? styles.filterContainer : styles.filterContainerInactive}>
-                    
                     <div className={styles.filters}>
                         <div className={styles.filterDropdown} >
                             <div className={styles.mainFilterDiv} onClick={() => setIsOpenCategory(!isOpenCategory)}>

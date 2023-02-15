@@ -1,6 +1,6 @@
 ---
 id: "4"
-name: "Bassetts Liquorice Allsorts"
+name: "Bassetts Allsorts"
 picture: "/productPics/bassets.svg"
 picture2: "/productPics/bas2.svg"
 picture3: "/productPics/bas3.svg"

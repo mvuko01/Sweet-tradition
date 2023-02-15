@@ -1,6 +1,6 @@
 ---
 id: "47"
-name: "Toffifee White Chocolate"
+name: "Toffifee White"
 picture: "/productPics/tofifew2.svg"
 picture2: "/productPics/tofifew.svg"
 picture3: "/productPics/tofifew3.svg"

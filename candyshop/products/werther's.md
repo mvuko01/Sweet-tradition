@@ -1,6 +1,6 @@
 ---
 id: "44"
-name: "Werther's Creamy Toffees"
+name: "Werther's Toffees"
 picture: "/productPics/werther.svg"
 picture2: "/productPics/werther2.svg"
 picture3: "/productPics/werther3.svg"
