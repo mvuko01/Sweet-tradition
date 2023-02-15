@@ -83,7 +83,10 @@ const Header2 = () => {
                     ))}
                 </div>
                 <div className={styles.searchAndIconContainer}>
-                <form typeof='submit'>
+                <form onSubmit={(event) => {
+                    event.preventDefault(); // prevent the default form submission behavior
+                    window.location.href = `/candy/candy/?query=${searchQuery}`; // navigate to the search results page
+                }}>
                     <div className={styles.searchContainer}>
                         <input type="text" value={searchQuery}
                             onChange={(event) => setSearchQuery(event.target.value)} 
