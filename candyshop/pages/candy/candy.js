@@ -92,6 +92,10 @@ const Candy = (props) => {
   
         const sortedProducts = sortProducts(filteredProducts, currentSortOption);
         setCurrentArray(sortedProducts);
+
+        if(currentPage == numberOfPages){
+            setCurrentPage(1);
+        }
       }, [currentSortOption, isCheckedCategory, isCheckedCountry, currentMin, currentMax]);
     
     const sortProducts = (products, sortOption) => {
