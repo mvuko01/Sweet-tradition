@@ -2,8 +2,6 @@ import Footer from '../../components/Footer'
 import Header2 from '../../components/Header2';
 import styles from '../../styles/candies.module.css';
 import Image from 'next/image';
-import blogStyle from '../../styles/Blogs.module.css';
-import ListProductCard from '../../components/ListProductCard';
 import SideProductCard from '../../components/SideProductCard';
 import { useState, useEffect } from 'react';
 import React from 'react';
@@ -232,7 +230,7 @@ const Candy = (props) => {
                             <div className={ isOpenCategory ? styles.filterOptionsActive : styles.filterOptionsInactive}>
                                 {categories.map((category) => (
                                     <div className={styles.filterOption} onClick={handleAddCategoryFilter} key={category.name}>
-                                        <input type="checkbox" checked={isCheckedCategory.includes(category.name)} className={styles.cbox}/>
+                                        <input readOnly type="checkbox" checked={isCheckedCategory.includes(category.name)} className={styles.cbox}/>
                                         <label>{category.name}</label> 
                                     </div>
                                 ))}
@@ -254,7 +252,7 @@ const Candy = (props) => {
                             <div className={ isOpenCountry ? styles.filterOptionsActive : styles.filterOptionsInactive}>
                                 {countries.map((country) => (
                                     <div className={styles.filterOption} onClick={handleAddCountryFilter} key={country.name}>
-                                        <input type="checkbox" checked={isCheckedCountry.includes(country.name)} className={styles.cbox}/>
+                                        <input readOnly type="checkbox" checked={isCheckedCountry.includes(country.name)} className={styles.cbox}/>
                                         <label>{country.name}</label> 
                                         <div className={styles.countryImageWrapper}>
                                             <Image
