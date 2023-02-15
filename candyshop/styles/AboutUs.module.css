@@ -2,7 +2,7 @@
 .AUHeading {
   font-family: Montserrat, sans-serif;
   font-style: normal;
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 5vw ,3.5rem);
   color: #7F2982;
   text-align: center;
   letter-spacing: 0.1em;
@@ -19,28 +19,54 @@
 .firstWrapper {
   display: flex;
   flex-direction: column;
-  width: 40%;
+  align-items: flex-start;
+  width: max(40%, 430px);
+  min-width: max(40%, 430px);
+
 }
 
 .secondWrapper {
   display: flex;
   flex-direction: column;
-  width: 40%;
+  min-width: max(40%, 430px);
+  width: max(40%, 430px);
+
+  justify-content: flex-start;
+  align-items: flex-end;
 
 }
 .text {
   font-family: Montserrat, sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 2vw,1.5rem);
   line-height: 1.813rem;
   color: #918282;
-  width: 495px;
+  max-width: 495px;
+  text-align:justify;
+
   margin: 1.5rem 0;
 }
 
+.image1, .image2{
+  max-width: min(495px, 100%);
+  
+}
 
-@media screen and (max-width: 1200px){
+
+.candyLineWrapper{
+  padding-top: 35px;
+}
+
+
+@media screen and (max-width: 1700px){
+  .candyLineWrapper{
+    display: none;
+  }
+  
+}
+
+@media screen and (max-width: 1250px){
     /*about us mobile*/
     
    
@@ -48,58 +74,126 @@
       /*flex-direction: column;
       align-items: center;*/
       margin: 0px 5rem;
-  
+      gap: 3rem;
     }
-    /* .AUHeading {
-      margin-top: 10rem;
+
+    .firstWrapper {
+      min-width: min(40%, 440px);
+
     }
-    .secondWrapper {
-      flex-direction: column-reverse;
-      margin-top: 3rem;
+
+    .secondWrapper{
+      min-width: min(40%, 440px);
+
     }
-    .image1 {
-      width: 800px;
-      height: 600px;
-    }
-    .image2 {
-      width: 800px;
-      height: 600px;
-    }
-    .text {
-      width: 800px;
-      font-size: 2rem;
-      line-height: 3rem;
-    }*/
+   
   
    
       
+}
+
+@media screen and (max-width: 850px){
+
+  .AUHeading {
+    
+    margin-bottom: 1.5rem;
   }
 
-@media screen and (max-width: 950px) {
-    /*about us mobile*/
-    .AUHeading {
-      margin-top: 7rem;
-    }
-    .image1{
-      width: 550px;
-      height: 450px;
-    }
-    .image2{
-      width: 550px;
-      height: 450px;
-    }
-    .text {
-      width: 550px;
-      font-size: 1.5rem;
-      line-height: 2.5rem;
-    }
+  .mainContainter {
+    flex-direction: column;
+    align-items: center;
+    margin: 0px 4rem;
+
+  }
+
+
+  .firstWrapper{
+    flex-direction: row;
+    gap: 2rem;
+    min-width: 100%;
+    max-height: 300px;
+    align-items: flex-start;
+
+  }
+  .secondWrapper {
+    flex-direction: row;
+    gap: 2rem;
+    min-width: 100%;
+    max-height: 300px;
+    align-items: flex-start;
+    margin-bottom: 30px;
+  }
+  .image1, .image2{
+    width: 50%;
+    min-width: max(300px,30%);
+    max-width: unset;
+    max-height: 300px;
+  }
+  .text{
+    max-height:100%;
+    margin-top: 2rem;
+  }
   
-   
 }
+
+@media screen and (max-width: 750px){
+
+  .firstWrapper{
+    flex-direction: column;
+    min-width: unset;
+    max-height: unset;
+    width:100%;
+    gap:1rem;
+    align-items: center;
+  }
+
+  
+  .secondWrapper {
+    flex-direction: column-reverse;
+    min-width: unset;
+
+    max-height: unset;
+    margin-bottom: 30px;
+    width:100%;
+    gap:1rem;
+    align-items: center;
+
+  }
+  .image1, .image2{
+    max-width: 100%;
+    width:unset;
+    min-width: unset;
+    max-height: 300px;
+
+  }
+  .text{
+    max-width: unset;
+    margin-top: 1rem;
+
+  }
+
+}
+
+
   
 @media screen and (max-width: 630px) {
+
+  .mainContainter {
+    /*flex-direction: column;
+    align-items: center;*/
+    margin: 0px 2.5rem;
+
+  }
+  .image1, .image2{
+    max-width: 100%;
+    width:unset;
+    min-width: unset;
+    max-height: 250px;
+
+  }
+
     /*about us mobile*/
-    .AUHeading {
+   /* .AUHeading {
       margin-top: 5rem;
     }
     .image1{
@@ -117,14 +211,21 @@
     }
     .secondWrapper {
       margin-top: 2rem;
-    }
+    }*/
   
    
     
 }
 @media screen and (max-width: 500px) {
+
+  .mainContainter {
+    /*flex-direction: column;
+    align-items: center;*/
+    margin: 0px 1.75rem;
+
+  }
     /*about us mobile*/
-    .image1{
+   /* .image1{
       width: 300px;
       height: 200px;
     }
@@ -139,8 +240,14 @@
     }
     .secondWrapper {
       margin-top: 2rem;
-    }
+    }*/
     
     
 }
-  
+
+@media screen and (max-width: 350px)
+{
+    .text{
+      margin-top: 0px;
+    }
+}
