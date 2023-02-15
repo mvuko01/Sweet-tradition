@@ -43,9 +43,16 @@ const Header2 = () => {
         setShowDropdown(false);
     };
 
+    const [searchQuery, setSearchQuery] = useState('');
+
+    // const handleSearchSubmit = (event) => {
+    //     event.preventDefault();
+    //     router.push(`/candy/candy?query=${searchQuery}`);
+    // };
+
     return (
         <header className={styles.headerContainer}>
-            <Link className={styles.logoWrapper} href={"/home"} passHref>
+            <Link className={styles.logoWrapper} href={"/home"}>
                 <Image
                     src={'/headerlogo.svg'}
                     alt="Logo"
@@ -77,8 +84,10 @@ const Header2 = () => {
                 </div>
                 <div className={styles.searchAndIconContainer}>
                     <div className={styles.searchContainer}>
-                        <input type="text" placeholder="Search" className={styles.searchInput}></input>
-                        <Link href={"/"} passHref> 
+                        <input type="text" value={searchQuery}
+                            onChange={(event) => setSearchQuery(event.target.value)} 
+                            placeholder="Search" className={styles.searchInput}></input>
+                        <Link href={`/candy/candy/?query=${searchQuery}`}> 
                             <div className={styles.searchPictureWrapper}>
                                 <Image
                                 src={'/search.svg'}
@@ -103,7 +112,7 @@ const Header2 = () => {
                             )}
                             </div>
                         : (navigationItems.slice(4,5).map(({ label, path }) => (
-                            <Link className={styles.iconLinkWrapper} href={path} key={label} passHref>
+                            <Link className={styles.iconLinkWrapper} href={path} key={label}>
                                 <Image
                                     src={`${path}.svg`}
                                     alt={label}
@@ -114,7 +123,7 @@ const Header2 = () => {
                             </Link>
                         )))}
                         {navigationItems.slice(5,6).map(({ label, path }) => (
-                            <Link className={styles.iconLinkWrapper} href={path} key={label} passHref>
+                            <Link className={styles.iconLinkWrapper} href={path} key={label}>
                                 <div className={styles.productCounter}>
                                     <p>{inMyFavourites.length}</p>
                                 </div>
@@ -153,5 +162,38 @@ const Header2 = () => {
         </header>
     );
 };
+
+export async function getStaticProps(context) {
+    const { query } = context;
+    const searchQuery = query.query || '';
+
+    //Get files from the posts dir
+    const productFiles = fs.readdirSync(path.join('products'))
+  
+    //Get slug and frontmatter from posts
+    const products = productFiles.map(filename => {
+      //Create slug
+      const slug = filename.replace('.md', '')
+  
+      //Get frontmatter
+      const markdownWithMeta = fs.readFileSync(path.join('products', filename), 'utf-8')
+      const {data:frontmatter} = matter(markdownWithMeta)
+      return {
+        slug,
+        frontmatter
+      }
+    })
+
+    const filteredProducts = products.filter((product) => {
+        return product.frontmatter.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        product.frontmatter.category.toLowerCase().includes(searchQuery.toLowerCase())
+    })
+    return {
+      
+      props: {
+        products: filteredProducts,
+      }
+    }
+  }
 
 export default Header2;

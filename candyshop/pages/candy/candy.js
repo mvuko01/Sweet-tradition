@@ -11,9 +11,12 @@ import { categories } from '../../constants/productCategories';
 import { countries } from '../../constants/countries';
 import matter from 'gray-matter'
 import RangeSlider from '../../components/RangeSlider';
+import { useRouter } from 'next/router';
 
 const Candy = (props) => {
     const products = props.products;
+    const router = useRouter();
+    const wantedQuery = router.query.query;
     const sortOptions = [
         { label: 'Price - Low to high', id: '1' },
         { label: 'Price - High to low', id: '2' },
@@ -66,9 +69,11 @@ const Candy = (props) => {
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
     const currentProducts = currentArray.slice(indexOfFirstProduct, indexOfLastProduct);
-
+    
     useEffect(() => {
-        let filteredProducts = products.filter(product => {
+        let filteredProducts;
+
+        filteredProducts = products.filter(product => {
             return isCheckedCategory.includes(product.frontmatter.category);
         });
         if(isCheckedCategory.length == 0){ filteredProducts = products; }
@@ -85,12 +90,19 @@ const Candy = (props) => {
             const price = parseFloat(product.frontmatter.price.replace(",", ".").replace("€", ""));
             return price >= currentMin && price <= currentMax;
         });
+
+        if(wantedQuery){ 
+            filteredProducts = products.filter(product => {
+            return product.frontmatter.name.toLowerCase().includes(wantedQuery.toLowerCase()) 
+            || product.frontmatter.category.toLowerCase().includes(wantedQuery.toLowerCase());
+        });
+        }
   
         const sortedProducts = sortProducts(filteredProducts, currentSortOption);
         setCurrentArray(sortedProducts);
 
         setCurrentPage(1);
-      }, [currentSortOption, isCheckedCategory, isCheckedCountry, currentMin, currentMax]);
+      }, [currentSortOption, isCheckedCategory, isCheckedCountry, currentMin, currentMax, wantedQuery]);
     
     const sortProducts = (products, sortOption) => {
         const dataToSort = [...products];
