@@ -31,10 +31,6 @@ const Candy = (props) => {
     const [currentMin, setCurrentMin] = useState(minPrice);
     const [currentMax, setCurrentMax] = useState(maxPrice);
 
-    const handlePriceChange = ({ min, max }) => {
-        setCurrentMin(min);
-        setCurrentMax(max);
-      };
 
     function handleAddCategoryFilter(e){
         const name = e.currentTarget.childNodes[1].innerText;
@@ -93,9 +89,7 @@ const Candy = (props) => {
         const sortedProducts = sortProducts(filteredProducts, currentSortOption);
         setCurrentArray(sortedProducts);
 
-        if(currentPage == numberOfPages){
-            setCurrentPage(1);
-        }
+        setCurrentPage(1);
       }, [currentSortOption, isCheckedCategory, isCheckedCountry, currentMin, currentMax]);
     
     const sortProducts = (products, sortOption) => {
