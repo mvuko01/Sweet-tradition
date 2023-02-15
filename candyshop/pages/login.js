@@ -144,7 +144,7 @@ const Login = () => {
                         <Spinner />
                         ) : (
                             <div className={styles.signInBtnWrapper}>
-                                <button
+                                <button type='submit'
                                     onClick={handleSubmit} className={styles.signInBtn}
                                 >
                                     Sign in

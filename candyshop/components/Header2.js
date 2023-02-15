@@ -83,6 +83,7 @@ const Header2 = () => {
                     ))}
                 </div>
                 <div className={styles.searchAndIconContainer}>
+                <form typeof='submit'>
                     <div className={styles.searchContainer}>
                         <input type="text" value={searchQuery}
                             onChange={(event) => setSearchQuery(event.target.value)} 
@@ -100,6 +101,7 @@ const Header2 = () => {
                             
                         </Link>
                     </div>
+                </form>
                     <div className={styles.iconContainer}>
                         {token ? <div className={styles.dropdown}>
                             <button className={styles.hiUser} onClick={toggleDropdown}>
