@@ -17,7 +17,7 @@
 .heading{
     font-family: Montserrat, sans-serif;
     font-style: normal;
-    font-size: clamp(1.5rem, 5vw ,3rem);
+    font-size: clamp(1.7rem, 5vw ,3rem);
     color: #7F2982;
     text-align: center;
     letter-spacing: 0.1em;
@@ -336,7 +336,7 @@
 /*DROPDOWN*/
 .dropdown{
     position: absolute;
-    top: 0;
+    top: 5px;
     right: 10px;
     -webkit-user-select: none;  /* Chrome all / Safari all */
     -moz-user-select: none;     /* Firefox all */
@@ -353,7 +353,6 @@
     /*border: 2px #F06C9B solid;*/
     border-radius: 0.5rem;
     min-width: 120px;
-    padding-bottom: 0.5rem;
 
     cursor: pointer;
     
@@ -486,14 +485,34 @@
         margin: 0 30px;
         
     }
-    .filterIconAndTextContainer{
-        margin-left: 30px;
+
+    .mainContainer{
+        margin-top: 30px;
     }
 
-    .filterContainer{
-        display: flex;
-        flex-direction: column;
+    .filterIconAndTextContainer{
         margin-left: 30px;
+        gap: 15px;
+        align-items: center;
+        margin-top: 0;
+
+    }
+
+    .filterIconAndTextContainer label{
+        
+        font-size: 18px;
+        
+    }
+    
+    .filterIconActive{
+        rotate: 0deg;
+        transition: 0.3s;
+        width: 30px;
+    }
+    .filterIconInactive{
+        rotate: -90deg;
+        transition: 0.3s;
+        width: 30px;
     }
     .pageNum {
        
@@ -508,7 +527,7 @@
 
         line-height: 2.35rem;
         
-        cursor: pointer;
+        
         font-size: 18px;
     }
     
@@ -517,10 +536,29 @@
         width: 25px;
         height: 25px;
     }
+
+    .selectDropdown{
+        /*border: 2px #F06C9B solid;*/
+        border-radius: 0.5rem;
+        min-width: 110px;
+    
+        
+    }
+    
+    .selectDropdown span{
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+    
+        color:#F06C9B;
+    
+        letter-spacing: 0.1em;
+    }
 }
 
 @media screen and (max-width: 525px){
-
+    
     .filterContainer{
         
         min-width: 100vw;
@@ -536,7 +574,7 @@
 
     }
     .candyContainer{
-        grid-template-columns: repeat(auto-fill, 1fr);
+        grid-template-columns: repeat(auto-fill, 0.5fr);
 
 
         grid-auto-rows:  325px;
