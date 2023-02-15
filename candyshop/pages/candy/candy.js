@@ -2,8 +2,6 @@ import Footer from '../../components/Footer'
 import Header2 from '../../components/Header2';
 import styles from '../../styles/candies.module.css';
 import Image from 'next/image';
-import blogStyle from '../../styles/Blogs.module.css';
-import ListProductCard from '../../components/ListProductCard';
 import SideProductCard from '../../components/SideProductCard';
 import { useState, useEffect } from 'react';
 import React from 'react';
@@ -11,9 +9,12 @@ import { categories } from '../../constants/productCategories';
 import { countries } from '../../constants/countries';
 import matter from 'gray-matter'
 import RangeSlider from '../../components/RangeSlider';
+import { useRouter } from 'next/router';
 
 const Candy = (props) => {
     const products = props.products;
+    const router = useRouter();
+    const wantedQuery = router.query.query;
     const sortOptions = [
         { label: 'Price - Low to high', id: '1' },
         { label: 'Price - High to low', id: '2' },
@@ -68,12 +69,22 @@ const Candy = (props) => {
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
     const currentProducts = currentArray.slice(indexOfFirstProduct, indexOfLastProduct);
-
+    
     useEffect(() => {
-        let filteredProducts = products.filter(product => {
-            return isCheckedCategory.includes(product.frontmatter.category);
+        let filteredProducts = products;
+
+        if(wantedQuery){ 
+            filteredProducts = products.filter(product => {
+            return product.frontmatter.name.toLowerCase().includes(wantedQuery.toLowerCase()) 
+            || product.frontmatter.category.toLowerCase().includes(wantedQuery.toLowerCase());
         });
-        if(isCheckedCategory.length == 0){ filteredProducts = products; }
+        }
+
+        if(isCheckedCategory.length != 0){
+            filteredProducts = filteredProducts.filter(product => {
+                return isCheckedCategory.includes(product.frontmatter.category);
+            });
+        }
         
         if(isCheckedCountry.length != 0){ 
         filteredProducts = filteredProducts.filter(product => {
@@ -92,7 +103,7 @@ const Candy = (props) => {
         setCurrentArray(sortedProducts);
 
         setCurrentPage(1);
-      }, [currentSortOption, isCheckedCategory, isCheckedCountry, currentMin, currentMax]);
+      }, [currentSortOption, isCheckedCategory, isCheckedCountry, currentMin, currentMax, wantedQuery]);
     
     const sortProducts = (products, sortOption) => {
         const dataToSort = [...products];
@@ -158,7 +169,10 @@ const Candy = (props) => {
                     className={styles.banner}
                 />
             </div>
-            <h1 className={styles.heading}>CANDY SHOP</h1>
+            {wantedQuery == undefined && <h1 className={styles.heading}>CANDY SHOP</h1>}
+            {wantedQuery != undefined &&
+                <h2 className={styles.heading}>Search results for &#34;{wantedQuery}&#34;</h2>
+            }
                 <div className={styles.pageNumberContainer}>
                 {currentPage > 1 && (
                 <Image
@@ -223,7 +237,7 @@ const Candy = (props) => {
                             <div className={ isOpenCategory ? styles.filterOptionsActive : styles.filterOptionsInactive}>
                                 {categories.map((category) => (
                                     <div className={styles.filterOption} onClick={handleAddCategoryFilter} key={category.name}>
-                                        <input type="checkbox" checked={isCheckedCategory.includes(category.name)} className={styles.cbox}/>
+                                        <input readOnly type="checkbox" checked={isCheckedCategory.includes(category.name)} className={styles.cbox}/>
                                         <label>{category.name}</label> 
                                     </div>
                                 ))}
@@ -245,7 +259,7 @@ const Candy = (props) => {
                             <div className={ isOpenCountry ? styles.filterOptionsActive : styles.filterOptionsInactive}>
                                 {countries.map((country) => (
                                     <div className={styles.filterOption} onClick={handleAddCountryFilter} key={country.name}>
-                                        <input type="checkbox" checked={isCheckedCountry.includes(country.name)} className={styles.cbox}/>
+                                        <input readOnly type="checkbox" checked={isCheckedCountry.includes(country.name)} className={styles.cbox}/>
                                         <label>{country.name}</label> 
                                         <div className={styles.countryImageWrapper}>
                                             <Image

@@ -86,9 +86,10 @@ const Login = () => {
                             />
             <section className={styles.content}>
                 <h1 className={styles.title}>
-                    {token ? 'You are logged in!' : 'Welcome Back!'}
+                    {token ? null : 'Welcome Back!'}
                 </h1>
                 {!token && (
+                    <form>
                     <section className={styles.form}>
                         <div className={styles.inputWrapper}>
                             <label>Email or username</label>
@@ -144,7 +145,7 @@ const Login = () => {
                         <Spinner />
                         ) : (
                             <div className={styles.signInBtnWrapper}>
-                                <button
+                                <button type='submit'
                                     onClick={handleSubmit} className={styles.signInBtn}
                                 >
                                     Sign in
@@ -167,6 +168,7 @@ const Login = () => {
                                 <Link href='/register' className={styles.forgot}>Register</Link>
                         </div>
                     </section>
+                    </form>
                 )}
             </section>
             </div>
