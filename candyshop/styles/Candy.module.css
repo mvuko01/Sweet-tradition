@@ -114,6 +114,22 @@
     padding-top: 0.50rem;
 }
 
+.pictureAndTextCountryWrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.countryShortName {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    position: absolute;
+    top: 68px;
+}
+
 
 .productShortDescription{
     font-family: Montserrat;

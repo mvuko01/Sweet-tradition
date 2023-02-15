@@ -27,13 +27,9 @@ const FeaturingCandy = ({products}) => {
                             height={100}
                             className={styles.imageArrow}
                             onClick={() =>{ if(prev == 0)
-                                                return multipleStates(products.length - 1, 0, 1)
-                                             if(prev == (products.length - 1))
-                                                return multipleStates(products.length - 2,products.length - 1, 0)
-                                            if(prev == (products.length - 2))
                                                 return multipleStates(products.length - 3, products.length - 2, products.length - 1)
                                             else
-                                                return multipleStates(prev - 1, pic - 1, next - 1)
+                                                return multipleStates(next - 5, next - 4, next - 3)
                             }}
                         />
                     </button>
@@ -56,13 +52,9 @@ const FeaturingCandy = ({products}) => {
                             height={100}
                             className={styles.imageArrow}
                             onClick={() =>{ if(next == (products.length - 1))
-                                                return multipleStates(prev + 1, pic + 1, 0)
-                                            if(next == 0)
-                                                return multipleStates(products.length - 1, 0, 1)
-                                            if(next == 1)
                                                 return multipleStates(0, 1, 2)
                                             else
-                                                return multipleStates(prev + 1, pic + 1, next + 1)
+                                                return multipleStates(prev + 3, prev + 4, prev + 5)
                                             }}
                         />
                     </button>

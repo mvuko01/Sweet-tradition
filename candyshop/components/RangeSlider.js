@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
 
-const RangeSlider = ({ min, max, onChange }) => {
+const RangeSlider = ({ min, max, setMin, setMax, onChange }) => {
   const [minVal, setMinVal] = useState(min);
   const [maxVal, setMaxVal] = useState(max);
   const minValRef = useRef(min);
@@ -38,6 +38,8 @@ const RangeSlider = ({ min, max, onChange }) => {
   // Get min and max values when their state changes
   useEffect(() => {
     onChange({ min: minVal, max: maxVal });
+    setMin(minVal);
+    setMax(max);
   }, [minVal, maxVal, onChange]);
 
   return (
@@ -71,8 +73,8 @@ const RangeSlider = ({ min, max, onChange }) => {
       <div className="slider">
         <div className="slider__track" />
         <div ref={range} className="slider__range" />
-        <div className="slider__left-value">{minVal}€</div>
-        <div className="slider__right-value">{maxVal}€</div>
+        <div className="slider__left-value">{minVal.toFixed(2).toString().replace(".", ",")}€</div>
+        <div className="slider__right-value">{maxVal.toFixed(2).toString().replace(".", ",")}€</div>
       </div>
     </div>
   );
