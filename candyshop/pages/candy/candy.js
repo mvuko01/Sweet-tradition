@@ -69,12 +69,20 @@ const Candy = (props) => {
     const currentProducts = currentArray.slice(indexOfFirstProduct, indexOfLastProduct);
     
     useEffect(() => {
-        let filteredProducts;
+        let filteredProducts = products;
 
-        filteredProducts = products.filter(product => {
-            return isCheckedCategory.includes(product.frontmatter.category);
+        if(wantedQuery){ 
+            filteredProducts = products.filter(product => {
+            return product.frontmatter.name.toLowerCase().includes(wantedQuery.toLowerCase()) 
+            || product.frontmatter.category.toLowerCase().includes(wantedQuery.toLowerCase());
         });
-        if(isCheckedCategory.length == 0){ filteredProducts = products; }
+        }
+
+        if(isCheckedCategory.length != 0){
+            filteredProducts = filteredProducts.filter(product => {
+                return isCheckedCategory.includes(product.frontmatter.category);
+            });
+        }
         
         if(isCheckedCountry.length != 0){ 
         filteredProducts = filteredProducts.filter(product => {
@@ -88,13 +96,6 @@ const Candy = (props) => {
             const price = parseFloat(product.frontmatter.price.replace(",", ".").replace("€", ""));
             return price >= currentMin && price <= currentMax;
         });
-
-        if(wantedQuery){ 
-            filteredProducts = products.filter(product => {
-            return product.frontmatter.name.toLowerCase().includes(wantedQuery.toLowerCase()) 
-            || product.frontmatter.category.toLowerCase().includes(wantedQuery.toLowerCase());
-        });
-        }
   
         const sortedProducts = sortProducts(filteredProducts, currentSortOption);
         setCurrentArray(sortedProducts);
