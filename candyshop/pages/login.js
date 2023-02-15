@@ -86,7 +86,7 @@ const Login = () => {
                             />
             <section className={styles.content}>
                 <h1 className={styles.title}>
-                    {token ? 'You are logged in!' : 'Welcome Back!'}
+                    {token ? null : 'Welcome Back!'}
                 </h1>
                 {!token && (
                     <form>
