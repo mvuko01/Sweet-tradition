@@ -76,17 +76,19 @@
     flex-wrap: nowrap;
     margin-top: 50px;
 }
-/*FILTERS*/
-.filterContainer{
-    display: flex;
-    flex-direction: column;
-    margin-left: 60px;
-    justify-content: flex-start;
-}
 
 .filterIconAndTextContainer{
     display: flex;
     gap: 27px;
+    position:absolute;
+    margin-left: 60px;
+    margin-top: 5px;
+    cursor: pointer;
+    z-index: 1;
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none; 
 }
 
 .filterIconAndTextContainer label{
@@ -95,13 +97,59 @@
     font-weight: 600;
     font-size: 20px;
     letter-spacing: 0.1em;
-
+    cursor: pointer;
     color: #F06C9B;
 }
 
+.filterIconAndTextContainer:hover label{
+    opacity: 0.8;
+}
+.filterIconAndTextContainer:hover .filterIconWrapper{
+    opacity: 0.8;
+}
+
+.filterIconWrapper{
+    cursor: pointer;
+
+}
+.filterIconActive{
+    rotate: 0deg;
+    transition: 0.3s;
+}
+.filterIconInactive{
+    rotate: -90deg;
+    transition: 0.3s;
+}
+
+
+/*FILTERS*/
+.filterContainer{
+    display: flex;
+    flex-direction: column;
+    margin-left: 60px;
+    justify-content: flex-start;
+    position: static;
+    transition: 0.3s ease;
+}
+
+.filterContainerInactive{
+    display: flex;
+    flex-direction: column;
+    margin-left: 60px;
+    justify-content: flex-start;
+    position: absolute;
+    left: -100%;
+    transition: 0.3s ease;
+
+    
+}
+
+
+
+
 
 .filters{
-    margin-top: 30px;
+    margin-top: 6rem;
     width: 240px;
 
     -webkit-user-select: none;  /* Chrome all / Safari all */
@@ -267,7 +315,7 @@
    align-self: center; 
 }
 .candyContainer{
-    margin-left: 75px;
+    margin-left: 60px;
     width: 100%;
     
     /* display: flex;

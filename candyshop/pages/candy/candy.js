@@ -60,6 +60,8 @@ const Candy = (props) => {
     const [currentSortOption, setCurrentSortOption] = useState("Sort by");
     const [currentArray, setCurrentArray] = useState(products);
 
+    const [isOpenFilter, setIsOpenFilter] = useState(false);
+
     const productsPerPage = 12;
     const [currentPage, setCurrentPage] = useState(1);
     const numberOfPages = Math.ceil(currentArray.length / productsPerPage);
@@ -190,19 +192,20 @@ const Candy = (props) => {
             )} 
                 </div>
             <div className={styles.mainContainer}>
-                <div className={styles.filterContainer}>
-                    <div className={styles.filterIconAndTextContainer}>
-                        <div className={styles.filterIconWrapper}>
-                            <Image
-                                width={40}
-                                height={30}
-                                src="/filterIcon.svg"
-                                alt="profile image"
-                                className={styles.filterIcon}
-                            />
-                        </div>
-                        <label>Filters</label>
+                <div className={styles.filterIconAndTextContainer} onClick={()=> setIsOpenFilter(!isOpenFilter)}>
+                    <div className={styles.filterIconWrapper}>
+                        <Image
+                            width={40}
+                            height={30}
+                            src="/filterIcon.svg"
+                            alt="profile image"
+                            className={isOpenFilter ? styles.filterIconActive : styles.filterIconInactive}
+                        />
                     </div>
+                    <label>Filters</label>
+                </div>
+                <div className={isOpenFilter ? styles.filterContainer : styles.filterContainerInactive}>
+                    
                     <div className={styles.filters}>
                         <div className={styles.filterDropdown} >
                             <div className={styles.mainFilterDiv} onClick={() => setIsOpenCategory(!isOpenCategory)}>
