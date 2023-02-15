@@ -262,8 +262,10 @@ const Candy = (props) => {
                         <div className={styles.priceRangeContainer}>
                         <label>Price</label>
                         <RangeSlider
-                            min={currentMin}
-                            max={currentMax}
+                            min={minPrice}
+                            max={maxPrice}
+                            setMin={setCurrentMin}
+                            setMax={setCurrentMax}
                             onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
                         />
                         </div>
