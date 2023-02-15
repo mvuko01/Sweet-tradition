@@ -89,6 +89,7 @@ const Login = () => {
                     {token ? 'You are logged in!' : 'Welcome Back!'}
                 </h1>
                 {!token && (
+                    <form>
                     <section className={styles.form}>
                         <div className={styles.inputWrapper}>
                             <label>Email or username</label>
@@ -167,6 +168,7 @@ const Login = () => {
                                 <Link href='/register' className={styles.forgot}>Register</Link>
                         </div>
                     </section>
+                    </form>
                 )}
             </section>
             </div>
