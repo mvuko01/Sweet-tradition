@@ -167,7 +167,10 @@ const Candy = (props) => {
                     className={styles.banner}
                 />
             </div>
-            <h1 className={styles.heading}>CANDY SHOP</h1>
+            {wantedQuery == undefined && <h1 className={styles.heading}>CANDY SHOP</h1>}
+            {wantedQuery != undefined &&
+                <h2 className={styles.heading}>Search results for &#34;{wantedQuery}&#34;</h2>
+            }
                 <div className={styles.pageNumberContainer}>
                 {currentPage > 1 && (
                 <Image

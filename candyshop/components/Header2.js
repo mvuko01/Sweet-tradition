@@ -143,9 +143,9 @@ const Header2 = () => {
                         {navigationItems.slice(6,7).map(({ label, path }) => (
                             <div onClick={()=> setIsCartOn(!isCartOn)} className={styles.iconLinkWrapper}  key={label} passHref>
                                 {totalQuantity !== 0 ? 
-                                    (<div className={styles.productCounter}>
-                                        <p>{totalQuantity}</p>
-                                    </div>)
+                                (<div className={styles.productCounter}>
+                                    <p>{totalQuantity}</p>
+                                </div>)
                                 : null}
                                 
                                 <Image
