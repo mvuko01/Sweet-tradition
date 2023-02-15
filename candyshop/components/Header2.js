@@ -126,10 +126,11 @@ const Header2 = () => {
                         )))}
                         {navigationItems.slice(5,6).map(({ label, path }) => (
                             <Link className={styles.iconLinkWrapper} href={path} key={label}>
-                                <div className={styles.productCounter}>
-                                    <p>{inMyFavourites.length}</p>
-                                </div>
-                                
+                                {inMyFavourites.length !== 0 ? (
+                                    <div className={styles.productCounter}>
+                                        <p>{inMyFavourites.length}</p>
+                                    </div>)
+                                : null}
                                 <Image
                                     src={`${path}.svg`}
                                     alt={label}
@@ -141,9 +142,12 @@ const Header2 = () => {
                         ))}
                         {navigationItems.slice(6,7).map(({ label, path }) => (
                             <div onClick={()=> setIsCartOn(!isCartOn)} className={styles.iconLinkWrapper}  key={label} passHref>
-                                <div className={styles.productCounter}>
-                                    <p>{totalQuantity}</p>
-                                </div>
+                                {totalQuantity !== 0 ? 
+                                    (<div className={styles.productCounter}>
+                                        <p>{totalQuantity}</p>
+                                    </div>)
+                                : null}
+                                
                                 <Image
                                     src={`${path}.svg`}
                                     alt={label}
