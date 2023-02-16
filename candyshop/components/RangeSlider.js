@@ -39,7 +39,7 @@ const RangeSlider = ({ min, max, setMin, setMax, onChange }) => {
   useEffect(() => {
     onChange({ min: minVal, max: maxVal });
     setMin(minVal);
-    setMax(max);
+    setMax(maxVal);
   }, [minVal, maxVal, onChange]);
 
   return (
