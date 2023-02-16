@@ -5,13 +5,16 @@ import { useState, useEffect, useContext } from 'react';
 import { handleAddToFavourites, checkIfFavourite, handleAddToShoppingCart } from '../helpers';
 import { MyContext } from '../context.js'
 
-const SideProductCard = ({ name, short_description, picture, price, id, product }) => {
+const SideProductCard = ({ name, short_description, picture, price, id, product, onHeartClick, prevState }) => {
     const {setInMyShoppingCart, setInMyFavourites, inMyFavourites} = useContext(MyContext);
+    const handleHeartClick = () => {
+        onHeartClick(!prevState);
+    }
     return (
         <>
             <div className={styles.productCard}>
                 <div className={styles.productUpper}>
-                    <button onClick={() => handleAddToFavourites(product, setInMyFavourites)} className={styles.buttonFavourite}>
+                    <button onClick={() => {handleAddToFavourites(product, setInMyFavourites); handleHeartClick()}} className={styles.buttonFavourite}>
                         <Image
                             src={checkIfFavourite(product,inMyFavourites) == false ? '/productPics/EmptyHeart.svg' : '/productPics/FullHeart.svg'}
                             alt=""
