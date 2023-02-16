@@ -37,7 +37,7 @@ const HomeCarousel = ({products}) => {
 
     return (
         <section className={styles.product}>
-                <h1 className={styles.featuringHeading}>WHAT&#39;S TRENDING</h1>
+            <h1 className={styles.featuringHeading}>WHAT&#39;S TRENDING</h1>
             <div className={styles.productAndArrowContainer}>
                 <button className={styles.buttonPrevious} onClick={sliderRef?.slickPrev}>
                     <Image
@@ -49,6 +49,8 @@ const HomeCarousel = ({products}) => {
                         
                     />
                 </button>
+                <div className={styles.wrapper}>
+                
                 <Slider className={styles.slider} ref={setSliderRef} {...sliderSettings}>
                     {products.slice(1,10).map((product) => (
                         <div className={styles.mainProductContainer}>
@@ -56,6 +58,8 @@ const HomeCarousel = ({products}) => {
                         </div>
                     ))}
                 </Slider>
+                
+                </div>
                 <button className={styles.buttonNext} onClick={sliderRef?.slickNext}>
                     <Image
                         src={'/productPics/Arrow.svg'}
