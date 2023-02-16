@@ -142,6 +142,7 @@
     font-weight: 400;
     font-weight: bolder;
     font-size: clamp(1.3rem, 3vw,1.6rem);
+    font-size: clamp(1.6rem, 4vw,1.8rem);
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
@@ -377,5 +378,36 @@
 }
 
 @media screen and (max-width: 550px){
+    .gridContainer{
+        gap: 4rem;
+    }
+    .mainBlogWrapper, .miniBlogWrapper {
+        flex-direction: column;
+        align-items: center;
+        
+    }
 
+    .mainPic, .sidePics{
+        width: 100%;
+        height:9.825rem;
+    }
+
+    .miniBlogContentWrapper, .mainBlogContentWrapper{
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+
+    .title{
+    }
+
+    .contentWrapper button { 
+
+        width: 8rem;
+        height: 2.5rem;
+        
+    }
+    .link{
+        margin-left: auto;
+        margin-top: 0.85rem;
+    }
 }
