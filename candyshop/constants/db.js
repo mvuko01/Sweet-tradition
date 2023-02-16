@@ -22,7 +22,7 @@ class Database {
     getUserByEmailAndPassword(email, password) {
         console.log(this.data.users);
         return this.data.users.find(
-            (user) => user.email === email || user.username === email && user.password === password
+            (user) => (user.email === email || user.username === email) && user.password === password
         );
     }
 
