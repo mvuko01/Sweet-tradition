@@ -69,6 +69,8 @@ const Candy = (props) => {
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
     const currentProducts = currentArray.slice(indexOfFirstProduct, indexOfLastProduct);
+
+    const [isSearchSuccessful, setIsSearchSuccessful] = useState(true);
     
     useEffect(() => {
         let filteredProducts = products;
@@ -103,7 +105,14 @@ const Candy = (props) => {
         setCurrentArray(sortedProducts);
 
         setCurrentPage(1);
-      }, [currentSortOption, isCheckedCategory, isCheckedCountry, currentMin, currentMax, wantedQuery]);
+        console.log(filteredProducts)
+        if(wantedQuery && filteredProducts.length === 0){
+            setIsSearchSuccessful(false);
+        }
+        else{
+            setIsSearchSuccessful(true);
+        }
+      }, [currentSortOption, isCheckedCategory, isCheckedCountry, currentMin, currentMax, wantedQuery, isSearchSuccessful]);
     
     const sortProducts = (products, sortOption) => {
         const dataToSort = [...products];
@@ -206,6 +215,8 @@ const Candy = (props) => {
             )} 
                 </div>
             <div className={styles.mainContainer}>
+                {isSearchSuccessful && 
+                <>
                 <div className={styles.filterIconAndTextContainer} onClick={()=> setIsOpenFilter(!isOpenFilter)}>
                     <div className={styles.filterIconWrapper}>
                         <Image
@@ -285,7 +296,10 @@ const Candy = (props) => {
                         </div>
                     </div>
                 </div>
+                </>
+            }
                 <div className={styles.candyContainer}>
+                    {isSearchSuccessful &&
                     <div className={styles.dropdown} >
                         <div className={styles.selectDropdown} onClick={() => setisOpenSort(!isOpenSort)}>
                             <span className={styles.selectedDropdownOption}>{currentSortOption}</span>
@@ -301,6 +315,7 @@ const Candy = (props) => {
                         }
                         
                     </div>
+        }
                     {currentProducts.map((product)=>{
                        return <SideProductCard className = {styles.product}key={product.frontmatter.id} product={product} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id}/>
                     })}
