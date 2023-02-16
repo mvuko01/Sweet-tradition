@@ -16,13 +16,6 @@ const exampleContent = ({frontmatter, someId, content}) => {
              <div className={styles['banner']} style={backgroundStyle}>
              </div>
             </div>
-        {/* <Image
-            className={styles.banner}
-            src={frontmatter.pictureB}
-            alt="post image"
-            width={1900}
-            height={400}
-        /> */}
         <div className={styles.contentWrapper}>
         <p className={styles.title}>{frontmatter.title}</p>
         <div className={styles.writtenDateWrapper}>
