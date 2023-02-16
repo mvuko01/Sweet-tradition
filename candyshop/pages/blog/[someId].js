@@ -1,22 +1,28 @@
 import styles from '../../styles/BlogPost.module.css'
-import Link from 'next/link';
 import Footer from '../../components/Footer';
 import Image from 'next/image'
 import {marked} from 'marked';
 import Header2 from "../../components/Header2";
 
 const exampleContent = ({frontmatter, someId, content}) => {
+    const backgroundStyle = {
+        backgroundImage: `url(${frontmatter.pictureB})`,
+      };
     return (
         <>
         <title>{frontmatter.title}</title>
         <Header2 />
-        <Image
+        <div className={styles.bannerContainer}>
+             <div className={styles['banner']} style={backgroundStyle}>
+             </div>
+            </div>
+        {/* <Image
             className={styles.banner}
             src={frontmatter.pictureB}
             alt="post image"
             width={1900}
             height={400}
-        />
+        /> */}
         <div className={styles.contentWrapper}>
         <p className={styles.title}>{frontmatter.title}</p>
         <div className={styles.writtenDateWrapper}>
