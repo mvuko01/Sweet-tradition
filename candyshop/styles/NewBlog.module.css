@@ -25,15 +25,17 @@
 }
 .advice {
     font-weight: 400;
-    font-size: 1.25rem;
     color: #918282;
     margin-bottom: 0.1rem;
+    font-size: 1.25rem;
+    line-height: 2rem;
+    letter-spacing: 1px;
 }
 .heading {
     background: #FFFFFF;
     border: 1px solid #F06C9B;
     color: #918282;
-    width: calc(100vw - 7.5rem);
+    width: 100%;
     height: 4.625rem;
     outline: none;
     font-weight: 400;
@@ -52,7 +54,7 @@
     font-family: Montserrat, sans-serif;
 }
 .uploadWrapper {
-    width: 82.563rem;
+    width: 100%;
     height: 21.75rem;
     background-color: #f06c9a50;
     color: #918282;
@@ -60,7 +62,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: calc(100vw - 7.5rem);
     margin-bottom: 2.188rem;
 }
 .titleText {
@@ -70,14 +71,14 @@
     margin-bottom: 0.75rem;
 }
 .textMainWrapper {
-    width: calc(100vw - 7.5rem);
+    width: 100%;
     height: 36.188rem;
     background: #FFFFFF;
     border: 1px solid #F06C9B;
     margin-bottom: 2.5rem;
 }
 .textEditWrapper {
-    width: calc(100vw - 7.6rem);
+    width: 100%;
     height: 4.313rem;
     background: #FFFFFF;
     border-bottom: 1px solid #F06C9B;
@@ -98,7 +99,7 @@
     padding-left: 1.5rem;
     padding-top: 1.5rem;
     border-color: transparent;
-    width: calc(100vw - 7.6rem);
+    width: 100%;
     height: calc(36.188rem - 4.5rem);
     font-size: 1.25rem;
     font-weight: 400;
@@ -125,7 +126,7 @@
     color:white;
     font-family: Montserrat, sans-serif;
     font-size: 1.25rem;
-    font-weight: 400;
+    font-weight: bold;
     line-height: 1.5rem;
     letter-spacing: 0.1rem;
     cursor: pointer;
@@ -134,10 +135,43 @@
 }
 .publish:hover {
     opacity: 0.7;
+    transition: 0.3s;
 }
 .btnWrapper {
     display: flex;
     justify-content: center;
+}
+@media screen and (max-width: 950px) {
+    .advice {
+    font-size: 1rem;
+    line-height: 1.75rem;
+    }
+    .adviceTitle {
+        font-size: 1rem;
+    }
+    .heading {
+        font-size: 1rem;
+        line-height: 1.75rem;
+    }
+    .titleText {
+        font-size: 1rem;
+    }
+    .writeText {
+        font-size: 1rem;
+        line-height: 1.75rem;
+    }
+    .textWrapper textarea {
+        font-size: 1rem;
+        line-height: 1.75rem;
+    }
+    .mainWrapper {
+        margin-left: 2.5rem;
+        margin-right: 2.5rem;
+    }
+    .mainWrapper input::placeholder {
+        font-size: 1rem;
+        line-height: 1.75rem;
+    }
 }
 @media screen and (max-width: 630px) {
     .mainWrapper p {
