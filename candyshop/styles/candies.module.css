@@ -591,7 +591,7 @@
     }
 }
 
-@media screen and (max-width: 525px){
+@media screen and (max-width: 530px){
     
     .filterContainer{
         
@@ -612,11 +612,12 @@
 
     }
     .candyContainer{
-        grid-template-columns: repeat(auto-fill, 0.5fr);
-
-
+        grid-template-columns: repeat(auto-fill, 260px);
+        align-items: center;
+        justify-content: center;
+        
         grid-auto-rows:  325px;
-        margin: 0 30px;
         
     }
 }
+
