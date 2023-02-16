@@ -169,14 +169,9 @@ const Candy = (props) => {
         <>
         <title>Candy Shop</title>
             <Header2 />
-            <div className={styles.bannerWrapper}>
-                <Image
-                    width={1900}
-                    height={380}
-                    src="/candyBanner.svg"
-                    alt="Candy banner"
-                    className={styles.banner}
-                />
+            <div className={styles.bannerContainer}>
+             <div className={styles.banner}>
+             </div>
             </div>
             {wantedQuery == undefined && <h1 className={styles.heading}>CANDY SHOP</h1>}
             {wantedQuery != undefined &&

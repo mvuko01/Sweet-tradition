@@ -61,18 +61,6 @@ const Blogs = (props) => {
         <>
         <title>Blog</title>
             <Header2 />
-            {/* <div className={styles.bannerWrapper}>
-                <Image
-                    width={1900}
-                    height={381}
-                    src="/blogpics/blogsBanner.svg"
-                    alt="profile image"
-                    className={styles.banner}
-                />
-                <p className={styles.textOnBanner}>ARE YOU A CANDY LOVER? 
-                    If so, reading <span className={styles.ourBlog}>our blog</span> is a must! we have all the information you need to satisfy your sweet tooth!
-                </p>
-            </div> */}
             <div className={styles.bannerContainer}>
              <div className={styles.banner}>
                 <div className={styles.textFirstBanner}>

@@ -6,6 +6,7 @@ import BlogSection from '../components/BlogSection';
 import AboutUs from '../components/AboutUs';
 import Header2 from '../components/Header2';
 import BlogHomeArea from '../components/BlogHomeArea';
+import HomeCarousel from '../components/HomeCarousel';
 
 import matter from 'gray-matter'
 
@@ -18,7 +19,7 @@ const Hello = (props) => {
             <title>Sweet tradition</title>
             <Header2 />
             <FirstBanner />
-            <FeaturingCandy products={products}/>
+            <HomeCarousel products={products}/>
             <StoryBanner />
             <AboutUs />
             <BlogHomeArea blogPosts={blogPosts}/>
