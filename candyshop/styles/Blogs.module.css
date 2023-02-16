@@ -65,8 +65,8 @@
     font-family: Montserrat, sans-serif;
     font-weight: bold;
     border-radius: 0.938rem;
-    width: 9rem;
-    height: 2rem;
+    width: 10rem;
+    height: 3rem;
     cursor: pointer;
     border-color: transparent;
     margin-bottom: 2rem;
@@ -249,6 +249,9 @@
     .contentWrapper{
         margin: 0 5rem;
     }
+    .addNewBtn {
+        margin-left: 5rem;
+    }
 
 }
 
@@ -319,6 +322,10 @@
 @media screen and (max-width: 750px){
     .contentWrapper{
         margin: 0 1.25rem;
+    }
+
+    .addNewBtn {
+        margin-left: 1.25rem;
     }
 
 
@@ -397,14 +404,17 @@
         margin-top: 1rem;
     }
 
-    .title{
-    }
-
+   
     .contentWrapper button { 
 
         width: 8rem;
         height: 2.5rem;
         
+    }
+
+    .addNewBtn {
+        width: 8rem;
+        height: 2.75rem;
     }
     .link{
         margin-left: auto;
