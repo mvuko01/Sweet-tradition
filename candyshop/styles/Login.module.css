@@ -98,7 +98,10 @@
 }
 
 
-
+.spinnerWrapper {
+    display: flex;
+    justify-content: center;
+}
 
 /*SIGN IN*/
 .signInBtnWrapper{

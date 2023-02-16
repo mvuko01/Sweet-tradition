@@ -142,7 +142,9 @@ const Login = () => {
                         </div>
                         {error && <p className={styles.error}>{error}</p>}
                         {loading ? (
-                        <Spinner />
+                        <div className={styles.spinnerWrapper}>
+                            <Spinner/>
+                        </div>
                         ) : (
                             <div className={styles.signInBtnWrapper}>
                                 <button type='submit'
