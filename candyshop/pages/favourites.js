@@ -90,8 +90,10 @@ const Favourites = () => {
             />
             )} 
       </div>
+      <div className={styles.mainContainer}>
       <div className={styles.candyContainer}>
         {currentProducts.map(product => (<SideProductCard onHeartClick={handleHeartClick} prevState={heartState} key={product.frontmatter.id} product={product} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id} />))}
+      </div>
       </div>
       <div className={styles.pageNumberContainer}>
             {currentPage > 1 && (
