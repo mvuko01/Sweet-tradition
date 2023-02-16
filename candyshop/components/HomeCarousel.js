@@ -53,7 +53,7 @@ const HomeCarousel = ({products}) => {
                 
                 <Slider className={styles.slider} ref={setSliderRef} {...sliderSettings}>
                     {products.slice(1,10).map((product) => (
-                        <div className={styles.mainProductContainer}>
+                        <div className={styles.mainProductContainer} key={product.frontmatter.id}>
                             <MainProductCard medium={false} key={product.frontmatter.id} product={product} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id} />
                         </div>
                     ))}

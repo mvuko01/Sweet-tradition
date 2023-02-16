@@ -35,17 +35,17 @@ const FeaturingCandy = ({products}) => {
                     </button>
                     <div className={styles.productContainer}>
                             {products.slice(prev, prev + 1).map((product) => (
-                        <div className={styles.sideProductContainer}>
+                        <div className={styles.sideProductContainer} key={product.frontmatter.id}>
                         <MainProductCard medium={true}  key={product.frontmatter.id} product={product} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id} />
                          </div>
                     ))}
                         {products.slice(pic, pic + 1).map((product) => (
-                            <div  className={styles.mainProductContainer}>
+                            <div  className={styles.mainProductContainer} key={product.frontmatter.id}>
                             <MainProductCard medium={false} key={product.frontmatter.id} product={product} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id} />
                             </div>
                         ))}
                         {products.slice(next, next + 1).map((product) => (
-                        <div className={styles.sideProductContainer}>
+                        <div className={styles.sideProductContainer} key={product.frontmatter.id}>
                         <MainProductCard medium={true} key={product.frontmatter.id} product={product} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id} />
                         </div>
 
