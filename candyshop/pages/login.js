@@ -89,8 +89,7 @@ const Login = () => {
                     {token ? null : 'Welcome Back!'}
                 </h1>
                 {!token && (
-                    <form>
-                    <section className={styles.form}>
+                    <form className={styles.form}>
                         <div className={styles.inputWrapper}>
                             <label>Email or username</label>
                             <input
@@ -135,7 +134,7 @@ const Login = () => {
                         </div>
                         <div className={styles.rememberAndForgot}>
                                 <div className={styles.remember}>
-                                    <input readOnly type="checkbox" checked={isChecked} className={styles.cbox}/> 
+                                    <input onClick={handleClickCheckbox} readOnly type="checkbox" checked={isChecked} className={styles.cbox}/> 
                                     <label onClick={handleClickCheckbox} htmlFor="rememberMe">Remember me</label>
                                 </div>
                                 <label className={styles.forgot}>Forgot password?</label>
@@ -169,7 +168,6 @@ const Login = () => {
                                 <p>Don&#39;t have an account? &nbsp;</p>
                                 <Link href='/register' className={styles.forgot} passHref>Register</Link>
                         </div>
-                    </section>
                     </form>
                 )}
             </section>

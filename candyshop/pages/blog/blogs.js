@@ -65,7 +65,7 @@ const Blogs = (props) => {
              <div className={styles.banner}>
                 <div className={styles.textFirstBanner}>
                  <p className={styles.shopAt}>ARE YOU A CANDY LOVER? 
-                    If so, reading <span className={styles.ourBlog}>our blog</span> is a must! we have all the information you need to satisfy your sweet tooth!
+                    If so, reading <span className={styles.ourBlog}>our blog</span> is a must! We have all the information you need to satisfy your sweet tooth!
                 </p>
                     
                 </div>

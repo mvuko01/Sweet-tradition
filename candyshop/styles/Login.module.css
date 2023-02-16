@@ -5,7 +5,7 @@
 .mainWrapper {
     display: flex;
     justify-content: space-between;
-    height: 100vh;
+    height: calc(100vh - 160px);
   
 }
 
@@ -25,7 +25,7 @@
     justify-content: center;
     align-items: flex-start;
     margin-left: 150px;
-    margin-right: 150px;
+    margin-right: 200px;
     
 }
 
@@ -85,8 +85,8 @@
 .eye {
     opacity: 0.3;
     position: absolute;
-    top: 23%;
-    left: 92%;
+    top: 11px;
+    right: 5px;
     width: 100%;
     max-width: 30px;
     height: auto;
@@ -117,10 +117,13 @@
     border: 1px solid rgba(240, 108, 155, 0.5);
     font-size: 1.1rem;
     font-weight: 600;
+    transition: 0.3s;
+
 }
 .signInBtn:hover {
     opacity: 0.7;
     cursor: pointer;
+    transition: 0.3s;
 }
 /*SIGN IN - END*/
 #or {
@@ -145,10 +148,12 @@
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 .signInBtnGgl:hover{
     opacity: 0.7;
+    transition: 0.3s;
     
 }
 .google {
@@ -174,6 +179,10 @@
     justify-content: space-between;
     color: #7F2982;
     padding-bottom: 1.90rem;
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none; 
 }
 
 .cbox {
@@ -192,21 +201,26 @@
 
 .remember label{
     cursor: pointer;
+    transition: 0.3s;
     
 }
 
 .remember label:hover{
     opacity: 70%;
+    transition: 0.3s;
 }
 
 .forgot {
     cursor: pointer;
     color: #7F2982;
+    transition: 0.3s;
+
 }
 
 
 .forgot:hover { 
     opacity: 70%; 
+    transition: 0.3s;
 }
 
 
@@ -250,7 +264,6 @@
     }
 
     .mainWrapper{
-        height: 800px;
         justify-content: center;
 
     }
@@ -270,12 +283,42 @@
         min-height: unset;
     }
 
+    .content {
+        margin-top: 1rem;
+    }
+
     .register{
         font-size: 1rem;
     }
+    .title {
+        font-size: 2.3rem;
+    
+    }
+    
+    .content .inputWrapper label {
+        font-size: 1.2rem;
+    
+    }
+    .rememberAndForgot label{
+        font-size: 0.8rem;
+    }
+    .signInBtn {
+        
+        font-size: 1rem;
+    }
+    .signInBtnGgl {
+        font-size: 1rem;
 
-    .mainWrapper{
-        height: 600px;
+    }
+    #or {
+        
+        font-size: 1rem;
+    }
+    .content input, .content button{
+        height: 3rem;
+    }
+    .google{
+        left: 10%;
     }
 }
 
