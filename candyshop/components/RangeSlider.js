@@ -74,7 +74,7 @@ const RangeSlider = ({ min, max, setMin, setMax, onChange }) => {
         <div className="slider__track" />
         <div ref={range} className="slider__range" />
         <div className="slider__left-value">{minVal.toFixed(2).toString().replace(".", ",")}€</div>
-        <div className="slider__right-value">{maxVal.toString().replace(".", ",")}€</div>
+        <div className="slider__right-value">{maxVal.toFixed(2).toString().replace(".", ",")}€</div>
       </div>
     </div>
   );
