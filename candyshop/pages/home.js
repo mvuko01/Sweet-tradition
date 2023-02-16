@@ -19,11 +19,9 @@ const Hello = (props) => {
             <Header2 />
             <FirstBanner />
             <FeaturingCandy products={products}/>
-            
             <StoryBanner />
             <AboutUs />
             <BlogHomeArea blogPosts={blogPosts}/>
-            
             <Footer />
         </>
     );

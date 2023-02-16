@@ -90,6 +90,8 @@
     border-color: transparent;
     margin-bottom: 2rem;
     margin-left: 10rem;
+    transition: 0.3s;
+
 }
 .centerOfPage {
     margin-top: 5.3rem;
@@ -98,6 +100,7 @@
 }
 .addNewBtn:hover {
     opacity: 0.7;
+    transition: 0.3s;
 }
 
 /*GRID*/
@@ -241,9 +244,12 @@
 #notCurrentPage {
     background-color: #F06C9B;
     opacity: 0.7;
+    transition: 0.3s;
+
 }
 #notCurrentPage:hover {
     opacity: 1;
+    transition: 0.3s;
 }
 #arrow {
     width: 30px;

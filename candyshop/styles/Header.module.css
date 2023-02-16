@@ -595,11 +595,13 @@
         width: auto;
         height:60px;
         margin-left: 8px;
+        display: flex;
+        align-items: center;
     }
     .logoImage{
         content: url("/logoCupcake.svg");
         margin-top: 0;
-
+        height:50px;
     }
     .iconContainer{
         right: 15px;
