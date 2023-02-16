@@ -161,8 +161,8 @@ const Candy = (props) => {
         firstPageNumber = numberOfPages - 3;
         lastPageNumber = numberOfPages - 1;
     } else {
-        firstPageNumber = currentPage - 1;
-        lastPageNumber = currentPage + 1;
+        firstPageNumber = currentPage - 2;
+        lastPageNumber = currentPage;
     }
     const visiblePageNumbers = pageNumbers.slice(firstPageNumber, lastPageNumber + 1);
     return (
