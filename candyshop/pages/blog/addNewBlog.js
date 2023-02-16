@@ -1,8 +1,4 @@
 import Footer from "../../components/Footer";
-import useAuth from "../../hooks/useAuth";
-import api from "../../api";
-import { useEffect, useState } from 'react';
-import NotAuthorized from "../../components/NotAuthorized";
 import styles from '../../styles/NewBlog.module.css'
 import Image from 'next/image'
 import Header2 from "../../components/Header2";
