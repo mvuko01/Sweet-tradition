@@ -11,22 +11,26 @@ import 'slick-carousel/slick/slick-theme.css'
 
 const HomeCarousel = ({products}) => {
     const sliderSettings = {
+        centerMode: true,
         slidesToShow: 3,
         slidesToScroll: 1,
-        infinite: false,
+        infinite: true,
         arrows: false,
+        
 
         responsive: [
             {
-              breakpoint: 1024,
+              breakpoint: 1130,
               settings: {
                slidesToShow: 2,
+               slidesToScroll: 1,
               }
             },
             {
-              breakpoint: 600,
+              breakpoint: 530,
               settings: {
                slidesToShow: 1,
+               slidesToScroll: 1,
               }
              }
           ]
@@ -54,7 +58,7 @@ const HomeCarousel = ({products}) => {
                 <Slider className={styles.slider} ref={setSliderRef} {...sliderSettings}>
                     {products.slice(1,10).map((product) => (
                         <div className={styles.mainProductContainer} key={product.frontmatter.id}>
-                            <MainProductCard medium={false} key={product.frontmatter.id} product={product} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id} />
+                            <MainProductCard key={product.frontmatter.id} product={product} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id} />
                         </div>
                     ))}
                 </Slider>

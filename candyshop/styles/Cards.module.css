@@ -5,9 +5,10 @@
 .mainProductCard {
   flex: 0 0 auto;
   width: 440px;
+
   width: 100%;
-  height: 560px;
   height: 100%;
+
 
   /*width: 22.656vw;
     height: 29.167vw;*/
@@ -129,6 +130,7 @@
     letter-spacing: 0.05em;
   
     font-size: 1.125rem;
+
   
   }
   
@@ -175,6 +177,8 @@
     /*font-size: 1.375rem;*/
     font-size: 23px;
     color: #000000;
+    transition: 0.3s;
+
   }
   
   .listProductName{
@@ -198,6 +202,7 @@
   
   .mainProductName:hover{
     opacity: 80%;
+    transition: 0.3s;
   }
   
   .listProductName:hover{
@@ -271,6 +276,72 @@
     transition: 0.3s;
   }
 
+
+@media screen and (max-width: 1363px){
+  .mainProductDescription{
+    font-size: 1rem;
+
+  }
+
+  .mainProductPrice{
+    font-size: 1.6rem;
+  }
+
+  .mainProductName{
+    /*font-size: 1.375rem;*/
+    font-size: 1.2rem;
+  }
+  }
+
+@media screen and (max-width: 730px){
+
+  .mainProductDescription{
+    font-size: 1rem;
+
+  }
+
+  .mainProductPrice{
+    font-size: 1.4rem;
+  }
+
+  .mainProductName{
+    /*font-size: 1.375rem;*/
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 630px){
+  .mainProductDescription{
+    font-size: 0.8rem;
+
+  }
+
+  .mainProductPrice{
+    font-size: 1.3rem;
+  }
+
+  .mainProductName{
+    /*font-size: 1.375rem;*/
+    font-size: 0.9rem;
+  }
+
+}
+
+@media screen and (max-width: 530px){
+  .mainProductDescription{
+    font-size: 1rem;
+
+  }
+
+  .mainProductPrice{
+    font-size: 1.4rem;
+  }
+
+  .mainProductName{
+    /*font-size: 1.375rem;*/
+    font-size: 1.1rem;
+  }
+}
 
 @media screen and (max-width: 525px){
   .productCard {
@@ -365,4 +436,22 @@
     color: #624CAB;
     bottom: 12%;
   }
+}
+
+
+@media screen and (max-width: 380px){
+  .mainProductDescription{
+    font-size: 0.8rem;
+
+  }
+
+  .mainProductPrice{
+    font-size: 1.3rem;
+  }
+
+  .mainProductName{
+    /*font-size: 1.375rem;*/
+    font-size: 0.9rem;
+  }
+
 }
