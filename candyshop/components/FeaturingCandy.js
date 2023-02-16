@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/FeaturingCandy.module.css'
 import MainProductCard from './MainProductCard';
 import SideProductCard from './SideProductCard';
 import React, { useState } from 'react';

@@ -4,7 +4,6 @@ import FeaturingCandy from '../components/FeaturingCandy';
 import StoryBanner from '../components/StoryBanner';
 import BlogSection from '../components/BlogSection';
 import AboutUs from '../components/AboutUs';
-import styles from '../styles/Home.module.css'
 import Header2 from '../components/Header2';
 import BlogHomeArea from '../components/BlogHomeArea';
 
