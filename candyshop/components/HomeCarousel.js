@@ -11,9 +11,11 @@ import 'slick-carousel/slick/slick-theme.css'
 
 const HomeCarousel = ({products}) => {
     const sliderSettings = {
+        className: "centerProduct",
+        centerMode: true,
         slidesToShow: 3,
-        slidesToScroll: 1,
-        infinite: false,
+        slidesToScroll: 3,
+        infinite: true,
         arrows: false,
 
         responsive: [
