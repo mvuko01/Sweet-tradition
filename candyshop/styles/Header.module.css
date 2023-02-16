@@ -225,58 +225,144 @@
     font-weight: 700;
     font-size: 20px;
 }
-
+/*HIUSER AREA*/
 .hiUser {
     color:#7F2982;
     font-family: Montserrat, sans-serif;
-    font-size:1.5rem;
+    font-size:clamp(1rem, 2.75vw,1.5rem);
     border: none;
+    font-weight: 600;
     background-color: transparent;
     cursor: pointer;
+   
+    
+}
+
+
+.caret{
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 10px solid #7F2982;
+    transition: 0.3s;
+    margin-left: 5px;
+    margin-bottom: 8px;
 
 }
 
+.caretRotate{
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 10px solid #7F2982;
+    rotate: 180deg;
+    transition: 0.3s;
+    margin-left: 5px;
+
+    margin-bottom: 8px;
+
+}
 .hiUser:hover {
+    opacity: 0.7;
+}
+
+.hiUser:hover .caret{
     opacity: 0.7;
 }
 
 .dropdown {
     position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+
+    padding-bottom: 3px;
 }
 .dropdownContent {
     position: absolute;
-    top: 2.5rem;
+    top: 4rem;
     background-color: white;
+    border-radius: calc(10px + 4px);
+    right:0;
     width: 100%;
     display: flex;
     justify-content: center;
+    border: solid 2px #7F2982;
+
+}
+
+.dropdownContent::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    right: 5px;
+    height: 20px;
+    width: 20px;
+    z-index: -1;
+    background-color:#7F2982 ;
+    /*border: solid 4px #7F2982;*/
+    transform: rotate(45deg);
 }
 
 .logout {
     background-color: #7F2982;
-    border-radius: 0.938rem;
+    border-radius: 10px;
+    border: solid 2px #7F2982;
     border:none;
     color:white;
     font-family: Montserrat, sans-serif;
     font-size: 1.2rem;
     cursor: pointer;
-    width: 10rem;
+    width: 100%;
     height: 2rem;
-    margin-bottom: 0.5rem;
+    transition: 0.3s;
+    font-weight: 600;
+
 }
 
 .logout:hover {
     opacity: 0.7;
+    transition: 0.3s;
+    background-color: white;
+    color: #7F2982;
 }
 
+/*HIUSER AREA*/
+
+@media screen and (max-width: 1250px){
+    .textNavigationContainer{
+        gap: 35px;
+        height: 100%;
+        align-items: center;
+    }
+    
+    .textNavigationContainerActive{
+        
+        gap: 35px;
+        height: 100%;
+        align-items: center;
+    }
+}
+
+
 @media screen and (max-width: 1050px){
-    .headerContainer{
+    .dropdownContent {
+        top: 2.5rem;
+
     }
 
+    .dropdown{
+        align-self: flex-end;
+        padding-bottom: 0;
+        align-items: flex-end;
+    }
 
     .logoWrapper{
         align-self: flex-start;
-        width: 400px;
+        width: 350px;
         height:80px;
         margin-left: 60px;
     }
@@ -404,6 +490,7 @@
     .iconContainer{
         right: 20px;
         top: 40px;
+        gap: 20px;
     }
     .searchAndIconContainer{
         margin-right: 20px;
@@ -450,6 +537,22 @@
         width: 91%;
 
     }
+
+    .caret, .caretRotate{
+        
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 8px solid #7F2982;
+        transition: 0.3s;
+        
+    
+    }
+    .hiUser{
+        margin-bottom: 3px;
+    }
+    
+    
+
 }
 
 @media screen and (max-width: 520px){
@@ -490,12 +593,14 @@
     }
 
     .logoWrapper{
-        margin-left: 20px;
-        width: 200px;
-        height:65px;
+        width: auto;
+        height:60px;
+        margin-left: 8px;
     }
     .logoImage{
-        margin-top: 0px;
+        content: url("/logoCupcake.svg");
+        margin-top: 0;
+
     }
     .iconContainer{
         right: 15px;
@@ -515,11 +620,15 @@
     }
     .searchAndIconContainer{
         height: 100%;
-        flex: 1;
         margin-right: 0px;
         border-bottom: solid 1px;
         border-top: solid 1px;
         border-color: #7F2982CC;
+        flex-grow: 1;
+        width:100%;
+    }
+    .searchAndIconContainer form{
+        width: 100%;
     }
 
     .searchContainer{
@@ -563,14 +672,21 @@
        width: 25px;
        height: 25px;
     }
+
+    .caret, .caretRotate{
+        
+        margin-bottom: 5px;
+        
+    
+    }
+
+    .hiUser{
+        margin-bottom: 0px;
+    }
+    .dropdownContent {
+        top:2rem;
+    }
+
+   
 }
 
-@media screen and (max-width: 350px){
-    .logoWrapper{
-        margin-left: 20px;
-        width: 150px;
-        height:65px;
-    }
-    
-    
-}

@@ -112,6 +112,8 @@ const Header2 = () => {
                             <button className={styles.hiUser} onClick={toggleDropdown}>
                                 Hi, {username[0]}
                             </button>
+                            <div className={showDropdown !== true ? styles.caret : styles.caretRotate}></div>
+
                             {showDropdown && (
                                 <div className={styles.dropdownContent}>
                                 <button onClick={handleLogout} className={styles.logout}>Logout</button>
