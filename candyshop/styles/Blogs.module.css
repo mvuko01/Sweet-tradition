@@ -460,7 +460,7 @@
 
         width: 8rem;
         height: 2.5rem;
-        
+        width: 100%;
     }
 
     .addNewBtn {
@@ -470,6 +470,7 @@
     .link{
         margin-left: auto;
         margin-top: 0.85rem;
+        width:100%;
     }
 }
 
