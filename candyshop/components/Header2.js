@@ -29,8 +29,10 @@ const Header2 = () => {
     }
 
     const { token, email, removeAuth } = useAuth();
-    const [currentUser, setCurrentUser] = useState(null);
-    const [loading, setLoading] = useState(true);
+    let username;
+    if(token){
+    username = email.split('@');
+    }
 
     const [showDropdown, setShowDropdown] = useState(false);
 
@@ -108,7 +110,7 @@ const Header2 = () => {
                     <div className={styles.iconContainer}>
                         {token ? <div className={styles.dropdown}>
                             <button className={styles.hiUser} onClick={toggleDropdown}>
-                                Hi, {email}
+                                Hi, {username[0]}
                             </button>
                             {showDropdown && (
                                 <div className={styles.dropdownContent}>
