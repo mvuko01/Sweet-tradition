@@ -10,4 +10,5 @@ export const countries = [
     { name: 'Spain', shortName: 'SPA' },
     { name: 'Sweden', shortName: 'SWE' },
     { name: 'United Kingdom', shortName: 'UK' },
+    { name: 'Portugal', shortName: 'POR' },
 ];
