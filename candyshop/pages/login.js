@@ -135,8 +135,8 @@ const Login = () => {
                         </div>
                         <div className={styles.rememberAndForgot}>
                                 <div className={styles.remember}>
-                                    <input type="checkbox" checked={isChecked} className={styles.cbox}/> 
-                                    <label onClick={handleClickCheckbox} for="rememberMe">Remember me</label>
+                                    <input readOnly type="checkbox" checked={isChecked} className={styles.cbox}/> 
+                                    <label onClick={handleClickCheckbox} htmlFor="rememberMe">Remember me</label>
                                 </div>
                                 <label className={styles.forgot}>Forgot password?</label>
                         </div>
@@ -165,7 +165,7 @@ const Login = () => {
                         </div>
                         <div className={styles.register}>
                                 <p>Don&#39;t have an account? &nbsp;</p>
-                                <Link href='/register' className={styles.forgot}>Register</Link>
+                                <Link href='/register' className={styles.forgot} passHref>Register</Link>
                         </div>
                     </section>
                     </form>
