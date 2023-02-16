@@ -1,17 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-.bannerWrapper {
+
+/*BANNER*/
+.bannerContainer{
+    height: 34vw;
+    width: 100%;
+    min-height: 18rem;
+    max-height: 28rem;
+}
+.banner{
+    width: 100%;
+    height: 100%;
+    background-image: url('/blogpics/blogsBanner.svg');
+    background-size: cover;
+    background-position: 70%;
+    display: flex;
+}
+
+.textFirstBanner {
+    font-family: Montserrat, sans-serif;
+    color: #F06C9B;
+    margin: auto;
+   /* max-width: 45%;
+    min-width: 350px;*/
+    width: max(45%,350px);
+}
+
+.shopAt {
+    font-weight: 500;
+    font-size: clamp(1.2rem, 3vw, 1.625rem);
+    line-height: 32px;
+}
+
+
+.ourBlog {
+    font-weight: 800;
+}
+
+
+
+
+/*BANNER*/
+
+
+/*.bannerWrapper {
     position: relative;
 }
 .banner {
    object-fit: cover;
    max-width:100%;
-}
-.textOnBanner {
-    position:absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: left;
+}*/
+/*.textOnBanner {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
@@ -20,10 +58,10 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #F06C9B;
-}
-.ourBlog {
+}*/
+/*.ourBlog {
     font-weight: 700;
-}
+}*/
 .contentWrapper {
     display: flex;
     font-family: Montserrat, sans-serif;
@@ -61,11 +99,11 @@
 .addNewBtn {
     color: white;
     background-color: #624CAB;
-    font-size: 0.7rem;
+    font-size: clamp(0.85rem, 1.5vw,1rem);
     font-family: Montserrat, sans-serif;
     font-weight: bold;
     border-radius: 0.938rem;
-    width: 10rem;
+    width: 11rem;
     height: 3rem;
     cursor: pointer;
     border-color: transparent;
@@ -211,6 +249,10 @@
     
     cursor: pointer;
     font-size: 25px;
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none; 
 }
 #currentPage {
     background-color: #F06C9B;
@@ -388,6 +430,15 @@
     .gridContainer{
         gap: 4rem;
     }
+    .centerOfPage{
+        margin-top: 4.5rem;
+    }
+
+   
+    .textFirstBanner{
+        margin: auto 1rem;
+    }
+
     .mainBlogWrapper, .miniBlogWrapper {
         flex-direction: column;
         align-items: center;
@@ -420,4 +471,13 @@
         margin-left: auto;
         margin-top: 0.85rem;
     }
+}
+
+
+@media screen and (max-width: 450px){
+    .banner{
+        background-position-x:35rem;
+    }
+
+
 }
