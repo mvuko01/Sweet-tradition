@@ -294,6 +294,7 @@ const Candy = (props) => {
                             onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
                         />
                         </div>
+                        <button type="button" onClick={()=> setIsOpenFilter(!isOpenFilter)}>APPLY FILTERS</button>
                     </div>
                 </div>
                 </>
