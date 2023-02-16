@@ -7,7 +7,7 @@ export const safeLocalStorage = {
 };
 
 export function limitWords(text) {
-    const limit = 30;
+    const limit = 25;
     const words = text.split(" ");
     if (words.length > limit) {
       return words.slice(0, limit).join(" ") + "...";
