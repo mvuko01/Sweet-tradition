@@ -42,26 +42,7 @@
 /*BANNER*/
 
 
-/*.bannerWrapper {
-    position: relative;
-}
-.banner {
-   object-fit: cover;
-   max-width:100%;
-}*/
-/*.textOnBanner {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 26px;
-    line-height: 32px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #F06C9B;
-}*/
-/*.ourBlog {
-    font-weight: 700;
-}*/
+
 .contentWrapper {
     display: flex;
     font-family: Montserrat, sans-serif;
@@ -464,7 +445,7 @@
     }
 
     .addNewBtn {
-        width: 8rem;
+        width: 10rem;
         height: 2.75rem;
     }
     .link{
