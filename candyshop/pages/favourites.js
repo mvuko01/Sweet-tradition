@@ -4,6 +4,7 @@ import ListProductCard from '../components/ListProductCard';
 import React, { useState, useEffect, useRef } from 'react';
 import styles from '../styles/favourites.module.css';
 import Image from 'next/image';
+import SideProductCard from '../components/SideProductCard';
 
 const Favourites = () => {
     const productsPerPage = 12;
@@ -52,15 +53,10 @@ const Favourites = () => {
   return (
     <>
       <Header2 />
-      <div className={styles.bannerWrapper}>
-                <Image
-                    width={1900}
-                    height={380}
-                    src="/favBanner.svg"
-                    alt="Favourites banner"
-                    className={styles.banner}
-                />
-      </div>
+        <div className={styles.bannerContainer}>
+            <div className={styles.banner}>
+            </div>
+        </div>
       <h1 className={styles.heading}>FAVOURITES</h1>
       <div className={styles.pageNumberContainer}>
                 {currentPage > 1 && (
@@ -95,7 +91,7 @@ const Favourites = () => {
             )} 
       </div>
       <div className={styles.candyContainer}>
-        {currentProducts.map(product => (<ListProductCard onHeartClick={handleHeartClick} prevState={heartState} key={product.frontmatter.id} product={product} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id} />))}
+        {currentProducts.map(product => (<SideProductCard onHeartClick={handleHeartClick} prevState={heartState} key={product.frontmatter.id} product={product} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id} />))}
       </div>
       <div className={styles.pageNumberContainer}>
             {currentPage > 1 && (
