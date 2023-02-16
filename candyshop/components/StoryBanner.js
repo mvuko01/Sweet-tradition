@@ -9,7 +9,7 @@ const StoryBanner = () => {
                 <div className={styles.textFirstBanner}>
                     <p className={styles.shopAt}>SHOP OUR SELECTION OF BULK CANDY, GUMMIES, CHOCOLATES AND MORE</p>
                     <p className={styles.treat}>Stock up on sweet treats today!</p>
-                    <Link href={"/candy"} passHref>
+                    <Link href={"/candy/candy"} passHref>
                         <button type="button">SHOP NOW</button>
                     </Link>
                 </div>

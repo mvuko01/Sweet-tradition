@@ -96,7 +96,7 @@ const Header2 = () => {
                         <Link href={`/candy/candy/?query=${searchQuery}`}> 
                             <div className={styles.searchPictureWrapper}>
                                 <Image
-                                src={'/search.svg'}
+                                src={'/IconSearch.svg'}
                                 alt="Search"
                                 width={35}
                                 height={35}
