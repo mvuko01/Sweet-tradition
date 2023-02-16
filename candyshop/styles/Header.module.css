@@ -247,7 +247,6 @@
     border-top: 10px solid #7F2982;
     transition: 0.3s;
     margin-left: 5px;
-    margin-bottom: 8px;
 
 }
 
@@ -261,7 +260,6 @@
     transition: 0.3s;
     margin-left: 5px;
 
-    margin-bottom: 8px;
 
 }
 .hiUser:hover {
@@ -277,9 +275,8 @@
     height: 100%;
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
+    align-items: center;
 
-    padding-bottom: 3px;
 }
 .dropdownContent {
     position: absolute;
@@ -477,7 +474,9 @@
         text-transform: uppercase;
         color: #7F2982;
     }
-
+    .caret, .caretRotate{
+        margin-bottom: 8px;
+    }
     
 }
 
