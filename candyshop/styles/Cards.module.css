@@ -2,7 +2,10 @@
 .mainProductCard {
   flex: 0 0 auto;
   width: 440px;
+  width: 100%;
   height: 560px;
+  height: 100%;
+
   /*width: 22.656vw;
     height: 29.167vw;*/
 
@@ -153,7 +156,7 @@
     cursor: pointer;
     /*font-size: 1.125rem;*/
     font-size: 18px;
-    font-size: clamp(1rem,1.5vw,1.125rem);
+    font-size: clamp(1.1rem,1.5vw,1.2rem);
     color: #000000;
   }
   
@@ -168,7 +171,6 @@
   
     /*font-size: 1.375rem;*/
     font-size: 23px;
-  
     color: #000000;
   }
   
