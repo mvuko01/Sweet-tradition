@@ -176,13 +176,13 @@ const Register = () => {
                                 <button
                                     onClick={handleSubmit} className={styles.signInBtn}
                                 >
-                                    Sign in
+                                    Register
                                 </button>
                             </div>
                         )}
                         <label id={styles.or}>Or</label>
                         <div className={styles.btnGglWrapper}>
-                                <button type='submit' className={styles.signInBtnGgl}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sign in with Google</button>
+                                <button type='submit' className={styles.signInBtnGgl}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Register with Google</button>
                                 <Image 
                                 src={'/login/Google.svg'}
                                 alt="Google logo"
@@ -198,17 +198,6 @@ const Register = () => {
                         
                         
                     </section>
-                )}
-                {token && (
-                    <button
-                        onClick={() => {
-                            removeAuth();
-                            router.push('/home');
-                        }}
-                        className={styles.submitButton}
-                    >
-                        Logout
-                    </button>
                 )}
             </section>
             </div>
