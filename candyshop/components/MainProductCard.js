@@ -5,7 +5,7 @@ import { useState, useEffect, useContext} from 'react';
 import { handleAddToFavourites, checkIfFavourite, handleAddToShoppingCart } from '../helpers';
 import { MyContext } from '../context.js'
 
-const MainProductCard = ({medium, name, short_description, picture, price, id, product }) => {
+const MainProductCard = ({name, short_description, picture, price, id, product }) => {
     const {setInMyShoppingCart, setInMyFavourites, inMyFavourites} = useContext(MyContext);
     return (
         <>
@@ -31,9 +31,9 @@ const MainProductCard = ({medium, name, short_description, picture, price, id, p
                     />
                 </div>
                 <div className={styles.productInfo}>
-                    <p className={medium ? styles.productDescription : styles.mainProductDescription}>{short_description}</p>
-                    <Link href={`../candy/${product.slug}`} className={ medium ? styles.productName : styles.mainProductName}>{name}</Link>
-                    <div className={medium ? styles.productPrice : styles.mainProductPrice}>{price}</div>
+                    <p className={styles.mainProductDescription}>{short_description}</p>
+                    <Link href={`../candy/${product.slug}`} className={styles.mainProductName}>{name}</Link>
+                    <div className={styles.mainProductPrice}>{price}</div>
                     <button className={styles.buttonCart}>
                         <Image
                             src={'/productPics/Add to cart.svg'}
