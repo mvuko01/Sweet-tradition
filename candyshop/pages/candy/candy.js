@@ -71,19 +71,17 @@ const Candy = (props) => {
     const [isSearchSuccessful, setIsSearchSuccessful] = useState(true);
     let countryFilterRef = useRef();
     let categoryFilterRef = useRef();
-    let sortFilterRef = useRef();
-
     
     useEffect(() => {
         let handler = (e) =>{
-            if(!countryFilterRef.current.contains(e.target))
+            if(countryFilterRef.current && (!countryFilterRef.current.contains(e.target) && !categoryFilterRef.current.contains(e.target)))
             {
                 setIsOpenCountry(false);
             }
-            /*if(!categoryFilterRef.current.contains(e.target))
+            if(categoryFilterRef.current && (!categoryFilterRef.current.contains(e.target) && !countryFilterRef.current.contains(e.target)))
             {
                 setIsOpenCategory(false);
-            }*/
+            }
             
         };
         document.addEventListener("mousedown", handler);
@@ -186,6 +184,10 @@ const Candy = (props) => {
         lastPageNumber = currentPage;
     }
     const visiblePageNumbers = pageNumbers.slice(firstPageNumber, lastPageNumber + 1);
+    const [heartState, setHeartState] = useState(false);
+      const handleHeartClick = (newHeartState) => {
+        setHeartState(newHeartState);
+    }
     return (
         <>
         <title>Candy Shop</title>
@@ -334,7 +336,7 @@ const Candy = (props) => {
                     </div>
         }
                     {currentProducts.map((product)=>{
-                       return <SideProductCard className = {styles.product}key={product.frontmatter.id} product={product} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id}/>
+                       return <SideProductCard onHeartClick={handleHeartClick} prevState={heartState} className = {styles.product}key={product.frontmatter.id} product={product} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id}/>
                     })}
                     
                 </div>
