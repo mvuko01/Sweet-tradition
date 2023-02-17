@@ -3,7 +3,7 @@ import Header2 from '../../components/Header2';
 import styles from '../../styles/candies.module.css';
 import Image from 'next/image';
 import SideProductCard from '../../components/SideProductCard';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import React from 'react';
 import { categories } from '../../constants/productCategories';
 import { countries } from '../../constants/countries';
@@ -41,7 +41,6 @@ const Candy = (props) => {
             setIsCheckedCategory(newArray => [...isCheckedCategory, name]);
             
         }
-        console.log(isCheckedCategory);
     }
 
     const[isCheckedCountry, setIsCheckedCountry] = useState([]);
@@ -54,7 +53,6 @@ const Candy = (props) => {
             setIsCheckedCountry(newArray => [...isCheckedCountry, name]);
             
         }
-        console.log(isCheckedCountry);
     }
 
     const [isOpenSort, setisOpenSort] = useState(false);
@@ -71,7 +69,30 @@ const Candy = (props) => {
     const currentProducts = currentArray.slice(indexOfFirstProduct, indexOfLastProduct);
 
     const [isSearchSuccessful, setIsSearchSuccessful] = useState(true);
+    let countryFilterRef = useRef();
+    let categoryFilterRef = useRef();
+    let sortFilterRef = useRef();
+
     
+    useEffect(() => {
+        let handler = (e) =>{
+            if(!countryFilterRef.current.contains(e.target))
+            {
+                setIsOpenCountry(false);
+            }
+            /*if(!categoryFilterRef.current.contains(e.target))
+            {
+                setIsOpenCategory(false);
+            }*/
+            
+        };
+        document.addEventListener("mousedown", handler);
+
+        return() => {
+            document.removeEventListener("mousedown", handler);
+        }
+    })
+
     useEffect(() => {
         let filteredProducts = products;
 
@@ -226,7 +247,7 @@ const Candy = (props) => {
                 </div>
                 <div className={isOpenFilter ? styles.filterContainer : styles.filterContainerInactive}>
                     <div className={styles.filters}>
-                        <div className={styles.filterDropdown} >
+                        <div ref={categoryFilterRef} className={styles.filterDropdown} >
                             <div className={styles.mainFilterDiv} onClick={() => setIsOpenCategory(!isOpenCategory)}>
                                 <label>Category</label>
                                 <div className={styles.dropdownIconWrapper}>
@@ -248,8 +269,8 @@ const Candy = (props) => {
                                 ))}
                             </div>
                         </div>
-                        <div className={styles.filterDropdown} >
-                            <div className={styles.mainFilterDiv} onClick={() => setIsOpenCountry(!isOpenCountry)}>
+                        <div ref={countryFilterRef} className={styles.filterDropdown} >
+                            <div  className={styles.mainFilterDiv} onClick={() => setIsOpenCountry(!isOpenCountry)}>
                                 <label>Country</label>
                                 <div className={styles.dropdownIconWrapper}>
                                     <Image
@@ -261,7 +282,7 @@ const Candy = (props) => {
                                     />
                                 </div>
                             </div>
-                            <div className={ isOpenCountry ? styles.filterOptionsActive : styles.filterOptionsInactive}>
+                            <div  className={ isOpenCountry ? styles.filterOptionsActive : styles.filterOptionsInactive}>
                                 {countries.map((country) => (
                                     <div className={styles.filterOption} onClick={handleAddCountryFilter} key={country.name}>
                                         <input readOnly type="checkbox" checked={isCheckedCountry.includes(country.name)} className={styles.cbox}/>
@@ -296,14 +317,14 @@ const Candy = (props) => {
             }
                 <div className={styles.candyContainer}>
                     {isSearchSuccessful &&
-                    <div className={styles.dropdown} >
-                        <div className={styles.selectDropdown} onClick={() => setisOpenSort(!isOpenSort)}>
+                    <div  className={styles.dropdown} >
+                        <div  className={styles.selectDropdown} onClick={() => setisOpenSort(!isOpenSort)}>
                             <span className={styles.selectedDropdownOption}>{currentSortOption}</span>
-                            <div className={isOpenSort !== true ? styles.caret : styles.caretRotate}></div>
+                            <div  className={isOpenSort !== true ? styles.caret : styles.caretRotate}></div>
 
                         </div>
                         {isOpenSort && 
-                            <ul className={styles.dropdownMenu}>
+                            <ul  className={styles.dropdownMenu}>
                                 {sortOptions.map(option => {
                                     return <li key={option.id} onClick={handleSortClick}>{option.label}</li>
                                 })}
