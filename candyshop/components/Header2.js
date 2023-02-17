@@ -45,6 +45,21 @@ const Header2 = () => {
         setShowDropdown(false);
     };
 
+    let logoutRef = useRef();
+    useEffect(() => {
+        let handler = (e) =>{
+            if(logoutRef.current && !logoutRef.current.contains(e.target))
+            {
+                setShowDropdown(false);
+            }
+        
+        };
+        document.addEventListener("mousedown", handler);
+
+        return() => {
+            document.removeEventListener("mousedown", handler);
+        }
+    })
     const [searchQuery, setSearchQuery] = useState('');
 
     // const handleSearchSubmit = (event) => {
@@ -108,7 +123,7 @@ const Header2 = () => {
                     </div>
                 </form>
                     <div className={styles.iconContainer}>
-                        {token ? <div className={styles.dropdown}>
+                        {token ? <div ref={logoutRef} className={styles.dropdown}>
                             <button className={styles.hiUser} onClick={toggleDropdown}>
                                 Hi, {username[0]}
                             </button>
