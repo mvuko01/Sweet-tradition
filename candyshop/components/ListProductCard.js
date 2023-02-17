@@ -23,13 +23,15 @@ const ListProductCard = ({ name, short_description, picture, price, id, product,
                             className={styles.imageFavourite}
                         />
                     </button>
-                    <Image
-                        src={picture}
-                        alt=""
-                        width={100}
-                        height={100}
-                        className={styles.imageProduct}
-                    />
+                    <Link href={`../candy/${product.slug}`} className={styles.linkWrapper}>
+                        <Image
+                            src={picture}
+                            alt=""
+                            width={100}
+                            height={100}
+                            className={styles.imageProduct}
+                        />
+                    </Link>
                 </div>
                 <div className={styles.productInfo}>
                     <p className={styles.listProductDescription}>{short_description}</p>
