@@ -57,7 +57,9 @@
     outline: none;
   }
   
-  
+  .linkWrapper{
+    cursor: pointer;
+  }
   
   .buttonFavourite{
     background: transparent;

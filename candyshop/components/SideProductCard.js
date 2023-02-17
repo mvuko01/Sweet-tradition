@@ -23,6 +23,7 @@ const SideProductCard = ({ name, short_description, picture, price, id, product,
                             className={styles.imageFavourite}
                         />
                     </button>
+                    <Link href={`../candy/${product.slug}`} className={styles.linkWrapper}>
                     <Image
                         src={picture}
                         alt=""
@@ -30,6 +31,7 @@ const SideProductCard = ({ name, short_description, picture, price, id, product,
                         height={100}
                         className={styles.imageProduct}
                     />
+                    </Link>
                 </div>
                 <div className={styles.productInfo}>
                     <p className={styles.productDescription}>{short_description}</p>

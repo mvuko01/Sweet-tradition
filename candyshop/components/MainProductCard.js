@@ -22,6 +22,7 @@ const MainProductCard = ({name, short_description, picture, price, id, product }
                         />
                     
                     </button>
+                    <Link href={`../candy/${product.slug}`} className={styles.linkWrapper}>
                     <Image
                         src={picture}
                         alt="Product image"
@@ -29,6 +30,7 @@ const MainProductCard = ({name, short_description, picture, price, id, product }
                         height={100}
                         className = {styles.imageProduct}
                     />
+                    </Link>
                 </div>
                 <div className={styles.productInfo}>
                     <p className={styles.mainProductDescription}>{short_description}</p>
