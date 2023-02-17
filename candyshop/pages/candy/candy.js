@@ -71,11 +71,16 @@ const Candy = (props) => {
     const [isSearchSuccessful, setIsSearchSuccessful] = useState(true);
     let countryFilterRef = useRef();
     let categoryFilterRef = useRef();
+    let applyFilterRef = useRef();
     
     useEffect(() => {
         let handler = (e) =>{
             if(countryFilterRef.current && (!countryFilterRef.current.contains(e.target) && !categoryFilterRef.current.contains(e.target)))
             {
+                if(applyFilterRef.current && applyFilterRef.current.contains(e.target))
+                {
+                    setIsOpenFilter(false);
+                }
                 setIsOpenCountry(false);
             }
             if(categoryFilterRef.current && (!categoryFilterRef.current.contains(e.target) && !countryFilterRef.current.contains(e.target)))
@@ -312,7 +317,7 @@ const Candy = (props) => {
                             onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
                         />
                         </div>
-                        <button type="button" onClick={()=> setIsOpenFilter(!isOpenFilter)}>APPLY FILTERS</button>
+                        <button ref={applyFilterRef} type="button" onClick={()=> setIsOpenFilter(!isOpenFilter)}>APPLY FILTERS</button>
                     </div>
                 </div>
                 </>
