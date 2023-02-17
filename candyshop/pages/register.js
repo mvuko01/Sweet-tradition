@@ -99,7 +99,7 @@ const Register = () => {
       };
     return (
         <>
-        <title>Register</title>
+            <title>Register</title>
             <Header2 />
             <div className={styles.mainWrapper}>
             <Image
@@ -110,9 +110,7 @@ const Register = () => {
                             className={styles.banner}
                             />
             <section className={styles.content} id={styles.registerSection}>
-                <h1 className={styles.title}>
-                    {token ? 'You are logged in!' : 'Get Started!'}
-                </h1>
+                {token ? <h1 className={styles.title}>You are logged in!</h1> : <h1 className={styles.title}>Get Started!</h1>}
                 {!token && (
                     <section className={styles.form}>
                         <div className={styles.inputWrapper}>
@@ -163,7 +161,7 @@ const Register = () => {
                         </div>
                         <div className={styles.rememberAndForgot}>
                             <div className={styles.remember}>
-                                <input readOnly type="checkbox"  checked={isChecked} className={styles.cbox}/> 
+                                <input onClick={handleClickCheckbox} readOnly type="checkbox"  checked={isChecked} className={styles.cbox}/> 
                                 <label onClick={handleClickCheckbox} htmlFor="rememberMe">Remember me</label>
                             </div>
                             <label className={styles.forgot}>Forgot password?</label>
