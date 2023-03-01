@@ -56,12 +56,14 @@ const Candy = (props) => {
         }
     }
 
+    
     const [isOpenSort, setisOpenSort] = useState(false);
     const [currentSortOption, setCurrentSortOption] = useState("Sort by");
     const [currentArray, setCurrentArray] = useState(products);
 
     const [isOpenFilter, setIsOpenFilter] = useState(false);
 
+    /*USED FOR CALCULATING NUMBER OF PAGES */
     const productsPerPage = 12;
     const [currentPage, setCurrentPage] = useState(1);
     const numberOfPages = Math.ceil(currentArray.length / productsPerPage);

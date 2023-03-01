@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import styles from '../styles/candies.module.css';
+import styles from '../styles/PageNumber.module.css';
 import Link from 'next/link';
 
 

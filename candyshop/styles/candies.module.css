@@ -548,29 +548,7 @@
         transition: 0.3s;
         width: 30px;
     }
-    .pageNum {
-       
-    
-        width: 30px;
-        height: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        color: white;
-
-        line-height: 2.35rem;
-        
-        
-        font-size: 18px;
-    }
-    
-
-    #arrow {
-        width: 25px;
-        height: 25px;
-    }
-
+  
     .selectDropdown{
         /*border: 2px #F06C9B solid;*/
         border-radius: 0.5rem;
