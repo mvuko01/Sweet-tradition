@@ -11,6 +11,7 @@ import Link from 'next/link';
 import Header2 from '../../components/Header2';
 import useAuth from "../../hooks/useAuth";
 import api from "../../api";
+import PageNumber from '../../components/PageNumbers';
 
 export async function getStaticProps() {
   //Get files from the posts dir
@@ -37,10 +38,39 @@ export async function getStaticProps() {
   }
 }
 const Blogs = (props) => {
-    const indexOfFirstBlog = 0;
-    const numberOfBlogsPerPage = 4;
-    const [page, setPage] = useState(indexOfFirstBlog);
     const blogPosts  = props.posts;
+    const numberOfBlogsPerPage = 4;
+    
+    
+    
+    /*NOVO */
+    const [currentPage, setCurrentPage] = useState(1);
+    const numberOfPages = Math.ceil(blogPosts.length / numberOfBlogsPerPage);
+    const indexOfLastBlog = currentPage * numberOfBlogsPerPage;
+    const indexOfFirstBlog = indexOfLastBlog - numberOfBlogsPerPage;
+    const currentBlogs = blogPosts.slice(indexOfFirstBlog, indexOfLastBlog);
+
+    const handlePageChange = (newPage) => {
+        setCurrentPage(newPage);
+    };
+
+    const pageNumbers = [];
+    for (let i = 1; i <= numberOfPages; i++) {
+        pageNumbers.push(i);
+    }
+
+    let firstPageNumber, lastPageNumber;
+    if (currentPage <= 2) {
+        firstPageNumber = 0;
+        lastPageNumber = 2;
+    } else if (currentPage >= numberOfPages - 1) {
+        firstPageNumber = numberOfPages - 3;
+        lastPageNumber = numberOfPages - 1;
+    } else {
+        firstPageNumber = currentPage - 2;
+        lastPageNumber = currentPage;
+    }
+    const visiblePageNumbers = pageNumbers.slice(firstPageNumber, lastPageNumber + 1);
 
     const { token } = useAuth();
     const [currentUser, setCurrentUser] = useState(null);
@@ -77,39 +107,18 @@ const Blogs = (props) => {
                 )}
                 <div className={styles.contentWrapper}>
                     <div /*className={styles.blogWrapper}*/ className={styles.gridContainer}>
-                        {blogPosts.slice(page, page + 1).map((post) => (
-                            <MainBlog key={post.frontmatter.id} post={post}  />
+                        {currentBlogs.slice(0,1).map((post) => (
+                            <MainBlog key={post.frontmatter.id} post={post} />
                         ))}
 
-                        {blogPosts.slice(page + 1, page + numberOfBlogsPerPage).map((post) => (
+                        {currentBlogs.slice(1, 4).map((post) => (
                             <Blog key={post.frontmatter.id} post={post} />
                         ))}
 
                     </div>
-                    <div className={styles.pageWrapper}>
-                        <Image
-                            id={styles.arrow}
-                            className={page == indexOfFirstBlog ? styles.hiddenArrow : null}
-                            width={196}
-                            height={220}
-                            src="/blogpics/Arrow 2 (1).svg"
-                            alt="next page arrow"
-                            onClick={() => page > 0 ? setPage(page - numberOfBlogsPerPage) : setPage(0)}
-                        />
-                        <div className={styles.pageNum} id={page == indexOfFirstBlog ? styles.currentPage : styles.notCurrentPage} onClick={() => setPage(indexOfFirstBlog)}>1</div>
-                        <div className={styles.pageNum} id={page == (indexOfFirstBlog + numberOfBlogsPerPage) ? styles.currentPage : styles.notCurrentPage} onClick={() => setPage(indexOfFirstBlog + numberOfBlogsPerPage)}>2</div>
-                        <div className={styles.pageNum} id={page == (indexOfFirstBlog + numberOfBlogsPerPage * 2) ? styles.currentPage : styles.notCurrentPage} onClick={() => setPage(indexOfFirstBlog + numberOfBlogsPerPage * 2)}>3</div>
-                        <Image
-                            id={styles.arrow}
-                            className={page == (indexOfFirstBlog + numberOfBlogsPerPage * 2) ? styles.hiddenArrow : null}
-                            width={196}
-                            height={220}
-                            src="/blogpics/Arrow 1 (1).svg"
-                            alt="next page arrow"
-                            onClick={() => page == (indexOfFirstBlog + numberOfBlogsPerPage * 2) ? setPage(indexOfFirstBlog + numberOfBlogsPerPage * 2) : setPage(page + numberOfBlogsPerPage)}
-                        />
-                    </div>
+
                 </div>
+                <PageNumber currentPage={currentPage} handlePageChange={handlePageChange} visiblePageNumbers={visiblePageNumbers} numberOfPages={numberOfPages}/>
             </div>
             <Footer />
         </>
