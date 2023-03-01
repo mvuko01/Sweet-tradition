@@ -9,6 +9,7 @@ import { categories } from '../../constants/productCategories';
 import { countries } from '../../constants/countries';
 import matter from 'gray-matter'
 import RangeSlider from '../../components/RangeSlider';
+import PageNumber from '../../components/PageNumbers';
 import { useRouter } from 'next/router';
 
 const Candy = (props) => {
@@ -205,38 +206,8 @@ const Candy = (props) => {
             {wantedQuery != undefined &&
                 <h2 className={styles.heading}>Search results for &#34;{wantedQuery}&#34;</h2>
             }
-                <div className={styles.pageNumberContainer}>
-                {currentPage > 1 && (
-                <Image
-                width={196}
-                height={220}
-                src="/blogpics/Arrow 2 (1).svg"
-                alt="next page arrow"
-                id={styles.arrow}
-                onClick={() => handlePageChange(currentPage - 1)}
-            />
-            )}
-            {visiblePageNumbers.map((pageNumber) => (
-            <button 
-                className={styles.pageNum}
-                id={pageNumber === currentPage ? styles.currentPage : styles.notCurrentPage}
-                key={pageNumber}
-                onClick={() => handlePageChange(pageNumber)}
-            >
-                {pageNumber}
-            </button>
-            ))}
-            {currentPage < numberOfPages && (
-            <Image
-            width={196}
-            height={220}
-            src="/blogpics/Arrow 1 (1).svg"
-            alt="next page arrow"
-            id={styles.arrow}
-            onClick={() => handlePageChange(currentPage + 1)}
-            />
-            )} 
-                </div>
+            <PageNumber currentPage={currentPage} handlePageChange={handlePageChange} visiblePageNumbers={visiblePageNumbers} numberOfPages={numberOfPages}/>
+           
             <div className={styles.mainContainer}>
                 {isSearchSuccessful && 
                 <>
@@ -346,38 +317,7 @@ const Candy = (props) => {
                     
                 </div>
             </div>
-            <div className={styles.pageNumberContainer}>
-            {currentPage > 1 && (
-                <Image
-                width={196}
-                height={220}
-                src="/blogpics/Arrow 2 (1).svg"
-                alt="next page arrow"
-                id={styles.arrow}
-                onClick={() => handlePageChange(currentPage - 1)}
-            />
-            )}
-            {visiblePageNumbers.map((pageNumber) => (
-            <button 
-                className={styles.pageNum}
-                id={pageNumber === currentPage ? styles.currentPage : styles.notCurrentPage}
-                key={pageNumber}
-                onClick={() => handlePageChange(pageNumber)}
-            >
-                {pageNumber}
-            </button>
-            ))}
-            {currentPage < numberOfPages && (
-            <Image
-            width={196}
-            height={220}
-            src="/blogpics/Arrow 1 (1).svg"
-            alt="next page arrow"
-            id={styles.arrow}
-            onClick={() => handlePageChange(currentPage + 1)}
-            />
-            )}   
-                </div>
+            <PageNumber currentPage={currentPage} handlePageChange={handlePageChange} visiblePageNumbers={visiblePageNumbers} numberOfPages={numberOfPages}/>
             <Footer />
         </>
     );
