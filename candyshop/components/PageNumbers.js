@@ -7,16 +7,16 @@ const PageNumber = ({currentPage, handlePageChange, visiblePageNumbers, numberOf
     return (
         <>
             <div className={styles.pageNumberContainer}>
-                {currentPage > 1 && (
-                    <Image
-                        width={196}
-                        height={220}
-                        src="/blogpics/Arrow 2 (1).svg"
-                        alt="next page arrow"
-                        id={styles.arrow}
-                        onClick={() => handlePageChange(currentPage - 1)}
-                    />
-                )}
+                
+                <Image
+                    width={196}
+                    height={220}
+                    src="/blogpics/Arrow 2 (1).svg"
+                    alt="next page arrow"
+                    id={currentPage > 1 ? styles.arrowActive : styles.arrowInactive}
+                    onClick={() => handlePageChange(currentPage - 1)}
+                />
+
                 {visiblePageNumbers.map((pageNumber) => (
                     <button
                         className={styles.pageNum}
@@ -27,16 +27,16 @@ const PageNumber = ({currentPage, handlePageChange, visiblePageNumbers, numberOf
                         {pageNumber}
                     </button>
                 ))}
-                {currentPage < numberOfPages && (
-                    <Image
-                        width={196}
-                        height={220}
-                        src="/blogpics/Arrow 1 (1).svg"
-                        alt="next page arrow"
-                        id={styles.arrow}
-                        onClick={() => handlePageChange(currentPage + 1)}
-                    />
-                )}
+
+                <Image
+                    width={196}
+                    height={220}
+                    src="/blogpics/Arrow 1 (1).svg"
+                    alt="next page arrow"
+                    id={currentPage < numberOfPages ? styles.arrowActive : styles.arrowInactive}
+                    onClick={() => handlePageChange(currentPage + 1)}
+                />
+
             </div>
         </>
     )
