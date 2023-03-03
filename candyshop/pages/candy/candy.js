@@ -11,6 +11,7 @@ import matter from 'gray-matter'
 import RangeSlider from '../../components/RangeSlider';
 import PageNumber from '../../components/PageNumbers';
 import { useRouter } from 'next/router';
+import SimpleBanner from '../../components/SimpleBanner';
 
 const Candy = (props) => {
     const products = props.products;
@@ -200,10 +201,7 @@ const Candy = (props) => {
         <>
         <title>Candy Shop</title>
             <Header2 />
-            <div className={styles.bannerContainer}>
-             <div className={styles.banner}>
-             </div>
-            </div>
+            <SimpleBanner url = "/candyBanner.svg"/>
             {wantedQuery == undefined && <h1 className={styles.heading}>CANDY SHOP</h1>}
             {wantedQuery != undefined &&
                 <h2 className={styles.heading}>Search results for &#34;{wantedQuery}&#34;</h2>

@@ -3,6 +3,7 @@ import Footer from '../../components/Footer';
 import Image from 'next/image'
 import {marked} from 'marked';
 import Header2 from "../../components/Header2";
+import SimpleBanner from '../../components/SimpleBanner';
 
 const exampleContent = ({frontmatter, someId, content}) => {
     const backgroundStyle = {
@@ -10,27 +11,24 @@ const exampleContent = ({frontmatter, someId, content}) => {
       };
     return (
         <>
-        <title>{frontmatter.title}</title>
-        <Header2 />
-        <div className={styles.bannerContainer}>
-             <div className={styles['banner']} style={backgroundStyle}>
-             </div>
+            <title>{frontmatter.title}</title>
+            <Header2 />
+            <SimpleBanner url={frontmatter.pictureB}/>
+            <div className={styles.contentWrapper}>
+                <p className={styles.title}>{frontmatter.title}</p>
+                <div className={styles.writtenDateWrapper}>
+                    <div className={styles.WBandAuthor}>
+                        <p className={styles.purple} id={styles.written}>Written by: &nbsp;</p>
+                        <p className={styles.boldGray}>{frontmatter.author} &emsp; &nbsp;</p>
+                    </div>
+                    <div className={styles.date}>
+                        <p className={styles.purple}>Date: &nbsp;</p>
+                        <p className={styles.boldGray}>{frontmatter.date}</p>
+                    </div>
+                </div>
+                <div dangerouslySetInnerHTML={{ __html: marked(content) }} className={styles.text}></div>
             </div>
-        <div className={styles.contentWrapper}>
-        <p className={styles.title}>{frontmatter.title}</p>
-        <div className={styles.writtenDateWrapper}>
-            <div className={styles.WBandAuthor}>
-                <p className={styles.purple} id={styles.written}>Written by: &nbsp;</p>
-                <p className={styles.boldGray}>{frontmatter.author} &emsp; &nbsp;</p>
-            </div>
-            <div className={styles.date}>
-                <p className={styles.purple}>Date: &nbsp;</p>
-                <p className={styles.boldGray}>{frontmatter.date}</p>
-            </div>
-        </div>
-        <div dangerouslySetInnerHTML={{__html: marked(content)}} className={styles.text}></div>
-        </div>
-        <Footer />
+            <Footer />
         </>
     );
 };
