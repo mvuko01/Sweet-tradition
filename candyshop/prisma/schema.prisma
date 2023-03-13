@@ -21,9 +21,10 @@ model User {
 
 model Blog {
   id              String      @id @default(uuid())
-  title           String   
+  title           String      @unique
   author          String   
   picture_path    String
+  banner_path     String
   date            DateTime    @default(now())
   cta_text        String
   markdown_path   String
@@ -31,7 +32,7 @@ model Blog {
 
 model Candy{
   id                String      @id @default(uuid())
-  name              String
+  name              String      @unique
   picture_paths     String[]
   price             Decimal
   description_path  String

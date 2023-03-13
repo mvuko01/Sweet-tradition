@@ -41,8 +41,6 @@ const Blogs = (props) => {
     const blogPosts  = props.posts;
     const numberOfBlogsPerPage = 4;
     
-    
-    
     /*NOVO */
     const [currentPage, setCurrentPage] = useState(1);
     const numberOfPages = Math.ceil(blogPosts.length / numberOfBlogsPerPage);

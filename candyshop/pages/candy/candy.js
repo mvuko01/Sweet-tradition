@@ -24,7 +24,14 @@ const Candy = (props) => {
         { label: 'Name Z-A', id: '4' },
     ];
 
-   
+    // var myFunc;
+    // (myFunc = async function(){
+    //     const data = await fetch('/api/createCountry' ,{
+    //         method: "POST",
+    //     })
+    //     const res = await data.json()
+    //     if(!res.ok) console.log (res);
+    // })()
 
     const [isCheckedCategory, setIsCheckedCategory] = useState([]);
     const [isOpenCategory, setIsOpenCategory] = useState(false);
