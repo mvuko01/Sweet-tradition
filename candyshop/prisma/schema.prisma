@@ -9,3 +9,51 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+
+model User {
+  id        String      @id @default(uuid())
+  username  String      @unique
+  email     String      @unique
+  password  String
+  role      Role        @default(USER)
+}
+
+model Blog {
+  id              String      @id @default(uuid())
+  title           String   
+  author          String   
+  picture_path    String
+  date            DateTime    @default(now())
+  cta_text        String
+  markdown_path   String
+}
+
+model Candy{
+  id                String      @id @default(uuid())
+  name              String
+  picture_paths     String[]
+  price             Decimal
+  description_path  String
+  category          Category    @relation(fields: [category_id], references: [id])
+  category_id       String
+  country           Country     @relation(fields: [country_id], references: [id])
+  country_id        String
+}
+
+model Category{
+  id              String      @id @default(uuid())
+  name            String      @unique
+  candies         Candy[]
+}
+
+model Country{
+  id              String      @id @default(uuid())
+  name            String      @unique
+  candies         Candy[]
+}
+
+enum Role {
+  USER
+  ADMIN
+}
