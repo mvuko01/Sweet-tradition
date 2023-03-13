@@ -24,6 +24,8 @@ const Candy = (props) => {
         { label: 'Name Z-A', id: '4' },
     ];
 
+   
+
     const [isCheckedCategory, setIsCheckedCategory] = useState([]);
     const [isOpenCategory, setIsOpenCategory] = useState(false);
 

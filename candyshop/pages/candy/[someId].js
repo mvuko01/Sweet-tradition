@@ -147,7 +147,7 @@ const OneCandy = ({frontmatter, content, products}) => {
                                     className={styles.countryImage}
                                 />
                             </div>
-                            <p className={styles.countryShortName}>{country.shortName}</p>
+                            <p className={styles.countryShortName}>{country.short_name}</p>
                         </div>
                     </div>
                     <h2 className={styles.productShortDescription}>{`${frontmatter.category}, ${frontmatter.quantity}`}</h2>
