@@ -50,6 +50,7 @@ model Category{
 model Country{
   id              String      @id @default(uuid())
   name            String      @unique
+  short_name      String      @unique
   candies         Candy[]
 }
 
