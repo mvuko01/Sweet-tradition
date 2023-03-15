@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 import Spinner from '../components/Spinner';
-import api from '../api';
 
 import useAuth from '../hooks/useAuth';
 
@@ -58,25 +57,6 @@ const Login = () => {
 
         setLoading(false);
       };
-
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-
-    //     setLoading(true);
-
-    //     await api
-    //         .login(email, password)
-    //         .then(({ token }) => {
-    //             setError('');
-    //             setAuth(token, email);
-    //             router.back();
-    //         })
-    //         .catch((err) => {
-    //             setError(err.message);
-    //         });
-
-    //     setLoading(false);
-    // };
 
     const [emailError, setEmailError] = useState('');
     const handleBlur = (e) => {

@@ -2,6 +2,9 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../prisma/client";
 import bcrypt from 'bcryptjs';
 import * as yup from 'yup';
+import jwt from 'jsonwebtoken';
+
+const JWT_SECRET = 'secret';
 
 const createUserSchema = yup.object().shape({
   username: yup.string().min(3).required(),
@@ -25,6 +28,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         password: hashedPassword,
       },
     });
+
+    const token = jwt.sign({ id: user.id }, JWT_SECRET, {
+      expiresIn: '1h',
+    });
+
+    res.status(200).json({ token });
 
     res.status(201).json({ message: 'User created', user });
   } catch (error) {

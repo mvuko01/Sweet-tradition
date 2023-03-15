@@ -1,6 +1,5 @@
 import Footer from '../../components/Footer';
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
+import React, { useState } from 'react';
 import styles from '../../styles/Blogs.module.css'
 import Blog from '../../components/Blog';
 import MainBlog from '../../components/MainBlog';
@@ -10,7 +9,6 @@ import path from 'path'
 import Link from 'next/link';
 import Header2 from '../../components/Header2';
 import useAuth from "../../hooks/useAuth";
-import api from "../../api";
 import PageNumber from '../../components/PageNumbers';
 
 export async function getStaticProps() {
@@ -71,20 +69,7 @@ const Blogs = (props) => {
     const visiblePageNumbers = pageNumbers.slice(firstPageNumber, lastPageNumber + 1);
 
     const { token } = useAuth();
-    const [currentUser, setCurrentUser] = useState(null);
-    const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        if (!token) {
-            return;
-        }
-
-        api.addNewBlog(token).then(({ user }) => {
-            setLoading(false);
-            setCurrentUser(user);
-        });
-    }, [token]);
-    
     return (
         <>
         <title>Blog</title>

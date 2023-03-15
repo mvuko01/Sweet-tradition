@@ -36,14 +36,14 @@ export default async function handler(req: NextApiRequest,res: NextApiResponse) 
       expiresIn: '1h',
     });
 
-  res.status(200).json({ token });
+    res.status(200).json({ token });
 
     // If we've made it this far, the user has successfully authenticated
     return res.status(200).json({ message: "Login successful", user });
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ message: "Sorry, something went wrong!" });
-  } finally {
-    await prisma.$disconnect();
-  }
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ message: "Sorry, something went wrong!" });
+    } finally {
+      await prisma.$disconnect();
+    }
 }

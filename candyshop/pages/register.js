@@ -3,8 +3,6 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 import Spinner from '../components/Spinner';
-import api from '../api';
-
 import useAuth from '../hooks/useAuth';
 
 import Link from 'next/link';
@@ -52,7 +50,7 @@ const Register = () => {
             const errorData = await response.json();
             throw new Error(errorData.message);
           }
-      
+          setAuth(response.token, email);
           router.push('/');
         } catch (error) {
           setError("Sorry, something went wrong.");
