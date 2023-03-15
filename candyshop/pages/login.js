@@ -13,6 +13,17 @@ import Header2 from '../components/Header2';
 import { isEmail } from "validator";
 
 const Login = () => {
+
+    var myFunc;
+    (myFunc = async function(){
+        console.log("uslo")
+        const data = await fetch('/api/createCountry' ,{
+            method: "POST",
+        })
+        const res = await data.json()
+        if(!res.ok) console.log (res);
+    })()
+ 
     const { removeAuth, setAuth, token } = useAuth();
     const router = useRouter();
 
@@ -70,8 +81,7 @@ const Login = () => {
           else {
             setPasswordError("");
           }
-        };
-
+}
     return (
         <>
         <title>Login</title>

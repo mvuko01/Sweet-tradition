@@ -26,31 +26,40 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    const [validation, setValidation] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+      
         setLoading(true);
-
-        await api
-            .register(email, username, password, confirmPassword)
-            .then(({ token }) => {
-                setError('');
-                setAuth(token);
-                router.push('/login');
-            })
-            .catch((err) => {
-                setError(err.message);
-            });
+        // send API request
+        try {
+          const response = await fetch('/api/registerUser', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              email,
+              username,
+              password,
+              confirmPassword
+            }),
+          });
+      
+          if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message);
+          }
+      
+          router.push('/');
+        } catch (error) {
+          setError("Sorry, something went wrong.");
+        }
 
         setLoading(false);
-        // else if(res.status===422){
-        //     setValidation("Username already exists, try something else.");
-        // }
-    }
+      };
 
     const [emailError, setEmailError] = useState('');
     const handleEmailBlur = (e) => {
@@ -168,7 +177,9 @@ const Register = () => {
                         </div>
                         {error && <p className={styles.error}>{error}</p>}
                         {loading ? (
-                        <Spinner />
+                        <div className={styles.spinnerWrapper}>
+                        <Spinner/>
+                        </div>
                         ) : (
                             <div className={styles.signInBtnWrapper}>
                                 <button

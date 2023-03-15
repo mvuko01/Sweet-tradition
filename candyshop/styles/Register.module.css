@@ -104,6 +104,10 @@
     display:none;
 }
 
+.spinnerWrapper {
+    display: flex;
+    justify-content: center;
+}
 
 
 /*SIGN IN*/
