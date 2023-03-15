@@ -34,7 +34,8 @@ model Candy{
   id                String      @id @default(uuid())
   name              String      @unique
   picture_paths     String[]
-  price             Decimal
+  price             String
+  quantity          String
   description_path  String
   category          Category    @relation(fields: [category_id], references: [id])
   category_id       String

@@ -24,14 +24,74 @@ const Candy = (props) => {
         { label: 'Name Z-A', id: '4' },
     ];
 
+    /*PRIVREMENOOOOOOO */
+
     // var myFunc;
     // (myFunc = async function(){
     //     const data = await fetch('/api/createCountry' ,{
     //         method: "POST",
+    //         body: JSON.stringify({candyArray})
     //     })
     //     const res = await data.json()
     //     if(!res.ok) console.log (res);
     // })()
+    
+    /*async function getCountries(){
+        const countriess = await fetch("/api/getCountry")
+        if(!countriess.ok){
+            console.log(countriess)
+        }
+        return countriess.json()
+    }
+
+    async function getCategories(){
+        const categoriess = await fetch("/api/getCategory")
+        if(!categoriess.ok){
+            console.log(categoriess)
+        }
+        return categoriess.json()
+    }*/
+
+
+    
+    /*var myFunc;
+    (myFunc = async function(){
+        const Kantry = await getCountries();
+        const Kategory = await getCategories();
+        
+        let candyArray =[];
+        products.forEach(product => {
+            
+            let currentCountry = Kantry.find(country => country.name == product.frontmatter.country || country.short_name == product.frontmatter.country);
+            let currentCategory = Kategory.find(categoryy => categoryy.name == product.frontmatter.category);
+            let picture1 = product.frontmatter.picture.substring(product.frontmatter.picture.lastIndexOf("/") + 1,);
+            let picture2 = product.frontmatter.picture2.substring(product.frontmatter.picture2.lastIndexOf("/") + 1,);
+            let picture3 = product.frontmatter.picture3.substring(product.frontmatter.picture3.lastIndexOf("/") + 1,);
+
+            let path = product.slug +".md";
+
+            let obj ={
+                name: product.frontmatter.name,
+                picture_paths: [picture1, picture2, picture3],
+                price: product.frontmatter.price,
+                description_path: path,
+                category_id: currentCategory.id,
+                country_id: currentCountry.id,
+                quantity: product.frontmatter.quantity
+            }
+            candyArray.push(obj)
+        });
+
+        const data = await fetch('/api/createCountry' ,{
+                    method: "POST",
+                    body: JSON.stringify(candyArray)
+        })
+        const res = await data.json()
+        if(!res.ok) console.log (res);
+    })()*/
+   
+    /*PRIVREMENOOOOOOO */
+    
 
     const [isCheckedCategory, setIsCheckedCategory] = useState([]);
     const [isOpenCategory, setIsOpenCategory] = useState(false);
@@ -50,7 +110,7 @@ const Candy = (props) => {
             setIsCheckedCategory(isCheckedCategory.filter(id => id != name))
         } else {
             setIsCheckedCategory(newArray => [...isCheckedCategory, name]);
-            
+
         }
     }
 
@@ -62,11 +122,11 @@ const Candy = (props) => {
             setIsCheckedCountry(isCheckedCountry.filter(id => id != name))
         } else {
             setIsCheckedCountry(newArray => [...isCheckedCountry, name]);
-            
+
         }
     }
 
-    
+
     const [isOpenSort, setisOpenSort] = useState(false);
     const [currentSortOption, setCurrentSortOption] = useState("Sort by");
     const [currentArray, setCurrentArray] = useState(products);
@@ -85,7 +145,7 @@ const Candy = (props) => {
     let countryFilterRef = useRef();
     let categoryFilterRef = useRef();
     let applyFilterRef = useRef();
-    
+
     useEffect(() => {
         let handler = (e) =>{
             if(countryFilterRef.current && (!countryFilterRef.current.contains(e.target) && !categoryFilterRef.current.contains(e.target)))
@@ -100,7 +160,7 @@ const Candy = (props) => {
             {
                 setIsOpenCategory(false);
             }
-            
+
         };
         document.addEventListener("mousedown", handler);
 
@@ -112,9 +172,9 @@ const Candy = (props) => {
     useEffect(() => {
         let filteredProducts = products;
 
-        if(wantedQuery){ 
+        if(wantedQuery){
             filteredProducts = products.filter(product => {
-            return product.frontmatter.name.toLowerCase().includes(wantedQuery.toLowerCase()) 
+            return product.frontmatter.name.toLowerCase().includes(wantedQuery.toLowerCase())
             || product.frontmatter.category.toLowerCase().includes(wantedQuery.toLowerCase());
         });
         }
@@ -124,8 +184,8 @@ const Candy = (props) => {
                 return isCheckedCategory.includes(product.frontmatter.category);
             });
         }
-        
-        if(isCheckedCountry.length != 0){ 
+
+        if(isCheckedCountry.length != 0){
         filteredProducts = filteredProducts.filter(product => {
             const countryCode = product.frontmatter.country;
             const countryName = countryCode === "UK" ? "United Kingdom" : countryCode; // map "UK" to "United Kingdom"
@@ -137,12 +197,11 @@ const Candy = (props) => {
             const price = parseFloat(product.frontmatter.price.replace(",", ".").replace("€", ""));
             return price >= currentMin && price <= currentMax;
         });
-  
+
         const sortedProducts = sortProducts(filteredProducts, currentSortOption);
         setCurrentArray(sortedProducts);
 
         setCurrentPage(1);
-        console.log(filteredProducts)
         if(wantedQuery && filteredProducts.length === 0){
             setIsSearchSuccessful(false);
         }
@@ -150,7 +209,7 @@ const Candy = (props) => {
             setIsSearchSuccessful(true);
         }
       }, [currentSortOption, isCheckedCategory, isCheckedCountry, currentMin, currentMax, wantedQuery, isSearchSuccessful]);
-    
+
     const sortProducts = (products, sortOption) => {
         const dataToSort = [...products];
         if(sortOption === "Name Z-A"){
@@ -168,7 +227,7 @@ const Candy = (props) => {
                 let priceA = Number(a.frontmatter.price.replace(",", ".").replace("€", ""));
                 let priceB = Number(b.frontmatter.price.replace(",", ".").replace("€", ""));
                 return priceB - priceA;
-              }); 
+              });
         }
         else {
                 dataToSort.sort((a, b) => a.frontmatter.name < b.frontmatter.name ? -1 : 1);
@@ -216,9 +275,9 @@ const Candy = (props) => {
                 <h2 className={styles.heading}>Search results for &#34;{wantedQuery}&#34;</h2>
             }
             <PageNumber currentPage={currentPage} handlePageChange={handlePageChange} visiblePageNumbers={visiblePageNumbers} numberOfPages={numberOfPages}/>
-           
+
             <div className={styles.mainContainer}>
-                {isSearchSuccessful && 
+                {isSearchSuccessful &&
                 <>
                 <div className={styles.filterIconAndTextContainer} onClick={()=> setIsOpenFilter(!isOpenFilter)}>
                     <div className={styles.filterIconWrapper}>
@@ -251,7 +310,7 @@ const Candy = (props) => {
                                 {categories.map((category) => (
                                     <div className={styles.filterOption} onClick={handleAddCategoryFilter} key={category.name}>
                                         <input readOnly type="checkbox" checked={isCheckedCategory.includes(category.name)} className={styles.cbox}/>
-                                        <label>{category.name}</label> 
+                                        <label>{category.name}</label>
                                     </div>
                                 ))}
                             </div>
@@ -273,7 +332,7 @@ const Candy = (props) => {
                                 {countries.map((country) => (
                                     <div className={styles.filterOption} onClick={handleAddCountryFilter} key={country.name}>
                                         <input readOnly type="checkbox" checked={isCheckedCountry.includes(country.name)} className={styles.cbox}/>
-                                        <label>{country.name}</label> 
+                                        <label>{country.name}</label>
                                         <div className={styles.countryImageWrapper}>
                                             <Image
                                                 width={40}
@@ -310,20 +369,20 @@ const Candy = (props) => {
                             <div  className={isOpenSort !== true ? styles.caret : styles.caretRotate}></div>
 
                         </div>
-                        {isOpenSort && 
+                        {isOpenSort &&
                             <ul  className={styles.dropdownMenu}>
                                 {sortOptions.map(option => {
                                     return <li key={option.id} onClick={handleSortClick}>{option.label}</li>
                                 })}
                             </ul>
                         }
-                        
+
                     </div>
         }
                     {currentProducts.map((product)=>{
                        return <SideProductCard onHeartClick={handleHeartClick} prevState={heartState} className = {styles.product}key={product.frontmatter.id} product={product} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id}/>
                     })}
-                    
+
                 </div>
             </div>
             <PageNumber currentPage={currentPage} handlePageChange={handlePageChange} visiblePageNumbers={visiblePageNumbers} numberOfPages={numberOfPages}/>
@@ -338,15 +397,15 @@ import path from 'path'
 
 export async function getStaticProps() {
 
-  
+
     //Get files from the posts dir
     const productFiles = fs.readdirSync(path.join('products'))
-  
+
     //Get slug and frontmatter from posts
     const products = productFiles.map(filename => {
       //Create slug
       const slug = filename.replace('.md', '')
-  
+
       //Get frontmatter
       const markdownWithMeta = fs.readFileSync(path.join('products', filename), 'utf-8')
       const {data:frontmatter} = matter(markdownWithMeta)
@@ -355,9 +414,9 @@ export async function getStaticProps() {
         frontmatter
       }
     })
-  
+
     return {
-      
+
       props: {
         products: products,
       }

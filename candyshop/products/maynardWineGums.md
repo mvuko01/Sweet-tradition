@@ -2,6 +2,9 @@
 id: "2"
 name: "Maynard wine gums"
 picture: "/productPics/MaynardWineGums.svg"
+picture2: "/productPics/MaynardWineGums2.svg"
+picture3: "/productPics/MaynardWineGums3.svg"
+
 price: "7,50€"
 category: "Chewy sweets"
 quantity: "195g"

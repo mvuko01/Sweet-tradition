@@ -1,14 +1,14 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../prisma/client";
-import { users } from '../../constants/users';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse)
 {
     try {
         if(req.method === "POST"){
             try{
-                const data = await prisma.user.createMany({
-                    data: users,
+                const candies = JSON.parse(req.body);
+                const data = await prisma.candy.createMany({
+                    data: candies,
                 })
                 res.status(200).json(data);
             }catch(error){
