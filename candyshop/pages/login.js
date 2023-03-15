@@ -10,19 +10,8 @@ import useAuth from '../hooks/useAuth';
 import Link from 'next/link';
 import Image from 'next/image'
 import Header2 from '../components/Header2';
-import { isEmail } from "validator";
 
 const Login = () => {
-
-    var myFunc;
-    (myFunc = async function(){
-        console.log("uslo")
-        const data = await fetch('/api/createCountry' ,{
-            method: "POST",
-        })
-        const res = await data.json()
-        if(!res.ok) console.log (res);
-    })()
  
     const { removeAuth, setAuth, token } = useAuth();
     const router = useRouter();
@@ -40,24 +29,54 @@ const Login = () => {
 
     const[shownPassword, setShownPassword] = useState(false);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+      
         setLoading(true);
-
-        await api
-            .login(email, password)
-            .then(({ token }) => {
-                setError('');
-                setAuth(token, email);
-                router.back();
-            })
-            .catch((err) => {
-                setError(err.message);
-            });
+        // send API request
+        try {
+          const response = await fetch('/api/loginUser', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              email,
+              password
+            }),
+          });
+      
+          if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message);
+          }
+          setAuth(response.token, email);
+          router.back();
+        } catch (error) {
+          setError("Sorry, unsuccesful login.");
+        }
 
         setLoading(false);
-    };
+      };
+
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+
+    //     setLoading(true);
+
+    //     await api
+    //         .login(email, password)
+    //         .then(({ token }) => {
+    //             setError('');
+    //             setAuth(token, email);
+    //             router.back();
+    //         })
+    //         .catch((err) => {
+    //             setError(err.message);
+    //         });
+
+    //     setLoading(false);
+    // };
 
     const [emailError, setEmailError] = useState('');
     const handleBlur = (e) => {
