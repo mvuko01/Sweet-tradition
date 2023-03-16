@@ -3,15 +3,18 @@ import React, { useState } from 'react';
 import styles from '../../styles/Blogs.module.css'
 import Blog from '../../components/Blog';
 import MainBlog from '../../components/MainBlog';
-import fs from 'fs'
+/*import fs from 'fs'
 import matter from 'gray-matter';
-import path from 'path'
+import path from 'path'*/
 import Link from 'next/link';
 import Header2 from '../../components/Header2';
 import useAuth from "../../hooks/useAuth";
 import PageNumber from '../../components/PageNumbers';
+import prisma from '../../prisma/client'
 
-export async function getStaticProps() {
+/*OLD CODE WITHOUT DATABASE AND READING FROM MD */
+
+/*export async function getStaticProps() {
   //Get files from the posts dir
   const files = fs.readdirSync(path.join('posts'))
 
@@ -34,7 +37,30 @@ export async function getStaticProps() {
         posts: posts
       }
   }
+}*/
+
+export async function getServerSideProps() {
+    
+    try {
+        const blogs = await prisma.blog.findMany()
+        return {
+            props: {
+              posts: JSON.parse(JSON.stringify(blogs)),
+            },
+        }
+    } catch (error) {
+        return {
+            props: {
+              posts: [],
+            },
+        }
+    }
+
+
 }
+
+
+
 const Blogs =  (props) => {
     const blogPosts  = props.posts;
     const numberOfBlogsPerPage = 4;
@@ -50,17 +76,7 @@ const Blogs =  (props) => {
         setCurrentPage(newPage);
     };
 
-    // async function getBlogs(){
-    //     const res = await fetch("/api/getBlogs")
-    //     if(!res.ok)
-    //     {
-    //         console.log(res)
-    //     }
-    //     return res.json()
-    // }
-    // const blogData = await getBlogs();
-
-
+   
     const pageNumbers = [];
     for (let i = 1; i <= numberOfPages; i++) {
         pageNumbers.push(i);
@@ -100,13 +116,13 @@ const Blogs =  (props) => {
                     <Link href="/blog/addNewBlog"><button type="button" className={styles.addNewBtn} id={styles.firstBtn}>ADD NEW BLOG</button></Link>
                 )}
                 <div className={styles.contentWrapper}>
-                    <div /*className={styles.blogWrapper}*/ className={styles.gridContainer}>
+                    <div className={styles.gridContainer}>
                         {currentBlogs.slice(0,1).map((post) => (
-                            <MainBlog key={post.frontmatter.id} post={post} />
+                            <MainBlog key={post.id} post={post} />
                         ))}
 
                         {currentBlogs.slice(1, 4).map((post) => (
-                            <Blog key={post.frontmatter.id} post={post} />
+                            <Blog key={post.id} post={post} />
                         ))}
 
                     </div>
