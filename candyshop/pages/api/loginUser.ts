@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../prisma/client";
-import bcrypt from "bcryptjs";
+import bcryptjs from "bcryptjs";
 import * as yup from "yup";
 import jwt from 'jsonwebtoken';
 
@@ -26,7 +26,7 @@ export default async function handler(req: NextApiRequest,res: NextApiResponse) 
     }
 
     // Compare the provided password with the stored password hash
-    const passwordMatches = await bcrypt.compare(password, user.password);
+    const passwordMatches = await bcryptjs.compare(password, user.password);
 
     if (!passwordMatches) {
       return res.status(401).json({ message: "Invalid credentials" });
