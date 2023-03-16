@@ -50,15 +50,15 @@ const Blogs = async (props) => {
         setCurrentPage(newPage);
     };
 
-    async function getBlogs(){
-        const res = await fetch("/api/getBlogs")
-        if(!res.ok)
-        {
-            console.log(res)
-        }
-        return res.json()
-    }
-    const blogData = await getBlogs();
+    // async function getBlogs(){
+    //     const res = await fetch("/api/getBlogs")
+    //     if(!res.ok)
+    //     {
+    //         console.log(res)
+    //     }
+    //     return res.json()
+    // }
+    // const blogData = await getBlogs();
 
 
     const pageNumbers = [];
