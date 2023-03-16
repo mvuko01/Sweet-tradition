@@ -1,3 +1,5 @@
+//IZBRISI AKO NAKON DODAVANJE BAZE VISE NE TRIBA
+
 export const blogs = [
 
     { title: 'CANDY-COATED FUN: IDEAS FOR CREATIVE AND DELICIOUS DESSERTS', author: 'Mary Morris', picture_path: 'candyc.svg', cta_text: 'If youre looking for a tasty way to make dessert time more fun, look no further! Try out these creative and delicious candy-coated ideas for a sweet treat that is sure to delight. Get creative in the kitchen and make your own candy-coated desserts today!', markdown_path: 'candyCoatedFun.md', banner_path: 'candycB.svg' },

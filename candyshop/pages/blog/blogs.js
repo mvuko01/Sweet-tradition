@@ -35,7 +35,7 @@ export async function getStaticProps() {
       }
   }
 }
-const Blogs = (props) => {
+const Blogs = async (props) => {
     const blogPosts  = props.posts;
     const numberOfBlogsPerPage = 4;
     
@@ -49,6 +49,17 @@ const Blogs = (props) => {
     const handlePageChange = (newPage) => {
         setCurrentPage(newPage);
     };
+
+    async function getBlogs(){
+        const res = await fetch("/api/getBlogs")
+        if(!res.ok)
+        {
+            console.log(res)
+        }
+        return res.json()
+    }
+    const blogData = await getBlogs();
+
 
     const pageNumbers = [];
     for (let i = 1; i <= numberOfPages; i++) {
