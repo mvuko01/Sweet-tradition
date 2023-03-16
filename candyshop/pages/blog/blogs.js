@@ -35,7 +35,7 @@ export async function getStaticProps() {
       }
   }
 }
-const Blogs = async (props) => {
+const Blogs =  (props) => {
     const blogPosts  = props.posts;
     const numberOfBlogsPerPage = 4;
     
