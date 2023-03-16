@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../prisma/client";
-import bcrypt from 'bcryptjs';
+import bcryptjs from 'bcryptjs';
 import * as yup from 'yup';
 import jwt from 'jsonwebtoken';
 
@@ -17,7 +17,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const { username, email, password, confirmPassword } = await createUserSchema.validate(req.body);
 
   // Hash the user's password
-  const hashedPassword = await bcrypt.hash(password, 10);
+  const hashedPassword = await bcryptjs.hash(password, 10);
 
   try {
     // Create a new user record in the database
