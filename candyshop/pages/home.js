@@ -10,6 +10,29 @@ import HomeCarousel from '../components/HomeCarousel';
 
 import matter from 'gray-matter'
 
+
+/*USED TO GET BLOG POSTS FROM SERVER - IMPLEMENT WHEN IMPLEMENTINGF PRODUCTS AS WELL */
+/*export async function getServerSideProps() {
+    
+  try {
+      const blogs = await prisma.blog.findMany()
+      return {
+          props: {
+            posts: JSON.parse(JSON.stringify(blogs)),
+          },
+      }
+  } catch (error) {
+      return {
+          props: {
+            posts: [],
+          },
+      }
+  }
+
+
+}*/
+
+
 const Hello = (props) => {
     const blogPosts = props.posts;
     const products = props.products;

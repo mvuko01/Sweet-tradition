@@ -9,6 +9,8 @@ const exampleContent = ({frontmatter, someId, content}) => {
     const backgroundStyle = {
         backgroundImage: `url(${frontmatter.pictureB})`,
       };
+
+    console.log(someId)
     return (
         <>
             <title>{frontmatter.title}</title>
