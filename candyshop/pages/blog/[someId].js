@@ -25,16 +25,13 @@ export async function getServerSideProps({params}) {
             props: {
               blog: JSON.parse(JSON.stringify(blog)),
               post_content: content,
-              id: params.someId
             },
         }
     } catch (error) {
-        console.log(error)
         return {
             props: {
               blog: [],
-              post_content: '',
-              id: params.someId,
+              post_content: ''
             },
         }
     }
@@ -44,7 +41,7 @@ export async function getServerSideProps({params}) {
 
 
 
-const exampleContent = ({frontmatter,id, content, blog, post_content}) => {
+const exampleContent = ({ blog, post_content}) => {
     
     return (
         <>
