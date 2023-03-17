@@ -2,6 +2,7 @@ import Image from 'next/image';
 import styles from '../styles/Blogs.module.css'
 import Link from 'next/link';
 import { limitWords } from '../helpers';
+
 const Blog = ({ post }) => {
     let routeString = post.markdown_path.substring(0,post.markdown_path.lastIndexOf(".")) 
     return (

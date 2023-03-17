@@ -4,42 +4,77 @@ import Image from 'next/image'
 import {marked} from 'marked';
 import Header2 from "../../components/Header2";
 import SimpleBanner from '../../components/SimpleBanner';
+import prisma from '../../prisma/client';
 
-const exampleContent = ({frontmatter, someId, content}) => {
-    const backgroundStyle = {
-        backgroundImage: `url(${frontmatter.pictureB})`,
-      };
+import fs from 'fs';
+import path from 'path'
+import matter from 'gray-matter';
 
-    console.log(someId)
+export async function getServerSideProps({params}) {
+    try {
+        const blog = await prisma.blog.findFirst({
+            where: {
+                markdown_path: `${params.someId}.md`
+            }
+        })
+        
+        const markdownWithMeta = fs.readFileSync(path.join('posts', params.someId + '.md'), 'utf-8')
+        const {data: frontmatter, content} = matter(markdownWithMeta)
+
+        return {
+            props: {
+              blog: JSON.parse(JSON.stringify(blog)),
+              post_content: content,
+              id: params.someId
+            },
+        }
+    } catch (error) {
+        console.log(error)
+        return {
+            props: {
+              blog: [],
+              post_content: '',
+              id: params.someId,
+            },
+        }
+    }
+
+
+}
+
+
+
+const exampleContent = ({frontmatter,id, content, blog, post_content}) => {
+    
     return (
         <>
-            <title>{frontmatter.title}</title>
+            <title>{blog.title}</title>
             <Header2 />
-            <SimpleBanner url={frontmatter.pictureB}/>
+            <SimpleBanner url={`/blogpics/${blog.banner_path}`}/>
             <div className={styles.contentWrapper}>
-                <p className={styles.title}>{frontmatter.title}</p>
+                <p className={styles.title}>{blog.title}</p>
                 <div className={styles.writtenDateWrapper}>
                     <div className={styles.WBandAuthor}>
                         <p className={styles.purple} id={styles.written}>Written by: &nbsp;</p>
-                        <p className={styles.boldGray}>{frontmatter.author} &emsp; &nbsp;</p>
+                        <p className={styles.boldGray}>{blog.author} &emsp; &nbsp;</p>
                     </div>
                     <div className={styles.date}>
                         <p className={styles.purple}>Date: &nbsp;</p>
-                        <p className={styles.boldGray}>{frontmatter.date}</p>
+                        <p className={styles.boldGray}>{blog.date}</p>
                     </div>
                 </div>
-                <div dangerouslySetInnerHTML={{ __html: marked(content) }} className={styles.text}></div>
+                <div dangerouslySetInnerHTML={{ __html: marked(post_content) }} className={styles.text}></div>
             </div>
             <Footer />
         </>
     );
 };
 
-import fs from 'fs';
-import path from 'path'
-import matter from 'gray-matter';
+/*
+OLD CODE BEFORE DATABASE IMPLEMENTATION
+*/
 
-export async function getStaticPaths() {
+/*export async function getStaticPaths() {
     const files = fs.readdirSync(path.join('posts'))
 
     const paths = files.map(filename => ({
@@ -52,9 +87,9 @@ export async function getStaticPaths() {
         paths,
         fallback: false
     }
-}
+}*/
 
-export async function getStaticProps({ params: { someId } }) {
+/*export async function getStaticProps({ params: { someId } }) {
 
     const markdownWithMeta = fs.readFileSync(path.join('posts', someId + '.md'), 'utf-8')
 
@@ -67,6 +102,6 @@ export async function getStaticProps({ params: { someId } }) {
             content
         },
     };
-}
+}*/
 
 export default exampleContent;

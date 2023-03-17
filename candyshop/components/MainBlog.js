@@ -8,7 +8,6 @@ const MainBlog = ({ post }) => {
     return (
         <>
             <div className={styles.mainBlogWrapper}>
-                {console.log(`/blogpics/${post.picture}`)}
                 <Image
                     className={styles.mainPic}
                     width={405}

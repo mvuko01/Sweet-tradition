@@ -1,7 +1,7 @@
 import styles from '../styles/BlogPost.module.css'
 
 const SimpleBanner = ({url}) => {
-
+    console.log(url)
     const backgroundStyle = {
         backgroundImage: `url(${url})`,
     };
