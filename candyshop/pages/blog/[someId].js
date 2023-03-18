@@ -6,7 +6,7 @@ import Header2 from "../../components/Header2";
 import SimpleBanner from '../../components/SimpleBanner';
 import prisma from '../../prisma/client';
 
-// import fs from 'fs';
+import fs from 'fs';
 // import path from 'path'
 // import matter from 'gray-matter';
 
@@ -18,8 +18,8 @@ export async function getServerSideProps({params}) {
             }
         })
         
-        /*const markdownWithMeta = fs.readFileSync(path.join('posts', params.someId + '.md'), 'utf-8')
-        const {data: frontmatter, content} = matter(markdownWithMeta)*/
+        const markdownWithMeta = fs.readFileSync(path.join('posts', params.someId + '.md'), 'utf-8')
+        /*const {data: frontmatter, content} = matter(markdownWithMeta)*/
 
         return {
             props: {
