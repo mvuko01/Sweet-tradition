@@ -10,46 +10,8 @@ import fs from 'fs';
 import path from 'path'
 import matter from 'gray-matter';
 
-/*export async function getServerSideProps({params}) {
-    try {
-        const blog = await prisma.blog.findFirst({
-            where: {
-                markdown_path: `${params.someId}.md`
-            }
-        })
-        
-        const markdownWithMeta = fs.readFileSync(path.join('posts', params.someId + '.md'), 'utf-8')
-        const {data: frontmatter, content} = matter(markdownWithMeta)
 
-        return {
-            props: {
-              blog: JSON.parse(JSON.stringify(blog)),
-              post_content: content,
-              id: params.someId
-            },
-        }
-    } catch (error) {
-        console.log(error)
-        return {
-            props: {
-              blog: [],
-              post_content: '',
-              id: params.someId
-
-            },
-        }
-    }
-
-
-}*/
-
-
-
-const exampleContent = ({ id,blog, post_content}) => {
-    console.log(blog)
-    console.log(post_content)
-    console.log(id)
-
+const exampleContent = ({ blog, post_content}) => {
     
     return (
         <>
@@ -110,32 +72,18 @@ export async function getStaticProps({ params: { someId } }) {
             props: {
               blog: JSON.parse(JSON.stringify(blog)),
               post_content: content,
-              id: someId
             },
         }
     } catch (error) {
-        console.log(error)
         return {
             props: {
               blog: [],
               post_content: '',
-              id: someId
 
             },
         }
     }
 
-    /*const markdownWithMeta = fs.readFileSync(path.join('posts', someId + '.md'), 'utf-8')
-
-    const {data: frontmatter, content} = matter(markdownWithMeta)
-   
-    return {
-        props: {
-            frontmatter,
-            someId,
-            content
-        },
-    };*/
 }
 
 export default exampleContent;
