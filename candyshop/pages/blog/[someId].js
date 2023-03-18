@@ -10,7 +10,7 @@ import fs from 'fs';
 import path from 'path'
 import matter from 'gray-matter';
 
-export async function getServerSideProps({params}) {
+/*export async function getServerSideProps({params}) {
     try {
         const blog = await prisma.blog.findFirst({
             where: {
@@ -41,7 +41,7 @@ export async function getServerSideProps({params}) {
     }
 
 
-}
+}*/
 
 
 
@@ -79,7 +79,7 @@ const exampleContent = ({ id,blog, post_content}) => {
 OLD CODE BEFORE DATABASE IMPLEMENTATION
 */
 
-/*export async function getStaticPaths() {
+export async function getStaticPaths() {
     const files = fs.readdirSync(path.join('posts'))
 
     const paths = files.map(filename => ({
@@ -92,11 +92,40 @@ OLD CODE BEFORE DATABASE IMPLEMENTATION
         paths,
         fallback: false
     }
-}*/
+}
 
-/*export async function getStaticProps({ params: { someId } }) {
+export async function getStaticProps({ params: { someId } }) {
 
-    const markdownWithMeta = fs.readFileSync(path.join('posts', someId + '.md'), 'utf-8')
+    try {
+        const blog = await prisma.blog.findFirst({
+            where: {
+                markdown_path: `${someId}.md`
+            }
+        })
+        
+        const markdownWithMeta = fs.readFileSync(path.join('posts', someId + '.md'), 'utf-8')
+        const {data: frontmatter, content} = matter(markdownWithMeta)
+
+        return {
+            props: {
+              blog: JSON.parse(JSON.stringify(blog)),
+              post_content: content,
+              id: someId
+            },
+        }
+    } catch (error) {
+        console.log(error)
+        return {
+            props: {
+              blog: [],
+              post_content: '',
+              id: someId
+
+            },
+        }
+    }
+
+    /*const markdownWithMeta = fs.readFileSync(path.join('posts', someId + '.md'), 'utf-8')
 
     const {data: frontmatter, content} = matter(markdownWithMeta)
    
@@ -106,7 +135,7 @@ OLD CODE BEFORE DATABASE IMPLEMENTATION
             someId,
             content
         },
-    };
-}*/
+    };*/
+}
 
 export default exampleContent;
