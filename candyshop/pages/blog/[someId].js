@@ -18,7 +18,7 @@ export async function getServerSideProps({params}) {
             }
         })
         
-        const markdownWithMeta = fs.readFileSync(path.join('posts', params.someId + '.md'), 'utf-8')
+        const markdownWithMeta = fs.readFileSync(path.join('public/posts', params.someId + '.md'), 'utf-8')
         const {data: frontmatter, content} = matter(markdownWithMeta)
 
         return {
