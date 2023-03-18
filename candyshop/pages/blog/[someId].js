@@ -7,7 +7,7 @@ import SimpleBanner from '../../components/SimpleBanner';
 import prisma from '../../prisma/client';
 
 import fs from 'fs';
-// import path from 'path'
+import path from 'path'
 // import matter from 'gray-matter';
 
 export async function getServerSideProps({params}) {
