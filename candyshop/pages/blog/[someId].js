@@ -42,6 +42,8 @@ export async function getServerSideProps({params}) {
 
 
 const exampleContent = ({ blog, post_content}) => {
+    console.log(blog)
+    console.log(post_content)
     
     return (
         <>
