@@ -6,9 +6,9 @@ import Header2 from "../../components/Header2";
 import SimpleBanner from '../../components/SimpleBanner';
 import prisma from '../../prisma/client';
 
-import fs from 'fs';
-import path from 'path'
-import matter from 'gray-matter';
+// import fs from 'fs';
+// import path from 'path'
+// import matter from 'gray-matter';
 
 export async function getServerSideProps({params}) {
     try {
@@ -18,13 +18,13 @@ export async function getServerSideProps({params}) {
             }
         })
         
-        const markdownWithMeta = fs.readFileSync(path.join('posts', params.someId + '.md'), 'utf-8')
-        const {data: frontmatter, content} = matter(markdownWithMeta)
+        /*const markdownWithMeta = fs.readFileSync(path.join('posts', params.someId + '.md'), 'utf-8')
+        const {data: frontmatter, content} = matter(markdownWithMeta)*/
 
         return {
             props: {
               blog: JSON.parse(JSON.stringify(blog)),
-              post_content: content,
+              /*post_content: content,*/
               id: params.someId
             },
         }
@@ -32,7 +32,7 @@ export async function getServerSideProps({params}) {
         return {
             props: {
               blog: [],
-              post_content: '',
+              /*post_content: '',*/
               id: params.someId
 
             },
@@ -67,7 +67,7 @@ const exampleContent = ({ id,blog, post_content}) => {
                         <p className={styles.boldGray}>{blog.date}</p>
                     </div>
                 </div>
-                <div dangerouslySetInnerHTML={{ __html: marked(post_content) }} className={styles.text}></div>
+                {/* <div dangerouslySetInnerHTML={{ __html: marked(post_content) }} className={styles.text}></div> */}
             </div>
             <Footer />
         </>
