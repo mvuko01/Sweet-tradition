@@ -7,6 +7,7 @@ import AboutUs from '../components/AboutUs';
 import Header2 from '../components/Header2';
 import BlogHomeArea from '../components/BlogHomeArea';
 import HomeCarousel from '../components/HomeCarousel';
+import prisma from '../prisma/client';
 
 
 
