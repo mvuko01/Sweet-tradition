@@ -14,25 +14,26 @@ const ShoppingCart = ({stateChanger, state}) => {
     }
 
     const handleChangeQuantity = (product, action) => {
-        const index = inMyShoppingCart.findIndex(p => p.frontmatter.id === product.frontmatter.id);
-        if (action === 'decrease' && inMyShoppingCart[index].quantity > 1) {
-            inMyShoppingCart[index].quantity--;
+        const index = inMyShoppingCart.findIndex(p => p.id === product.id);
+        if (action === 'decrease' && inMyShoppingCart[index].cart_quantity > 1) {
+            inMyShoppingCart[index].cart_quantity--;
         } else if (action === 'increase') {
-            inMyShoppingCart[index].quantity++;
+            inMyShoppingCart[index].cart_quantity++;
         }
         localStorage.setItem('shoppingCart', JSON.stringify(inMyShoppingCart));
     }
     const removeFromLocalStorage = (product) => {
-        const index = inMyShoppingCart.findIndex(p => p.frontmatter.id === product.frontmatter.id);
+        const index = inMyShoppingCart.findIndex(p => p.id === product.id);
         inMyShoppingCart.splice(index, 1);
         localStorage.setItem('shoppingCart', JSON.stringify(inMyShoppingCart));
     }
 
     const totalPrice = inMyShoppingCart.reduce((acc, curr) => {
-        return (acc + (curr.frontmatter.price.replace("€", "").replace(",", ".") * curr.quantity));
+        return (acc + (curr.price.replace("€", "").replace(",", ".") * curr.cart_quantity));
     }, 0);
 
     const formattedPrice = totalPrice.toFixed(2).toString().replace(".", ",") + "€";
+
     return (
         <>
             <div className={state ? styles.mainDivActive : styles.mainDiv}>
@@ -50,7 +51,7 @@ const ShoppingCart = ({stateChanger, state}) => {
                     </div>
                 </div>
                 <div className={styles.productsSection}>
-                    {inMyShoppingCart.map(product => (<ShoppingCartProduct key={product.frontmatter.id} product={product} quantity={product.quantity} removeFromLocalStorage={() =>removeFromLocalStorage(product)} handleChangeQuantity={(product, action) => handleChangeQuantity(product, action)} onChangeState={handleChangeOfState} prevState={currentState} />))}
+                    {inMyShoppingCart.map(product => (<ShoppingCartProduct key={product.id} product={product} cart_quantity={product.cart_quantity} removeFromLocalStorage={() =>removeFromLocalStorage(product)} handleChangeQuantity={(product, action) => handleChangeQuantity(product, action)} onChangeState={handleChangeOfState} prevState={currentState} />))}
                 </div>
                 <div className={styles.totalAndCheckoutContainer}>
                     <div className={styles.totalArea}>

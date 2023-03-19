@@ -16,7 +16,7 @@ const Header2 = () => {
 
     let totalQuantity = 0;
     inMyShoppingCart.forEach((product) => {
-        totalQuantity += product.quantity;
+        totalQuantity += product.cart_quantity;
     });
 
     const [isNavbarBurgerOn, setIsNavbarBurgerOn] = useState(false);

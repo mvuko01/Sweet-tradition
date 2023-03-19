@@ -42,9 +42,9 @@ export function handleAddToShoppingCart(product, setInShoppingCart) {
     let inShoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
     const index = inShoppingCart.findIndex(p => p.id === product.id);
     if (index === -1) {
-        inShoppingCart.push({...product, quantity: 1});
+        inShoppingCart.push({...product, cart_quantity: 1});
     } else {
-        inShoppingCart[index].quantity += 1;
+        inShoppingCart[index].cart_quantity += 1;
     }
     localStorage.setItem('shoppingCart', JSON.stringify(inShoppingCart));
     setInShoppingCart(inShoppingCart);
