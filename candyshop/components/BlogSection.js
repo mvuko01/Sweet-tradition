@@ -6,20 +6,22 @@ import Link from 'next/link';
 
 
 const BlogSection = ({ post }) => {
+    let routeString = post.markdown_path.substring(0,post.markdown_path.lastIndexOf(".")) 
+    let date = new Date(  post.date ).toLocaleDateString('en-GB', {month: '2-digit',day: '2-digit',year: 'numeric'})
     return (
         <>
-            <Link href={`../blog/${post.slug}`} className={styles.linkWrapper}>
+            <Link href={`../blog/${routeString}`} className={styles.linkWrapper}>
                     <Image
                     className={styles.blogPics}
                     width={325}
                     height={238}
-                    src={post.frontmatter.picture}
+                    src={`/blogpics/${post.picture_path}`}
                     alt="picture"
                 />
                 <div className={styles.miniBlogContentWrapper}>
-                    <p className={styles.title}>{post.frontmatter.title}</p>
-                    <p className={styles.ctaText}>{post.frontmatter.cta}</p>
-                    <p className={styles.ctaText}>{post.frontmatter.date}</p>
+                    <p className={styles.title}>{post.title}</p>
+                    <p className={styles.ctaText}>{post.cta_text}</p>
+                    <p className={styles.ctaText}>{date}</p>
                 </div>
             </Link>
         </>

@@ -8,14 +8,17 @@ import Header2 from '../components/Header2';
 import BlogHomeArea from '../components/BlogHomeArea';
 import HomeCarousel from '../components/HomeCarousel';
 
-import matter from 'gray-matter'
+
 
 
 /*USED TO GET BLOG POSTS FROM SERVER - IMPLEMENT WHEN IMPLEMENTINGF PRODUCTS AS WELL */
-/*export async function getServerSideProps() {
+export async function getServerSideProps() {
     
   try {
       const blogs = await prisma.blog.findMany({
+        orderBy: {
+          date: 'desc'
+        },
         take: 3,
       })
       return {
@@ -32,7 +35,7 @@ import matter from 'gray-matter'
   }
 
 
-}*/
+}
 
 
 const Hello = (props) => {
@@ -44,7 +47,7 @@ const Hello = (props) => {
             <title>Sweet tradition</title>
             <Header2 />
             <FirstBanner />
-            <HomeCarousel products={products}/>
+            {/* <HomeCarousel products={products}/> */}
             <StoryBanner />
             <AboutUs />
             <BlogHomeArea blogPosts={blogPosts}/>
@@ -54,11 +57,11 @@ const Hello = (props) => {
 };
 
 
-import fs from 'fs'
-import path from 'path'
-import { useEffect } from 'react';
-
-export async function getStaticProps() {
+// import fs from 'fs'
+// import path from 'path'
+// import { useEffect } from 'react';
+// import matter from 'gray-matter'
+/*export async function getStaticProps() {
 
   //Get files from the posts dir
   const files = fs.readdirSync(path.join('posts'))
@@ -101,6 +104,6 @@ export async function getStaticProps() {
       products: products,
     }
   }
-}
+}*/
 
 export default Hello;

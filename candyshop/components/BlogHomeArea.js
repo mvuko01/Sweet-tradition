@@ -16,8 +16,8 @@ const BlogHomeArea = ({blogPosts}) =>{
         <div>
             <h1 className={styles.blogsHeading}>BLOGS</h1>
             <div className={styles.allBlogsWrapper}>
-                {blogPosts.slice(6, 9).map((post) => (
-                    <BlogSection key={post.frontmatter.id} post={post} />
+                {blogPosts.map((post) => (
+                    <BlogSection key={post.id} post={post} />
                 ))}
             </div>
             <div href={navigationItems.at(2).path} key={navigationItems.at(2).label} passHref className={styles.readMoreBlogs}>

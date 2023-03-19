@@ -1,6 +1,5 @@
 import styles from '../../styles/BlogPost.module.css'
 import Footer from '../../components/Footer';
-import Image from 'next/image'
 import {marked} from 'marked';
 import Header2 from "../../components/Header2";
 import SimpleBanner from '../../components/SimpleBanner';
@@ -12,7 +11,8 @@ import matter from 'gray-matter';
 
 
 const exampleContent = ({ blog, post_content}) => {
-    let date = new Date(  blog.date ).toLocaleDateString()
+    let date = new Date(  blog.date ).toLocaleDateString('en-GB', {month: '2-digit',day: '2-digit',year: 'numeric'})
+
     return (
         <>
             <title>{blog.title}</title>
