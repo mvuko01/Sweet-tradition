@@ -42,7 +42,11 @@ import prisma from '../../prisma/client'
 export async function getServerSideProps() {
     
     try {
-        const blogs = await prisma.blog.findMany()
+        const blogs = await prisma.blog.findMany({
+            orderBy: {
+                date: 'desc'
+            },
+        })
         return {
             props: {
               posts: JSON.parse(JSON.stringify(blogs)),
