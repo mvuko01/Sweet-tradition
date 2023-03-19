@@ -12,7 +12,7 @@ import matter from 'gray-matter';
 
 
 const exampleContent = ({ blog, post_content}) => {
-    
+    let date = new Date(  blog.date ).toLocaleDateString()
     return (
         <>
             <title>{blog.title}</title>
@@ -27,7 +27,7 @@ const exampleContent = ({ blog, post_content}) => {
                     </div>
                     <div className={styles.date}>
                         <p className={styles.purple}>Date: &nbsp;</p>
-                        <p className={styles.boldGray}>{blog.date}</p>
+                        <p className={styles.boldGray}>{date}</p>
                     </div>
                 </div>
                 <div dangerouslySetInnerHTML={{ __html: marked(post_content) }} className={styles.text}></div>

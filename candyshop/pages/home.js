@@ -15,7 +15,9 @@ import matter from 'gray-matter'
 /*export async function getServerSideProps() {
     
   try {
-      const blogs = await prisma.blog.findMany()
+      const blogs = await prisma.blog.findMany({
+        take: 3,
+      })
       return {
           props: {
             posts: JSON.parse(JSON.stringify(blogs)),
