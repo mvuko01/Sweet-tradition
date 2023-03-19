@@ -17,10 +17,10 @@ export function limitWords(text) {
 
 export function handleAddToFavourites(product, setFavs) {
         let favourites = JSON.parse(localStorage.getItem('favourites')) || [];
-        const index = favourites.findIndex(p => p.frontmatter.id === product.frontmatter.id);
+        const index = favourites.findIndex(p => p.id === product.id);
         if (index === -1) {
             favourites.push(product);
-            const currentIndex = favourites.findIndex(p => p.frontmatter.id === product.frontmatter.id);
+            const currentIndex = favourites.findIndex(p => p.id === product.id);
             favourites[currentIndex].isFavourite = true;
         } else {
             favourites.splice(index, 1);
@@ -30,7 +30,7 @@ export function handleAddToFavourites(product, setFavs) {
 }
 
 export function checkIfFavourite(product, favs) {
-  const index = favs.findIndex(p => p.frontmatter.id === product.frontmatter.id);
+  const index = favs.findIndex(p => p.id === product.id);
       if (index === -1) {
           return false;
       } else {
@@ -40,7 +40,7 @@ export function checkIfFavourite(product, favs) {
 
 export function handleAddToShoppingCart(product, setInShoppingCart) {
     let inShoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
-    const index = inShoppingCart.findIndex(p => p.frontmatter.id === product.frontmatter.id);
+    const index = inShoppingCart.findIndex(p => p.id === product.id);
     if (index === -1) {
         inShoppingCart.push({...product, quantity: 1});
     } else {

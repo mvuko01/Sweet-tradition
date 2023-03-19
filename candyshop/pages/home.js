@@ -22,15 +22,27 @@ export async function getServerSideProps() {
         },
         take: 3,
       })
+      const products = await prisma.candy.findMany({
+        take: 9,
+        include:{
+          category: {
+            select:{
+              name: true,
+            }
+          }
+        }
+      })
       return {
           props: {
             posts: JSON.parse(JSON.stringify(blogs)),
+            products: JSON.parse(JSON.stringify(products)),
           },
       }
   } catch (error) {
       return {
           props: {
             posts: [],
+            products: [],
           },
       }
   }
@@ -42,13 +54,12 @@ export async function getServerSideProps() {
 const Hello = (props) => {
     const blogPosts = props.posts;
     const products = props.products;
-    console.log(blogPosts)
     return (
         <>
             <title>Sweet tradition</title>
             <Header2 />
             <FirstBanner />
-            {/* <HomeCarousel products={products}/> */}
+            <HomeCarousel products={products}/>
             <StoryBanner />
             <AboutUs />
             <BlogHomeArea blogPosts={blogPosts}/>

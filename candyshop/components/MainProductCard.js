@@ -5,8 +5,9 @@ import { useState, useEffect, useContext} from 'react';
 import { handleAddToFavourites, checkIfFavourite, handleAddToShoppingCart } from '../helpers';
 import { MyContext } from '../context.js'
 
-const MainProductCard = ({name, short_description, picture, price, id, product }) => {
+const MainProductCard = ({ product }) => {
     const {setInMyShoppingCart, setInMyFavourites, inMyFavourites} = useContext(MyContext);
+    let routeString = product.description_path.substring(0,product.description_path.lastIndexOf(".")) 
     return (
         <>
             <div className = {styles.mainProductCard}>
@@ -22,9 +23,9 @@ const MainProductCard = ({name, short_description, picture, price, id, product }
                         />
                     
                     </button>
-                    <Link href={`../candy/${product.slug}`} className={styles.linkWrapper}>
+                    <Link href={`../candy/${routeString}`} className={styles.linkWrapper}>
                     <Image
-                        src={picture}
+                        src={`/productPics/${product.picture_paths[0]}`}
                         alt="Product image"
                         width={100}
                         height={100}
@@ -33,9 +34,9 @@ const MainProductCard = ({name, short_description, picture, price, id, product }
                     </Link>
                 </div>
                 <div className={styles.productInfo}>
-                    <p className={styles.mainProductDescription}>{short_description}</p>
-                    <Link href={`../candy/${product.slug}`} className={styles.mainProductName}>{name}</Link>
-                    <div className={styles.mainProductPrice}>{price}</div>
+                    <p className={styles.mainProductDescription}>{`${product.category.name}, ${product.quantity}`}</p>
+                    <Link href={`../candy/${routeString}`} className={styles.mainProductName}>{product.name}</Link>
+                    <div className={styles.mainProductPrice}>{product.price}</div>
                     <button className={styles.buttonCart}>
                         <Image
                             src={'/productPics/Add to cart.svg'}
