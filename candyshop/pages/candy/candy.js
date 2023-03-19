@@ -13,6 +13,34 @@ import PageNumber from '../../components/PageNumbers';
 import { useRouter } from 'next/router';
 import SimpleBanner from '../../components/SimpleBanner';
 
+
+export async function getServerSideProps() {
+    
+    try {
+        
+        const products = await prisma.candy.findMany({
+            include:{
+                category: {
+                  select:{
+                    name: true,
+                  }
+                }
+              }
+        })
+        return {
+            props: {
+              products: JSON.parse(JSON.stringify(products)),
+            },
+        }
+    } catch (error) {
+        return {
+            props: {
+              products: [],
+            },
+        }
+    }
+}
+
 const Candy = (props) => {
     const products = props.products;
     const router = useRouter();
@@ -96,7 +124,7 @@ const Candy = (props) => {
     const [isCheckedCategory, setIsCheckedCategory] = useState([]);
     const [isOpenCategory, setIsOpenCategory] = useState(false);
 
-    const prices = products.map(product => parseFloat(product.frontmatter.price.replace(",", ".").replace("€", "")));
+    const prices = products.map(product => parseFloat(product.price.replace(",", ".").replace("€", "")));
     const minPrice = Math.min(...prices);
     const maxPrice = Math.max(...prices);
 
@@ -174,27 +202,27 @@ const Candy = (props) => {
 
         if(wantedQuery){
             filteredProducts = products.filter(product => {
-            return product.frontmatter.name.toLowerCase().includes(wantedQuery.toLowerCase())
-            || product.frontmatter.category.toLowerCase().includes(wantedQuery.toLowerCase());
+            return product.name.toLowerCase().includes(wantedQuery.toLowerCase())
+            || product.category.toLowerCase().includes(wantedQuery.toLowerCase());
         });
         }
 
         if(isCheckedCategory.length != 0){
             filteredProducts = filteredProducts.filter(product => {
-                return isCheckedCategory.includes(product.frontmatter.category);
+                return isCheckedCategory.includes(product.category);
             });
         }
 
         if(isCheckedCountry.length != 0){
         filteredProducts = filteredProducts.filter(product => {
-            const countryCode = product.frontmatter.country;
+            const countryCode = product.country;
             const countryName = countryCode === "UK" ? "United Kingdom" : countryCode; // map "UK" to "United Kingdom"
             return isCheckedCountry.includes(countryName) || isCheckedCountry.includes(countryCode);
         });
         }
 
         filteredProducts = filteredProducts.filter(product => {
-            const price = parseFloat(product.frontmatter.price.replace(",", ".").replace("€", ""));
+            const price = parseFloat(product.price.replace(",", ".").replace("€", ""));
             return price >= currentMin && price <= currentMax;
         });
 
@@ -213,24 +241,24 @@ const Candy = (props) => {
     const sortProducts = (products, sortOption) => {
         const dataToSort = [...products];
         if(sortOption === "Name Z-A"){
-                dataToSort.sort((a, b) => a.frontmatter.name > b.frontmatter.name ? -1 : 1);
+                dataToSort.sort((a, b) => a.name > b.name ? -1 : 1);
             }
         else if(sortOption === "Price - Low to high"){
                 dataToSort.sort((a, b) => {
-                    let priceA = Number(a.frontmatter.price.replace(",", ".").replace("€", ""));
-                    let priceB = Number(b.frontmatter.price.replace(",", ".").replace("€", ""));
+                    let priceA = Number(a.price.replace(",", ".").replace("€", ""));
+                    let priceB = Number(b.price.replace(",", ".").replace("€", ""));
                     return priceA - priceB;
                   });
         }
         else if(sortOption === "Price - High to low"){
             dataToSort.sort((a, b) => {
-                let priceA = Number(a.frontmatter.price.replace(",", ".").replace("€", ""));
-                let priceB = Number(b.frontmatter.price.replace(",", ".").replace("€", ""));
+                let priceA = Number(a.price.replace(",", ".").replace("€", ""));
+                let priceB = Number(b.price.replace(",", ".").replace("€", ""));
                 return priceB - priceA;
               });
         }
         else {
-                dataToSort.sort((a, b) => a.frontmatter.name < b.frontmatter.name ? -1 : 1);
+                dataToSort.sort((a, b) => a.name < b.name ? -1 : 1);
         }
         return dataToSort;
     }
@@ -380,7 +408,7 @@ const Candy = (props) => {
                     </div>
         }
                     {currentProducts.map((product)=>{
-                       return <SideProductCard onHeartClick={handleHeartClick} prevState={heartState} className = {styles.product}key={product.frontmatter.id} product={product} name={product.frontmatter.name} short_description={`${product.frontmatter.category}, ${product.frontmatter.quantity}`} picture={product.frontmatter.picture} price={product.frontmatter.price} id={product.frontmatter.id}/>
+                       return <SideProductCard onHeartClick={handleHeartClick} prevState={heartState} className={styles.product} key={product.id} product={product}/>
                     })}
 
                 </div>
@@ -392,7 +420,7 @@ const Candy = (props) => {
 };
 
 
-import fs from 'fs'
+/*import fs from 'fs'
 import path from 'path'
 
 export async function getStaticProps() {
@@ -421,7 +449,7 @@ export async function getStaticProps() {
         products: products,
       }
     }
-  }
+  }*/
 
 
 export default Candy;
