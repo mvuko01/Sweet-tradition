@@ -8,6 +8,7 @@ import Link from 'next/link';
 const BlogSection = ({ post }) => {
     let routeString = post.markdown_path.substring(0,post.markdown_path.lastIndexOf(".")) 
     let date = new Date(  post.date ).toLocaleDateString('en-GB', {month: '2-digit',day: '2-digit',year: 'numeric'})
+    console.log(post)
     return (
         <>
             <Link href={`../blog/${routeString}`} className={styles.linkWrapper}>

@@ -41,7 +41,7 @@ export async function getServerSideProps() {
 const Hello = (props) => {
     const blogPosts = props.posts;
     const products = props.products;
-
+    console.log(blogPosts)
     return (
         <>
             <title>Sweet tradition</title>
