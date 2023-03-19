@@ -7,17 +7,15 @@ import { useState, useEffect, useRef } from 'react';
 import React from 'react';
 import { categories } from '../../constants/productCategories';
 import { countries } from '../../constants/countries';
-import matter from 'gray-matter'
 import RangeSlider from '../../components/RangeSlider';
 import PageNumber from '../../components/PageNumbers';
 import { useRouter } from 'next/router';
 import SimpleBanner from '../../components/SimpleBanner';
-
+import prisma from '../../prisma/client';
 
 export async function getServerSideProps() {
     
     try {
-        
         const products = await prisma.candy.findMany({
             include:{
                 category: {
