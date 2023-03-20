@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from '../styles/AdminPanel.module.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const CandyAdminPanel = ({product, candyCategory}) => {
     const [name, setName] = useState(product.name);
@@ -45,9 +45,26 @@ const CandyAdminPanel = ({product, candyCategory}) => {
         }
     };
 
+    const handleDeleteClick = async (event) => {
+        event.preventDefault();
+        try {
+        const response = await fetch('/api/deleteCandy', {
+            method: 'DELETE',
+            body: JSON.stringify({ id: product.id}),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        if (response.ok) {
+            setEditing(false);
+        }
+        } catch (error) {
+        console.error(error);
+        }
+    };
+
     const categoryOptions = candyCategory.map(cat => (
         <option key={cat.name} value={cat.name}>{cat.name}</option>
     ));
+
     return (
         <>
         <div className={styles.productContainer}>
@@ -55,7 +72,7 @@ const CandyAdminPanel = ({product, candyCategory}) => {
                     width={196}
                     height={220}
                     src={`/productPics/${product.picture_paths[0]}`}
-                    alt="next page arrow"
+                    alt="Product Image"
                 />
             <p className={styles.infoLabels}>NAME</p>
                 {editing ? (
@@ -91,7 +108,7 @@ const CandyAdminPanel = ({product, candyCategory}) => {
                 ) : (
                 <>
                 <button onClick={handleEditClick}>EDIT</button>
-                <button>DELETE</button>
+                <button onClick={handleDeleteClick}>DELETE</button>
                 </>
                 )}
         </div>
