@@ -5,6 +5,7 @@ import CandyAdminPanel from '../components/CandyAdminPanel';
 import PageNumber from '../components/PageNumbers';
 import { useState } from 'react';
 import prisma from '../prisma/client';
+import { categories } from '../constants/productCategories';
 
 export async function getServerSideProps() {
     try {
@@ -68,7 +69,7 @@ const AdminPanel = (props) => {
         <PageNumber currentPage={currentPage} handlePageChange={handlePageChange} visiblePageNumbers={visiblePageNumbers} numberOfPages={numberOfPages}/>
         {currentProducts.map((product) => {
             return (
-                <CandyAdminPanel key={product.id} product={product} />
+                <CandyAdminPanel key={product.id} product={product} candyCategory={categories} />
             )
         })}
         <PageNumber currentPage={currentPage} handlePageChange={handlePageChange} visiblePageNumbers={visiblePageNumbers} numberOfPages={numberOfPages}/>
