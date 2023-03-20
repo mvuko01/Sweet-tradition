@@ -47,18 +47,22 @@ const CandyAdminPanel = ({product, candyCategory}) => {
 
     const handleDeleteClick = async (event) => {
         event.preventDefault();
-        try {
-        const response = await fetch('/api/deleteCandy', {
-            method: 'DELETE',
-            body: JSON.stringify({ id: product.id}),
-            headers: { 'Content-Type': 'application/json' }
-        });
-        if (response.ok) {
-            setEditing(false);
-        }
-        } catch (error) {
-        console.error(error);
-        }
+        const deleteConfirmed = confirm("Are you sure you want to delete this product?");
+
+        if (deleteConfirmed) {
+            try {
+            const response = await fetch('/api/deleteCandy', {
+                method: 'DELETE',
+                body: JSON.stringify({ id: product.id}),
+                headers: { 'Content-Type': 'application/json' }
+            });
+            if (response.ok) {
+                setEditing(false);
+            }
+            } catch (error) {
+            console.error(error);
+            }
+    }
     };
 
     const categoryOptions = candyCategory.map(cat => (
