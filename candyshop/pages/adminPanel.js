@@ -1,6 +1,6 @@
 import Header2 from '../components/Header2';
 import Footer from '../components/Footer';
-import styles from '../styles/adminPanel.module.css';
+import styles from '../styles/AdminPanel.module.css';
 import CandyAdminPanel from '../components/CandyAdminPanel';
 import PageNumber from '../components/PageNumbers';
 import { useState } from 'react';

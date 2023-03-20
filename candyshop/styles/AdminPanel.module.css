@@ -8,3 +8,14 @@
     letter-spacing: 0.1em;
     margin-top: 38px;
 }
+.infoLabels{
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    max-width: 290px;
+    font-size: 1.25rem;
+  
+    color: black;
+}
