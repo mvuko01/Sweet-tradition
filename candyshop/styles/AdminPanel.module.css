@@ -1,0 +1,10 @@
+.heading{
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-size: clamp(1.7rem, 5vw ,3rem);
+
+    color: #7F2982;
+    text-align: center;
+    letter-spacing: 0.1em;
+    margin-top: 38px;
+}
