@@ -8,7 +8,7 @@ const CandyAdminPanel = ({product, candyCategory}) => {
     const [price, setPrice] = useState(product.price);
     const [category, setCategory] = useState(product.category.name);
     const [editing, setEditing] = useState(false);
-    
+
     const handleEditClick = () => {
         setEditing(!editing);
         };
@@ -81,7 +81,7 @@ const CandyAdminPanel = ({product, candyCategory}) => {
                             {categoryOptions}
                         </select>
                 ) : (
-                        <p>{product.category.name}</p>
+                        <p>{category}</p>
                 )}
                 {editing ? (
                 <>
