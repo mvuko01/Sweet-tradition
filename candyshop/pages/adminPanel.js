@@ -5,7 +5,7 @@ import CandyAdminPanel from '../components/CandyAdminPanel';
 import PageNumber from '../components/PageNumbers';
 import { useState } from 'react';
 import prisma from '../prisma/client';
-import { categories } from '../constants/productCategories';
+
 
 export async function getServerSideProps() {
     try {
