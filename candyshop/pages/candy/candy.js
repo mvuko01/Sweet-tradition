@@ -26,9 +26,13 @@ export async function getServerSideProps() {
                   select:{
                     name: true,
                   }
-                }
-              },
-            
+                },
+                country: {
+                    select:{
+                        name: true,
+                    }
+                },
+            }         
         })
         return {
             props: {
@@ -124,8 +128,7 @@ const Candy = (props) => {
     /*PRIVREMENOOOOOOO */
     
 
-    const [isCheckedCategory, setIsCheckedCategory] = useState([]);
-    const [isOpenCategory, setIsOpenCategory] = useState(false);
+    
 
     const prices = products.map(product => parseFloat(product.price.replace(",", ".").replace("€", "")));
     const minPrice = Math.min(...prices);
@@ -134,7 +137,8 @@ const Candy = (props) => {
     const [currentMin, setCurrentMin] = useState(minPrice);
     const [currentMax, setCurrentMax] = useState(maxPrice);
 
-
+    const [isCheckedCategory, setIsCheckedCategory] = useState([]);
+    const [isOpenCategory, setIsOpenCategory] = useState(false);
     function handleAddCategoryFilter(e){
         const name = e.currentTarget.childNodes[1].innerText;
         if(isCheckedCategory.includes(name)){
@@ -176,6 +180,7 @@ const Candy = (props) => {
     let categoryFilterRef = useRef();
     let applyFilterRef = useRef();
 
+    //USED FOR CLOSING FILTERS WHEN CLICKING OUTSIDE OF THEM
     useEffect(() => {
         let handler = (e) =>{
             if(countryFilterRef.current && (!countryFilterRef.current.contains(e.target) && !categoryFilterRef.current.contains(e.target)))
@@ -202,6 +207,7 @@ const Candy = (props) => {
     useEffect(() => {
         let filteredProducts = products;
 
+        //FILTERING BY SEARCH
         if(wantedQuery){
             filteredProducts = products.filter(product => {
             return product.name.toLowerCase().includes(wantedQuery.toLowerCase())
@@ -209,17 +215,19 @@ const Candy = (props) => {
         });
         }
 
+        //FILTERING BY CATEGORY
         if(isCheckedCategory.length != 0){
             filteredProducts = filteredProducts.filter(product => {
-                return isCheckedCategory.includes(product.category);
+                return isCheckedCategory.includes(product.category.name);
             });
         }
 
+        //FILTERING BY COUNTRY
         if(isCheckedCountry.length != 0){
         filteredProducts = filteredProducts.filter(product => {
-            const countryCode = product.country;
-            const countryName = countryCode === "UK" ? "United Kingdom" : countryCode; // map "UK" to "United Kingdom"
-            return isCheckedCountry.includes(countryName) || isCheckedCountry.includes(countryCode);
+            const countryCode = product.country.name;
+            //const countryName = countryCode === "UK" ? "United Kingdom" : countryCode; // map "UK" to "United Kingdom"
+            return isCheckedCountry.includes(countryCode);
         });
         }
 
