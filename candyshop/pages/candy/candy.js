@@ -5,8 +5,6 @@ import Image from 'next/image';
 import SideProductCard from '../../components/SideProductCard';
 import { useState, useEffect, useRef } from 'react';
 import React from 'react';
-//import { categories } from '../../constants/productCategories';
-//import { countries } from '../../constants/countries';
 import RangeSlider from '../../components/RangeSlider';
 import PageNumber from '../../components/PageNumbers';
 import { useRouter } from 'next/router';
@@ -63,10 +61,7 @@ export async function getServerSideProps() {
     }
 }
 
-const Candy = (props) => {
-    const products = props.products;
-    const categories = props.categories;
-    const countries = props.countries;
+const Candy = ({products, categories, countries}) => {
     const router = useRouter();
     const wantedQuery = router.query.query;
     const sortOptions = [
@@ -76,76 +71,7 @@ const Candy = (props) => {
         { label: 'Name Z-A', id: '4' },
     ];
 
-    /*PRIVREMENOOOOOOO */
 
-    // var myFunc;
-    // (myFunc = async function(){
-    //     const data = await fetch('/api/createCountry' ,{
-    //         method: "POST",
-    //         body: JSON.stringify({candyArray})
-    //     })
-    //     const res = await data.json()
-    //     if(!res.ok) console.log (res);
-    // })()
-    
-    /*async function getCountries(){
-        const countriess = await fetch("/api/getCountry")
-        if(!countriess.ok){
-            console.log(countriess)
-        }
-        return countriess.json()
-    }
-
-    async function getCategories(){
-        const categoriess = await fetch("/api/getCategory")
-        if(!categoriess.ok){
-            console.log(categoriess)
-        }
-        return categoriess.json()
-    }*/
-
-
-    
-    /*var myFunc;
-    (myFunc = async function(){
-        const Kantry = await getCountries();
-        const Kategory = await getCategories();
-        
-        let candyArray =[];
-        products.forEach(product => {
-            
-            let currentCountry = Kantry.find(country => country.name == product.frontmatter.country || country.short_name == product.frontmatter.country);
-            let currentCategory = Kategory.find(categoryy => categoryy.name == product.frontmatter.category);
-            let picture1 = product.frontmatter.picture.substring(product.frontmatter.picture.lastIndexOf("/") + 1,);
-            let picture2 = product.frontmatter.picture2.substring(product.frontmatter.picture2.lastIndexOf("/") + 1,);
-            let picture3 = product.frontmatter.picture3.substring(product.frontmatter.picture3.lastIndexOf("/") + 1,);
-
-            let path = product.slug +".md";
-
-            let obj ={
-                name: product.frontmatter.name,
-                picture_paths: [picture1, picture2, picture3],
-                price: product.frontmatter.price,
-                description_path: path,
-                category_id: currentCategory.id,
-                country_id: currentCountry.id,
-                quantity: product.frontmatter.quantity
-            }
-            candyArray.push(obj)
-        });
-
-        const data = await fetch('/api/createCountry' ,{
-                    method: "POST",
-                    body: JSON.stringify(candyArray)
-        })
-        const res = await data.json()
-        if(!res.ok) console.log (res);
-    })()*/
-   
-    /*PRIVREMENOOOOOOO */
-    
-
-    
 
     const prices = products.map(product => parseFloat(product.price.replace(",", ".").replace("€", "")));
     const minPrice = Math.min(...prices);
@@ -154,6 +80,8 @@ const Candy = (props) => {
     const [currentMin, setCurrentMin] = useState(minPrice);
     const [currentMax, setCurrentMax] = useState(maxPrice);
 
+
+    
     const [isCheckedCategory, setIsCheckedCategory] = useState([]);
     const [isOpenCategory, setIsOpenCategory] = useState(false);
     function handleAddCategoryFilter(e){

@@ -12,32 +12,6 @@ import useAuth from "../../hooks/useAuth";
 import PageNumber from '../../components/PageNumbers';
 import prisma from '../../prisma/client'
 
-/*OLD CODE WITHOUT DATABASE AND READING FROM MD */
-
-/*export async function getStaticProps() {
-  //Get files from the posts dir
-  const files = fs.readdirSync(path.join('posts'))
-
-  //Get slug and frontmatter from posts
-  const posts = files.map(filename => {
-    //Create slug
-    const slug = filename.replace('.md', '')
-
-    //Get frontmatter
-    const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8')
-    const {data:frontmatter} = matter(markdownWithMeta)
-    return {
-      slug,
-      frontmatter
-    }
-  })
-
-  return {
-    props: {
-        posts: posts
-      }
-  }
-}*/
 
 export async function getServerSideProps() {
     
@@ -69,7 +43,7 @@ const Blogs =  (props) => {
     const blogPosts  = props.posts;
     const numberOfBlogsPerPage = 4;
     
-    /*NOVO */
+    // Pagination
     const [currentPage, setCurrentPage] = useState(1);
     const numberOfPages = Math.ceil(blogPosts.length / numberOfBlogsPerPage);
     const indexOfLastBlog = currentPage * numberOfBlogsPerPage;

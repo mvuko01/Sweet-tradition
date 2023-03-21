@@ -1,6 +1,5 @@
 import Header2 from '../components/Header2';
 import Footer from '../components/Footer';
-import ListProductCard from '../components/ListProductCard';
 import React, { useState, useEffect, useRef } from 'react';
 import styles from '../styles/favourites.module.css';
 import Image from 'next/image';
