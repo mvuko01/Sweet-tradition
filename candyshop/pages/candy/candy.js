@@ -205,7 +205,7 @@ const Candy = (props) => {
         if(wantedQuery){
             filteredProducts = products.filter(product => {
             return product.name.toLowerCase().includes(wantedQuery.toLowerCase())
-            || product.category.toLowerCase().includes(wantedQuery.toLowerCase());
+            || product.category.name.toLowerCase().includes(wantedQuery.toLowerCase());
         });
         }
 
