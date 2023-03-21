@@ -5,8 +5,8 @@ import Image from 'next/image';
 import SideProductCard from '../../components/SideProductCard';
 import { useState, useEffect, useRef } from 'react';
 import React from 'react';
-import { categories } from '../../constants/productCategories';
-import { countries } from '../../constants/countries';
+//import { categories } from '../../constants/productCategories';
+//import { countries } from '../../constants/countries';
 import RangeSlider from '../../components/RangeSlider';
 import PageNumber from '../../components/PageNumbers';
 import { useRouter } from 'next/router';
@@ -18,7 +18,7 @@ export async function getServerSideProps() {
     try {
         const products = await prisma.candy.findMany({
             orderBy: {
-                name: 'desc'
+                name: 'asc'
             },
             
             include:{
@@ -34,15 +34,30 @@ export async function getServerSideProps() {
                 },
             }         
         })
+        const categories = await prisma.category.findMany({
+            orderBy: {
+                name: 'asc'
+            },
+        })
+        const countries = await prisma.country.findMany({
+            orderBy: {
+                name: 'asc'
+            },
+        })
+        
         return {
             props: {
-              products: JSON.parse(JSON.stringify(products)),
+                products: JSON.parse(JSON.stringify(products)),
+                categories: JSON.parse(JSON.stringify(categories)),
+                countries: JSON.parse(JSON.stringify(countries)),
             },
         }
     } catch (error) {
         return {
             props: {
-              products: [],
+                products: [],
+                categories: [],
+                countries: [],
             },
         }
     }
@@ -50,6 +65,8 @@ export async function getServerSideProps() {
 
 const Candy = (props) => {
     const products = props.products;
+    const categories = props.categories;
+    const countries = props.countries;
     const router = useRouter();
     const wantedQuery = router.query.query;
     const sortOptions = [
@@ -226,7 +243,6 @@ const Candy = (props) => {
         if(isCheckedCountry.length != 0){
         filteredProducts = filteredProducts.filter(product => {
             const countryCode = product.country.name;
-            //const countryName = countryCode === "UK" ? "United Kingdom" : countryCode; // map "UK" to "United Kingdom"
             return isCheckedCountry.includes(countryCode);
         });
         }
@@ -348,7 +364,7 @@ const Candy = (props) => {
                             </div>
                             <div className={ isOpenCategory ? styles.filterOptionsActive : styles.filterOptionsInactive}>
                                 {categories.map((category) => (
-                                    <div className={styles.filterOption} onClick={handleAddCategoryFilter} key={category.name}>
+                                    <div className={styles.filterOption} onClick={handleAddCategoryFilter} key={category.id}>
                                         <input readOnly type="checkbox" checked={isCheckedCategory.includes(category.name)} className={styles.cbox}/>
                                         <label>{category.name}</label>
                                     </div>
@@ -370,7 +386,7 @@ const Candy = (props) => {
                             </div>
                             <div  className={ isOpenCountry ? styles.filterOptionsActive : styles.filterOptionsInactive}>
                                 {countries.map((country) => (
-                                    <div className={styles.filterOption} onClick={handleAddCountryFilter} key={country.name}>
+                                    <div className={styles.filterOption} onClick={handleAddCountryFilter} key={country.id}>
                                         <input readOnly type="checkbox" checked={isCheckedCountry.includes(country.name)} className={styles.cbox}/>
                                         <label>{country.name}</label>
                                         <div className={styles.countryImageWrapper}>
