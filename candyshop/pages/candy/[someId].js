@@ -4,40 +4,20 @@ import styles from '../../styles/Candy.module.css'
 import Image from 'next/image'
 import {useState, useEffect, useContext} from 'react';
 import {MyContext} from '../../context.js';
-import { countries } from '../../constants/countries';
+import prisma from '../../prisma/client';
+
+import { handleAddToFavourites, checkIfFavourite, handleAddToShoppingCart } from '../../helpers';
 
 import matter from 'gray-matter';
+import fs from 'fs'
+import path from 'path'
+
 import {marked} from 'marked';
 import Header2 from '../../components/Header2';
 
-const OneCandy = ({frontmatter, content, products}) => {
+const OneCandy = ({desc_content, product, recommended_products}) => {
     const {setInMyShoppingCart, setInMyFavourites, inMyFavourites} = useContext(MyContext);
 
-    const handleAddToFavouriteClick = () => {
-        let favourites = JSON.parse(localStorage.getItem('favourites')) || [];
-        const index = favourites.findIndex(p => p.frontmatter.id === frontmatter.id);
-        if (index === -1) {
-            favourites.push(products.find(p => p.frontmatter.id === frontmatter.id));
-            const currentIndex = favourites.findIndex(p => p.frontmatter.id === frontmatter.id);
-            favourites[currentIndex].isFavourite = true;
-        } else {
-            favourites.splice(index, 1);
-        }
-        localStorage.setItem('favourites', JSON.stringify(favourites));
-        setInMyFavourites(favourites);
-    };
-
-    const handleAddToShoppingCart = (quantity) => {
-        let inShoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
-        const index = inShoppingCart.findIndex(p => p.frontmatter.id === frontmatter.id);
-        if (index === -1) {
-            inShoppingCart.push({...products.find(p => p.frontmatter.id === frontmatter.id), quantity: quantity});
-        } else {
-            inShoppingCart[index].quantity += quantity;
-        }
-        localStorage.setItem('shoppingCart', JSON.stringify(inShoppingCart));
-        setInMyShoppingCart(inShoppingCart);
-    }
 
     const [heartState, setHeartState] = useState(false);
       const handleHeartClick = (newHeartState) => {
@@ -45,7 +25,7 @@ const OneCandy = ({frontmatter, content, products}) => {
     }
 
     const checkIfFavourite = (inMyFavourites) => {
-        const index = inMyFavourites.findIndex(p => p.frontmatter.id === frontmatter.id);
+        const index = inMyFavourites.findIndex(p => p.id === product.id);
             if (index === -1) {
                 return false;
             } else {
@@ -68,22 +48,21 @@ const OneCandy = ({frontmatter, content, products}) => {
             setCount(count - 1);
     }
 
-    const productImages = [frontmatter.picture, frontmatter.picture2, frontmatter.picture3];
+    const productImages = [product.picture_paths[0], product.picture_paths[1], product.picture_paths[2]];
     const [currentImage, setCurrentImage] = useState(0);
 
     const handlePrevImage = () => {
         setCurrentImage((currentImage + productImages.length - 1) % productImages.length);
-      };
-    
-      const handleNextImage = () => {
-        setCurrentImage((currentImage + 1) % productImages.length);
-      };
+    };
 
-    const country = countries.find((country) => country.name === (frontmatter.country === "UK" ? "United Kingdom" : frontmatter.country));
+    const handleNextImage = () => {
+        setCurrentImage((currentImage + 1) % productImages.length);
+    };
+
     
     return (
         <>
-        <title>{frontmatter.name}</title>
+        <title>{product.name}</title>
             <Header2 />
             <div className={styles.productContainer}>
                 <div className={styles.pictureContainer}>
@@ -100,7 +79,7 @@ const OneCandy = ({frontmatter, content, products}) => {
                         </button>
                         <div className={styles.mainPictureWrapper}>
                             <Image
-                                src={productImages[currentImage]}
+                                src={`/productPics/${productImages[currentImage]}`}
                                 alt=""
                                 width={390}
                                 height={400}
@@ -122,7 +101,7 @@ const OneCandy = ({frontmatter, content, products}) => {
                         {productImages.map((image, index) => (
                             <div className={styles.sidePictureWrapper} key={index}>
                             <Image
-                                src={image}
+                                src={`/productPics/${image}`}
                                 alt="Product"
                                 width={88}
                                 height={88}
@@ -136,31 +115,31 @@ const OneCandy = ({frontmatter, content, products}) => {
                 </div>
                 <div className={styles.productInfoContainer}>
                     <div className={styles.nameAndCountryContainer}>
-                        <h1 className={styles.productName}>{frontmatter.name}</h1>
+                        <h1 className={styles.productName}>{product.name}</h1>
                         <div className={styles.pictureAndTextCountryWrapper}>
                             <div className={styles.countryPictureWrapper}>
                                 <Image
-                                    src={`/countries/${frontmatter.country === "UK" ? "United Kingdom" : frontmatter.country}.svg`}
+                                    src={`/countries/${product.country.name}.svg`}
                                     alt=""
                                     width={55}
                                     height={55}
                                     className={styles.countryImage}
                                 />
                             </div>
-                            <p className={styles.countryShortName}>{country.short_name}</p>
+                            <p className={styles.countryShortName}>{product.country.short_name}</p>
                         </div>
                     </div>
-                    <h2 className={styles.productShortDescription}>{`${frontmatter.category}, ${frontmatter.quantity}`}</h2>
-                    <div dangerouslySetInnerHTML={{__html: marked(content)}} className={styles.productLongDescription}></div>
-                    <h2 className={styles.productPrice}>{frontmatter.price}</h2>
+                    <h2 className={styles.productShortDescription}>{`${product.category.name}, ${product.quantity}`}</h2>
+                    <div dangerouslySetInnerHTML={{__html: marked(desc_content)}} className={styles.productLongDescription}></div>
+                    <h2 className={styles.productPrice}>{product.price}</h2>
                     <div className={styles.incrementQuantity}>
                         <button className={styles.btnChangeQuantity} onClick={decrementCount}>-</button>
                         <div className={styles.quantityText}>{count}</div>
                         <button className={styles.btnChangeQuantity} onClick={incrementCount}>+</button>
                     </div>
                     <div className={styles.addAndFavouriteContainer}>
-                        <button onClick={() => handleAddToShoppingCart(count)} className={styles.addToCartbtn}>Add to cart</button>
-                        <button onClick={handleAddToFavouriteClick} className={styles.buttonFavourite}>
+                        <button onClick={() => handleAddToShoppingCart(product, setInMyShoppingCart, count)} className={styles.addToCartbtn}>Add to cart</button>
+                        <button onClick={() => {handleAddToFavourites(product, setInMyFavourites); handleHeartClick()}} className={styles.buttonFavourite}>
                             <Image
                                 src={checkIfFavourite(inMyFavourites) == false ? '/productPics/EmptyHeart.svg' : '/productPics/FullHeart.svg'}
                                 alt="Empty heart"
@@ -206,9 +185,8 @@ const OneCandy = ({frontmatter, content, products}) => {
                     </button>*/}
                     <div className={styles.reccomendProductContainer}>
                         {
-                           products.filter(product => product.frontmatter.category === frontmatter.category && product.frontmatter.name !== frontmatter.name)
-                           .slice(0,4).map(filteredProduct => (
-                            <ListProductCard onHeartClick={handleHeartClick} prevState={heartState} key={filteredProduct.frontmatter.id}  name={filteredProduct.frontmatter.name} short_description={`${filteredProduct.frontmatter.category}, ${filteredProduct.frontmatter.quantity}`} picture={filteredProduct.frontmatter.picture} price={filteredProduct.frontmatter.price} id={filteredProduct.frontmatter.id} product={filteredProduct}/>
+                           recommended_products.map(recommended_product => (
+                            <ListProductCard onHeartClick={handleHeartClick} prevState={heartState} key={recommended_product.id}  product={recommended_product}/>
                           ))
                         }
                     </div>
@@ -229,8 +207,6 @@ const OneCandy = ({frontmatter, content, products}) => {
     );
 };
 
-import fs from 'fs'
-import path from 'path'
 
 
 export async function getStaticPaths() {
@@ -241,7 +217,7 @@ export async function getStaticPaths() {
             someId: filename.replace('.md', '')
         }
     }))
-
+    
     return {
         paths,
         fallback: false
@@ -250,8 +226,64 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { someId } }) {
 
+    try {
+        const candy = await prisma.candy.findFirst({
+            where: {
+                description_path: `${someId}.md`
+            }, 
+            include:{
+                category: {
+                  select:{
+                    name: true,
+                  }
+                },
+                country: {
+                    select:{
+                        name: true,
+                        short_name: true,
+                  }
+                }
+            }
+        })
+        const recommendedProducts = await prisma.candy.findMany({
+            where: {
+                NOT: {
+                    description_path: `${someId}.md`
+                },
+                category_id: candy.category_id
+            }, 
+            include:{
+                category: {
+                  select:{
+                    name: true,
+                  }
+                }
+                
+            },
+            take: 4
+        })
+        const markdownWithMeta = fs.readFileSync(path.join('products', someId + '.md'), 'utf-8')
+        const {data: frontmatter, content} = matter(markdownWithMeta)
 
-    const markdownWithMeta = fs.readFileSync(path.join('products', someId + '.md'), 'utf-8')
+        return {
+            props: {
+              product: JSON.parse(JSON.stringify(candy)),
+              desc_content: content,
+              recommended_products: JSON.parse(JSON.stringify(recommendedProducts)),
+            },
+        }
+    } catch (error) {
+        return {
+            props: {
+              product: [],
+              desc_content: '',
+              recommended_products: [],
+
+
+            },
+        }
+    }
+    /*const markdownWithMeta = fs.readFileSync(path.join('products', someId + '.md'), 'utf-8')
 
     const {data: frontmatter, content} = matter(markdownWithMeta)
 
@@ -277,7 +309,7 @@ export async function getStaticProps({ params: { someId } }) {
             content,
             products
         },
-    };
+    };*/
 }
 
 export default OneCandy;

@@ -5,7 +5,7 @@ import { useState, useEffect, useContext} from 'react';
 import { handleAddToFavourites, checkIfFavourite, handleAddToShoppingCart } from '../helpers';
 import { MyContext } from '../context.js'
 
-const MainProductCard = ({ product }) => {
+const MainProductCard = ({ product, onHeartClick, prevState }) => {
     const {setInMyShoppingCart, setInMyFavourites, inMyFavourites} = useContext(MyContext);
     let routeString = product.description_path.substring(0,product.description_path.lastIndexOf(".")) 
     return (

@@ -8,7 +8,7 @@ import { MyContext } from '../context.js'
 const SideProductCard = ({  product, onHeartClick, prevState }) => {
     const {setInMyShoppingCart, setInMyFavourites, inMyFavourites} = useContext(MyContext);
     let routeString = product.description_path.substring(0,product.description_path.lastIndexOf(".")) 
-
+    console.log(routeString)
     const handleHeartClick = () => {
         onHeartClick(!prevState);
     }

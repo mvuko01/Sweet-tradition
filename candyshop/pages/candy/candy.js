@@ -17,13 +17,18 @@ export async function getServerSideProps() {
     
     try {
         const products = await prisma.candy.findMany({
+            orderBy: {
+                name: 'desc'
+            },
+            
             include:{
                 category: {
                   select:{
                     name: true,
                   }
                 }
-              }
+              },
+            
         })
         return {
             props: {
@@ -166,7 +171,6 @@ const Candy = (props) => {
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
     const currentProducts = currentArray.slice(indexOfFirstProduct, indexOfLastProduct);
-
     const [isSearchSuccessful, setIsSearchSuccessful] = useState(true);
     let countryFilterRef = useRef();
     let categoryFilterRef = useRef();
@@ -291,6 +295,8 @@ const Candy = (props) => {
       const handleHeartClick = (newHeartState) => {
         setHeartState(newHeartState);
     }
+
+
     return (
         <>
         <title>Candy Shop</title>

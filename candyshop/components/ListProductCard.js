@@ -5,8 +5,10 @@ import { useState, useEffect, useContext } from 'react';
 import { handleAddToFavourites, checkIfFavourite, handleAddToShoppingCart } from '../helpers';
 import { MyContext } from '../context.js'
 
-const ListProductCard = ({ name, short_description, picture, price, id, product, onHeartClick, prevState }) => {
+const ListProductCard = ({  product, onHeartClick, prevState }) => {
     const {setInMyShoppingCart, setInMyFavourites, inMyFavourites} = useContext(MyContext);
+    let routeString = product.description_path.substring(0,product.description_path.lastIndexOf("."))
+
     const handleHeartClick = () => {
         onHeartClick(!prevState);
     }
@@ -23,9 +25,9 @@ const ListProductCard = ({ name, short_description, picture, price, id, product,
                             className={styles.imageFavourite}
                         />
                     </button>
-                    <Link href={`../candy/${product.slug}`} className={styles.linkWrapper}>
+                    <Link href={`../candy/${routeString}`} className={styles.linkWrapper}>
                         <Image
-                            src={picture}
+                            src={`/productPics/${product.picture_paths[0]}`}
                             alt=""
                             width={100}
                             height={100}
@@ -34,9 +36,9 @@ const ListProductCard = ({ name, short_description, picture, price, id, product,
                     </Link>
                 </div>
                 <div className={styles.productInfo}>
-                    <p className={styles.listProductDescription}>{short_description}</p>
-                    <Link href={`../candy/${product.slug}`} className={styles.listProductName}>{name}</Link>
-                    <div className={styles.listProductPrice}>{price}</div>
+                    <p className={styles.listProductDescription}>{`${product.category.name}, ${product.quantity}`}</p>
+                    <Link href={`../candy/${routeString}`} className={styles.listProductName}>{product.name}</Link>
+                    <div className={styles.listProductPrice}>{product.price}</div>
                     <button className={styles.buttonCart}>
                         <Image
                             src={'/productPics/Add to cart.svg'}
