@@ -18,21 +18,29 @@ export async function getServerSideProps() {
                 }
               }
         })
+        const categories = await prisma.category.findMany({
+            orderBy: {
+                name: 'asc'
+            },
+        })
         return {
             props: {
               products: JSON.parse(JSON.stringify(products)),
+              categories: JSON.parse(JSON.stringify(categories)),
             },
         }
     } catch (error) {
         return {
             props: {
               products: [],
+              categories: [],
             },
         }
     }
 }
 const AdminPanel = (props) => {
     const products = props.products;
+    const categories = props.categories;
     const productsPerPage = 12;
     const [currentPage, setCurrentPage] = useState(1);
     const [currentArray, setCurrentArray] = useState(products);

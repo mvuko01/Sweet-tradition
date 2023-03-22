@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from '../styles/AdminPanel.module.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const CandyAdminPanel = ({product, candyCategory}) => {
     const [name, setName] = useState(product.name);
@@ -28,7 +28,7 @@ const CandyAdminPanel = ({product, candyCategory}) => {
     const handlePriceChange = (event) => {
         setPrice(event.target.value);
         };
-
+    
     const handleSaveClick = async (event) => {
         event.preventDefault();
         try {
