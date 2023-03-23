@@ -2,7 +2,7 @@ import Image from "next/image";
 import styles from '../styles/AdminPanel.module.css';
 import { useState } from 'react';
 
-const CandyAdminPanel = ({product, candyCategory}) => {
+const CandyAdminPanel = ({product, candyCategory, onUpdate, onDelete}) => {
     const [name, setName] = useState(product.name);
     const [quantity, setQuantity] = useState(product.quantity);
     const [price, setPrice] = useState(product.price);
@@ -39,6 +39,11 @@ const CandyAdminPanel = ({product, candyCategory}) => {
         });
         if (response.ok) {
             setEditing(false);
+            product.name = name;
+            product.quantity = quantity;
+            product.price = price;
+            product.category.name = category;
+            onUpdate(product.id);
         }
         } catch (error) {
         console.error(error);
@@ -58,6 +63,7 @@ const CandyAdminPanel = ({product, candyCategory}) => {
             });
             if (response.ok) {
                 setEditing(false);
+                onDelete(product.id);
             }
             } catch (error) {
             console.error(error);
