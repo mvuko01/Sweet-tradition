@@ -16,7 +16,10 @@ export async function getServerSideProps() {
                     name: true,
                   }
                 }
-              }
+              },
+            orderBy: {
+                name: 'asc'
+            },
         })
         const categories = await prisma.category.findMany({
             orderBy: {
