@@ -16,6 +16,13 @@ import {marked} from 'marked';
 import Header2 from '../../components/Header2';
 
 const OneCandy = ({desc_content, product, recommended_products}) => {
+    // useEffect(() => {
+    //     console.log(product)
+    //     if(product === null)
+    //     {
+    //         window.location.href = "/404";
+    //     }
+    // }, []);
     const {setInMyShoppingCart, setInMyFavourites, inMyFavourites} = useContext(MyContext);
 
 
@@ -245,6 +252,11 @@ export async function getStaticProps({ params: { someId } }) {
                 }
             }
         })
+        if (!candy) {
+            return {
+                notFound: true,
+            }
+        }
         const recommendedProducts = await prisma.candy.findMany({
             where: {
                 NOT: {
@@ -278,8 +290,6 @@ export async function getStaticProps({ params: { someId } }) {
               product: [],
               desc_content: '',
               recommended_products: [],
-
-
             },
         }
     }
