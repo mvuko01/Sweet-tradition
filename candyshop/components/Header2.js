@@ -28,7 +28,7 @@ const Header2 = () => {
         setIsNavbarBurgerOn(!isNavbarBurgerOn);
     }
 
-    const { token, email, removeAuth } = useAuth();
+    const { token, email, removeAuth, role } = useAuth();
     let username;
     if(token){
     username = email.split('@');
@@ -131,7 +131,7 @@ const Header2 = () => {
 
                             {showDropdown && (
                                 <div className={styles.dropdownContent}>
-                                    <div className={styles.logout}>Admin panel</div>
+                                    {role == "ADMIN" && (<div className={styles.logout}>Admin panel</div>)}
 
                                     <button onClick={handleLogout} className={styles.logout}>Logout</button>
                                 </div>

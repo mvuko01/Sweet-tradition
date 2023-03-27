@@ -50,7 +50,8 @@ const Register = () => {
             const errorData = await response.json();
             throw new Error(errorData.message);
           }
-          setAuth(response.token, email);
+          const data = await response.json();
+          setAuth(data.token, email, data.role);
           router.push('/');
         } catch (error) {
           setError("Sorry, something went wrong.");

@@ -49,7 +49,8 @@ const Login = () => {
             const errorData = await response.json();
             throw new Error(errorData.message);
           }
-          setAuth(response.token, email);
+          const data = await response.json();
+          setAuth(data.token, email, data.role);
           router.back();
         } catch (error) {
           setError("Sorry, unsuccesful login.");
