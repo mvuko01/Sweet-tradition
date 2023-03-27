@@ -3,7 +3,7 @@ import Footer from '../components/Footer';
 import styles from '../styles/AdminPanel.module.css';
 import CandyAdminPanel from '../components/CandyAdminPanel';
 import PageNumber from '../components/PageNumbers';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import prisma from '../prisma/client';
 
 
@@ -16,7 +16,10 @@ export async function getServerSideProps() {
                     name: true,
                   }
                 }
-              }
+              },
+            orderBy: {
+                name: 'asc'
+            },
         })
         const categories = await prisma.category.findMany({
             orderBy: {
@@ -44,11 +47,37 @@ const AdminPanel = (props) => {
     const productsPerPage = 12;
     const [currentPage, setCurrentPage] = useState(1);
     const [currentArray, setCurrentArray] = useState(products);
+    const [currentProducts, setCurrentProducts] = useState(products.slice(0, productsPerPage));
     const numberOfPages = Math.ceil(currentArray.length / productsPerPage);
-    const indexOfLastProduct = currentPage * productsPerPage;
-    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-    const currentProducts = currentArray.slice(indexOfFirstProduct, indexOfLastProduct);
+    
+    useEffect(() => {
+        const indexOfLastProduct = currentPage * productsPerPage;
+        const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+        setCurrentProducts(currentArray.slice(indexOfFirstProduct, indexOfLastProduct));
+      }, [currentPage, currentArray]);
 
+    const handleProductUpdate = (productId) => {
+        // find the product in the currentProducts array and update it
+        const updatedProducts = currentProducts.map(product => {
+          if (product.id === productId) {
+            return {...product};
+          }
+          return product;
+        });
+        setCurrentProducts(updatedProducts);
+        };
+
+    const handleProductDelete = (productId) => {
+        // find the product in the currentProducts array and delete it
+        const updatedProducts = currentProducts.filter(product => {
+            if (product.id !== productId) {
+                return product; 
+            }
+        });
+        setCurrentProducts(updatedProducts);
+        };
+
+    
     const handlePageChange = (newPage) => {
         setCurrentPage(newPage);
     };
@@ -78,7 +107,7 @@ const AdminPanel = (props) => {
         <div className={styles.productsContainer}>
             {currentProducts.map((product) => {
                 return (
-                    <CandyAdminPanel key={product.id} product={product} candyCategory={categories} />
+                    <CandyAdminPanel key={product.id} product={product} candyCategory={categories} onUpdate={handleProductUpdate} onDelete={handleProductDelete} />
                 )
             })}
         </div>
