@@ -131,7 +131,9 @@ const Header2 = () => {
 
                             {showDropdown && (
                                 <div className={styles.dropdownContent}>
-                                <button onClick={handleLogout} className={styles.logout}>Logout</button>
+                                    <div className={styles.logout}>Admin panel</div>
+
+                                    <button onClick={handleLogout} className={styles.logout}>Logout</button>
                                 </div>
                             )}
                             </div>
