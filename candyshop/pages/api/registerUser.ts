@@ -33,7 +33,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       expiresIn: '1h',
     });
 
-    return res.status(200).json({ token });
+    return res.status(200).json({ token, role: user.role });
 
     //res.status(201).json({ message: 'User created', user });
   } catch (error) {
