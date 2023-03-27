@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from '../styles/AdminPanel.module.css';
 import { useState } from 'react';
+import Link from "next/link";
 
 const CandyAdminPanel = ({product, candyCategory}) => {
     const [name, setName] = useState(product.name);
@@ -72,49 +73,64 @@ const CandyAdminPanel = ({product, candyCategory}) => {
     return (
         <>
         <div className={styles.productContainer}>
-            <Image
-                    width={196}
-                    height={220}
+            <Link href="" className={styles.pictureWrapper}>
+                <Image
                     src={`/productPics/${product.picture_paths[0]}`}
                     alt="Product Image"
+                    width={196}
+                    height={220}
+                    className={styles.imageProduct}
                 />
-            <p className={styles.infoLabels}>NAME</p>
-                {editing ? (
-                <input type="text" value={name} onChange={handleNameChange} />
-                ) : (
-                <p>{name}</p>
-                )}
-            <p className={styles.infoLabels}>PRICE</p>
-                {editing ? (
-                <input type="text" value={price} onChange={handlePriceChange} />
-                ) : (
-                <p>{price}</p>
-                )}
-            <p className={styles.infoLabels}>QUANTITY</p>
-                {editing ? (
-                <input type="text" value={quantity} onChange={handleQuantityChange} />
-                ) : (
-                <p>{quantity}</p>
-                )}
-            <p className={styles.infoLabels}>CATEGORY</p>
-                {editing ? (
-                        <select value={category} onChange={handleCategoryChange}>
-                            {categoryOptions}
-                        </select>
-                ) : (
-                        <p>{category}</p>
-                )}
+            </Link>
+            <div className={styles.productInfoContainer}>
+                <div className={styles.singleInfoContainer}>
+                    <p className={styles.infoLabels}>NAME</p>
+                        {editing ? (
+                        <textarea name="text" wrap="soft" value={name} onChange={handleNameChange} />
+                        ) : (
+                        <p className ={styles.infoText}>{name}</p>
+                    )}
+                </div>
+                <div className={styles.singleInfoContainer}>
+                    <p className={styles.infoLabels}>PRICE</p>
+                    {editing ? (
+                    <input type="text" value={price} onChange={handlePriceChange} />
+                    ) : (
+                    <p className ={styles.infoText}>{price}</p>
+                    )}
+                </div>
+                <div className={styles.singleInfoContainer}>
+                    <p className={styles.infoLabels}>QUANTITY</p>
+                    {editing ? (
+                    <input type="text" value={quantity} onChange={handleQuantityChange} />
+                    ) : (
+                    <p className ={styles.infoText}>{quantity}</p>
+                    )}
+                </div>
+                <div className={styles.singleInfoContainer}>
+                    <p className={styles.infoLabels}>CATEGORY</p>
+                    {editing ? (
+                            <select value={category} onChange={handleCategoryChange}>
+                                {categoryOptions}
+                            </select>
+                    ) : (
+                            <p className ={styles.infoText}>{category}</p>
+                    )}
+                </div>
+            </div>
+            <div className={styles.buttonContainer}>
                 {editing ? (
                 <>
-                <button onClick={handleSaveClick}>SAVE</button>
+                <button id={styles.goodButton} onClick={handleSaveClick}>SAVE</button>
                 <button onClick={handleEditClick}>CANCEL</button>
                 </>
                 ) : (
                 <>
-                <button onClick={handleEditClick}>EDIT</button>
+                <button id={styles.goodButton} onClick={handleEditClick}>EDIT</button>
                 <button onClick={handleDeleteClick}>DELETE</button>
                 </>
                 )}
+            </div>
         </div>
         </>
     );

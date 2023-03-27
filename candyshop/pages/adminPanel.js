@@ -75,11 +75,13 @@ const AdminPanel = (props) => {
         <Header2 />
         <h1 className={styles.heading}>ADMIN PANEL</h1>
         <PageNumber currentPage={currentPage} handlePageChange={handlePageChange} visiblePageNumbers={visiblePageNumbers} numberOfPages={numberOfPages}/>
-        {currentProducts.map((product) => {
-            return (
-                <CandyAdminPanel key={product.id} product={product} candyCategory={categories} />
-            )
-        })}
+        <div className={styles.productsContainer}>
+            {currentProducts.map((product) => {
+                return (
+                    <CandyAdminPanel key={product.id} product={product} candyCategory={categories} />
+                )
+            })}
+        </div>
         <PageNumber currentPage={currentPage} handlePageChange={handlePageChange} visiblePageNumbers={visiblePageNumbers} numberOfPages={numberOfPages}/>
         <Footer />
         </>

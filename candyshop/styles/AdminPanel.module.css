@@ -8,17 +8,203 @@
     letter-spacing: 0.1em;
     margin-top: 38px;
 }
+
+.pictureWrapper{
+    /*border: 1px solid #68707D;*/
+    width: 196px;
+    height: 220px;
+
+}
+.imageProduct{
+    width: 100%;
+    min-width: 150px;
+}
+.productsContainer{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin: 50px min(100px, 5vw);
+
+}
+
 .productContainer {
     border-bottom:  1px dashed #68707D;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    
 }
+
+.productInfoContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-self: flex-start;
+    padding-top: 3rem;
+    margin: 0 1rem;
+    flex-grow: 1;
+}
+
+.singleInfoContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+}
+
 .infoLabels{
     font-family: Montserrat, sans-serif;
     font-style: normal;
     font-weight: 700;
     letter-spacing: 0.05em;
-    cursor: pointer;
     max-width: 290px;
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 2vw ,1.25rem);
   
     color: black;
 }
+
+.infoText{
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    color:#918282;
+    font-weight: 300;
+    font-size: clamp(1rem, 2vw ,1.25rem);
+
+    text-align: center;
+}
+
+
+.singleInfoContainer select, .singleInfoContainer input, .singleInfoContainer textarea{
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    color:#918282;
+    font-weight: 300;
+    font-size: clamp(1rem, 2vw ,1.25rem);
+    text-align: center;
+    
+    border: 1px solid #918282;
+    outline: none;
+    width: min(75%, 200px);
+    height: 2rem;
+    padding: 0.25rem;
+}
+
+.singleInfoContainer textarea{
+    height:auto;
+    
+}
+
+.singleInfoContainer select{
+    font-size: clamp(1rem, 2vw ,1.1rem);
+}
+
+
+
+.buttonContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+
+}
+
+
+.buttonContainer button{
+    color: white;
+    background-color: #FF0000;
+    font-size: clamp(0.85rem, 1.5vw,1rem);
+    font-family: Montserrat, sans-serif;
+    font-weight: bold;
+
+    border-radius: 0.938rem;
+    
+    cursor: pointer;
+    border-color: transparent;
+
+    transition: 0.3s;
+
+    width: 10rem;
+    height: 3rem;
+}
+
+.buttonContainer button:hover{
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+#goodButton{
+    background-color: #4EAB4C;
+
+}
+
+@media screen and (max-width: 1000px) {
+    .productInfoContainer{
+        
+        flex-direction: column;
+        padding-top: 0rem;
+        padding-bottom: 1rem;
+    }
+
+    .singleInfoContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding-bottom: 1rem;
+    
+    }
+
+    .singleInfoContainer select, .singleInfoContainer input, .singleInfoContainer textarea{
+        height: 2rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .productContainer{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .productInfoContainer{
+        
+        flex-direction: row;
+        padding-top: 0rem;
+        padding-bottom: 1rem;
+        justify-content: space-between;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+
+    }
+    .pictureWrapper{
+        /*border: 1px solid #68707D;*/
+        width: 196px;
+        height: 180px;
+    }
+    .imageProduct{
+        height: 100%;
+        min-width: 150px;
+    }
+    .buttonContainer{
+        flex-direction: row;
+        padding-bottom: 1rem;
+    }
+
+    .singleInfoContainer{
+        flex-grow: 1;
+    }
+    .buttonContainer button{
+        
+        width: 7rem;
+        height: 2.5rem;
+    }
+
+}
+

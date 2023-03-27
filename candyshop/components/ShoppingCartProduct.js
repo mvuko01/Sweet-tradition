@@ -19,7 +19,7 @@ const ShoppingCartProduct = ({product, cart_quantity, removeFromLocalStorage, ha
             <Link href={`../candy/${routeString}`} className={styles.pictureWrapper}>
                 <Image
                     src={`/productPics/${product.picture_paths[0]}`}
-                    alt="product picture"
+                    alt="Product Image"
                     width={130}
                     height={144}
                     className={styles.imageProduct}
